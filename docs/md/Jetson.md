@@ -25,10 +25,70 @@ sudo nvpmodel -m0  # MAX mode
 sudo nvpmodel -m1  # 5W mode
 ```
 
+### Jetson Temperature Monitoring
+- `cat /sys/class/thermal/thermal_zone*/temp` Displays raw temperature readings (in millidegrees Celsius) for all available thermal zones.
+- `cat /sys/class/thermal/thermal_zone*/type` Shows the sensor name associated with each thermal zone (e.g., CPU-therm, GPU-therm, Tboard-therm).
+- `sudo tegrastats` Real-time monitoring tool for temperature, CPU/GPU usage, memory, and power consumption.
+- `watch -n1 'cat /sys/class/thermal/thermal_zone*/temp'` Continuously displays updated temperature readings every second.
+
+!!! tip "Info"
+    Each Jetson thermal sensor is represented as a *thermal zone*.  
+    Temperature values are reported in **millidegrees Celsius** (e.g., `45000` → **45°C**).  
+    Use these readings to diagnose thermal throttling, cooling efficiency, and system load behavior.
+
+!!! example "Usage Example"
+    ```bash
+    cat /sys/class/thermal/thermal_zone1/type
+    cat /sys/class/thermal/thermal_zone1/temp
+    sudo tegrastats        # real-time monitoring
+    ```
+
+!!! danger "Warning"
+    High temperatures can cause **thermal throttling**, reducing CPU/GPU frequencies and impacting performance.  
+    Ensure proper cooling for compute-intensive workloads or enclosed environments.
+
+### Kernel DebugFS (debugfs) Overview
+
+-  The **`gpio`** file lists the current state of all GPIO lines in the system. It shows each line’s associated controller (gpiochip), direction (input/output), current value, and usage status. It is one of the most reliable diagnostic sources for verifying which physical pin corresponds to which GPIO line on Jetson platforms.
+```bash
+sudo cat /sys/kernel/debug/gpio
+```
+
+- The **`tegra_pinctrl_reg`** file contains the current pinmux configuration and pin controller register values for all pins on the Jetson platform. It is a critical reference for determining whether each pin is configured as GPIO, I2C, SPI, or another function, and for verifying that hardware configuration has been correctly applied.
+```bash
+sudo cat /sys/kernel/debug/tegra_pinctrl_reg
+```
+
+### Low-Level Register Access with `devmem2`
+
+- `devmem2` allows direct access to physical memory from userspace and enables read/write operations on hardware registers. It is mainly used to quickly test memory-mapped I/O (MMIO) registers.
+
+!!! danger "Warning"
+    Writing incorrect values to the wrong physical address using `devmem2` may hang the system, trigger unexpected resets, or cause hardware misbehavior. Use this tool only if you fully understand the register map and have the SoC/Jetson TRM at hand.
+
+---
+
+!!! example "Example"
+    First, you can inspect the `tegra_pinctrl_reg` contents to understand which register regions are used for a given pin/pad:
+
+    ```bash
+    sudo cat /sys/kernel/debug/tegra_pinctrl_reg
+    ``` 
+
+    This output shows the register addresses and values associated with the pinmux/pad configuration for each pin. From here, you can identify the register address or offset used for a specific pin. 
+
+    ```bash
+    # Read current value
+    sudo devmem2 0x[address] w
+
+    # Set the address value
+    sudo devmem2 0x[address] w 0x1
+    ```
+
 
 ## **GPIO Control**
 
-### Jetson Nano GPIO-to-Sysfs Mapping Table
+### Jetson Nano GPIO to Sysfs Mapping Table
 ```bash 
 - Pin 28: GPI02 → 62  (sysfs)
 - Pin 34: GPI05 → 63  (sysfs)
@@ -138,7 +198,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     ```
 
 !!! tip "Info"
-    You can access these codes on Lectron’s GitHub page through this [link]().
+    You can access these codes on Lectron’s GitHub page through [this link](https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs); the files are named **gpio_set.sh** and **gpio_set.c**.
 
 !!! danger "Warning"
     If you receive an error stating that `<gpiod.h>` cannot be found during compilation, it means the `libgpiod` development packages are not installed on your system.  
@@ -148,58 +208,97 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     ```
 
 
+### How to Calculate the Sysfs Value from a GPIO Name?
 
-### Controlling GPIO with Libgpiod
-```bash
-sudo apt-get install -y gpiod
+- Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA’s official [documentation page](https://developer.nvidia.com/embedded/downloads).
+- Inside the downloaded `pinmux_config_template.xlsm` file, you will find two sheets:
+    - The first sheet contains general notes and explanations.
+    - The second sheet (**jetson_[xx]_module**) lists the GPIO names along with their detailed identifiers (e.g., `GPIO3_PI.01`).
+
+!["image"](../images/jetson_pinmux_gpio.png)
+
+- In an identifier such as `GPIO3_PI.01`:
+    - The letters (e.g., PI, where I is important) correspond to the `TEGRA_GPIO_PORT` value.
+    - The number after the dot (`01`) represents the pin **offset**.
+- The Sysfs GPIO number is computed using the following formula: `TEGRA_GPIO = (TEGRA_GPIO_PORT * 8) + pin_offset` 
+    - You can find this formula in the `tegra194-gpio.h` header file.
+
+```c title="tegra194-gpio.h" hl_lines="1"
+#define TEGRA_GPIO(port, offset) \ ((TEGRA_GPIO_PORT_##port * 8) + offset)
+#define TEGRA_GPIO_PORT_A 0
+#define TEGRA_GPIO_PORT_B 1
+#define TEGRA_GPIO_PORT_C 2
+#define TEGRA_GPIO_PORT_D 3
+#define TEGRA_GPIO_PORT_E 4
+#define TEGRA_GPIO_PORT_F 5
+#define TEGRA_GPIO_PORT_G 6
+#define TEGRA_GPIO_PORT_H 7
+#define TEGRA_GPIO_PORT_I 8
+#define TEGRA_GPIO_PORT_J 9
+#define TEGRA_GPIO_PORT_K 10
+#define TEGRA_GPIO_PORT_L 11
+#define TEGRA_GPIO_PORT_M 12
+#define TEGRA_GPIO_PORT_N 13
+#define TEGRA_GPIO_PORT_O 14
+#define TEGRA_GPIO_PORT_P 15
+#define TEGRA_GPIO_PORT_Q 16
+#define TEGRA_GPIO_PORT_R 17
+#define TEGRA_GPIO_PORT_S 18
+#define TEGRA_GPIO_PORT_T 19
+#define TEGRA_GPIO_PORT_U 20
+#define TEGRA_GPIO_PORT_V 21
+#define TEGRA_GPIO_PORT_W 22
+#define TEGRA_GPIO_PORT_X 23
+#define TEGRA_GPIO_PORT_Y 24
+#define TEGRA_GPIO_PORT_Z 25
+#define TEGRA_GPIO_PORT_AA 26
+#define TEGRA_GPIO_PORT_BB 27
 ```
-```c
-#include <gpiod.h>
 
-struct gpiod_chip *gpChip; 
-struct gpiod_line *gpLine; 
+- After substituting the port index and the pin offset into the formula, you obtain the corresponding sysfs GPIO number.
 
-int main() {
-  // Set up the GPIO
-  gpChip = gpiod_chip_open_by_name("gpiochip3"); 
-  gpLine = gpiod_chip_get_line(gpChip, 107);
-  
-  // Set GPIO low
-  gpiod_line_request_output(gpLine, "gpLine", 0);
-  // Or
-  gpiod_line_set_value(gpLine, 0); 
-}
-```
+!!! example "Example"
+        GPIO09 sysfs value is 216
+        GPIO09 -> GPIO3_PBB.00
+        TEGRA_GPIO_PORT = BB 
+        Offset = 0
+        TEGRA_GPIO = (TEGRA_GPIO_PORT_BB * 8) + 0 -> (27 * 8) + 0 = 216
 
-```bash
-sudo cat /sys/kernel/debug/tegra_pinctrl_reg
+!!! danger "Warning"
+    This Formula Does NOT Apply to PMIC GPIOs **(`max77620-gpio`)**
+    ```bash
+    sudo dmesg | grep "registered GPIO"
+    [    0.534131] gpiochip_setup_dev: registered GPIOs 0 to 255 on device: gpiochip0 (tegra-gpio)
+    [    0.591897] gpiochip_setup_dev: registered GPIOs 504 to 511 on device: gpiochip1 (max77620-gpio)
+    ```
 
-# Search for a specific pin, e.g., GPIO_CAM4
-sudo cat /sys/kernel/debug/tegra_pinctrl_reg | grep cam4
+- Jetson platforms have two separate GPIO controllers: 
+    - **tegra-gpio** -> [0-255] On-SoC Tegra GPIOs
+    - **max77620-gpio** -> [504–511]  PMIC GPIOs
+- If the GPIO belongs to tegra-gpio → Use Tegra Port Formula.
+- If it belongs to max77620-gpio → The sysfs number is assigned directly by the kernel and the correct calculation is `offset = sysfs_gpio - gpiochip_base   # Example: 509 - 504 = 5`
 
-# Set GPIO to HIGH
-sudo devmem2 0x02430038 w 0x1
-```
-
-```bash
-sudo cat /sys/kernel/debug/gpio # List all GPIO
-```
-
-### Checking GPIO and Sysfs Mapping
-- Use `sudo dmesg | grep` **"registered GPIO"** to view how GPIO pins are mapped in the system.
-- The output shows how pins are grouped into ranges (e.g., tegra-gpio mapped to `gpiochip0` and `max77620-gpio` mapped to gpiochip1).
-- Offset calculation: Example: Pin **509** in `max77620-gpio` → `offset = 509 - 504`
-- Formula (from tegra194-gpio.h): `sysfs_number = [GPIO Base] + [Port * 8] + [Offset]`
 
 ## Networking
 
-- **Installing Netplan (if missing):**  `sudo apt install netplan.io`
-- **Setting a Static IP:** Edit `sudo nano /etc/netplan/01-network-manager-all.yaml`
+Network settings on Jetson devices are managed by NetworkManager. Below are two example configurations for the eth0 interface:
+
+!!! note "Note" 
+    These files are typically located under:
+    ```bash
+    /etc/NetworkManager/system-connections/
+    ```
+    All changes require restarting the network connection.
+
+### Static Setup
+
+```bash
+    sudo nano /etc/NetworkManager/system-connections/eth0
+```
 
 ```
 [connection]
 id=eth0
-uuid=7d28fc79-6ae3-4e18-96b3-8fdd8a4296f8
 type=ethernet
 interface-name=eth0
 permissions=
@@ -208,14 +307,17 @@ permissions=
 mac-address-blacklist=
 
 [ipv4]
-address1=10.223.5.4/24
+address1=192.168.1.3/24
 dns-search=
 method=manual
 
 [ipv6]
-addr-gen-mode=stable-privacy
-dns-search=
-method=auto
+method=ignore
+```
+
+### DHCP Setup
+```bash
+    sudo nano /etc/NetworkManager/system-connections/eth0
 ```
 
 ```
@@ -230,4 +332,21 @@ method=auto
 
 [ipv6]
 method=ignore
+```
+
+### Applying and Restarting Network Settings
+
+```bash
+# Reload connection profiles
+sudo nmcli connection reload
+
+# Restart the connection
+sudo nmcli connection down eth0
+sudo nmcli connection up eth0
+
+# Restart NetworkManager (if needed)
+sudo systemctl restart NetworkManager
+
+# Verify assigned IP
+ip addr show eth0
 ```

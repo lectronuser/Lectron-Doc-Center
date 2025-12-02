@@ -1,7 +1,7 @@
 site_name: Lectron Documentation
 theme:
   name: material #readthedocs
-  language: tr                     
+  language: en #tr                     
   features:
     - navigation.tabs
     - navigation.expand       
