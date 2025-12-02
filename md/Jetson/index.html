@@ -1,0 +1,1109 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../Raspberry/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Jetson Custom Board - Lectron Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jetson-custom-board" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lectron Documentation" class="md-header__button md-logo" aria-label="Lectron Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lectron Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Jetson Custom Board
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Jetson Custom Board
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Raspberry/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Raspberry Pi Custom Board
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../LectronAri/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lectron Ari
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../LectronEbabil/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lectron Ebabil
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lectron Documentation" class="md-nav__button md-logo" aria-label="Lectron Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+
+    </a>
+    Lectron Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Jetson Custom Board
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jetson Custom Board
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jetson-power-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jetson Power Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-debugfs-debugfs-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernel DebugFS (debugfs) Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#low-level-register-access-with-devmem2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Level Register Access with devmem2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpio-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIO Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPIO Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jetson-nano-gpio-to-sysfs-mapping-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jetson Nano GPIO to Sysfs Mapping Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-sysfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is sysfs?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-calculate-the-sysfs-value-from-a-gpio-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Calculate the Sysfs Value from a GPIO Name?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      DHCP Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-and-restarting-network-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying and Restarting Network Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raspberry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Custom Board
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LectronAri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lectron Ari
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LectronEbabil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lectron Ebabil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="jetson-custom-board">Jetson Custom Board<a class="headerlink" href="#jetson-custom-board" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="commands"><strong>Commands</strong><a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<h3 id="jetson-power-model">Jetson Power Model<a class="headerlink" href="#jetson-power-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>sudo nvpmodel -q</code> Displays the current active power mode. Allows you to check which performance profile is currently in use.</li>
+<li><code>sudo nvpmodel -m0</code> Maximum Performance Mode (<strong>MAXN</strong>)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Info</p>
+<p>Enables maximum performance mode, activating all CPU cores and full GPU capability.
+Recommended for compute-intensive workloads such as YOLO, SLAM, image processing, and autonomous control loops</p>
+</div>
+<ul>
+<li><code>sudo nvpmodel -m1</code> Low Power Mode (<strong>5W</strong>)</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Runs the Jetson in <strong>Low Power Mode</strong>. Reduces energy consumption but significantly limits performance.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>nvpmodel<span class="w"> </span>-q<span class="w">   </span><span class="c1"># Show current power mode</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>nvpmodel<span class="w"> </span>-m0<span class="w">  </span><span class="c1"># MAX mode</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>sudo<span class="w"> </span>nvpmodel<span class="w"> </span>-m1<span class="w">  </span><span class="c1"># 5W mode</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="kernel-debugfs-debugfs-overview">Kernel DebugFS (debugfs) Overview<a class="headerlink" href="#kernel-debugfs-debugfs-overview" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The <strong><code>gpio</code></strong> file lists the current state of all GPIO lines in the system. It shows each line’s associated controller (gpiochip), direction (input/output), current value, and usage status. It is one of the most reliable diagnostic sources for verifying which physical pin corresponds to which GPIO line on Jetson platforms.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/gpio
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>The <strong><code>tegra_pinctrl_reg</code></strong> file contains the current pinmux configuration and pin controller register values for all pins on the Jetson platform. It is a critical reference for determining whether each pin is configured as GPIO, I2C, SPI, or another function, and for verifying that hardware configuration has been correctly applied.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/tegra_pinctrl_reg
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ul>
+<h3 id="low-level-register-access-with-devmem2">Low-Level Register Access with <code>devmem2</code><a class="headerlink" href="#low-level-register-access-with-devmem2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>devmem2</code> allows direct access to physical memory from userspace and enables read/write operations on hardware registers. It is mainly used to quickly test memory-mapped I/O (MMIO) registers.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Writing incorrect values to the wrong physical address using <code>devmem2</code> may hang the system, trigger unexpected resets, or cause hardware misbehavior. Use this tool only if you fully understand the register map and have the SoC/Jetson TRM at hand.</p>
+</div>
+<hr />
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>First, you can inspect the <code>tegra_pinctrl_reg</code> contents to understand which register regions are used for a given pin/pad:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/tegra_pinctrl_reg
+</code></pre></div></td></tr></table></div>
+<p>This output shows the register addresses and values associated with the pinmux/pad configuration for each pin. From here, you can identify the register address or offset used for a specific pin. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Read current value</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>sudo<span class="w"> </span>devmem2<span class="w"> </span>0x<span class="o">[</span>address<span class="o">]</span><span class="w"> </span>w
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Set the address value</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>sudo<span class="w"> </span>devmem2<span class="w"> </span>0x<span class="o">[</span>address<span class="o">]</span><span class="w"> </span>w<span class="w"> </span>0x1
+</code></pre></div></td></tr></table></div>
+</div>
+<h2 id="gpio-control"><strong>GPIO Control</strong><a class="headerlink" href="#gpio-control" title="Permanent link">&para;</a></h2>
+<h3 id="jetson-nano-gpio-to-sysfs-mapping-table">Jetson Nano GPIO to Sysfs Mapping Table<a class="headerlink" href="#jetson-nano-gpio-to-sysfs-mapping-table" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span>
+<span class="normal"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">28</span>:<span class="w"> </span>GPI02<span class="w"> </span>→<span class="w"> </span><span class="m">62</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">34</span>:<span class="w"> </span>GPI05<span class="w"> </span>→<span class="w"> </span><span class="m">63</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">36</span>:<span class="w"> </span>GPI06<span class="w"> </span>→<span class="w"> </span><span class="m">64</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>-<span class="w"> </span>Pin<span class="w"> </span>..:<span class="w"> </span>GPIO4<span class="w"> </span>→<span class="w"> </span><span class="m">65</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>-<span class="w"> </span>Pin<span class="w"> </span>..:<span class="w"> </span>GPIO3<span class="w"> </span>→<span class="w"> </span><span class="m">66</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">26</span>:<span class="w"> </span>GPI01<span class="w"> </span>→<span class="w"> </span><span class="m">149</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">38</span>:<span class="w"> </span>GPI07<span class="w"> </span>→<span class="w"> </span><span class="m">168</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">40</span>:<span class="w"> </span>GPI08<span class="w"> </span>→<span class="w"> </span><span class="m">202</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>-<span class="w"> </span>Pin<span class="w"> </span>..:<span class="w"> </span>GPI09<span class="w"> </span>→<span class="w"> </span><span class="m">216</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="what-is-sysfs">What is <code>sysfs</code>?<a class="headerlink" href="#what-is-sysfs" title="Permanent link">&para;</a></h3>
+<p>Linux exposes hardware interfaces under <code>/sys</code> using a special virtual filesystem called sysfs.
+GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside this structure.</p>
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p>This allows GPIO pins to be controlled using simple file writes:  <strong><code>export → direction → value</code></strong>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Terminal Code Example</p>
+<p>This example demonstrates how to set GPIO with sysfs ID <strong>79</strong> to HIGH and LOW using the terminal.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="m">79</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio79/direction
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio79/value
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio79/value
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C (libgpiod)</label><label for="__tabbed_1_2">Shell (sysfs)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span>
+<span class="normal"><a href="#__codelineno-7-35">35</a></span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span>
+<span class="normal"><a href="#__codelineno-7-37">37</a></span>
+<span class="normal"><a href="#__codelineno-7-38">38</a></span>
+<span class="normal"><a href="#__codelineno-7-39">39</a></span>
+<span class="normal"><a href="#__codelineno-7-40">40</a></span>
+<span class="normal"><a href="#__codelineno-7-41">41</a></span>
+<span class="normal"><a href="#__codelineno-7-42">42</a></span>
+<span class="normal"><a href="#__codelineno-7-43">43</a></span>
+<span class="normal"><a href="#__codelineno-7-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gpiod.h&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Usage: %s &lt;LINE_OFFSET&gt; &lt;VALUE&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;VALUE: 0 (low) or 1 (high)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">line_offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Error: VALUE must be 0 or 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpiod_chip</span><span class="w"> </span><span class="o">*</span><span class="n">chip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpiod_chip_open_by_name</span><span class="p">(</span><span class="s">&quot;gpiochip3&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">chip</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gpiod_chip_open_by_name&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpiod_line</span><span class="w"> </span><span class="o">*</span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpiod_chip_get_line</span><span class="p">(</span><span class="n">chip</span><span class="p">,</span><span class="w"> </span><span class="n">line_offset</span><span class="p">);</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gpiod_chip_get_line&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">        </span><span class="n">gpiod_chip_close</span><span class="p">(</span><span class="n">chip</span><span class="p">);</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gpiod_line_request_output</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gpio_set&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gpiod_line_request_output&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="n">gpiod_chip_close</span><span class="p">(</span><span class="n">chip</span><span class="p">);</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39"></a>
+<a id="__codelineno-7-40" name="__codelineno-7-40"></a><span class="w">    </span><span class="n">gpiod_line_release</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41"></a><span class="w">    </span><span class="n">gpiod_chip_close</span><span class="p">(</span><span class="n">chip</span><span class="p">);</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42"></a>
+<a id="__codelineno-7-43" name="__codelineno-7-43"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="ch">#!/bin/sh</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> &lt;GPIO_PIN&gt; &lt;VALUE&gt;&quot;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VALUE: 0 (low) or 1 (high)&quot;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="k">fi</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="nv">GPIO_PIN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: VALUE must be 0 or 1&quot;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="k">fi</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="nv">GPIO_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/class/gpio/gpio</span><span class="nv">$GPIO_PIN</span><span class="s2">&quot;</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PIN</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="w">    </span>sleep<span class="w"> </span><span class="m">0</span>.1
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="k">fi</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;out&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">/direction&quot;</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">/value&quot;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Info</p>
+<p>You can access these codes on Lectron’s GitHub page through <a href="https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs">this link</a>; the files are named <strong>gpio_set.sh</strong> and <strong>gpio_set.c</strong>.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>If you receive an error stating that <code>&lt;gpiod.h&gt;</code> cannot be found during compilation, it means the <code>libgpiod</code> development packages are not installed on your system.<br />
+To resolve this issue, install the required packages using:
+ <code>bash
+sudo apt-get install -y gpiod libgpiod-dev</code></p>
+</div>
+<h3 id="how-to-calculate-the-sysfs-value-from-a-gpio-name">How to Calculate the Sysfs Value from a GPIO Name?<a class="headerlink" href="#how-to-calculate-the-sysfs-value-from-a-gpio-name" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA’s official <a href="https://developer.nvidia.com/embedded/downloads">documentation page</a>.</li>
+<li>Inside the downloaded <code>pinmux_config_template.xlsm</code> file, you will find two sheets:<ul>
+<li>The first sheet contains general notes and explanations.</li>
+<li>The second sheet (<strong>jetson_[xx]_module</strong>) lists the GPIO names along with their detailed identifiers (e.g., <code>GPIO3_PI.01</code>).</li>
+</ul>
+</li>
+</ul>
+<p><img alt="&quot;image&quot;" src="../../images/jetson_pinmux_gpio.png" /></p>
+<ul>
+<li>In an identifier such as <code>GPIO3_PI.01</code>:<ul>
+<li>The letters (e.g., PI, where I is important) correspond to the <code>TEGRA_GPIO_PORT</code> value.</li>
+<li>The number after the dot (<code>01</code>) represents the pin <strong>offset</strong>.</li>
+</ul>
+</li>
+<li>The Sysfs GPIO number is computed using the following formula: <code>TEGRA_GPIO = (TEGRA_GPIO_PORT * 8) + pin_offset</code> <ul>
+<li>You can find this formula in the <code>tegra194-gpio.h</code> header file.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tegra194-gpio.h</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span>
+<span class="normal"><a href="#__codelineno-9-22">22</a></span>
+<span class="normal"><a href="#__codelineno-9-23">23</a></span>
+<span class="normal"><a href="#__codelineno-9-24">24</a></span>
+<span class="normal"><a href="#__codelineno-9-25">25</a></span>
+<span class="normal"><a href="#__codelineno-9-26">26</a></span>
+<span class="normal"><a href="#__codelineno-9-27">27</a></span>
+<span class="normal"><a href="#__codelineno-9-28">28</a></span>
+<span class="normal"><a href="#__codelineno-9-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="hll"><span class="cp">#define TEGRA_GPIO(port, offset) \ ((TEGRA_GPIO_PORT_##port * 8) + offset)</span>
+</span><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cp">#define TEGRA_GPIO_PORT_A 0</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cp">#define TEGRA_GPIO_PORT_B 1</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="cp">#define TEGRA_GPIO_PORT_C 2</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="cp">#define TEGRA_GPIO_PORT_D 3</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="cp">#define TEGRA_GPIO_PORT_E 4</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="cp">#define TEGRA_GPIO_PORT_F 5</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="cp">#define TEGRA_GPIO_PORT_G 6</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="cp">#define TEGRA_GPIO_PORT_H 7</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="cp">#define TEGRA_GPIO_PORT_I 8</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="cp">#define TEGRA_GPIO_PORT_J 9</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="cp">#define TEGRA_GPIO_PORT_K 10</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="cp">#define TEGRA_GPIO_PORT_L 11</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="cp">#define TEGRA_GPIO_PORT_M 12</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="cp">#define TEGRA_GPIO_PORT_N 13</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="cp">#define TEGRA_GPIO_PORT_O 14</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="cp">#define TEGRA_GPIO_PORT_P 15</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="cp">#define TEGRA_GPIO_PORT_Q 16</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="cp">#define TEGRA_GPIO_PORT_R 17</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="cp">#define TEGRA_GPIO_PORT_S 18</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a><span class="cp">#define TEGRA_GPIO_PORT_T 19</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a><span class="cp">#define TEGRA_GPIO_PORT_U 20</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="cp">#define TEGRA_GPIO_PORT_V 21</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="cp">#define TEGRA_GPIO_PORT_W 22</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a><span class="cp">#define TEGRA_GPIO_PORT_X 23</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a><span class="cp">#define TEGRA_GPIO_PORT_Y 24</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27"></a><span class="cp">#define TEGRA_GPIO_PORT_Z 25</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28"></a><span class="cp">#define TEGRA_GPIO_PORT_AA 26</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29"></a><span class="cp">#define TEGRA_GPIO_PORT_BB 27</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>After substituting the port index and the pin offset into the formula, you obtain the corresponding sysfs GPIO number.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>GPIO09 sysfs value is 216
+GPIO09 -&gt; GPIO3_PBB.00
+TEGRA_GPIO_PORT = BB 
+Offset = 0
+TEGRA_GPIO = (TEGRA_GPIO_PORT_BB * 8) + 0 -&gt; (27 * 8) + 0 = 216
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>This Formula Does NOT Apply to PMIC GPIOs <strong>(<code>max77620-gpio</code>)</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;registered GPIO&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.534131<span class="o">]</span><span class="w"> </span>gpiochip_setup_dev:<span class="w"> </span>registered<span class="w"> </span>GPIOs<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span><span class="m">255</span><span class="w"> </span>on<span class="w"> </span>device:<span class="w"> </span>gpiochip0<span class="w"> </span><span class="o">(</span>tegra-gpio<span class="o">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.591897<span class="o">]</span><span class="w"> </span>gpiochip_setup_dev:<span class="w"> </span>registered<span class="w"> </span>GPIOs<span class="w"> </span><span class="m">504</span><span class="w"> </span>to<span class="w"> </span><span class="m">511</span><span class="w"> </span>on<span class="w"> </span>device:<span class="w"> </span>gpiochip1<span class="w"> </span><span class="o">(</span>max77620-gpio<span class="o">)</span>
+</code></pre></div></td></tr></table></div></p>
+</div>
+<ul>
+<li>Jetson platforms have two separate GPIO controllers: <ul>
+<li><strong>tegra-gpio</strong> -&gt; [0-255] On-SoC Tegra GPIOs</li>
+<li><strong>max77620-gpio</strong> -&gt; [504–511]  PMIC GPIOs</li>
+</ul>
+</li>
+<li>If the GPIO belongs to tegra-gpio → Use Tegra Port Formula.</li>
+<li>If it belongs to max77620-gpio → The sysfs number is assigned directly by the kernel and the correct calculation is <code>offset = sysfs_gpio - gpiochip_base   # Example: 509 - 504 = 5</code></li>
+</ul>
+<h2 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h2>
+<p>Network settings on Jetson devices are managed by NetworkManager. Below are two example configurations for the eth0 interface:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These files are typically located under:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>/etc/NetworkManager/system-connections/
+</code></pre></div></td></tr></table></div>
+All changes require restarting the network connection.</p>
+</div>
+<h3 id="static-setup">Static Setup<a class="headerlink" href="#static-setup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="w">    </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>[connection]
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>id=eth0
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>type=ethernet
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>interface-name=eth0
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>permissions=
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>[ethernet]
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>mac-address-blacklist=
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>[ipv4]
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>address1=192.168.1.3/24
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>dns-search=
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>method=manual
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a>[ipv6]
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a>method=ignore
+</code></pre></div></td></tr></table></div>
+<h3 id="dhcp-setup">DHCP Setup<a class="headerlink" href="#dhcp-setup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="w">    </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>[connection]
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>id=ethernet
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>type=ethernet
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>autoconnect=true
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>interface-name=eth0
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>[ipv4]
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>method=auto
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>[ipv6]
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a>method=ignore
+</code></pre></div></td></tr></table></div>
+<h3 id="applying-and-restarting-network-settings">Applying and Restarting Network Settings<a class="headerlink" href="#applying-and-restarting-network-settings" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># Reload connection profiles</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>reload
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="c1"># Restart the connection</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>down<span class="w"> </span>eth0
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"> </span>eth0
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="c1"># Restart NetworkManager (if needed)</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="c1"># Verify assigned IP</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.instant", "navigation.sections", "toc.integrate", "content.tabs.linked", "header.autohide", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
