@@ -470,6 +470,25 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#networkmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      NetworkManager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NetworkManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-fresh-eth0-profile-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Fresh eth0 Profile (Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#static-setup" class="md-nav__link">
     <span class="md-ellipsis">
       Static Setup
@@ -487,10 +506,24 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#applying-and-restarting-network-settings" class="md-nav__link">
+  <a href="#ifupdown" class="md-nav__link">
     <span class="md-ellipsis">
-      Applying and Restarting Network Settings
+      ifupdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netplan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Netplan
     </span>
   </a>
   
@@ -994,15 +1027,69 @@ TEGRA_GPIO = (TEGRA_GPIO_PORT_BB * 8) + 0 -&gt; (27 * 8) + 0 = 216
 <li>If it belongs to max77620-gpio → The sysfs number is assigned directly by the kernel and the correct calculation is <code>offset = sysfs_gpio - gpiochip_base   # Example: 509 - 504 = 5</code></li>
 </ul>
 <h2 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h2>
-<p>Network settings on Jetson devices are managed by NetworkManager. Below are two example configurations for the eth0 interface:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These files are typically located under:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>/etc/NetworkManager/system-connections/
-</code></pre></div></td></tr></table></div>
-All changes require restarting the network connection.</p>
+<p>On Jetson (Ubuntu-based) systems, networking can be controlled by three different mechanisms:</p>
+<ol>
+<li><strong>NetworkManager (NM)</strong></li>
+<li><strong><code>/etc/network/interfaces</code> (ifupdown)</strong></li>
+<li><strong>Netplan (systemd-networkd or NetworkManager renderer)</strong></li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>These systems can conflict with each other when active simultaneously, often resulting in issues such as:
+- eth0 being shown as DEVICE --
+- NetworkManager being unable to manage Ethernet
+- Misconfigured profiles being ignored</p>
 </div>
-<h3 id="static-setup">Static Setup<a class="headerlink" href="#static-setup" title="Permanent link">&para;</a></h3>
+<h3 id="networkmanager">NetworkManager<a class="headerlink" href="#networkmanager" title="Permanent link">&para;</a></h3>
+<p>The default modern network management system.
+- Location: <code>/etc/NetworkManager/system-connections/</code>
+- Requires correct permissions and ownership
+- Handles Ethernet, Wi-Fi, VPN, DHCP, static IP
+- If NM does not manage eth0 → Connection appears as <code>DEVICE --</code></p>
+<h4 id="creating-a-fresh-eth0-profile-recommended">Creating a Fresh eth0 Profile (Recommended)<a class="headerlink" href="#creating-a-fresh-eth0-profile-recommended" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span>
+<span class="normal"><a href="#__codelineno-12-20">20</a></span>
+<span class="normal"><a href="#__codelineno-12-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># Delete old profile (ignore errors)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>delete<span class="w"> </span>eth0
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="c1"># Create a new DHCP profile</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>add<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ethernet<span class="w"> </span>ifname<span class="w"> </span>eth0<span class="w"> </span>con-name<span class="w"> </span>eth0<span class="w"> </span>ipv4.method<span class="w"> </span>auto<span class="w"> </span>ipv6.method<span class="w"> </span>ignore
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="c1"># Fix permissions</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="c1"># Without these, NetworkManager can see the profile but cannot activate it.</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/NetworkManager/system-connections/eth0
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>sudo<span class="w"> </span>chown<span class="w"> </span>root:root<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="c1"># Restart NM</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>reload
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="c1"># Bring up the interface</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>down<span class="w"> </span>eth0
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"> </span>eth0
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a>
+<a id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="c1"># Verify assigned IP</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
+</code></pre></div></td></tr></table></div>
+<h4 id="static-setup">Static Setup<a class="headerlink" href="#static-setup" title="Permanent link">&para;</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="w">    </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
@@ -1037,7 +1124,7 @@ All changes require restarting the network connection.</p>
 <a id="__codelineno-14-15" name="__codelineno-14-15"></a>[ipv6]
 <a id="__codelineno-14-16" name="__codelineno-14-16"></a>method=ignore
 </code></pre></div></td></tr></table></div>
-<h3 id="dhcp-setup">DHCP Setup<a class="headerlink" href="#dhcp-setup" title="Permanent link">&para;</a></h3>
+<h4 id="dhcp-setup">DHCP Setup<a class="headerlink" href="#dhcp-setup" title="Permanent link">&para;</a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="w">    </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
@@ -1051,10 +1138,10 @@ All changes require restarting the network connection.</p>
 <span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-16-10">10</a></span>
 <span class="normal"><a href="#__codelineno-16-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>[connection]
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a>id=ethernet
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>id=eth0
 <a id="__codelineno-16-3" name="__codelineno-16-3"></a>type=ethernet
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>autoconnect=true
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a>interface-name=eth0
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>interface-name=eth0
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>autoconnect=true
 <a id="__codelineno-16-6" name="__codelineno-16-6"></a>
 <a id="__codelineno-16-7" name="__codelineno-16-7"></a>[ipv4]
 <a id="__codelineno-16-8" name="__codelineno-16-8"></a>method=auto
@@ -1062,31 +1149,73 @@ All changes require restarting the network connection.</p>
 <a id="__codelineno-16-10" name="__codelineno-16-10"></a>[ipv6]
 <a id="__codelineno-16-11" name="__codelineno-16-11"></a>method=ignore
 </code></pre></div></td></tr></table></div>
-<h3 id="applying-and-restarting-network-settings">Applying and Restarting Network Settings<a class="headerlink" href="#applying-and-restarting-network-settings" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-17-10">10</a></span>
-<span class="normal"><a href="#__codelineno-17-11">11</a></span>
-<span class="normal"><a href="#__codelineno-17-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># Reload connection profiles</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>reload
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a>
-<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="c1"># Restart the connection</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>down<span class="w"> </span>eth0
-<a id="__codelineno-17-6" name="__codelineno-17-6"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"> </span>eth0
-<a id="__codelineno-17-7" name="__codelineno-17-7"></a>
-<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1"># Restart NetworkManager (if needed)</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager
-<a id="__codelineno-17-10" name="__codelineno-17-10"></a>
-<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="c1"># Verify assigned IP</span>
-<a id="__codelineno-17-12" name="__codelineno-17-12"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
+<div class="admonition danger">
+<p class="admonition-title">What <code>DEVICE -</code> Means (eth0 Not Connecting)</p>
+<p>This indicates: NetworkManager sees the connection profile but cannot bind it to the actual eth0 interface.
+On Jetson devices, the eth0 interface may be managed by a different legacy configuration mechanism compared to other network interfaces. If <code>/etc/network/interfaces</code> contains an old-style configuration entry for <strong>eth0</strong>, NetworkManager will stop managing this interface, causing it to appear as <code>DEVICE --</code> in nmcli. To resolve this, comment out or remove the eth0 lines in the interfaces file. Once these entries are disabled, NetworkManager will correctly take control of the eth0 interface, and the connection will function as expected.</p>
+</div>
+<h3 id="ifupdown">ifupdown<a class="headerlink" href="#ifupdown" title="Permanent link">&para;</a></h3>
+<p>Legacy networking method. If this file contains:</p>
+<ul>
+<li>Location: <code>/etc/network/interfaces</code></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>auto<span class="w"> </span>eth0
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>iface<span class="w"> </span>eth0<span class="w"> </span>inet<span class="w"> </span>dhcp
 </code></pre></div></td></tr></table></div>
+<ul>
+<li>Then:<ul>
+<li>NetworkManager will NOT manage eth0</li>
+<li>eth0 becomes unmanaged</li>
+<li>nmcli shows <code>DEVICE --</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>auto<span class="w"> </span>lo
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
+</code></pre></div></td></tr></table></div>
+<h3 id="netplan">Netplan<a class="headerlink" href="#netplan" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Installing Netplan (if missing): <code>sudo apt install netplan.io</code></li>
+<li>Controls which backend manages the network: <ul>
+<li><code>renderer: NetworkManager</code></li>
+<li><code>renderer: networkd</code></li>
+</ul>
+</li>
+<li>Location: <code>/etc/netplan/*.yaml</code></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nt">network</span><span class="p">:</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">  </span><span class="nt">renderer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NetworkManager</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">      </span><span class="nt">enp2s0</span><span class="p">:</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">          </span><span class="nt">addresses</span><span class="p">:</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.1/16</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">          </span><span class="nt">nameservers</span><span class="p">:</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">              </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.2.1</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">          </span><span class="nt">routes</span><span class="p">:</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.1</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="w">                </span><span class="nt">via</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.1</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>sudo<span class="w"> </span>netplan<span class="w"> </span>try
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><a href="https://www.linux.com/topic/distributions/how-use-netplan-network-configuration-tool-linux/">Netplan Network Configuration</a></li>
+</ul>
 
 
 

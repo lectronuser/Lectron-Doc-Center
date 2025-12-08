@@ -325,9 +325,6 @@ sudo nmcli connection up eth0
 ip addr show eth0
 ```
 
-
-```
-
 #### Static Setup
 
 ```bash
