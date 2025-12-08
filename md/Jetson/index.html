@@ -489,6 +489,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#static-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dhcp-setup" class="md-nav__link">
     <span class="md-ellipsis">
       DHCP Setup
@@ -1080,13 +1089,8 @@ TEGRA_GPIO = (TEGRA_GPIO_PORT_BB * 8) + 0 -&gt; (27 * 8) + 0 = 216
 <a id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="c1"># Verify assigned IP</span>
 <a id="__codelineno-12-21" name="__codelineno-12-21"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>#### Static Setup
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>```bash
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    sudo nano /etc/NetworkManager/system-connections/eth0
+<h4 id="static-setup">Static Setup<a class="headerlink" href="#static-setup" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="w">    </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
