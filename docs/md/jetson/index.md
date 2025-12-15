@@ -215,7 +215,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     - The first sheet contains general notes and explanations.
     - The second sheet (**jetson_[xx]_module**) lists the GPIO names along with their detailed identifiers (e.g., `GPIO3_PI.01`).
 
-!["image"](../images/jetson_pinmux_gpio.png)
+!["image"](../../images/jetson_pinmux_gpio.png)
 
 - In an identifier such as `GPIO3_PI.01`:
     - The letters (e.g., PI, where I is important) correspond to the `TEGRA_GPIO_PORT` value.
@@ -425,5 +425,3 @@ sudo netplan apply
 ```
 
 - [Netplan Network Configuration](https://www.linux.com/topic/distributions/how-use-netplan-network-configuration-tool-linux/)
-
-
