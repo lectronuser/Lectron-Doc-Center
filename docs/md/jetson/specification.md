@@ -1,9 +1,9 @@
 # Specification
 
-<div style="display:flex; gap:16px; justify-content:center; align-items:stretch;">
-  <img src="/images/jetson/board_8.png" style="width:50%; height:480px; object-fit:contain;" />
-  <img src="/images/jetson/board_7.png" style="width:50%; height:480px; object-fit:contain;" />
-</div>
+
+| | |
+| :---: | :---: |
+| ![Jetson Custom Board](../../images/jetson/board_7.png) | ![Jetson Custom Board](../../images/jetson/board_8.png) |
 
 ## Jetson & System Support
 
@@ -25,10 +25,9 @@
 
 ---
 
-<div style="display:flex; gap:16px; justify-content:center; align-items:stretch;">
-  <img src="/images/jetson/board_9.png" style="width:50%; height:480px; object-fit:contain;" />
-  <img src="/images/jetson/board_2.png" style="width:50%; height:480px; object-fit:contain;" />
-</div>
+| | |
+| :---: | :---: |
+| ![Jetson Custom Board](../../images/jetson/board_9.png) | ![Jetson Custom Board](../../images/jetson/board_2.png) |
 
 ## Pixhawk & System Support
 
@@ -54,10 +53,10 @@
 
 ---
 
-<div style="display:flex; gap:16px; justify-content:center; align-items:stretch;">
-  <img src="/images/jetson/board_10.png" style="width:50%; height:480px; object-fit:contain;" />
-  <img src="/images/jetson/board_6.png" style="width:50%; height:480px; object-fit:contain;" />
-</div>
+
+| | |
+| :---: | :---: |
+| ![Jetson Custom Board](../../images/jetson/board_10.png) | ![Jetson Custom Board](../../images/jetson/board_6.png) |
 
 ## Power Architecture
 
@@ -74,10 +73,9 @@
 
 ---
 
-<div style="display:flex; gap:16px; justify-content:center; align-items:stretch;">
-  <img src="/images/jetson/board_5.png" style="width:50%; height:480px; object-fit:contain;" />
-  <img src="/images/jetson/board_4.png" style="width:50%; height:480px; object-fit:contain;" />
-</div>
+| | |
+| :---: | :---: |
+| ![Jetson Custom Board](../../images/jetson/board_4.png) | ![Jetson Custom Board](../../images/jetson/board_5.png) |
 
 ## Thermal Management
 

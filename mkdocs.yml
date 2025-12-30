@@ -33,41 +33,33 @@ theme:
   custom_dir: docs/overrides
   features:
     - navigation.tabs
-    - navigation.tabs.sticky       # sekmeler sabit kalsın
-    - navigation.sections          # sidebar bölümleri
-    - navigation.top               # yukarı çık butonu
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
     - navigation.footer
     - navigation.tracking
-    - navigation.expand       
+    - navigation.expand
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
-    - content.code.copy            # code-block copy
+    - content.code.copy
     - content.code.annotate
     - search.suggest
     - search.highlight
     - toc.integrate
-    - content.tabs.linked     
-    - header.autohide         
-    - announce.dismiss   
+    - content.tabs.linked
+    - header.autohide
+    - announce.dismiss
+
   palette:
     - scheme: slate
       primary: indigo
       accent: cyan
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
-    - scheme: default
-      primary: indigo
-      accent: cyan
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-  font:
-    text: Inter
-    code: JetBrains Mono
+    
   icon:
-    logo: material/book-open-variant
+    repo: fontawesome/brands/github
+    logo: material/robot-industrial
+
 
 plugins:
   - search

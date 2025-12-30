@@ -23,7 +23,6 @@
 | Power Regulation     | Dedicated 5.1 V – 3 A rail |
 | Power Distribution   | Onboard regulated |
 | Cooling              | Designed for heavy workloads |
-| Main Connectors      | 100-Pin & 50-Pin Hirose DF40 |
 | TELEM                | 2 × 6-Pin |
 | GPS                  | Full (10-Pin), Basic (6-Pin) |
 | CAN                  | 1 × 4-Pin |
