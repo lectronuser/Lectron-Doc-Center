@@ -70,8 +70,8 @@
 }
 
 .split__text {
-  flex: 1 1 55%;
-  min-width: 280px;
+  flex: 1 1 80%;
+  min-width: 300px;
 }
 
 .split__media {

@@ -13,14 +13,14 @@ hide:
     <div class="hero__actions">
       <a href="md/jetson/" class="md-button md-button--primary">Jetson</a>
       <a href="md/raspberry/" class="md-button">Raspberry Pi</a>
-      <a href="#About Us" class="md-button md-button--ghost">Quickstart</a>
+      <!-- <a href="#About Us" class="md-button md-button--ghost">Quickstart</a> -->
     </div>
   </div>
 </div>
 
 <div class="split split--reverse">
   <div class="split__text">
-    <h2>Lectron Jetson AutoPilot Systems</h2>
+    <h2>Lectron Jetson</h2>
     <p>Meet our specialized Indoor Surveillance Drone, engineered for precision monitoring in confined and indoor environments.</p>
     <ul>
       <li>Imaging & provisioning</li>
@@ -28,13 +28,31 @@ hide:
       <li>I/O patterns (GPIO/SPI/I2C/UART)</li>
       <li>Stability and monitoring</li>
     </ul>
+    <a href="md/jetson/" class="md-button md-button--primary">Open Jetson Docs</a>
   </div>
   <div class="split__media">
-    <img src="images/jetson_custom.png" alt="Raspberry Pi documentation cover" loading="lazy">
+    <img src="images/jetson/board_1.png" alt="Raspberry Pi documentation cover" loading="lazy">
   </div>
 </div>
 
 <div class="split split--media-right">
+  <div class="split__text">
+    <h2>Lectron CM5</h2>
+    <p>Meet our specialized Indoor Surveillance Drone, engineered for precision monitoring in confined and indoor environments.</p>
+    <ul>
+      <li>Imaging & provisioning</li>
+      <li>systemd services & boot modules</li>
+      <li>I/O patterns (GPIO/SPI/I2C/UART)</li>
+      <li>Stability and monitoring</li>
+    </ul>
+    <a href="md/raspberry/" class="md-button md-button--primary">Open CM5 Docs</a>
+  </div>
+  <div class="split__media">
+    <img src="images/raspberry/board_1.jpg" alt="Raspberry Pi documentation cover" loading="lazy">
+  </div>
+</div>
+
+<!-- <div class="split split--reverse">
   <div class="split__text">
     <h2>Lectron ARI</h2>
     <p>Fully Autonomous Kamikaze UAV
@@ -45,7 +63,7 @@ Meet our specialized Indoor Surveillance Drone, engineered for precision monitor
   </div>
 </div>
 
-<div class="split split--reverse">
+<div class="split split--media-right">
   <div class="split__text">
     <h2>Lectron EBABIL-5</h2>
     <p>Lectron Ebabil can carry up to a 5 kg payload and be equipped with various gimbals. Ebabil is optimized for surveillance, reconnaissance, and precision bomb-dropping missions, offering versatility and precision in a wide range of operational scenarios.</p>
@@ -53,9 +71,9 @@ Meet our specialized Indoor Surveillance Drone, engineered for precision monitor
   <div class="split__media">
     <img src="images/ebabil5.png" alt="Raspberry Pi documentation cover" loading="lazy">
   </div>
-</div>
+</div> -->
 
-<div class="split split--media-right">
+<!-- <div class="split split--media-right">
   <div class="split__text">
     <h2>Lectron EBABIL</h2>
     <p>Introducing our powerful Heavy-Duty Logistics Drone, designed to revolutionize transportation and delivery solutions. Built for strength and reliability, this drone offers an impressive 75 kg payload capacity, making it ideal for industrial, commercial, and emergency applications where heavy cargo needs to be delivered efficiently.</p>
@@ -63,4 +81,4 @@ Meet our specialized Indoor Surveillance Drone, engineered for precision monitor
   <div class="split__media">
     <img src="images/ebabil75.png" alt="Jetson documentation cover" loading="lazy">
   </div>
-</div>
+</div> -->

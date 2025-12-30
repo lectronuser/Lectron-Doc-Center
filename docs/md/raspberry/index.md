@@ -1,16 +1,8 @@
-# Raspberry Pi
+# CM5 Board
 
-## Scope
-- Imaging & provisioning
-- systemd services & boot-time modules
-- GPIO/SPI/I2C patterns
-- Performance and thermal tuning
+![CM5 Board](../../images/raspberry/board_1.jpg)
 
-## Quick checks
+The Raspberry CM5 Board is designed as an integrated flight control and computing platform for autonomous systems and advanced embedded applications. The hardware architecture consolidates real-time flight control and high-level computing into a single unified board.
 
-```bash
-uname -a                 # kernel baseline
-cat /etc/os-release      # OS info
-vcgencmd measure_temp    # temperature (if available)
-```
+This approach simplifies system integration, reduces cabling complexity, and improves overall system reliability.
 

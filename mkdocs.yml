@@ -5,9 +5,27 @@ repo_url: ""
 repo_name: ""
 
 nav:
-  - Home: index.md
-  - Raspberry Pi Board: md/raspberry/index.md
-  - Jetson Board: md/jetson/index.md
+    - Home: index.md
+    - Jetson:
+        - Overview: md/jetson/index.md
+        - Dimension: md/jetson/dimension.md
+        - Block Diagram: md/jetson/block-diagram.md
+        - Pinout: md/jetson/pinout.md
+        - Specification: md/jetson/specification.md
+        - Setup: md/jetson/setup.md        
+        - Getting Started : md/jetson/getting_started.md 
+        - Commands: md/jetson/commands.md        
+        - GPIO Control: md/jetson/gpio.md        
+        - Network: md/jetson/network.md        
+
+    - Raspberry Pi:
+        - Overview: md/raspberry/index.md
+        - Dimension: md/raspberry/dimension.md
+        - Block Diagram: md/raspberry/block-diagram.md
+        - Pinout: md/raspberry/pinout.md
+        - Specification: md/raspberry/specification.md
+        - Setup: md/raspberry/setup.md        
+        - Getting Started : md/raspberry/getting_started.md        
 
 theme:
   name: material
@@ -18,6 +36,7 @@ theme:
     - navigation.tabs.sticky       # sekmeler sabit kalsın
     - navigation.sections          # sidebar bölümleri
     - navigation.top               # yukarı çık butonu
+    - navigation.footer
     - navigation.tracking
     - navigation.expand       
     - navigation.instant
@@ -48,7 +67,7 @@ theme:
     text: Inter
     code: JetBrains Mono
   icon:
-    logo: material/rocket-launch
+    logo: material/book-open-variant
 
 plugins:
   - search
