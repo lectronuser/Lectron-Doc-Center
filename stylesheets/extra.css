@@ -79,7 +79,7 @@
 }
 
 .hero .md-button {
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 /* ---------- Dark / Light adaptive gradients ---------- */
@@ -216,3 +216,46 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Footer arkaplan: tamamen transparan */
+.md-footer,
+.md-footer-meta {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Footer: tamamen transparan kalsın */
+.md-footer__inner {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  /* yerleşim */
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  /* sayfanın ortasında, toplam genişlik ~%50 */
+  width: min(50vw, 760px) !important;
+  margin: 0 auto !important;
+
+  /* iki buton arası kontrollü boşluk */
+  gap: 12px !important;
+
+  padding: 0.75rem 0 !important;
+}
+
+/* Butonlar: içerik kadar geniş olsun (yazı kadar) */
+.md-footer__link {
+  margin: 0 !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  padding: 0.6rem 0.9rem !important;
+}
+
+/* Prev sola, Next sağa yaslansın */
+.md-footer__link--prev { margin-right: auto !important; }
+.md-footer__link--next { margin-left: auto !important; }
