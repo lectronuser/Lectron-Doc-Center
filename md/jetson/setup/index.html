@@ -490,6 +490,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -501,6 +514,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -836,9 +877,77 @@
 
 
 <h1 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h1>
-<div style="text-align: center; margin: 4rem 0; opacity: 0.65;">
-  <h1>Content Under Preparation</h1>
+<p>This document describes the Linux for Tegra (L4T) installation process for a <strong>custom Jetson Nano based carrier board</strong>. The packages used are derived from NVIDIA’s official releases and adapted to support board specific hardware components.</p>
+<div class="admonition tip">
+<p class="admonition-title">Note</p>
+<p>The steps are written for Jetson Nano. The same procedure applies to other Jetson models; only the Ubuntu version and package names differ.</p>
 </div>
+<h2 id="requirements"><strong>Requirements</strong><a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="">Jetson-210_Linux_R32.7.6_aarch64.tbz2</a></li>
+<li><a href="">Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2</a></li>
+<li>Host system:<ul>
+<li>Ubuntu 18.04</li>
+<li>Or Ubuntu 18.04 running inside Docker</li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>By default, the installation is performed under a <code>workspace</code> directory in the user’s home path. A custom directory may be used if preferred</p>
+</div>
+<ol>
+<li>
+<p><strong>Extracting the L4T Package:</strong> Create the workspace and extract the L4T package (This will create the <strong>Linux_for_Tegra</strong> directory.)
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>~/workspace
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>~/workspace
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>tar<span class="w"> </span>xf<span class="w"> </span>Jetson-210_Linux_R32.7.6_aarch64.tbz2
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Installing the Root Filesystem:</strong> Extract the root filesystem into the rootfs directory:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra/rootfs
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>tar<span class="w"> </span>xpf<span class="w"> </span>../../Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Applying NVIDIA Binary Files:</strong> Run the following script to install NVIDIA-specific binaries into the root filesystem
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>./apply_binaries.sh
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Verifying the Installation:</strong> Verify that the base system was created successfully. (If the file exists, the setup is valid.)
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>rootfs/etc/nv_tegra_release
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Creating a Default User:</strong> To predefine the default user credentials (<code>-u</code>: Username, <code>-p</code>: Password, <code>-n</code>: Hostname)
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sudo<span class="w"> </span>./tools/l4t_create_default_user.sh<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-u<span class="w"> </span>ems<span class="w"> </span><span class="se">\ </span><span class="w">                                      </span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-p<span class="w"> </span><span class="s1">&#39;1234!&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>-n<span class="w"> </span>lectorn
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Entering Force Recovery Mode (RCM):</strong>  To flash the device, Jetson Nano must be placed into Force Recovery Mode (RCM).</p>
+<ul>
+<li>Press and hold Recovery and Reset pins together</li>
+<li>Wait 15–30 seconds</li>
+<li>Release Reset first</li>
+<li>Then release Recovery</li>
+<li>Connect the board to the host PC via USB Type-B and verify: <code>lsusb</code> If NVIDIA Corp. appears, the device is ready for flashing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Flashing the Device:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>./flash.sh<span class="w"> </span>lectron-nano-emmc<span class="w"> </span>mmcblk0p1
+</span></code></pre></div></p>
+</li>
+</ol>
 
 
 
