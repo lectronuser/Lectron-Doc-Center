@@ -31,6 +31,7 @@ theme:
   name: material
   language: en
   custom_dir: docs/overrides
+  favicon: assets/img/lectron.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -56,9 +57,7 @@ theme:
       primary: indigo
       accent: cyan
     
-  icon:
-    repo: fontawesome/brands/github
-    logo: material/robot-industrial
+  logo: assets/img/lectron.svg
 
 
 plugins:
