@@ -1,8 +1,8 @@
-site_name: Edge Compute Docs
-site_description: Jetson & Raspberry Pi engineering documentation
+site_name: ""
 site_url: ""
 repo_url: ""
 repo_name: ""
+site_description: Jetson & Raspberry Pi engineering documentation
 
 nav:
     - Home: index.md
@@ -31,7 +31,7 @@ theme:
   name: material
   language: en
   custom_dir: docs/overrides
-  favicon: assets/img/lectron.svg
+  favicon: assets/img/l.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -57,7 +57,7 @@ theme:
       primary: indigo
       accent: cyan
     
-  logo: assets/img/lectron.svg
+  logo: assets/img/lectron_white.svg
 
 
 plugins:
