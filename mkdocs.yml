@@ -1,4 +1,4 @@
-site_name: ""
+site_name: "Technical Manuel"
 site_url: ""
 repo_url: ""
 repo_name: ""
@@ -31,7 +31,7 @@ theme:
   name: material
   language: en
   custom_dir: docs/overrides
-  favicon: assets/img/l.svg
+  favicon: assets/img/l_white.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky

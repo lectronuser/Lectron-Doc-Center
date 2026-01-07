@@ -20,12 +20,13 @@ hide:
 
 <div class="split split--reverse">
   <div class="split__text">
-    <h2>Lectron Jetson</h2>
-    <p>Meet our specialized Indoor Surveillance Drone, engineered for precision monitoring in confined and indoor environments.</p>
+    <h2>Lectron Jetson Autopilot</h2>
+    <p>Jetson Nano / Xavier NX / Orin Nano — PX4 FMUv6X</p>
     <ul>
-      <li>Imaging & provisioning</li>
-      <li>systemd services & boot modules</li>
-      <li>I/O patterns (GPIO/SPI/I2C/UART)</li>
+      <li>GPU-Based Autopilot</li>
+      <li>Dual CSI Camera Support</li>
+      <li>PX4 FMUv6X Integrated</li>
+      <li>Integrated Ethernet Switching</li>
     </ul>
     <a href="md/jetson/" class="md-button md-button--primary">Open Jetson Docs</a>
   </div>
@@ -36,16 +37,17 @@ hide:
 
 <div class="split split--media-right">
   <div class="split__text">
-    <h2>Lectron CM5</h2>
-    <p>Meet our specialized Indoor Surveillance Drone, engineered for precision monitoring in confined and indoor environments.</p>
+    <h2>Lectron Pi5 Autopilot</h2>
+    <p>CM5 + Hailo Edge AI — PX4 FMUv6X</p>
     <ul>
-      <li>Imaging & provisioning</li>
-      <li>systemd services & boot modules</li>
-      <li>I/O patterns (GPIO/SPI/I2C/UART)</li>
+      <li>Hailo-26 TOPS AI Acceleration</li>
+      <li>Dual CSI Camera Support</li>
+      <li>PX4 FMUv6X Integrated</li>
+      <li>Gigabit Ethernet Ready</li>
     </ul>
     <a href="md/raspberry/" class="md-button md-button--primary">Open CM5 Docs</a>
   </div>
   <div class="split__media">
-    <img src="images/raspberry/board_1.jpg" alt="Raspberry Pi documentation cover" loading="lazy">
+    <img src="images/raspberry/board_1.png" alt="Raspberry Pi documentation cover" loading="lazy">
   </div>
 </div>

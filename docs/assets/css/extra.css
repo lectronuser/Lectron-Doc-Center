@@ -1,6 +1,11 @@
-/* Özel bileşenler */
+.md-header {
+    padding-top: 50px;
+}
 
-/* Modern kart */
+.md-header__button.md-logo img {
+    margin-top: 8px !important;
+}
+
 .feature-card {
     background: var(--md-default-bg-color);
     border: 1px solid var(--md-border-color);
@@ -16,7 +21,6 @@
     border-color: var(--md-primary-fg-color);
 }
 
-/* Gradient başlıklar */
 .gradient-text {
     background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-accent-fg-color));
     -webkit-background-clip: text;
@@ -24,7 +28,6 @@
     background-clip: text;
 }
 
-/* İstatistik kartları */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -47,7 +50,6 @@
     display: block;
 }
 
-/* Team grid */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -94,7 +96,6 @@
     margin: 0.5rem 0;
 }
 
-/* Timeline */
 .timeline {
     position: relative;
     padding-left: 2rem;
@@ -132,7 +133,6 @@
     border: 3px solid var(--md-default-bg-color);
 }
 
-/* Responsive düzenlemeler */
 @media (max-width: 768px) {
     .team-grid {
         grid-template-columns: 1fr;
@@ -147,7 +147,6 @@
     }
 }
 
-/* Animasyonlar */
 @keyframes fadeInUp {
     from {
         opacity: 0;

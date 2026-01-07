@@ -1,4 +1,4 @@
-# Jetson Custom Board
+# Lectron Jetson Autopilot
 
 ![Jetson Custom Board](../../images/jetson/board_1.png)
 
