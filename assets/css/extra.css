@@ -1,5 +1,13 @@
 /* Özel bileşenler */
 
+.md-header {
+    padding-top: 50px;
+}
+
+.md-header__button.md-logo img {
+    margin-top: 8px !important;
+}
+
 /* Modern kart */
 .feature-card {
     background: var(--md-default-bg-color);
