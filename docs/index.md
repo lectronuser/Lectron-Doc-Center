@@ -8,17 +8,17 @@ hide:
   <div class="hero__content">
     <h1>About Us</h1>
     <p>
-      We are a passionate team committed to transforming the world through innovative drone and robotics technologies. With a forward-thinking mindset, we push the limits of what’s possible in autonomous systems.Our mission is to deliver practical, high impact solutions for sectors like defense, agriculture, and industry shaping a smarter and more efficient future through bold ideas and agile thinking.
+      We are a passionate team committed to transforming the world through innovative drone and robotics technologies. With a forward-thinking mindset, we push the limits of what’s possible in autonomous systems. Our mission is to deliver practical, high impact solutions for sectors like defense, agriculture, and industry shaping a smarter and more efficient future through bold ideas and agile thinking.
     </p>
     <div class="hero__actions">
-      <a href="md/jetson/" class="md-button md-button--primary">Jetson</a>
-      <a href="md/raspberry/" class="md-button">Raspberry Pi</a>
+      <a href="md/jetson/" class="md-button md-button--primary">JETSON AUTOPILOT</a>
+      <a href="md/raspberry/" class="md-button">PI5 AUTOPILOT</a>
       <!-- <a href="#About Us" class="md-button md-button--ghost">Quickstart</a> -->
     </div>
   </div>
 </div>
 
-<div class="split split--reverse">
+<!-- <div class="split split--reverse">
   <div class="split__text">
     <h2>Lectron Jetson Autopilot</h2>
     <p>Jetson Nano / Xavier NX / Orin Nano — PX4 FMUv6X</p>
@@ -50,4 +50,4 @@ hide:
   <div class="split__media">
     <img src="images/raspberry/board_1.png" alt="Raspberry Pi documentation cover" loading="lazy">
   </div>
-</div>
+</div> -->

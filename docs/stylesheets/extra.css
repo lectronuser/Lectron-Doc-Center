@@ -1,17 +1,14 @@
-/* Üstte transparan */
 .md-header {
   background: transparent !important;
   box-shadow: none !important;
 }
 
-/* Scroll sonrası dolu (Material state attribute ile) */
 [data-md-state="scrolled"] .md-header {
   background: rgba(18, 18, 18, 0.85) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-/* Tabs de aynı şekilde */
 .md-tabs {
   background: transparent !important;
 }
@@ -54,17 +51,15 @@
   flex-wrap: wrap;
 }
 
-/* Ghost button (Material button base class is used) */
 .md-button--ghost {
   border: 1px solid currentColor;
   opacity: .9;
 }
 
 .md-button {
-  border-radius: 10px;          /* 6–14px arası kurumsal için ideal */
+  border-radius: 10px;         
 }
 
-/* Primary butonlar biraz daha belirgin olsun */
 .md-button--primary {
   border-radius: 12px;
 }
@@ -82,7 +77,6 @@
   border-radius: 10px;
 }
 
-/* ---------- Dark / Light adaptive gradients ---------- */
 [data-md-color-scheme="slate"] .hero {
   background:
     radial-gradient(1200px circle at 10% 20%, rgba(0, 255, 255, .18), transparent 40%),
@@ -99,7 +93,6 @@
   border: 1px solid rgba(2,6,23,.08);
 }
 
-/* ---------- Card grid polish ---------- */
 .grid.cards > ul > li {
   border-radius: 18px;
   overflow: hidden;
@@ -142,15 +135,15 @@
 
 .split__media:hover img {
   transform: scale(1.01);
-  transition: transform .18s ease;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
 }
 
-/* Alternate direction */
 .split--reverse {
   flex-direction: row-reverse;
 }
 
-/* Backgrounds for dark/light */
 [data-md-color-scheme="slate"] .split {
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.08);
@@ -161,7 +154,6 @@
   border: 1px solid rgba(2,6,23,.08);
 }
 
-/* Mobile stacking */
 @media (max-width: 900px) {
   .split,
   .split--reverse {
@@ -210,42 +202,35 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Responsive için */
 @media (max-width: 768px) {
   .image-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* Footer arkaplan: tamamen transparan */
 .md-footer,
 .md-footer-meta {
   background: transparent !important;
   box-shadow: none !important;
 }
 
-/* Footer: tamamen transparan kalsın */
 .md-footer__inner {
   background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 
-  /* yerleşim */
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
 
-  /* sayfanın ortasında, toplam genişlik ~%50 */
   width: min(50vw, 760px) !important;
   margin: 0 auto !important;
 
-  /* iki buton arası kontrollü boşluk */
   gap: 12px !important;
 
   padding: 0.75rem 0 !important;
 }
 
-/* Butonlar: içerik kadar geniş olsun (yazı kadar) */
 .md-footer__link {
   margin: 0 !important;
   width: fit-content !important;
@@ -256,6 +241,38 @@
   padding: 0.6rem 0.9rem !important;
 }
 
-/* Prev sola, Next sağa yaslansın */
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin: 2rem 0;
+  align-items: center;
+  background: transparent;
+}
+
+.image-row img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+
+  background: transparent;
+  padding: 0;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+
+  transition: none;
+}
+
+.image-row img:hover {
+  transform: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 768px) {
+  .image-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .md-footer__link--prev { margin-right: auto !important; }
 .md-footer__link--next { margin-left: auto !important; }

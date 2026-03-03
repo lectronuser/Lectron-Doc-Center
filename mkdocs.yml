@@ -6,7 +6,7 @@ site_description: Jetson & Raspberry Pi engineering documentation
 
 nav:
     - Home: index.md
-    - Jetson:
+    - Jetson Autopilot:
         - Overview: md/jetson/index.md
         - Dimension: md/jetson/dimension.md
         - Block Diagram: md/jetson/block-diagram.md
@@ -18,7 +18,7 @@ nav:
         - GPIO Control: md/jetson/gpio.md        
         - Network: md/jetson/network.md        
 
-    - Raspberry Pi:
+    - Pi5 Autopilot:
         - Overview: md/raspberry/index.md
         - Dimension: md/raspberry/dimension.md
         - Block Diagram: md/raspberry/block-diagram.md

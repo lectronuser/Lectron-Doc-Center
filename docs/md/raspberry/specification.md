@@ -4,16 +4,22 @@
 
 | Feature | Description |
 |-------|---------------|
+| Power Input                 | 7V – 28V (3S-6S LiPo), XT30 Connector |
+| Overcurrent Protection      | 5A Maximum |
+| Power Monitor               | Internal Voltage & external I2C Current Monitor |
 | Supported Raspberry Modules | Compute Module 5 |
 | Camera Interface            | 2 × 22-Pin, 0.5 mm pitch CSI |
-| USB                         | USB 3.0 Type-C (2 A), Micro USB 2.0 |
+| USB                         | USB 3.0 Type-C (2 A), Micro USB 2.0 (host) |
 | Ethernet                    | 1 × 4-Pin, 1 Gbps |
 | GPIO                        | 1 × 6-Pin |
+| HDMI Output                 | Mini HDMI | 
+| CAN                         | 1 × 4-Pin |
 | I2C                         | 2 |
 | UART                        | 1 |
-| CAN                         | 1 × 4-Pin |
 | SPI                         | 1 |
-
+| PCIe                        | M.2 Key-M 2230 & 2242 slot (PCIe Gen2 x1) |
+| Sensor                      | BMI270 (SPI) |
+| FMU ↔ CM5 Communication     | FMU USART2 (TELEM3) ↔ UART3 (CM5) |
 
 ## Pixhawk & System Support
 
@@ -22,14 +28,25 @@
 | Supported Autopilots | Pixhawk 5X, Pixhawk 6X |
 | Power Regulation     | Dedicated 5.1 V – 3 A rail |
 | Power Distribution   | Onboard regulated |
+| FMU Processor        | STM32H753IIK6TR (32-bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM) |
+| IO Processor         | STM32F103 (32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM) |
+| Status LEDs          | 3x LEDs (Red, Green, Blue) | 
+| Status LEDs          | 2x LEDs (Blue, Amber) |
 | Cooling              | Designed for heavy workloads |
 | TELEM                | 2 × 6-Pin |
-| GPS                  | Full (10-Pin), Basic (6-Pin) |
-| CAN                  | 1 × 4-Pin |
+| GPS                  | Full 10-pin JST-GH (UART1, I2C1, 5V Out), Basic 6-pin JST-GH (UART8, I2C2, 5V Out) |
+| USB                  | USB Type-C 5V VBUS sense |
+| SD Card              | MicroSD SDMMC interface |
+| CAN                  | 1 × 4-Pin JST-GH|
 | I2C                  | 1 × 4-Pin |
 | UART                 | 1 × 4-Pin |
-| RC / SBUS            | 1 × 5-Pin |
-| PWM                  | AUX & MAIN, 10-Pin |
-| Ethernet             | 1 × 4-Pin |
-| Debug                | FMU-IO Debug, 11-Pin (SH) |
+| External SPI         | 11-pin JST-GH (SPI6, 2x CS, 2x DRDY, RESET) |
+| RC / SBUS            | PPM, S.BUS, DSM (5-pin JST-GH) |
+| PWM Outputs          | 8 Channels FMU + 8 Channels IO (10-pin JST-GH) |
+| Ethernet             | 4-pin JST-GH (LAN8742AI PHY) |
+| FMU/IO Debug Interface | SWD (10-pin JST-SH)  |
 | Jetson Link          | UART or Ethernet |
+| FMU Onboard Sensors  | IMU: ICM-42670-P (SPI), Barometer: BMP390 (SPI), FRAM: FM25V02A, EEPROM: AT24C02D |
+| Sensor Board         | IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer:BMP390 (SPI), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T |
+
+![Jetson Custom Board](../../images/raspberry/board_2.png)

@@ -2,7 +2,7 @@
 
 ![Jetson Custom Board](../../images/jetson/board_1.png)
 
-**Integrated Flight Control & Edge Computing Platform**
+## **PX4 Autopilot with Nvidia Jetson Boards**
 
 
 The Jetson Custom Board is designed as an integrated flight control and computing platform for autonomous systems and advanced embedded applications. The hardware architecture consolidates real-time flight control and high-level computing into a single unified board.
@@ -10,4 +10,8 @@ The Jetson Custom Board is designed as an integrated flight control and computin
 This approach simplifies system integration, reduces cabling complexity, and improves overall system reliability.
 
 
+## **Product Description**
 
+FMU Jetson Autopilot is a high-performance autopilot platform designed for systems that require advanced onboard computing alongside reliable real-time flight control. By pairing deterministic control with NVIDIA Jetson’s computing capabilities, it enables intelligent autonomous operation.
+
+The platform is optimized for applications involving onboard perception, data processing, and decision-making, while maintaining a clear separation between safety-critical control and high-level computation. This makes FMU Jetson Autopilot well-suited for complex autonomous platforms and data-driven aerial systems.
