@@ -1,7 +1,5 @@
-// Modern UI etkileşimleri
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -15,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Kod bloklarına kopyalama butonu ekle
     document.querySelectorAll('.highlight').forEach(block => {
         const button = document.createElement('button');
         button.className = 'copy-button';
@@ -25,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const code = block.querySelector('code').innerText;
             await navigator.clipboard.writeText(code);
             
-            // Geri bildirim göster
             const original = button.innerHTML;
             button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
             button.style.color = '#10b981';
@@ -42,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         block.prepend(container);
     });
     
-    // Dark/light tema toggle
     const themeToggle = document.createElement('button');
     themeToggle.className = 'theme-toggle';
     themeToggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>';
@@ -54,13 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', newTheme);
     });
     
-    // Toggle'ı header'a ekle
     const header = document.querySelector('.md-header');
     if (header) {
         header.appendChild(themeToggle);
     }
     
-    // Lazy loading images
     const images = document.querySelectorAll('img[data-src]');
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -75,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     images.forEach(img => imageObserver.observe(img));
     
-    // Back to top butonu
     const backToTop = document.createElement('button');
     backToTop.className = 'back-to-top';
     backToTop.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>';

@@ -1,11 +1,7 @@
-// Ekstra JavaScript fonksiyonları
-
-// Analytics tracking (isteğe bağlı)
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
-// Search enhancement
 if (typeof docsify !== 'undefined') {
     window.$docsify = window.$docsify || {};
     window.$docsify.search = {
@@ -17,7 +13,6 @@ if (typeof docsify !== 'undefined') {
     };
 }
 
-// Progress bar
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -33,16 +28,13 @@ window.addEventListener('scroll', () => {
     progressBar.style.width = scrolled + '%';
 });
 
-// Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
-    // '/' tuşu ile search focus
     if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
         e.preventDefault();
         const searchInput = document.querySelector('[type="search"]');
         if (searchInput) searchInput.focus();
     }
     
-    // Escape ile search blur
     if (e.key === 'Escape') {
         const active = document.activeElement;
         if (active && active.type === 'search') {
@@ -51,7 +43,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Toast notifications
 window.showToast = function(message, type = 'info') {
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
@@ -66,12 +57,10 @@ window.showToast = function(message, type = 'info') {
     }, 3000);
 };
 
-// Form validation helper
 window.validateEmail = function(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 
-// Debounce function
 window.debounce = function(func, wait) {
     let timeout;
     return function executedFunction(...args) {

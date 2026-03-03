@@ -217,7 +217,7 @@
           
   
   
-  Jetson
+  Jetson Autopilot
 
         </a>
       </li>
@@ -239,7 +239,7 @@
           
   
   
-  Raspberry Pi
+  Pi5 Autopilot
 
         </a>
       </li>
@@ -339,7 +339,7 @@
   
   
   <span class="md-ellipsis">
-    Jetson
+    Jetson Autopilot
     
   </span>
   
@@ -350,7 +350,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Jetson
+            Jetson Autopilot
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -624,7 +624,7 @@
   
   
   <span class="md-ellipsis">
-    Raspberry Pi
+    Pi5 Autopilot
     
   </span>
   
@@ -635,7 +635,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Raspberry Pi
+            Pi5 Autopilot
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -894,6 +894,18 @@
 </thead>
 <tbody>
 <tr>
+<td>Power Input</td>
+<td>7V – 28V (3S-6S LiPo), XT30 Connector</td>
+</tr>
+<tr>
+<td>Overcurrent Protection</td>
+<td>5A Maximum</td>
+</tr>
+<tr>
+<td>Power Monitor</td>
+<td>Internal Voltage &amp; external I2C Current Monitor</td>
+</tr>
+<tr>
 <td>Supported Raspberry Modules</td>
 <td>Compute Module 5</td>
 </tr>
@@ -903,7 +915,7 @@
 </tr>
 <tr>
 <td>USB</td>
-<td>USB 3.0 Type-C (2 A), Micro USB 2.0</td>
+<td>USB 3.0 Type-C (2 A), Micro USB 2.0 (host)</td>
 </tr>
 <tr>
 <td>Ethernet</td>
@@ -914,6 +926,14 @@
 <td>1 × 6-Pin</td>
 </tr>
 <tr>
+<td>HDMI Output</td>
+<td>Mini HDMI</td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>1 × 4-Pin</td>
+</tr>
+<tr>
 <td>I2C</td>
 <td>2</td>
 </tr>
@@ -922,12 +942,20 @@
 <td>1</td>
 </tr>
 <tr>
-<td>CAN</td>
-<td>1 × 4-Pin</td>
-</tr>
-<tr>
 <td>SPI</td>
 <td>1</td>
+</tr>
+<tr>
+<td>PCIe</td>
+<td>M.2 Key-M 2230 &amp; 2242 slot (PCIe Gen2 x1)</td>
+</tr>
+<tr>
+<td>Sensor</td>
+<td>BMI270 (SPI)</td>
+</tr>
+<tr>
+<td>FMU ↔ CM5 Communication</td>
+<td>FMU USART2 (TELEM3) ↔ UART3 (CM5)</td>
 </tr>
 </tbody>
 </table>
@@ -953,6 +981,22 @@
 <td>Onboard regulated</td>
 </tr>
 <tr>
+<td>FMU Processor</td>
+<td>STM32H753IIK6TR (32-bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM)</td>
+</tr>
+<tr>
+<td>IO Processor</td>
+<td>STM32F103 (32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM)</td>
+</tr>
+<tr>
+<td>Status LEDs</td>
+<td>3x LEDs (Red, Green, Blue)</td>
+</tr>
+<tr>
+<td>Status LEDs</td>
+<td>2x LEDs (Blue, Amber)</td>
+</tr>
+<tr>
 <td>Cooling</td>
 <td>Designed for heavy workloads</td>
 </tr>
@@ -962,11 +1006,19 @@
 </tr>
 <tr>
 <td>GPS</td>
-<td>Full (10-Pin), Basic (6-Pin)</td>
+<td>Full 10-pin JST-GH (UART1, I2C1, 5V Out), Basic 6-pin JST-GH (UART8, I2C2, 5V Out)</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>USB Type-C 5V VBUS sense</td>
+</tr>
+<tr>
+<td>SD Card</td>
+<td>MicroSD SDMMC interface</td>
 </tr>
 <tr>
 <td>CAN</td>
-<td>1 × 4-Pin</td>
+<td>1 × 4-Pin JST-GH</td>
 </tr>
 <tr>
 <td>I2C</td>
@@ -977,27 +1029,40 @@
 <td>1 × 4-Pin</td>
 </tr>
 <tr>
-<td>RC / SBUS</td>
-<td>1 × 5-Pin</td>
+<td>External SPI</td>
+<td>11-pin JST-GH (SPI6, 2x CS, 2x DRDY, RESET)</td>
 </tr>
 <tr>
-<td>PWM</td>
-<td>AUX &amp; MAIN, 10-Pin</td>
+<td>RC / SBUS</td>
+<td>PPM, S.BUS, DSM (5-pin JST-GH)</td>
+</tr>
+<tr>
+<td>PWM Outputs</td>
+<td>8 Channels FMU + 8 Channels IO (10-pin JST-GH)</td>
 </tr>
 <tr>
 <td>Ethernet</td>
-<td>1 × 4-Pin</td>
+<td>4-pin JST-GH (LAN8742AI PHY)</td>
 </tr>
 <tr>
-<td>Debug</td>
-<td>FMU-IO Debug, 11-Pin (SH)</td>
+<td>FMU/IO Debug Interface</td>
+<td>SWD (10-pin JST-SH)</td>
 </tr>
 <tr>
 <td>Jetson Link</td>
 <td>UART or Ethernet</td>
 </tr>
+<tr>
+<td>FMU Onboard Sensors</td>
+<td>IMU: ICM-42670-P (SPI), Barometer: BMP390 (SPI), FRAM: FM25V02A, EEPROM: AT24C02D</td>
+</tr>
+<tr>
+<td>Sensor Board</td>
+<td>IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer:BMP390 (SPI), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T</td>
+</tr>
 </tbody>
 </table>
+<p><img alt="Jetson Custom Board" src="../../../images/raspberry/board_2.png" /></p>
 
 
 
