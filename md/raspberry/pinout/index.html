@@ -865,6 +865,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pin-1-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin 1 Identification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pixhawk-fmu-connectors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1506,6 +1517,14 @@
 <p class="admonition-title">Warning</p>
 <p>Most logic pins are <strong>3.3V tolerant only</strong>. Do <strong>not</strong> apply 5V logic levels to signal pins, and never source servo/motor power from the peripheral 5V rail.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Power Budget</p>
+<p>The peripheral 5V rail is shared across all connectors on each side. The <strong>total current</strong> drawn from all <strong>FMU ports</strong> combined must not exceed <strong>1.5 A</strong>. The same <strong>1.5 A</strong> total limit applies to all <strong>CM5 ports</strong> combined. Budget the current across connected peripherals accordingly.</p>
+</div>
+<hr />
+<h2 id="pin-1-identification"><strong>Pin 1 Identification</strong><a class="headerlink" href="#pin-1-identification" title="Permanent link">&para;</a></h2>
+<p>In every pinout table below, <strong>Pin 1</strong> is the first row. Use the image below to locate Pin 1 on the physical JST GH connector before wiring.</p>
+<p><img alt="JST GH Connector Pin Identification" src="../../../images/raspberry/jst_gh_pin1.png" width="420" /></p>
 <hr />
 <h2 id="pixhawk-fmu-connectors"><strong>Pixhawk FMU Connectors</strong><a class="headerlink" href="#pixhawk-fmu-connectors" title="Permanent link">&para;</a></h2>
 <h3 id="pixhawk-can"><strong>Pixhawk CAN</strong><a class="headerlink" href="#pixhawk-can" title="Permanent link">&para;</a></h3>
@@ -1567,7 +1586,7 @@
 <tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">2</td>
-<td style="text-align: left;">PPM INPUT</td>
+<td style="text-align: left;">PPM / SBUS INPUT</td>
 <td style="text-align: center;">+3.3V</td>
 </tr>
 <tr>
@@ -1579,7 +1598,7 @@
 <tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">4</td>
-<td style="text-align: left;">RSSI IN</td>
+<td style="text-align: left;">RSSI IN / SBUS OUT</td>
 <td style="text-align: center;">+3.3V</td>
 </tr>
 <tr>
@@ -1590,6 +1609,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">DSM Support</p>
+<p>The Lectron Autopilot product doesn't support DSM.</p>
+</div>
 <h3 id="pixhawk-i2c3-uart4"><strong>Pixhawk I2C3 / UART4</strong><a class="headerlink" href="#pixhawk-i2c3-uart4" title="Permanent link">&para;</a></h3>
 <p>Combined serial + I2C peripheral port.</p>
 <table>
@@ -1691,8 +1714,8 @@
 <tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">7</td>
-<td style="text-align: left;">SPIX SYNC (A*)</td>
-<td style="text-align: center;">---</td>
+<td style="text-align: left;">SPIX SYNC</td>
+<td style="text-align: center;">+3.3V</td>
 </tr>
 <tr>
 <td style="text-align: center;"></td>
@@ -2217,7 +2240,7 @@
 <tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">9</td>
-<td style="text-align: left;">BUZZER</td>
+<td style="text-align: left;">BUZZER-</td>
 <td style="text-align: center;">+3.3V</td>
 </tr>
 <tr>
@@ -2671,7 +2694,7 @@
 </tbody>
 </table>
 <h3 id="cm5-fpc1-camera-display-0"><strong>CM5 FPC1 — Camera / Display 0</strong><a class="headerlink" href="#cm5-fpc1-camera-display-0" title="Permanent link">&para;</a></h3>
-<p>22-pin 0.5mm-pitch FPC carrying MIPI port 0 (4-lane) plus camera control I2C and GPIOs.</p>
+<p>22-pin 0.5mm-pitch FPC carrying MIPI port 0 (4-lane).</p>
 <table>
 <thead>
 <tr>
@@ -2817,7 +2840,7 @@
 </tbody>
 </table>
 <h3 id="cm5-fpc2-camera-display-1"><strong>CM5 FPC2 — Camera / Display 1</strong><a class="headerlink" href="#cm5-fpc2-camera-display-1" title="Permanent link">&para;</a></h3>
-<p>22-pin 0.5mm-pitch FPC carrying MIPI port 1 (4-lane) plus ID EEPROM I2C.</p>
+<p>22-pin 0.5mm-pitch FPC carrying MIPI port 1 (4-lane).</p>
 <table>
 <thead>
 <tr>
@@ -2963,7 +2986,7 @@
 </tbody>
 </table>
 <h3 id="cm5-m2-key"><strong>CM5 M.2 Key</strong><a class="headerlink" href="#cm5-m2-key" title="Permanent link">&para;</a></h3>
-<p>M.2 M-Key slot (PCIe / NVMe storage).</p>
+<p>M.2 M-Key 2230 or 2242 slot (PCIe / NVMe storage).</p>
 <table>
 <thead>
 <tr>
@@ -3111,8 +3134,12 @@
 </tbody>
 </table>
 <div class="admonition danger">
-<p class="admonition-title">Warning</p>
+<p class="admonition-title">Reverse Polarity</p>
 <p>Observe correct polarity on the XT30 input. Input voltage must stay within <strong>+12V to +28V</strong>; reverse polarity or over-voltage may permanently damage the board.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Use the Supplied XT30 Cable Only</p>
+<p>Power the board exclusively through the <strong>XT30 cable supplied by Lectron</strong>. Using a third-party or incorrectly wired cable may damage the onboard regulator stage. This cable compansate voltage ripples that are caused by motors.</p>
 </div>
 <hr />
 <div class="admonition info">

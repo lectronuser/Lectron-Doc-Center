@@ -953,6 +953,84 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fmu-firmware-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FMU Firmware Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FMU Firmware Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-io-chip-flashing-f103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. IO Chip Flashing (F103)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fmu-chip-flashing-h753" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. FMU Chip Flashing (H753)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. FMU Chip Flashing (H753)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fmu-bootloader-flashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FMU Bootloader Flashing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fmu-firmware-flashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FMU Firmware Flashing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1199,6 +1277,92 @@ install <strong>rpiboot</strong> <a href="https://github.com/raspberrypi/usbboot
 <li>Finally, reconnect the power supply to restart the system.</li>
 </ul>
 </div>
+<h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong><a class="headerlink" href="#fmu-firmware-installation" title="Permanent link">&para;</a></h2>
+<p>This section contains step-by-step instructions for flashing the bootloader and firmware onto the <strong>FMU IO (F103)</strong> and <strong>FMU MAIN (H753)</strong> chips using <strong>STM32CubeProgrammer</strong>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Wiring — Before You Start</p>
+<p>Before the flashing process, make sure the debug cable and the ST-Link / CubeProgrammer pins are connected correctly:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SWDIO   &gt;&gt;&gt; SWDIO
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>SWDCLK  &gt;&gt;&gt; SWDCLK
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>GND     &gt;&gt;&gt; GND
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>NRST    &gt;&gt;&gt; NRST
+</span></code></pre></div>
+<p>The Autopilot board must be powered (via <strong>USB</strong> or <strong>XT30</strong>) before performing these steps.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">ArduPilot vs. PX4</p>
+<p>The FMU bootloader and FMU firmware files differ depending on the autopilot software (<strong>ArduPilot</strong> or <strong>PX4</strong>). The flashing procedure remains the same — only the target files change.</p>
+</div>
+<h3 id="connection-settings"><strong>Connection Settings</strong><a class="headerlink" href="#connection-settings" title="Permanent link">&para;</a></h3>
+<p>Select the connection settings on the right-hand panel as shown below, then use the <strong>Connect</strong> button. After connecting, the target chip is shown in the <strong>bottom-right corner</strong> (<code>STM32F10x</code> for the IO chip, <code>STM32H7</code> for the FMU chip).</p>
+<p><img alt="STM32CubeProgrammer connection settings" src="../../../images/raspberry/fmu_cubeprog_connection.jpg" /></p>
+<h3 id="1-io-chip-flashing-f103"><strong>1. IO Chip Flashing (F103)</strong><a class="headerlink" href="#1-io-chip-flashing-f103" title="Permanent link">&para;</a></h3>
+<p><strong>Hardware Connections</strong></p>
+<ol>
+<li>Connect the debug cable (10-pin GHS-10) to the IO debug port.</li>
+<li>Connect the ST-Link to the computer.</li>
+</ol>
+<p><strong>STM32CubeProgrammer Steps</strong></p>
+<ol>
+<li>Launch <strong>STM32CubeProgrammer</strong>. Select the connection settings on the right panel and click <strong>Connect</strong>.</li>
+<li>Switch to the programming panel using the left-hand toolbar.</li>
+<li>After the ST-Link connects, verify that <strong>STM32F10x</strong> is displayed in the bottom-right corner.</li>
+<li>Click <strong>Full chip erase</strong> to wipe any existing code. In the confirmation pop-up (<em>"Are you sure you want to erase full chip flash memory"</em>), click <strong>OK</strong>.</li>
+<li>Select the provided <strong>IO bootloader</strong> file.</li>
+<li>Check the programming configuration options as indicated in the reference layout.</li>
+<li>Click <strong>Start Programming</strong>.</li>
+</ol>
+<p><img alt="IO bootloader installation" src="../../../images/raspberry/fmu_cubeprog_programming.jpg" /></p>
+<ol>
+<li>Once complete, dismiss the <em>"Download verified successfully"</em> and <em>"File download complete"</em> alerts by clicking <strong>OK</strong>.</li>
+<li>The <strong>IO installation is complete</strong>.</li>
+<li>For safety, disconnect from the hardware by clicking <strong>Disconnect</strong> (which replaces the <em>Connect</em> button).</li>
+</ol>
+<h3 id="2-fmu-chip-flashing-h753"><strong>2. FMU Chip Flashing (H753)</strong><a class="headerlink" href="#2-fmu-chip-flashing-h753" title="Permanent link">&para;</a></h3>
+<p>This stage installs the <strong>Bootloader</strong> first, followed by the <strong>FMU Firmware</strong>.</p>
+<p><strong>Hardware Connections</strong></p>
+<ol>
+<li>Connect the debug cable (10-pin GHS-10) to the FMU debug port.</li>
+<li>Connect the ST-Link to the computer.</li>
+</ol>
+<h4 id="fmu-bootloader-flashing"><strong>FMU Bootloader Flashing</strong><a class="headerlink" href="#fmu-bootloader-flashing" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
+<li>Switch to the programming panel using the left-hand toolbar.</li>
+<li>After the ST-Link connects, verify that <strong>STM32H7</strong> is displayed in the bottom-right corner.</li>
+<li>Click <strong>Full chip erase</strong> to wipe any existing code, then click <strong>OK</strong> on the confirmation pop-up.</li>
+<li>Select the provided <strong>FMU Bootloader</strong> file.</li>
+<li>Check the installation options as indicated in the reference layout.</li>
+<li>Click <strong>Start Programming</strong>.</li>
+</ol>
+<p><img alt="FMU bootloader installation" src="../../../images/raspberry/fmu_cubeprog_bootloader.jpg" /></p>
+<ol>
+<li>Once complete, close the <em>"Download verified successfully"</em> and <em>"File download complete"</em> prompts by clicking <strong>OK</strong>.</li>
+<li>The <strong>FMU Bootloader installation is complete</strong>.</li>
+<li>For safety, click <strong>Disconnect</strong> (top-right).</li>
+</ol>
+<h4 id="fmu-firmware-flashing"><strong>FMU Firmware Flashing</strong><a class="headerlink" href="#fmu-firmware-flashing" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
+<li>Switch to the programming panel using the left-hand toolbar.</li>
+<li>Ensure that <strong>STM32H7</strong> is displayed in the bottom-right corner as the target chip.</li>
+<li>Select the provided <strong>FMU Firmware</strong> file.</li>
+<li>
+<p>Check the programming options as shown in the reference image.</p>
+<div class="admonition danger">
+<p class="admonition-title">CRITICAL</p>
+<p>Uncheck the <strong>Full chip erase</strong> box to prevent wiping the bootloader you just installed.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Start Programming</strong> to begin flashing the firmware.</p>
+</li>
+</ol>
+<p><img alt="FMU firmware installation" src="../../../images/raspberry/fmu_cubeprog_firmware.jpg" /></p>
+<ol>
+<li>When the operation completes, confirm and close the <em>"Download verified successfully"</em> and <em>"File download complete"</em> alerts by clicking <strong>OK</strong>.</li>
+<li>The <strong>FMU Firmware installation is complete</strong>.</li>
+</ol>
 
 
 
