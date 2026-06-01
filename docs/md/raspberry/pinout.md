@@ -23,6 +23,17 @@ The board is organized into two functional domains:
 !!! danger "Warning"
     Most logic pins are **3.3V tolerant only**. Do **not** apply 5V logic levels to signal pins, and never source servo/motor power from the peripheral 5V rail.
 
+!!! warning "Power Budget"
+    The peripheral 5V rail is shared across all connectors on each side. The **total current** drawn from all **FMU ports** combined must not exceed **1.5 A**. The same **1.5 A** total limit applies to all **CM5 ports** combined. Budget the current across connected peripherals accordingly.
+
+---
+
+## **Pin 1 Identification**
+
+In every pinout table below, **Pin 1** is the first row. Use the image below to locate Pin 1 on the physical JST GH connector before wiring.
+
+![JST GH Connector Pin Identification](../../images/raspberry/jst_gh_pin1.png){ width="420" }
+
 ---
 
 ## **Pixhawk FMU Connectors**
@@ -43,10 +54,13 @@ RC receiver input (PPM/SBUS) with RSSI feedback.
 | Connector | Pin | Signal | Voltage |
 | :-------: | :-: | :----- | :-----: |
 | BM05B-GHS | 1 | PERIPHERAL 5V | +5V |
-| | 2 | PPM INPUT | +3.3V |
+| | 2 | PPM / SBUS INPUT | +3.3V |
 | | 3 | NC | --- |
-| | 4 | RSSI IN | +3.3V |
+| | 4 | RSSI IN / SBUS OUT | +3.3V |
 | | 5 | GROUND | GND |
+
+!!! warning "DSM Support"
+    The Lectron Autopilot product doesn't support DSM.
 
 ### **Pixhawk I2C3 / UART4**
 Combined serial + I2C peripheral port.
@@ -71,7 +85,7 @@ External high-speed SPI bus with two chip-selects and two data-ready lines.
 | | 4 | SPI6 MOSI (TX) | +3.3V |
 | | 5 | SPI6 NCS-1 | +3.3V |
 | | 6 | SPI6 NCS-2 | +3.3V |
-| | 7 | SPIX SYNC (A*) | --- |
+| | 7 | SPIX SYNC  | +3.3V |
 | | 8 | SPI6 DRDY-1 | +3.3V |
 | | 9 | SPI6 DRDY-2 | +3.3V |
 | | 10 | SPI6 NRST | +3.3V |
@@ -188,7 +202,7 @@ Full GPS port with safety switch, LED and buzzer outputs.
 | | 6 | SAFETY SWITCH IN | +3.3V |
 | | 7 | SAFETY LED OUT | +3.3V |
 | | 8 | FMU 3.3V | +3.3V |
-| | 9 | BUZZER | +3.3V |
+| | 9 | BUZZER-  | +3.3V |
 | | 10 | GROUND | GND |
 
 ### **Pixhawk GPS-2 (BASIC)**
@@ -306,7 +320,7 @@ PWM-controlled cooling fan with tachometer feedback.
 | | 4 | FAN TACHO | +3.3V |
 
 ### **CM5 FPC1 — Camera / Display 0**
-22-pin 0.5mm-pitch FPC carrying MIPI port 0 (4-lane) plus camera control I2C and GPIOs.
+22-pin 0.5mm-pitch FPC carrying MIPI port 0 (4-lane).
 
 | Connector | Pin | Signal | Voltage |
 | :------------------: | :-: | :----- | :-----: |
@@ -334,7 +348,7 @@ PWM-controlled cooling fan with tachometer feedback.
 | | 22 | CM5 3.3V | +3.3V |
 
 ### **CM5 FPC2 — Camera / Display 1**
-22-pin 0.5mm-pitch FPC carrying MIPI port 1 (4-lane) plus ID EEPROM I2C.
+22-pin 0.5mm-pitch FPC carrying MIPI port 1 (4-lane).
 
 | Connector | Pin | Signal | Voltage |
 | :------------------: | :-: | :----- | :-----: |
@@ -362,7 +376,7 @@ PWM-controlled cooling fan with tachometer feedback.
 | | 22 | CM5 3.3V | +3.3V |
 
 ### **CM5 M.2 Key**
-M.2 M-Key slot (PCIe / NVMe storage).
+M.2 M-Key 2230 or 2242 slot (PCIe / NVMe storage).
 
 | Connector | Pin | Signal | Voltage |
 | :-------: | :-: | :--- | :-----: |
@@ -415,8 +429,11 @@ Main board power input.
 | XT30 | 1 | 12-28V | +12/28V |
 | | 2 | GROUND | GND |
 
-!!! danger "Warning"
+!!! danger "Reverse Polarity"
     Observe correct polarity on the XT30 input. Input voltage must stay within **+12V to +28V**; reverse polarity or over-voltage may permanently damage the board.
+
+!!! danger "Use the Supplied XT30 Cable Only"
+    Power the board exclusively through the **XT30 cable supplied by Lectron**. Using a third-party or incorrectly wired cable may damage the onboard regulator stage. This cable compansate voltage ripples that are caused by motors.
 
 ---
 
