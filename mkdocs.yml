@@ -24,8 +24,11 @@ nav:
         - Block Diagram: md/raspberry/block-diagram.md
         - Pinout: md/raspberry/pinout.md
         - Specification: md/raspberry/specification.md
-        - Setup: md/raspberry/setup.md        
-        - Getting Started : md/raspberry/getting_started.md        
+        - Setup: md/raspberry/setup.md
+        - Getting Started : md/raspberry/getting_started.md
+        - CAM1 Port Setup: md/raspberry/cam1-setup.md
+        - Hailo-8 Integration: md/raspberry/hailo-setup.md
+        - RealSense Integration: md/raspberry/realsense-setup.md
 
 theme:
   name: material

@@ -13,3 +13,5 @@ This approach simplifies system integration, reduces cabling complexity, and imp
 FMU CM5 Autopilot is a compact autopilot platform that combines real-time flight control with the flexibility of Raspberry Pi 5 computing. It is designed to support advanced autonomy applications while maintaining stable and deterministic control behavior.
 
 The platform enables developers and system integrators to run high-level applications alongside flight control logic, making it suitable for prototyping, testing, and deployment of autonomous aerial systems. Its architecture bridges low-level control and high-level computing within a single integrated solution.
+
+![CM5 Autopilot Components Overview](../../images/raspberry/components_overview.png)
