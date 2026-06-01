@@ -1,4 +1,4 @@
-# Setup
+# Initial Installation
 
 To flash the eMMC on a Raspberry Pi Compute Module, the following components are required:
 
