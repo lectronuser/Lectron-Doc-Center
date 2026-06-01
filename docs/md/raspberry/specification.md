@@ -9,18 +9,16 @@
 | Power Monitor               | Internal Voltage & external I2C Current Monitor |
 | Supported Raspberry Modules | Compute Module 5 |
 | Camera Interface            | 2 × 22-Pin, 0.5 mm pitch CSI |
+| PCIe                        | M.2 Key-M 2230 & 2242 slot (PCIe Gen2 x1) |
 | USB                         | 2 × USB 3.0 Type-C, Micro USB 2.0 (host) |
 | Ethernet                    | 1 × 8-Pin, 1 Gbps |
 | GPIO                        | 6-Pin |
 | HDMI Output                 | Mini HDMI | 
-| CAN                         | 1 × 4-Pin |
-| I2C                         | 2 |
-| UART                        | 1 |
-| SPI                         | 1 |
-| PCIe                        | M.2 Key-M 2230 & 2242 slot (PCIe Gen2 x1) |
-| Sensor                      | BMI270 (SPI1_CS2) |
-| External SPI                | SPI1_CS1 |
-| CAN (SPI Interface)         | SPI1_CS0 |
+| I2C                         | 2 -> I2C1 / I2C3 |
+| UART                        | 1 -> UART2 |
+| SPI                         | CAN      -> SPI1_CS0 |
+|                             | External -> SPI1_CS1 |
+|                             | BMI270   -> (SPI1_CS2) |
 | FMU ↔ CM5 Communication     | FMU USART2 (TELEM3) ↔ UART3 (CM5) |
 | Cooling                     | Active and Passive |
 
@@ -36,22 +34,22 @@
 | FMU Status LEDs          | 3x LEDs (Red, Green, Blue) | 
 | IO Status LEDs          | 3x LEDs (Blue, Amber, Green) |
 | Cooling              | No active cooling |
-| TELEM                | TELEM1 (UART7) — 1 × 6-Pin |
-|                      | TELEM2 (UART5) — 1 × 6-Pin |
+| TELEM                | TELEM1 (UART7) |
+|                      | TELEM2 (UART5) |
 | GPS                  | Full 10-pin JST-GH (UART1, I2C1, 5V Out) |
 |                      | Basic 6-pin JST-GH (UART8, I2C2, 5V Out) |
 | USB                  | USB Type-C 5V |
 | SD Card              | MicroSD SDMMC interface |
-| CAN                  | 1 × 4-Pin |
-| I2C                  | 1 × 4-Pin |
-| UART                 | 1 × 4-Pin |
+| CAN                  | 1 |
+| I2C                  | I2C2 / I2C3 |
+| UART                 |  UART4 |
 | External SPI         | 11-pin JST-GH (SPI6, 2x CS, 2x DRDY, RESET) |
 | RC / SBUS            | PPM, S.BUS (5-pin JST-GH) |
 | PWM Outputs          | 8 Channels FMU + 8 Channels IO (10-pin JST-GH) |
 | Ethernet             | 4-pin JST-GH (LAN8742AI PHY) |
 | FMU/IO Debug Interface | SWD (10-pin JST-SH)  |
-| Jetson Link          | UART or Ethernet |
+| CM5 Link          | UART or Ethernet |
 | FMU Onboard Sensors  | IMU: ICM-42670-P (SPI), Barometer: BMP390 (I2C), FRAM: FM25V02A, EEPROM: AT24C02D |
 | Sensor Board         | IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer: BMP390 (I2C), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T |
 
-![Jetson Custom Board](../../images/raspberry/board_2.png)
+![CM5 Custom Board](../../images/raspberry/board_2.png)

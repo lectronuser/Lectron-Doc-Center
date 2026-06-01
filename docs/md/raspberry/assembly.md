@@ -61,7 +61,7 @@ The **IMU board (4)** connects to the FMU via the FPC ribbon cable.
 Route the ribbon cable and connect the IMU board to the FMU connector as shown.
 
 !!! danger "Handle the FPC Cable with Care"
-    Do **not** bend the cable sharply, pull on it, or force it into the connector.
+    Be **gentle** when seating the cable into the connector — insert it straight and apply only light, even pressure. Do **not** bend the cable sharply, pull on it, or force it in, as this may damage the ribbon cable or the connector.
 
 ![Connect the IMU board](../../images/raspberry/assembly_8.png)
 

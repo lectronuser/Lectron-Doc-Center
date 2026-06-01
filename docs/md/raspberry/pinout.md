@@ -460,5 +460,4 @@ Main board power input.
 ---
 
 !!! info "Reference"
-    Connector layout follows the **Pixhawk Bus Standard** on the FMU side. For background on the baseboard concept, see the Holybro
-    [Pixhawk RPi CM4 Baseboard documentation](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports).
+    Connector layout follows the **Pixhawk Bus Standard** on the FMU side.
