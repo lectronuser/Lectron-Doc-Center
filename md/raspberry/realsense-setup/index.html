@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../hailo-setup/">
+      
       
       
         
@@ -21,7 +23,7 @@
     
     
       
-        <title>Pinout - Technical Manuel</title>
+        <title>RealSense Integration - Technical Manuel</title>
       
     
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pinout" class="md-skip">
+        <a href="#intel-realsense-integration-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pinout
+              RealSense Integration
             
           </span>
         </div>
@@ -227,10 +229,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
   
@@ -655,28 +659,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -694,7 +701,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -961,10 +968,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../realsense-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RealSense Integration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -980,6 +1014,126 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#realsense-sdk-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RealSense SDK 2.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#realsense-ros-2-wrapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RealSense ROS 2 Wrapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-the-camera-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launching the Camera Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1009,10 +1163,153 @@
 
 
 
-<h1 id="pinout">Pinout<a class="headerlink" href="#pinout" title="Permanent link">&para;</a></h1>
-<div style="text-align: center; margin: 4rem 0; opacity: 0.65;">
-  <h1>Content Under Preparation</h1>
+<h1 id="intel-realsense-integration-guide">Intel RealSense Integration Guide<a class="headerlink" href="#intel-realsense-integration-guide" title="Permanent link">&para;</a></h1>
+<p><strong>Intel RealSense depth-camera integration for the Lectron PI5 Autopilot.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Board</strong></td>
+<td style="text-align: left;">Lectron PI5 Autopilot</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Camera</strong></td>
+<td style="text-align: left;">Intel RealSense D456i Depth Camera</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Middleware</strong></td>
+<td style="text-align: left;">ROS 2 Jazzy</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>OS</strong></td>
+<td style="text-align: left;">Ubuntu</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="prerequisites"><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Intel RealSense <strong>D456i</strong> depth camera (or compatible RealSense model)</li>
+<li>USB 3.0 Type-C to Type-C cable</li>
+<li>Lectron PI5 Autopilot board</li>
+<li>ROS 2 Jazzy <em>(required only if using the ROS 2 wrapper)</em></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p>If you plan to use the ROS 2 wrapper, install <strong>ROS 2 Jazzy</strong> before proceeding. Follow the <a href="https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html">official installation guide</a>.</p>
 </div>
+<hr />
+<h2 id="installation"><strong>Installation</strong><a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h3 id="realsense-sdk-20"><strong>RealSense SDK 2.0</strong><a class="headerlink" href="#realsense-sdk-20" title="Permanent link">&para;</a></h3>
+<p><strong>Step 1 — Register the Repository Public Key</strong></p>
+<p>Create the keyring directory and download the signing key:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/apt/keyrings
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>curl<span class="w"> </span>-sSf<span class="w"> </span>https://librealsense.realsenseai.com/Debian/librealsenseai.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/keyrings/librealsenseai.gpg<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</span></code></pre></div>
+<p><strong>Step 2 — Add the Repository</strong></p>
+<p>Register the Intel RealSense APT repository and refresh the package index:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/etc/apt/keyrings/librealsenseai.gpg] \</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s2">  https://librealsense.realsenseai.com/Debian/apt-repo \</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s2">  </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/librealsense.list
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span></code></pre></div>
+<p><strong>Step 3 — Install the SDK Libraries</strong></p>
+<p>Install the core utilities package (this will also configure udev rules automatically):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>librealsense2-utils
+</span></code></pre></div>
+<p><strong>Step 4 — Install Optional Packages</strong></p>
+<p>For development headers and debug symbols, install the following additional packages:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>librealsense2-dev
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>librealsense2-dbg
+</span></code></pre></div>
+<h3 id="realsense-ros-2-wrapper"><strong>RealSense ROS 2 Wrapper</strong><a class="headerlink" href="#realsense-ros-2-wrapper" title="Permanent link">&para;</a></h3>
+<p>Install the RealSense ROS 2 packages for the Jazzy distribution. This provides both the underlying library bindings and the camera node packages:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-jazzy-librealsense2*
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-jazzy-realsense2*
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p>Replace <code>jazzy</code> with your ROS 2 distribution name if you are running a different version.</p>
+</div>
+<hr />
+<h2 id="quick-usage"><strong>Quick Usage</strong><a class="headerlink" href="#quick-usage" title="Permanent link">&para;</a></h2>
+<h3 id="launching-the-camera-node"><strong>Launching the Camera Node</strong><a class="headerlink" href="#launching-the-camera-node" title="Permanent link">&para;</a></h3>
+<p>Run the following command to start the RealSense camera node. This configuration enables stereo infrared streams, depth output, point cloud generation, and IMU data:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">source</span><span class="w"> </span>/opt/ros/jazzy/setup.bash
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ros2<span class="w"> </span>run<span class="w"> </span>realsense2_camera<span class="w"> </span>realsense2_camera_node<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>__ns:<span class="o">=</span>/d456<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>-r<span class="w"> </span>__node:<span class="o">=</span>d456<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-p<span class="w"> </span>unite_imu_method:<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>-p<span class="w"> </span>enable_infra1:<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>-p<span class="w"> </span>enable_infra2:<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>-p<span class="w"> </span>depth_module.infra_profile:<span class="o">=</span>640x480x30<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>-p<span class="w"> </span>depth_module.depth_profile:<span class="o">=</span>640x480x30<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-p<span class="w"> </span>pointcloud.enable:<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span>-p<span class="w"> </span>gyro_fps:<span class="o">=</span><span class="m">200</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span>-p<span class="w"> </span>accel_fps:<span class="o">=</span><span class="m">200</span>
+</span></code></pre></div>
+<h3 id="parameter-reference"><strong>Parameter Reference</strong><a class="headerlink" href="#parameter-reference" title="Permanent link">&para;</a></h3>
+<p>The table below summarises the key parameters used in the launch command:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>__ns:=/d456</code></td>
+<td style="text-align: left;">Sets the ROS namespace for the node</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>__node:=d456</code></td>
+<td style="text-align: left;">Assigns a custom node name</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>unite_imu_method:=2</code></td>
+<td style="text-align: left;">Combines accelerometer and gyroscope data into a unified IMU topic using linear interpolation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>enable_infra1</code> / <code>enable_infra2</code></td>
+<td style="text-align: left;">Enables left and right stereo infrared streams</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>depth_module.infra_profile</code></td>
+<td style="text-align: left;">Sets infrared stream resolution and frame rate (640×480 at 30 fps)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>depth_module.depth_profile</code></td>
+<td style="text-align: left;">Sets depth stream resolution and frame rate (640×480 at 30 fps)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>pointcloud.enable</code></td>
+<td style="text-align: left;">Enables 3D point cloud generation from the depth stream</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>gyro_fps</code> / <code>accel_fps</code></td>
+<td style="text-align: left;">Sets gyroscope and accelerometer sampling rates (200 Hz)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="references"><strong>References</strong><a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p>Consult the following resources for further information:</p>
+<ul>
+<li><a href="https://github.com/realsenseai/librealsense/blob/master/doc/distribution_linux.md">Linux distribution guide</a></li>
+<li><a href="https://github.com/realsenseai/librealsense">librealsense (GitHub)</a></li>
+<li><a href="https://github.com/realsenseai/realsense-ros">realsense-ros (GitHub)</a></li>
+<li><a href="https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html">ROS 2 Jazzy installation</a></li>
+</ul>
 
 
 
@@ -1043,6 +1340,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../hailo-setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hailo-8 Integration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Hailo-8 Integration
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
