@@ -419,6 +419,28 @@ MicroSD slot for the Compute Module.
 
 ---
 
+## **DIP Switch (CM Switch)**
+
+The 8-position DIP switch (labelled **CM SWITCH**) configures CM5 boot and interface options.
+
+![DIP switch location](../../images/raspberry/dip_switch.png){ width="320" }
+
+!!! note "Switch State"
+    When the switches are toggled toward the **"CM SWITCH"** text (as shown above), they are in the **PASSIVE/DEFAULT** state.
+
+| # | Function |
+| :-: | :------- |
+| 1 | WiFi Disable (active low) |
+| 2 | Bluetooth Disable (active low) |
+| 3 | RPi Boot (eMMC boot disable) |
+| 4 | EEPROM Write Protect (active low) |
+| 5 | Ethernet Sync Out |
+| 6 | USB OTG ID |
+| 7 | PMIC Enable |
+| 8 | Power Button |
+
+---
+
 ## **Power Input**
 
 ### **Power Input (XT30)**
