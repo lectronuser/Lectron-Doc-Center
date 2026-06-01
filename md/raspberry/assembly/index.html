@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../setup/">
+        <link rel="prev" href="../specification/">
       
       
-        <link rel="next" href="../cam1-setup/">
+        <link rel="next" href="../setup/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Getting Started - Technical Manuel</title>
+        <title>Assembly - Technical Manuel</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#assembly-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Assembly
             
           </span>
         </div>
@@ -858,34 +858,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -898,6 +870,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -905,7 +895,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
+    Assembly
   
 
     
@@ -915,6 +905,130 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-the-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's in the Box
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-apply-the-thermal-pads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Apply the Thermal Pads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-mount-the-compute-module-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Mount the Compute Module 5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-connect-the-imu-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Connect the IMU Board
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-place-the-board-in-the-bottom-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Place the Board in the Bottom Case
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-close-with-the-top-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Close with the Top Case
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-fasten-the-screws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Fasten the Screws
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Initial Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1028,9 +1142,99 @@
 
 
 
-<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<div style="text-align: center; margin: 4rem 0; opacity: 0.65;">
-  <h1>Content Under Preparation</h1>
+<h1 id="assembly-guide">Assembly Guide<a class="headerlink" href="#assembly-guide" title="Permanent link">&para;</a></h1>
+<p>This guide walks through assembling the <strong>Lectron PI5 Autopilot</strong> — mounting the Raspberry Pi Compute Module 5, connecting the IMU board, and closing the enclosure.</p>
+<h2 id="whats-in-the-box"><strong>What's in the Box</strong><a class="headerlink" href="#whats-in-the-box" title="Permanent link">&para;</a></h2>
+<p>Before starting, make sure you have all of the following components:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Bottom case</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">CM5-FMU baseboard</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Top case (PI5 Autopilot heatsink + fan)</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">IMU board</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Raspberry Pi Compute Module 5 (CM5)</td>
+</tr>
+<tr>
+<td style="text-align: center;">—</td>
+<td style="text-align: left;">MicroSD card(s)</td>
+</tr>
+<tr>
+<td style="text-align: center;">—</td>
+<td style="text-align: left;">Screws: <strong>4 pcs M2×4 mm</strong> (IMU board) and <strong>5 pcs M2×10 mm</strong> (case)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Lectron PI5 Autopilot components overview" src="../../../images/raspberry/assembly_1.png" /></p>
+<hr />
+<h2 id="step-1-apply-the-thermal-pads"><strong>Step 1 — Apply the Thermal Pads</strong><a class="headerlink" href="#step-1-apply-the-thermal-pads" title="Permanent link">&para;</a></h2>
+<p>Before mounting the Compute Module 5, apply the supplied thermal pads to the CM5's chips. The pads transfer heat from the module to the top-case heatsink and are <strong>required</strong> for proper cooling.</p>
+<p>Place a thermal pad on each of the three areas marked <strong>1</strong>, <strong>2</strong>, and <strong>3</strong> on the CM5 as shown below.</p>
+<p><img alt="Thermal pad placement on the CM5" src="../../../images/raspberry/assembly_thermal_pad.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Don't Skip the Thermal Pads</p>
+<p>Operating the CM5 without the thermal pads in place can cause the module to overheat and throttle or shut down. Make sure all three pads are fitted before mounting the module.</p>
+</div>
+<hr />
+<h2 id="step-2-mount-the-compute-module-5"><strong>Step 2 — Mount the Compute Module 5</strong><a class="headerlink" href="#step-2-mount-the-compute-module-5" title="Permanent link">&para;</a></h2>
+<p>Align the CM5 with the board's connectors using the corner markings (<strong>1–4</strong>) and press it firmly onto the baseboard.</p>
+<p>If you are running the autopilot firmware from the FMU's microSD, insert it into the slot indicated (<strong>Insert FMU's SD Card Here</strong>).</p>
+<p><img alt="Mount the Compute Module 5" src="../../../images/raspberry/assembly_2.png" /></p>
+<p>Once seated correctly, the assembly should look like this:</p>
+<p><img alt="CM5 mounted on the baseboard" src="../../../images/raspberry/assembly_3.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">CM5 Lite</p>
+<p>If you are using a <strong>CM5 Lite</strong> (no onboard eMMC), insert a microSD card into the CM5's card slot as shown below.</p>
+<p><img alt="Insert SD card for CM5 Lite" src="../../../images/raspberry/assembly_4.png" /></p>
+</div>
+<hr />
+<h2 id="step-3-connect-the-imu-board"><strong>Step 3 — Connect the IMU Board</strong><a class="headerlink" href="#step-3-connect-the-imu-board" title="Permanent link">&para;</a></h2>
+<p>The <strong>IMU board (4)</strong> connects to the FMU via the FPC ribbon cable.</p>
+<p><img alt="The IMU board" src="../../../images/raspberry/assembly_7.png" /></p>
+<p>Route the ribbon cable and connect the IMU board to the FMU connector as shown.</p>
+<div class="admonition danger">
+<p class="admonition-title">Handle the FPC Cable with Care</p>
+<p>Do <strong>not</strong> bend the cable sharply, pull on it, or force it into the connector.</p>
+</div>
+<p><img alt="Connect the IMU board" src="../../../images/raspberry/assembly_8.png" /></p>
+<hr />
+<h2 id="step-4-place-the-board-in-the-bottom-case"><strong>Step 4 — Place the Board in the Bottom Case</strong><a class="headerlink" href="#step-4-place-the-board-in-the-bottom-case" title="Permanent link">&para;</a></h2>
+<p>Lower the assembled baseboard into the <strong>bottom case (1)</strong>, aligning the mounting holes.</p>
+<p><img alt="Place the board into the bottom case" src="../../../images/raspberry/assembly_5.png" /></p>
+<hr />
+<h2 id="step-5-close-with-the-top-case"><strong>Step 5 — Close with the Top Case</strong><a class="headerlink" href="#step-5-close-with-the-top-case" title="Permanent link">&para;</a></h2>
+<p>Fit the <strong>top case (2)</strong> — the P15 Autopilot heatsink and fan assembly — over the board, aligning the connector cutouts with the baseboard ports.</p>
+<p><img alt="Close the board with the top case" src="../../../images/raspberry/assembly_6.png" /></p>
+<hr />
+<h2 id="step-6-fasten-the-screws"><strong>Step 6 — Fasten the Screws</strong><a class="headerlink" href="#step-6-fasten-the-screws" title="Permanent link">&para;</a></h2>
+<p>Secure the assembly with the supplied screws:</p>
+<ul>
+<li><strong>M2×10 mm</strong> — fasten the case (heatsink to baseboard / bottom case).</li>
+<li><strong>M2×4 mm</strong> — secure the IMU board.</li>
+</ul>
+<p><img alt="Screw placement: M2x10mm and M2x4mm" src="../../../images/raspberry/assembly_9.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Done</p>
+<p>The Lectron PI5 Autopilot is now assembled. Continue with the <a href="../setup/">Initial Installation</a> guide to flash the Compute Module and the FMU firmware.</p>
 </div>
 
 
@@ -1067,7 +1271,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Setup">
+          <a href="../specification/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Specification">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1077,20 +1281,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Setup
+                Specification
               </div>
             </div>
           </a>
         
         
           
-          <a href="../cam1-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: CAM1 Port Setup">
+          <a href="../setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Initial Installation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                CAM1 Port Setup
+                Initial Installation
               </div>
             </div>
             <div class="md-footer__button md-icon">
