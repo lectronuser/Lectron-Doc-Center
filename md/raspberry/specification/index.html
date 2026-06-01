@@ -1118,6 +1118,10 @@
 <td>2 × 22-Pin, 0.5 mm pitch CSI</td>
 </tr>
 <tr>
+<td>PCIe</td>
+<td>M.2 Key-M 2230 &amp; 2242 slot (PCIe Gen2 x1)</td>
+</tr>
+<tr>
 <td>USB</td>
 <td>2 × USB 3.0 Type-C, Micro USB 2.0 (host)</td>
 </tr>
@@ -1134,36 +1138,24 @@
 <td>Mini HDMI</td>
 </tr>
 <tr>
-<td>CAN</td>
-<td>1 × 4-Pin</td>
-</tr>
-<tr>
 <td>I2C</td>
-<td>2</td>
+<td>2 -&gt; I2C1 / I2C3</td>
 </tr>
 <tr>
 <td>UART</td>
-<td>1</td>
+<td>1 -&gt; UART2</td>
 </tr>
 <tr>
 <td>SPI</td>
-<td>1</td>
+<td>CAN      -&gt; SPI1_CS0</td>
 </tr>
 <tr>
-<td>PCIe</td>
-<td>M.2 Key-M 2230 &amp; 2242 slot (PCIe Gen2 x1)</td>
+<td></td>
+<td>External -&gt; SPI1_CS1</td>
 </tr>
 <tr>
-<td>Sensor</td>
-<td>BMI270 (SPI1_CS2)</td>
-</tr>
-<tr>
-<td>External SPI</td>
-<td>SPI1_CS1</td>
-</tr>
-<tr>
-<td>CAN (SPI Interface)</td>
-<td>SPI1_CS0</td>
+<td></td>
+<td>BMI270   -&gt; (SPI1_CS2)</td>
 </tr>
 <tr>
 <td>FMU ↔ CM5 Communication</td>
@@ -1218,11 +1210,11 @@
 </tr>
 <tr>
 <td>TELEM</td>
-<td>TELEM1 (UART7) — 1 × 6-Pin</td>
+<td>TELEM1 (UART7)</td>
 </tr>
 <tr>
 <td></td>
-<td>TELEM2 (UART5) — 1 × 6-Pin</td>
+<td>TELEM2 (UART5)</td>
 </tr>
 <tr>
 <td>GPS</td>
@@ -1242,15 +1234,15 @@
 </tr>
 <tr>
 <td>CAN</td>
-<td>1 × 4-Pin</td>
+<td>1</td>
 </tr>
 <tr>
 <td>I2C</td>
-<td>1 × 4-Pin</td>
+<td>I2C2 / I2C3</td>
 </tr>
 <tr>
 <td>UART</td>
-<td>1 × 4-Pin</td>
+<td>UART4</td>
 </tr>
 <tr>
 <td>External SPI</td>
@@ -1273,7 +1265,7 @@
 <td>SWD (10-pin JST-SH)</td>
 </tr>
 <tr>
-<td>Jetson Link</td>
+<td>CM5 Link</td>
 <td>UART or Ethernet</td>
 </tr>
 <tr>
@@ -1286,7 +1278,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Jetson Custom Board" src="../../../images/raspberry/board_2.png" /></p>
+<p><img alt="CM5 Custom Board" src="../../../images/raspberry/board_2.png" /></p>
 
 
 
