@@ -275,9 +275,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Technical Manuel" class="md-nav__button md-logo" aria-label="Technical Manuel" data-md-component="logo">
       
@@ -805,14 +803,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../pinout/" class="md-nav__link">
+      <a href="../specification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Pinout
+    Specification
   
 
     
@@ -833,14 +831,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../specification/" class="md-nav__link">
+      <a href="../pinout/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Specification
+    Pinout
   
 
     
@@ -1259,6 +1257,209 @@
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hailort-installation-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HailoRT Installation (From Source)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HailoRT Installation (From Source)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcie-driver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCIe Driver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hailort-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HailoRT Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Device
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tappas-core-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TAPPAS Core Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hailo-model-zoo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hailo Model Zoo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gstreamer-pipeline-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GStreamer Pipeline Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GStreamer Pipeline Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-camera-pipeline-object-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual Camera Pipeline (Object Detection)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream-over-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream over UDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-element-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline Element Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -1722,7 +1923,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "navigation.expand", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight", "toc.integrate", "content.tabs.linked", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "navigation.expand", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight", "toc.follow", "content.tabs.linked", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
