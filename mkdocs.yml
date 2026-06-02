@@ -19,18 +19,18 @@ nav:
         - Network: md/jetson/network.md        
 
     - Pi5 Autopilot:
-        - Overview: md/raspberry/overview.md
+        - Overview: md/raspberry/index.md
         - Dimension: md/raspberry/dimension.md
         - Block Diagram: md/raspberry/block-diagram.md
         - Specification: md/raspberry/specification.md
         - Pinout: md/raspberry/pinout.md
         - Assembly: md/raspberry/assembly.md
-        - Initial Installation: md/raspberry/initial-installation.md
+        - Initial Installation: md/raspberry/setup.md
         - CM5 GPIO: md/raspberry/cm5-gpio.md
-        - CAM1 Port Setup: md/raspberry/cam1-port-setup.md
-        - Hailo-8 Integration: md/raspberry/hailo-8-integration.md
-        - RealSense Integration: md/raspberry/realsense-integration.md
-        - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-communication.md
+        - CAM1 Port Setup: md/raspberry/cam1-setup.md
+        - Hailo-8 Integration: md/raspberry/hailo-setup.md
+        - RealSense Integration: md/raspberry/realsense-setup.md
+        - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
 
 theme:
   name: material
