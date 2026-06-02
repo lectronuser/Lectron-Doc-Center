@@ -6,13 +6,14 @@ To flash the eMMC on a Raspberry Pi Compute Module, the following components are
 - Micro USB cable
 - Raspberry Pi Compute Module with a compatible carrier board
 
-## **Set up the Board**
+## CM5 Installation
+### **Set up the Board**
 
 - To **disable eMMC boot** on the Raspberry Pi: Set the **nRPI_BOOT** pin to HIGH using the **8-pin DIP** switch on the board
 **(typically the 3rd switch)**.
 - Connect the board to the host device using a Micro USB cable.
 
-## **Set up the Host Device**
+### **Set up the Host Device**
 
 !!! note "Note"
 
@@ -54,7 +55,7 @@ To flash the eMMC on a Raspberry Pi Compute Module, the following components are
 	![image](../../images/raspberry/rpiboot.png)
 
 
-## **Raspberry Pi Imager**
+### **Raspberry Pi Imager**
 
 - Launch the Raspberry Pi Imager application.
 - Select Raspberry Pi 5 as the target board.
@@ -126,7 +127,7 @@ Select the connection settings on the right-hand panel as shown below, then use 
 6. Check the programming configuration options as indicated in the reference layout.
 7. Click **Start Programming**.
 
-![IO bootloader installation](../../images/raspberry/fmu_cubeprog_programming.jpg)
+![IO bootloader installation](../../images/raspberry/io-bootloader-_programming.png)
 
 8. Once complete, dismiss the *"Download verified successfully"* and *"File download complete"* alerts by clicking **OK**.
 9. The **IO installation is complete**.

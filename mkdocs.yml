@@ -22,8 +22,8 @@ nav:
         - Overview: md/raspberry/index.md
         - Dimension: md/raspberry/dimension.md
         - Block Diagram: md/raspberry/block-diagram.md
-        - Pinout: md/raspberry/pinout.md
         - Specification: md/raspberry/specification.md
+        - Pinout: md/raspberry/pinout.md
         - Assembly: md/raspberry/assembly.md
         - Initial Installation: md/raspberry/setup.md
         - CAM1 Port Setup: md/raspberry/cam1-setup.md
@@ -51,7 +51,7 @@ theme:
     - content.code.annotate
     - search.suggest
     - search.highlight
-    - toc.integrate
+    - toc.follow
     - content.tabs.linked
     - header.autohide
     - announce.dismiss

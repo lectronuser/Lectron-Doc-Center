@@ -52,7 +52,23 @@ Once seated correctly, the assembly should look like this:
 
 ---
 
-## **Step 3 — Connect the IMU Board**
+## **Step 3 — Place the Board in the Bottom Case**
+
+Lower the assembled baseboard into the **bottom case (1)**, aligning the mounting holes.
+
+![Place the board into the bottom case](../../images/raspberry/assembly_5.png)
+
+---
+
+## **Step 4 — Close with the Top Case**
+
+Fit the **top case (2)** — the P15 Autopilot heatsink and fan assembly — over the board, aligning the connector cutouts with the baseboard ports.
+
+![Close the board with the top case](../../images/raspberry/assembly_6.png)
+
+---
+
+## **Step 5 — Connect the IMU Board**
 
 The **IMU board (4)** connects to the FMU via the FPC ribbon cable.
 
@@ -64,22 +80,6 @@ Route the ribbon cable and connect the IMU board to the FMU connector as shown.
     Be **gentle** when seating the cable into the connector — insert it straight and apply only light, even pressure. Do **not** bend the cable sharply, pull on it, or force it in, as this may damage the ribbon cable or the connector.
 
 ![Connect the IMU board](../../images/raspberry/assembly_8.png)
-
----
-
-## **Step 4 — Place the Board in the Bottom Case**
-
-Lower the assembled baseboard into the **bottom case (1)**, aligning the mounting holes.
-
-![Place the board into the bottom case](../../images/raspberry/assembly_5.png)
-
----
-
-## **Step 5 — Close with the Top Case**
-
-Fit the **top case (2)** — the P15 Autopilot heatsink and fan assembly — over the board, aligning the connector cutouts with the baseboard ports.
-
-![Close the board with the top case](../../images/raspberry/assembly_6.png)
 
 ---
 

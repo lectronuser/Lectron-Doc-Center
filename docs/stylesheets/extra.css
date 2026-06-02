@@ -276,3 +276,39 @@
 
 .md-footer__link--prev { margin-right: auto !important; }
 .md-footer__link--next { margin-left: auto !important; }
+
+/* ---- Right-hand "On this page" table of contents ---- */
+
+/* Make the TOC title stand out */
+.md-nav--secondary .md-nav__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: .68rem;
+  opacity: .9;
+}
+
+/* Top-level (## ) headings: clear, slightly bolder */
+.md-nav--secondary .md-nav__item > .md-nav__link {
+  font-weight: 600;
+}
+
+/* Nested (### ) sub-headings: indented under their parent with a guide line */
+.md-nav--secondary .md-nav__item .md-nav__item {
+  border-left: 2px solid var(--md-default-fg-color--lightest);
+  margin-left: .35rem;
+  padding-left: .55rem;
+}
+
+.md-nav--secondary .md-nav__item .md-nav__item > .md-nav__link {
+  font-weight: 400;
+  font-size: .72rem;
+  opacity: .85;
+}
+
+/* Highlight the section currently in view */
+.md-nav--secondary .md-nav__link--active,
+.md-nav--secondary .md-nav__link--passed.md-nav__link--active {
+  color: var(--md-accent-fg-color) !important;
+  font-weight: 700;
+}
