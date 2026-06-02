@@ -93,4 +93,4 @@ Secure the assembly with the supplied screws:
 ![Screw placement: M2x10mm and M2x4mm](../../images/raspberry/assembly_9.png)
 
 !!! tip "Done"
-    The Lectron PI5 Autopilot is now assembled. Continue with the [Initial Installation](setup.md) guide to flash the Compute Module and the FMU firmware.
+    The Lectron PI5 Autopilot is now assembled. Continue with the [Initial Installation](initial-installation.md) guide to flash the Compute Module and the FMU firmware.

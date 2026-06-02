@@ -24,7 +24,7 @@ lspci
 ```
 
 !!! note "Dual Cameras"
-    If you are planning to use dual cameras, follow the [CAM1 Port Setup Guide](cam1-setup.md) to enable the second camera first.
+    If you are planning to use dual cameras, follow the [CAM1 Port Setup Guide](cam1-port-setup.md) to enable the second camera first.
 
 Ensure the following packages are installed before proceeding:
 
