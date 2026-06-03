@@ -37,7 +37,7 @@ Place a thermal pad on each of the three areas marked **1**, **2**, and **3** on
 
 Align the CM5 with the board's connectors using the corner markings (**1–4**) and press it firmly onto the baseboard.
 
-If you are running the autopilot firmware from the FMU's microSD, insert it into the slot indicated (**Insert FMU's SD Card Here**).
+Insert an SD card into the FMU SD card slot (**Insert FMU's SD Card Here**).
 
 ![Mount the Compute Module 5](../../images/raspberry/assembly_2.png)
 
