@@ -3,9 +3,9 @@
 
 ## **Jetson & System Support**
 
-<div class="image-row">
-  <img src="/images/jetson/board_7.png" alt="Jetson Board">
-  <img src="/images/jetson/board_8.png" alt="Jetson Board">
+<div class="image-row" markdown="1">
+![Jetson Board](../../images/jetson/board_7.png)
+![Jetson Board](../../images/jetson/board_8.png)
 </div>
 
 
@@ -32,9 +32,9 @@
 
 ## **Pixhawk & System Support**
 
-<div class="image-row">
-  <img src="/images/jetson/board_9.png" alt="Jetson Board">
-  <!-- <img src="/images/jetson/board_2.png" alt="Jetson Board"> -->
+<div class="image-row" markdown="1">
+![Jetson Board](../../images/jetson/board_9.png)
+<!-- ![Jetson Board](../../images/jetson/board_2.png) -->
 </div>
 
 
@@ -67,9 +67,9 @@
 ## **Power Architecture**
 
 
-<div class="image-row">
-  <img src="/images/jetson/board_10.png" alt="Jetson Board">
-  <img src="/images/jetson/board_6.png" alt="Jetson Board">
+<div class="image-row" markdown="1">
+![Jetson Board](../../images/jetson/board_10.png)
+![Jetson Board](../../images/jetson/board_6.png)
 </div>
 
 
@@ -88,9 +88,9 @@
 
 ## **Thermal Management**
 
-<div class="image-row">
-  <img src="/images/jetson/board_4.png" alt="Jetson Board">
-  <img src="/images/jetson/board_5.png" alt="Jetson Board">
+<div class="image-row" markdown="1">
+![Jetson Board](../../images/jetson/board_4.png)
+![Jetson Board](../../images/jetson/board_5.png)
 </div>
 
 | Feature | Description |
