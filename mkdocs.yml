@@ -28,7 +28,7 @@ nav:
         - Initial Installation: md/raspberry/setup.md
         - CM5 GPIO: md/raspberry/cm5-gpio.md
         # - CM5 PWM: md/raspberry/cm5-pwm.md
-        - CAM1 Port Setup: md/raspberry/cam1-setup.md
+        - Camera Setup: md/raspberry/cam1-setup.md
         - Hailo-8 Integration: md/raspberry/hailo-setup.md
         - RealSense Integration: md/raspberry/realsense-setup.md
         - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
