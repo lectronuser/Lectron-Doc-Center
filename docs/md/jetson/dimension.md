@@ -1,3 +1,7 @@
-# Dimension
+# Dimensions
 
-![Jetson Custom Board](../../images/jetson/dimension.png)
+# Assembly Dimension
+
+# Case Dimension
+
+![Jetson Custom Board](../../images/jetson/case_dimension.jpg)
