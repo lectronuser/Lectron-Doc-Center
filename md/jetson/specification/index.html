@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../pinout/">
+        <link rel="prev" href="../block-diagram/">
       
       
-        <link rel="next" href="../setup/">
+        <link rel="next" href="../pinout/">
       
       
         
@@ -459,34 +459,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../pinout/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Pinout
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -583,6 +555,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ethernet-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ethernet Switch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#thermal-management" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -609,6 +592,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../pinout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assembly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../setup/" class="md-nav__link">
         
   
@@ -616,7 +655,7 @@
   <span class="md-ellipsis">
     
   
-    Setup
+    Initial Installation
   
 
     
@@ -1206,6 +1245,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ethernet-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ethernet Switch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#thermal-management" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1280,32 +1330,48 @@
 <td>2 × 4-Pin, 100 Mbps</td>
 </tr>
 <tr>
-<td>GPIO</td>
-<td>1 × 10-Pin</td>
-</tr>
-<tr>
-<td>I2C</td>
-<td>2 × 4-Pin (isolated buses)</td>
-</tr>
-<tr>
-<td>UART</td>
-<td>1 × 4-Pin (isolated buses)</td>
-</tr>
-<tr>
-<td>CAN</td>
-<td>1 × 4-Pin</td>
-</tr>
-<tr>
-<td>SPI</td>
-<td>1 × 6-Pin</td>
-</tr>
-<tr>
 <td>CSI Camera</td>
 <td>2x 15-pin FFC</td>
 </tr>
 <tr>
-<td>Sensor</td>
-<td>BMI270 (SPI)</td>
+<td>GPIO</td>
+<td>6-Pin</td>
+</tr>
+<tr>
+<td>I2C</td>
+<td>I2C0</td>
+</tr>
+<tr>
+<td></td>
+<td>I2C1</td>
+</tr>
+<tr>
+<td>UART</td>
+<td>UART0 <sup id="fnref:a"><a class="footnote-ref" href="#fn:a">1</a></sup></td>
+</tr>
+<tr>
+<td></td>
+<td>UART1</td>
+</tr>
+<tr>
+<td>DEBUG UART</td>
+<td>UART2</td>
+</tr>
+<tr>
+<td>SPI</td>
+<td>External -&gt; CS0</td>
+</tr>
+<tr>
+<td></td>
+<td>CAN -&gt; CS1</td>
+</tr>
+<tr>
+<td></td>
+<td>BMI270 -&gt; GPIO10</td>
+</tr>
+<tr>
+<td></td>
+<td>ETH Switch (KSZ8795) -&gt; GPIO11</td>
 </tr>
 </tbody>
 </table>
@@ -1323,8 +1389,8 @@
 </thead>
 <tbody>
 <tr>
-<td>Supported Autopilots</td>
-<td>Pixhawk 5X, Pixhawk 6X</td>
+<td>Supported Firmware</td>
+<td>ArduPilot, PX4</td>
 </tr>
 <tr>
 <td>FMU Processor</td>
@@ -1351,40 +1417,48 @@
 <td>Pixhawk &amp; Jetson standards</td>
 </tr>
 <tr>
-<td>Cooling</td>
-<td>Designed for heavy workloads</td>
-</tr>
-<tr>
 <td>Main Connectors</td>
 <td>100-Pin &amp; 50-Pin Hirose DF40</td>
 </tr>
 <tr>
 <td>TELEM</td>
-<td>2 × 6-Pin JST-GH (UART4 and I2C3)</td>
+<td>TELEM1  (UART7)</td>
+</tr>
+<tr>
+<td></td>
+<td>TELEM2  (UART5)</td>
+</tr>
+<tr>
+<td></td>
+<td>TELEM3  (USART2) <sup id="fnref2:a"><a class="footnote-ref" href="#fn:a">1</a></sup></td>
 </tr>
 <tr>
 <td>GPS</td>
-<td>Full (10-Pin), Basic (6-Pin)</td>
+<td>Full 10-pin JST-GH (UART1, I2C1, 5V Out)</td>
+</tr>
+<tr>
+<td></td>
+<td>Basic 6-pin JST-GH (UART8, I2C2, 5V Out)</td>
 </tr>
 <tr>
 <td>CAN</td>
-<td>1 × 4-Pin</td>
+<td>1</td>
 </tr>
 <tr>
 <td>I2C</td>
-<td>1 × 4-Pin</td>
+<td>I2C3</td>
 </tr>
 <tr>
 <td>UART</td>
-<td>1 × 4-Pin</td>
+<td>UART4</td>
 </tr>
 <tr>
 <td>FMU USB</td>
-<td>USB Type-C, 5V VBUS sense</td>
+<td>USB Type-C</td>
 </tr>
 <tr>
 <td>RC / SBUS</td>
-<td>PPM, S.BUS, DSM (5-Pin JST-GH)</td>
+<td>PPM, S.BUS (5-Pin JST-GH)</td>
 </tr>
 <tr>
 <td>PWM Outputs</td>
@@ -1408,7 +1482,7 @@
 </tr>
 <tr>
 <td>Sensor Board</td>
-<td>IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer:BMP390 (SPI), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T</td>
+<td>IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer:BMP390 (I2C), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T</td>
 </tr>
 </tbody>
 </table>
@@ -1427,19 +1501,15 @@
 <tbody>
 <tr>
 <td>Power-In</td>
-<td>XT30 with reverse protection, soft-start</td>
+<td>XT30 with reverse protection</td>
 </tr>
 <tr>
 <td>Input Voltage</td>
-<td>7V – 28V (3S-6S LiPo)</td>
+<td>12V – 25V (3S-6S LiPo)</td>
 </tr>
 <tr>
 <td>Power Monitor</td>
 <td>Internal Voltage &amp; external I2C Current Monitor</td>
-</tr>
-<tr>
-<td>Bulk Capacitor</td>
-<td>220 uF</td>
 </tr>
 <tr>
 <td>5.0 V Rail</td>
@@ -1463,6 +1533,41 @@
 </tr>
 </tbody>
 </table>
+<h2 id="ethernet-switch"><strong>Ethernet Switch</strong><a class="headerlink" href="#ethernet-switch" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IC</td>
+<td>KSZ8795 5-Port 10/100 Managed Switch</td>
+</tr>
+<tr>
+<td>Port Speed</td>
+<td>100 Mbps per port</td>
+</tr>
+<tr>
+<td>External Ports</td>
+<td>2 × 4-Pin (Ethernet 1 &amp; Ethernet 2)</td>
+</tr>
+<tr>
+<td>Internal Ports</td>
+<td>1 × Jetson MAC, 1 × FMU MAC</td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>SPI (Jetson SPI0-CS1)</td>
+</tr>
+<tr>
+<td>Status LEDs</td>
+<td>4 × Blue — link / activity per port</td>
+</tr>
+</tbody>
+</table>
 <h2 id="thermal-management"><strong>Thermal Management</strong><a class="headerlink" href="#thermal-management" title="Permanent link">&para;</a></h2>
 <div class="image-row">
 <p><img alt="Jetson Board" src="../../../images/jetson/board_4.png" />
@@ -1478,11 +1583,11 @@
 <tbody>
 <tr>
 <td>Fans</td>
-<td>2 × 12 VDC, 12 W Intake Blower</td>
+<td>2 × 5 VDC, 0.75 W Intake Blower</td>
 </tr>
 <tr>
 <td>Fan Control</td>
-<td>Jetson fan framework or On/Off</td>
+<td>Jetson fan framework</td>
 </tr>
 <tr>
 <td>Airflow</td>
@@ -1491,6 +1596,15 @@
 </tbody>
 </table>
 <p><img alt="Jetson Custom Board" src="../../../images/jetson/board_12.png" /></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:a">
+<p>TELEM3 (FMU USART2) and Jetson UART0 are bridged by default, enabling direct serial communication between the FMU and Jetson. To operate each port independently, remove the bridge resistors indicated in the image below.</p>
+<p><img _="," alt="Bridge Resistors" src="../../../images/jetson/bridge_resistors.png" style="transform: rotate(90deg); display: block; margin: 0 auto;" width="300" />&#160;<a class="footnote-backref" href="#fnref:a" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:a" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
@@ -1526,7 +1640,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../pinout/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pinout">
+          <a href="../block-diagram/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Block Diagram">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1536,20 +1650,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Pinout
+                Block Diagram
               </div>
             </div>
           </a>
         
         
           
-          <a href="../setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Setup">
+          <a href="../pinout/" class="md-footer__link md-footer__link--next" aria-label="Next: Pinout">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Setup
+                Pinout
               </div>
             </div>
             <div class="md-footer__button md-icon">
