@@ -1239,8 +1239,8 @@
 
 
 
-<h1 id="gpio-control">GPIO Control<a class="headerlink" href="#gpio-control" title="Permanent link">&para;</a></h1>
-<h2 id="jetson-nano-gpio-to-sysfs-mapping-table"><strong>Jetson Nano GPIO to Sysfs Mapping Table</strong><a class="headerlink" href="#jetson-nano-gpio-to-sysfs-mapping-table" title="Permanent link">&para;</a></h2>
+<h1 id="gpio-control">GPIO Control</h1>
+<h2 id="jetson-nano-gpio-to-sysfs-mapping-table"><strong>Jetson Nano GPIO to Sysfs Mapping Table</strong></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">28</span>:<span class="w"> </span>GPI02<span class="w"> </span>→<span class="w"> </span><span class="m">62</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">34</span>:<span class="w"> </span>GPI05<span class="w"> </span>→<span class="w"> </span><span class="m">63</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">36</span>:<span class="w"> </span>GPI06<span class="w"> </span>→<span class="w"> </span><span class="m">64</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
@@ -1251,7 +1251,7 @@
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">40</span>:<span class="w"> </span>GPI08<span class="w"> </span>→<span class="w"> </span><span class="m">202</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>-<span class="w"> </span>Pin<span class="w"> </span>..:<span class="w"> </span>GPI09<span class="w"> </span>→<span class="w"> </span><span class="m">216</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
 </span></code></pre></div>
-<h2 id="what-is-sysfs"><strong>What is <code>sysfs</code>?</strong><a class="headerlink" href="#what-is-sysfs" title="Permanent link">&para;</a></h2>
+<h2 id="what-is-sysfs"><strong>What is <code>sysfs</code>?</strong></h2>
 <p>Linux exposes hardware interfaces under <code>/sys</code> using a special virtual filesystem called sysfs.
 GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside this structure.</p>
 <div class="admonition note">
@@ -1357,7 +1357,7 @@ To resolve this issue, install the required packages using:
  <code>bash
 sudo apt-get install -y gpiod libgpiod-dev</code></p>
 </div>
-<h2 id="how-to-calculate-the-sysfs-value-from-a-gpio-name"><strong>How to Calculate the Sysfs Value from a GPIO Name?</strong><a class="headerlink" href="#how-to-calculate-the-sysfs-value-from-a-gpio-name" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-calculate-the-sysfs-value-from-a-gpio-name"><strong>How to Calculate the Sysfs Value from a GPIO Name?</strong></h2>
 <ul>
 <li>Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA’s official <a href="https://developer.nvidia.com/embedded/downloads">documentation page</a>.</li>
 <li>Inside the downloaded <code>pinmux_config_template.xlsm</code> file, you will find two sheets:<ul>

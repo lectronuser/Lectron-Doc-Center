@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#assembly" class="md-skip">
+        <a href="#assembly-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -527,6 +527,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -543,6 +561,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-the-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's in the Box
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-mount-the-lectron-v6x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Mount the Lectron V6X
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-mount-the-power-module-and-io-expansion-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Mount the Power Module and IO Expansion Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1113,6 +1183,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-the-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's in the Box
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-mount-the-lectron-v6x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Mount the Lectron V6X
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-mount-the-power-module-and-io-expansion-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Mount the Power Module and IO Expansion Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1128,7 +1239,102 @@
 
 
 
-<h1 id="assembly">Assembly<a class="headerlink" href="#assembly" title="Permanent link">&para;</a></h1>
+<h1 id="assembly-guide">Assembly Guide</h1>
+<p>This guide walks through assembling the <strong>Lectron Jetson Autopilot</strong> — mounting the Jetson module, connecting the sensor board, and installing the enclosure and fans.</p>
+<h2 id="whats-in-the-box"><strong>What's in the Box</strong></h2>
+<p>Before starting, make sure you have all of the following components:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Bottom case (heatsink)</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Top case</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Bottom case plate</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">IMU board</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Lectron Baseboard</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Power board</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Lectron V6X Module</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Jetson module</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">IO Expansion board</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">Fan (×2)</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">Fan guard</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">4 pcs M2.5x20 mm screws</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">11 pcs M2×6 mm screws</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">8 pcs M2×4 mm screws</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">6 pcs M2×12 mm screws</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Lectron Jetson Autopilot components overview" src="../../../images/jetson/assembly_1.png" /></p>
+<hr />
+<h2 id="step-1-mount-the-lectron-v6x"><strong>Step 1 — Mount the Lectron V6X</strong></h2>
+<div class="admonition danger">
+<p class="admonition-title">Handle with Care</p>
+<p>Before mounting, verify the alignment carefully. Once confirmed, press the module down gently and evenly. Forcing a misaligned module may permanently damage the flight controller connectors.</p>
+</div>
+<p>Align the Lectron V6X board over the baseboard using the four mounting holes (<strong>1–4</strong>) and press it down until it seats onto the connectors.</p>
+<p><img alt="Lectron V6X alignment" src="../../../images/jetson/assembly_2.png" /></p>
+<hr />
+<h2 id="step-2-mount-the-power-module-and-io-expansion-module"><strong>Step 2 — Mount the Power Module and IO Expansion Module</strong></h2>
+<p>Two add-on modules attach to the top of the baseboard in the positions marked by the numbered labels:</p>
+<ul>
+<li><strong>Top right</strong> — Power module, aligned to positions <strong>2</strong> and <strong>3</strong></li>
+<li><strong>Bottom right</strong> — IO expansion module, aligned to positions <strong>4</strong> and <strong>5</strong></li>
+</ul>
+<p>Seat each module in order, following the numbering on the board.</p>
+<p><img alt="Power and IO modules before mounting" src="../../../images/jetson/assembly_3.png" /></p>
+<p>Once both modules are seated correctly, the assembly should look like this:</p>
+<p><img alt="Fully assembled board stack" src="../../../images/jetson/assembly_4.png" /></p>
+<hr />
+<p><em>More assembly steps will be added as the guide is completed.</em></p>
 
 
 

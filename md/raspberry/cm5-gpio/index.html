@@ -1529,7 +1529,7 @@
 
 
 
-<h1 id="cm5-gpio">CM5 GPIO<a class="headerlink" href="#cm5-gpio" title="Permanent link">&para;</a></h1>
+<h1 id="cm5-gpio">CM5 GPIO</h1>
 <p><strong>General Purpose I/O — Hardware &amp; Software Guide</strong></p>
 <table>
 <thead>
@@ -1554,15 +1554,15 @@
 </tbody>
 </table>
 <hr />
-<h2 id="hardware-overview"><strong>Hardware Overview</strong><a class="headerlink" href="#hardware-overview" title="Permanent link">&para;</a></h2>
+<h2 id="hardware-overview"><strong>Hardware Overview</strong></h2>
 <p>The CM GPIO port is a 10-pin JST GH connector (<strong>SM10B-GHS</strong>) on the Lectron PI5 Autopilot board. It exposes six general-purpose I/O lines from the Raspberry Pi CM5, a 5 V power supply pin, and a ground reference. Pins 8 and 9 carry UART2 TX/RX and are not covered in this document.</p>
-<h3 id="board-photos"><strong>Board Photos</strong><a class="headerlink" href="#board-photos" title="Permanent link">&para;</a></h3>
+<h3 id="board-photos"><strong>Board Photos</strong></h3>
 <p>The image below shows the CM GPIO connector with an LED test harness connected.</p>
 <p><img alt="Full board with LED test harness connected" src="../../../images/raspberry/gpio_figure_1.png" width="360" /></p>
 <p>The connector is located on the board side panel:</p>
 <p><img alt="CM GPIO connector location highlighted on the board side panel" src="../../../images/raspberry/gpio_figure_2.png" width="320" /></p>
 <hr />
-<h2 id="pin-assignment"><strong>Pin Assignment</strong><a class="headerlink" href="#pin-assignment" title="Permanent link">&para;</a></h2>
+<h2 id="pin-assignment"><strong>Pin Assignment</strong></h2>
 <p>The table below lists all 10 pins of the CM GPIO connector. The six GPIO pins are the focus of this document.</p>
 <table>
 <thead>
@@ -1652,8 +1652,8 @@
 <p>Pins 8 and 9 (UART2 TX/RX) share the same connector but are documented separately in the UART interface guide.</p>
 </div>
 <hr />
-<h2 id="linux-gpio-interface"><strong>Linux GPIO Interface</strong><a class="headerlink" href="#linux-gpio-interface" title="Permanent link">&para;</a></h2>
-<h3 id="gpio-chip"><strong>GPIO Chip</strong><a class="headerlink" href="#gpio-chip" title="Permanent link">&para;</a></h3>
+<h2 id="linux-gpio-interface"><strong>Linux GPIO Interface</strong></h2>
+<h3 id="gpio-chip"><strong>GPIO Chip</strong></h3>
 <p>On Ubuntu 24.04 with the CM5, the main RP1 GPIO controller is exposed as <strong><code>gpiochip4</code></strong>. This is the chip that controls GPIO22–GPIO27.</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>sudo<span class="w"> </span>gpiodetect
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">gpiochip0 [gpio-brcmstb@107d508500] (32 lines)</span>
@@ -1662,7 +1662,7 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">gpiochip3 [gpio-brcmstb@107d517c20] (6 lines)</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">gpiochip4 [pinctrl-rp1] (54 lines)    &lt;-- this one</span>
 </span></code></pre></div>
-<h3 id="verify-gpio-lines"><strong>Verify GPIO Lines</strong><a class="headerlink" href="#verify-gpio-lines" title="Permanent link">&para;</a></h3>
+<h3 id="verify-gpio-lines"><strong>Verify GPIO Lines</strong></h3>
 <p>Confirm GPIO22–27 are available and unused:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>sudo<span class="w"> </span>gpioinfo<span class="w"> </span>gpiochip4<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;GPIO2[2-7]&#39;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">line  22: &quot;GPIO22&quot;  unused  input  active-high</span>
@@ -1673,28 +1673,28 @@
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="go">line  27: &quot;GPIO27&quot;  unused  input  active-high</span>
 </span></code></pre></div>
 <hr />
-<h2 id="command-line-usage-gpiod"><strong>Command-Line Usage (gpiod)</strong><a class="headerlink" href="#command-line-usage-gpiod" title="Permanent link">&para;</a></h2>
+<h2 id="command-line-usage-gpiod"><strong>Command-Line Usage (gpiod)</strong></h2>
 <p>The <code>gpiod</code> package is pre-installed on Ubuntu 24.04. All commands require <code>sudo</code>.</p>
-<h3 id="set-a-single-pin-high"><strong>Set a Single Pin HIGH</strong><a class="headerlink" href="#set-a-single-pin-high" title="Permanent link">&para;</a></h3>
+<h3 id="set-a-single-pin-high"><strong>Set a Single Pin HIGH</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Drive GPIO22 HIGH for 3 seconds</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>gpioset<span class="w"> </span>--mode<span class="o">=</span><span class="nb">time</span><span class="w"> </span>-s<span class="w"> </span><span class="m">3</span><span class="w"> </span>gpiochip4<span class="w"> </span><span class="nv">22</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<h3 id="set-all-gpio-pins-high"><strong>Set All GPIO Pins HIGH</strong><a class="headerlink" href="#set-all-gpio-pins-high" title="Permanent link">&para;</a></h3>
+<h3 id="set-all-gpio-pins-high"><strong>Set All GPIO Pins HIGH</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Drive all six GPIO pins HIGH for 5 seconds</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>gpioset<span class="w"> </span>--mode<span class="o">=</span><span class="nb">time</span><span class="w"> </span>-s<span class="w"> </span><span class="m">5</span><span class="w"> </span>gpiochip4<span class="w"> </span><span class="nv">22</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">23</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">24</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">25</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">26</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">27</span><span class="o">=</span><span class="m">1</span>
 </span></code></pre></div>
-<h3 id="read-a-pin-state"><strong>Read a Pin State</strong><a class="headerlink" href="#read-a-pin-state" title="Permanent link">&para;</a></h3>
+<h3 id="read-a-pin-state"><strong>Read a Pin State</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Read the current state of GPIO22</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>gpioget<span class="w"> </span>gpiochip4<span class="w"> </span><span class="m">22</span>
 </span></code></pre></div>
 <hr />
-<h2 id="c-programming-example"><strong>C Programming Example</strong><a class="headerlink" href="#c-programming-example" title="Permanent link">&para;</a></h2>
+<h2 id="c-programming-example"><strong>C Programming Example</strong></h2>
 <p>The following C program uses the Linux kernel's <code>gpio.h</code> interface directly via <code>ioctl</code> — no additional libraries are required beyond standard Linux headers.</p>
-<h3 id="build"><strong>Build</strong><a class="headerlink" href="#build" title="Permanent link">&para;</a></h3>
+<h3 id="build"><strong>Build</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>gcc<span class="w"> </span>-o<span class="w"> </span>gpio_led_test<span class="w"> </span>gpio_led_test.c
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>./gpio_led_test
 </span></code></pre></div>
-<h3 id="source-code"><strong>Source Code</strong><a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h3>
+<h3 id="source-code"><strong>Source Code</strong></h3>
 <div class="language-c highlight"><span class="filename">gpio_led_test.c</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
@@ -1763,7 +1763,7 @@
 </span><span id="__span-6-66"><a id="__codelineno-6-66" name="__codelineno-6-66" href="#__codelineno-6-66"></a><span class="p">}</span>
 </span></code></pre></div>
 <hr />
-<h2 id="result"><strong>Result</strong><a class="headerlink" href="#result" title="Permanent link">&para;</a></h2>
+<h2 id="result"><strong>Result</strong></h2>
 <p>With the LED test harness connected, running the program drives the GPIO lines and lights the LEDs as shown below.</p>
 <p><img alt="CM GPIO LED test harness lit" src="../../../images/raspberry/gpio_figure_3.png" width="360" /></p>
 

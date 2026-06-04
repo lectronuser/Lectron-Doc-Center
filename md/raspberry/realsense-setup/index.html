@@ -1373,7 +1373,7 @@
 
 
 
-<h1 id="intel-realsense-integration-guide">Intel RealSense Integration Guide<a class="headerlink" href="#intel-realsense-integration-guide" title="Permanent link">&para;</a></h1>
+<h1 id="intel-realsense-integration-guide">Intel RealSense Integration Guide</h1>
 <p><strong>Intel RealSense depth-camera integration for the Lectron PI5 Autopilot.</strong></p>
 <table>
 <thead>
@@ -1402,7 +1402,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="prerequisites"><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
 <ul>
 <li>Intel RealSense <strong>D456i</strong> depth camera (or compatible RealSense model)</li>
 <li>USB 3.0 Type-C to Type-C cable</li>
@@ -1414,8 +1414,8 @@
 <p>If you plan to use the ROS 2 wrapper, install <strong>ROS 2 Jazzy</strong> before proceeding. Follow the <a href="https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html">official installation guide</a>.</p>
 </div>
 <hr />
-<h2 id="installation"><strong>Installation</strong><a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<h3 id="realsense-sdk-20"><strong>RealSense SDK 2.0</strong><a class="headerlink" href="#realsense-sdk-20" title="Permanent link">&para;</a></h3>
+<h2 id="installation"><strong>Installation</strong></h2>
+<h3 id="realsense-sdk-20"><strong>RealSense SDK 2.0</strong></h3>
 <p><strong>Step 1 — Register the Repository Public Key</strong></p>
 <p>Create the keyring directory and download the signing key:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/apt/keyrings
@@ -1441,7 +1441,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>librealsense2-dev
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>librealsense2-dbg
 </span></code></pre></div>
-<h3 id="realsense-ros-2-wrapper"><strong>RealSense ROS 2 Wrapper</strong><a class="headerlink" href="#realsense-ros-2-wrapper" title="Permanent link">&para;</a></h3>
+<h3 id="realsense-ros-2-wrapper"><strong>RealSense ROS 2 Wrapper</strong></h3>
 <p>Install the RealSense ROS 2 packages for the Jazzy distribution. This provides both the underlying library bindings and the camera node packages:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-jazzy-librealsense2*
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-jazzy-realsense2*
@@ -1451,8 +1451,8 @@
 <p>Replace <code>jazzy</code> with your ROS 2 distribution name if you are running a different version.</p>
 </div>
 <hr />
-<h2 id="quick-usage"><strong>Quick Usage</strong><a class="headerlink" href="#quick-usage" title="Permanent link">&para;</a></h2>
-<h3 id="launching-the-camera-node"><strong>Launching the Camera Node</strong><a class="headerlink" href="#launching-the-camera-node" title="Permanent link">&para;</a></h3>
+<h2 id="quick-usage"><strong>Quick Usage</strong></h2>
+<h3 id="launching-the-camera-node"><strong>Launching the Camera Node</strong></h3>
 <p>Run the following command to start the RealSense camera node. This configuration enables stereo infrared streams, depth output, point cloud generation, and IMU data:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">source</span><span class="w"> </span>/opt/ros/jazzy/setup.bash
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ros2<span class="w"> </span>run<span class="w"> </span>realsense2_camera<span class="w"> </span>realsense2_camera_node<span class="w"> </span><span class="se">\</span>
@@ -1467,7 +1467,7 @@
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span>-p<span class="w"> </span>gyro_fps:<span class="o">=</span><span class="m">200</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span>-p<span class="w"> </span>accel_fps:<span class="o">=</span><span class="m">200</span>
 </span></code></pre></div>
-<h3 id="parameter-reference"><strong>Parameter Reference</strong><a class="headerlink" href="#parameter-reference" title="Permanent link">&para;</a></h3>
+<h3 id="parameter-reference"><strong>Parameter Reference</strong></h3>
 <p>The table below summarises the key parameters used in the launch command:</p>
 <table>
 <thead>
@@ -1512,7 +1512,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="references"><strong>References</strong><a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references"><strong>References</strong></h2>
 <p>Consult the following resources for further information:</p>
 <ul>
 <li><a href="https://github.com/realsenseai/librealsense/blob/master/doc/distribution_linux.md">Linux distribution guide</a></li>

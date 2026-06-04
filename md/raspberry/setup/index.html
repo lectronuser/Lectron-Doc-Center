@@ -1429,21 +1429,21 @@
 
 
 
-<h1 id="initial-installation">Initial Installation<a class="headerlink" href="#initial-installation" title="Permanent link">&para;</a></h1>
+<h1 id="initial-installation">Initial Installation</h1>
 <p>To flash the eMMC on a Raspberry Pi Compute Module, the following components are required:</p>
 <ul>
 <li><strong>Host device:</strong> A computer running Linux, Windows, or macOS</li>
 <li>Micro USB cable</li>
 <li>Raspberry Pi Compute Module with a compatible carrier board</li>
 </ul>
-<h2 id="cm5-installation">CM5 Installation<a class="headerlink" href="#cm5-installation" title="Permanent link">&para;</a></h2>
-<h3 id="set-up-the-board"><strong>Set up the Board</strong><a class="headerlink" href="#set-up-the-board" title="Permanent link">&para;</a></h3>
+<h2 id="cm5-installation">CM5 Installation</h2>
+<h3 id="set-up-the-board"><strong>Set up the Board</strong></h3>
 <ul>
 <li>To <strong>disable eMMC boot</strong> on the Raspberry Pi: Set the <strong>nRPI_BOOT</strong> pin to HIGH using the <strong>8-pin DIP</strong> switch on the board
 <strong>(typically the 3rd switch)</strong>.</li>
 <li>Connect the board to the host device using a Micro USB cable.</li>
 </ul>
-<h3 id="set-up-the-host-device"><strong>Set up the Host Device</strong><a class="headerlink" href="#set-up-the-host-device" title="Permanent link">&para;</a></h3>
+<h3 id="set-up-the-host-device"><strong>Set up the Host Device</strong></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The steps below follow the official Raspberry Pi documentation without modification.
@@ -1499,7 +1499,7 @@ Reference: <a href="https://www.raspberrypi.com/documentation/computers/compute-
 install <strong>rpiboot</strong> <a href="https://github.com/raspberrypi/usbboot">from source.</a>.</p>
 <p><img alt="image" src="../../../images/raspberry/rpiboot.png" /></p>
 </div>
-<h3 id="raspberry-pi-imager"><strong>Raspberry Pi Imager</strong><a class="headerlink" href="#raspberry-pi-imager" title="Permanent link">&para;</a></h3>
+<h3 id="raspberry-pi-imager"><strong>Raspberry Pi Imager</strong></h3>
 <ul>
 <li>Launch the Raspberry Pi Imager application.</li>
 <li>Select Raspberry Pi 5 as the target board.</li>
@@ -1531,7 +1531,7 @@ install <strong>rpiboot</strong> <a href="https://github.com/raspberrypi/usbboot
 <li>Finally, reconnect the power supply to restart the system.</li>
 </ul>
 </div>
-<h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong><a class="headerlink" href="#fmu-firmware-installation" title="Permanent link">&para;</a></h2>
+<h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong></h2>
 <p>This section contains step-by-step instructions for flashing the bootloader and firmware onto the <strong>FMU IO (F103)</strong> and <strong>FMU MAIN (H753)</strong> chips using <strong>STM32CubeProgrammer</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Wiring — Before You Start</p>
@@ -1547,10 +1547,10 @@ install <strong>rpiboot</strong> <a href="https://github.com/raspberrypi/usbboot
 <p class="admonition-title">ArduPilot vs. PX4</p>
 <p>The FMU bootloader and FMU firmware files differ depending on the autopilot software (<strong>ArduPilot</strong> or <strong>PX4</strong>). The flashing procedure remains the same — only the target files change.</p>
 </div>
-<h3 id="connection-settings"><strong>Connection Settings</strong><a class="headerlink" href="#connection-settings" title="Permanent link">&para;</a></h3>
+<h3 id="connection-settings"><strong>Connection Settings</strong></h3>
 <p>Select the connection settings on the right-hand panel as shown below, then use the <strong>Connect</strong> button. After connecting, the target chip is shown in the <strong>bottom-right corner</strong> (<code>STM32F10x</code> for the IO chip, <code>STM32H7</code> for the FMU chip).</p>
 <p><img alt="STM32CubeProgrammer connection settings" src="../../../images/raspberry/fmu_cubeprog_connection.jpg" /></p>
-<h3 id="1-io-chip-flashing-f103"><strong>1. IO Chip Flashing (F103)</strong><a class="headerlink" href="#1-io-chip-flashing-f103" title="Permanent link">&para;</a></h3>
+<h3 id="1-io-chip-flashing-f103"><strong>1. IO Chip Flashing (F103)</strong></h3>
 <p><strong>Hardware Connections</strong></p>
 <ol>
 <li>Connect the debug cable (10-pin GHS-10) to the IO debug port.</li>
@@ -1572,14 +1572,14 @@ install <strong>rpiboot</strong> <a href="https://github.com/raspberrypi/usbboot
 <li>The <strong>IO installation is complete</strong>.</li>
 <li>For safety, disconnect from the hardware by clicking <strong>Disconnect</strong> (which replaces the <em>Connect</em> button).</li>
 </ol>
-<h3 id="2-fmu-chip-flashing-h753"><strong>2. FMU Chip Flashing (H753)</strong><a class="headerlink" href="#2-fmu-chip-flashing-h753" title="Permanent link">&para;</a></h3>
+<h3 id="2-fmu-chip-flashing-h753"><strong>2. FMU Chip Flashing (H753)</strong></h3>
 <p>This stage installs the <strong>Bootloader</strong> first, followed by the <strong>FMU Firmware</strong>.</p>
 <p><strong>Hardware Connections</strong></p>
 <ol>
 <li>Connect the debug cable (10-pin GHS-10) to the FMU debug port.</li>
 <li>Connect the ST-Link to the computer.</li>
 </ol>
-<h4 id="fmu-bootloader-flashing"><strong>FMU Bootloader Flashing</strong><a class="headerlink" href="#fmu-bootloader-flashing" title="Permanent link">&para;</a></h4>
+<h4 id="fmu-bootloader-flashing"><strong>FMU Bootloader Flashing</strong></h4>
 <ol>
 <li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
 <li>Switch to the programming panel using the left-hand toolbar.</li>
@@ -1595,7 +1595,7 @@ install <strong>rpiboot</strong> <a href="https://github.com/raspberrypi/usbboot
 <li>The <strong>FMU Bootloader installation is complete</strong>.</li>
 <li>For safety, click <strong>Disconnect</strong> (top-right).</li>
 </ol>
-<h4 id="fmu-firmware-flashing"><strong>FMU Firmware Flashing</strong><a class="headerlink" href="#fmu-firmware-flashing" title="Permanent link">&para;</a></h4>
+<h4 id="fmu-firmware-flashing"><strong>FMU Firmware Flashing</strong></h4>
 <ol>
 <li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
 <li>Switch to the programming panel using the left-hand toolbar.</li>

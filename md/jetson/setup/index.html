@@ -1407,14 +1407,14 @@
 
 
 
-<h1 id="initial-installation">Initial Installation<a class="headerlink" href="#initial-installation" title="Permanent link">&para;</a></h1>
-<h2 id="jetson-installation"><strong>Jetson Installation</strong><a class="headerlink" href="#jetson-installation" title="Permanent link">&para;</a></h2>
+<h1 id="initial-installation">Initial Installation</h1>
+<h2 id="jetson-installation"><strong>Jetson Installation</strong></h2>
 <p>This document describes the Linux for Tegra (L4T) installation process for a <strong>custom Jetson Nano based carrier board</strong>. The packages used are derived from NVIDIA’s official releases and adapted to support board specific hardware components.</p>
 <div class="admonition tip">
 <p class="admonition-title">Note</p>
 <p>The steps are written for Jetson Nano. The same procedure applies to other Jetson models; only the Ubuntu version and package names differ.</p>
 </div>
-<h3 id="requirements"><strong>Requirements</strong><a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h3>
+<h3 id="requirements"><strong>Requirements</strong></h3>
 <ol>
 <li><a href="">Jetson-210_Linux_R32.7.6_aarch64.tbz2</a></li>
 <li><a href="">Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2</a></li>
@@ -1424,7 +1424,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="installation"><strong>Installation</strong><a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<h3 id="installation"><strong>Installation</strong></h3>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>By default, the installation is performed under a <code>workspace</code> directory in the user’s home path. A custom directory may be used if preferred</p>
@@ -1481,7 +1481,7 @@
 </span></code></pre></div></p>
 </li>
 </ol>
-<h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong><a class="headerlink" href="#fmu-firmware-installation" title="Permanent link">&para;</a></h2>
+<h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong></h2>
 <p>This section contains step-by-step instructions for flashing the bootloader and firmware onto the <strong>FMU IO (F103)</strong> and <strong>FMU MAIN (H753)</strong> chips using <strong>STM32CubeProgrammer</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Wiring — Before You Start</p>
@@ -1497,10 +1497,10 @@
 <p class="admonition-title">ArduPilot vs. PX4</p>
 <p>The FMU bootloader and FMU firmware files differ depending on the autopilot software (<strong>ArduPilot</strong> or <strong>PX4</strong>). The flashing procedure remains the same — only the target files change.</p>
 </div>
-<h3 id="connection-settings"><strong>Connection Settings</strong><a class="headerlink" href="#connection-settings" title="Permanent link">&para;</a></h3>
+<h3 id="connection-settings"><strong>Connection Settings</strong></h3>
 <p>Select the connection settings on the right-hand panel as shown below, then use the <strong>Connect</strong> button. After connecting, the target chip is shown in the <strong>bottom-right corner</strong> (<code>STM32F10x</code> for the IO chip, <code>STM32H7</code> for the FMU chip).</p>
 <p><img alt="STM32CubeProgrammer connection settings" src="../../../images/raspberry/fmu_cubeprog_connection.jpg" /></p>
-<h3 id="1-io-chip-flashing-f103"><strong>1. IO Chip Flashing (F103)</strong><a class="headerlink" href="#1-io-chip-flashing-f103" title="Permanent link">&para;</a></h3>
+<h3 id="1-io-chip-flashing-f103"><strong>1. IO Chip Flashing (F103)</strong></h3>
 <p><strong>Hardware Connections</strong></p>
 <ol>
 <li>Connect the debug cable (10-pin GHS-10) to the IO debug port.</li>
@@ -1522,14 +1522,14 @@
 <li>The <strong>IO installation is complete</strong>.</li>
 <li>For safety, disconnect from the hardware by clicking <strong>Disconnect</strong> (which replaces the <em>Connect</em> button).</li>
 </ol>
-<h3 id="2-fmu-chip-flashing-h753"><strong>2. FMU Chip Flashing (H753)</strong><a class="headerlink" href="#2-fmu-chip-flashing-h753" title="Permanent link">&para;</a></h3>
+<h3 id="2-fmu-chip-flashing-h753"><strong>2. FMU Chip Flashing (H753)</strong></h3>
 <p>This stage installs the <strong>Bootloader</strong> first, followed by the <strong>FMU Firmware</strong>.</p>
 <p><strong>Hardware Connections</strong></p>
 <ol>
 <li>Connect the debug cable (10-pin GHS-10) to the FMU debug port.</li>
 <li>Connect the ST-Link to the computer.</li>
 </ol>
-<h4 id="fmu-bootloader-flashing"><strong>FMU Bootloader Flashing</strong><a class="headerlink" href="#fmu-bootloader-flashing" title="Permanent link">&para;</a></h4>
+<h4 id="fmu-bootloader-flashing"><strong>FMU Bootloader Flashing</strong></h4>
 <ol>
 <li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
 <li>Switch to the programming panel using the left-hand toolbar.</li>
@@ -1545,7 +1545,7 @@
 <li>The <strong>FMU Bootloader installation is complete</strong>.</li>
 <li>For safety, click <strong>Disconnect</strong> (top-right).</li>
 </ol>
-<h4 id="fmu-firmware-flashing"><strong>FMU Firmware Flashing</strong><a class="headerlink" href="#fmu-firmware-flashing" title="Permanent link">&para;</a></h4>
+<h4 id="fmu-firmware-flashing"><strong>FMU Firmware Flashing</strong></h4>
 <ol>
 <li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
 <li>Switch to the programming panel using the left-hand toolbar.</li>

@@ -1527,7 +1527,7 @@
 
 
 
-<h1 id="hailo-8-ai-accelerator-integration-guide">Hailo-8 AI Accelerator Integration Guide<a class="headerlink" href="#hailo-8-ai-accelerator-integration-guide" title="Permanent link">&para;</a></h1>
+<h1 id="hailo-8-ai-accelerator-integration-guide">Hailo-8 AI Accelerator Integration Guide</h1>
 <p><strong>Integration Guide and Application Examples for the Hailo-8 AI accelerator on the Lectron PI5 Autopilot (CM5).</strong></p>
 <table>
 <thead>
@@ -1560,7 +1560,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="prerequisites"><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
 <p>Ensure a Hailo device is connected to the board:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>lspci
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Output:</span>
@@ -1587,8 +1587,8 @@
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>rpicam-apps
 </span></code></pre></div>
 <hr />
-<h2 id="hailort-installation-from-source"><strong>HailoRT Installation (From Source)</strong><a class="headerlink" href="#hailort-installation-from-source" title="Permanent link">&para;</a></h2>
-<h3 id="pcie-driver"><strong>PCIe Driver</strong><a class="headerlink" href="#pcie-driver" title="Permanent link">&para;</a></h3>
+<h2 id="hailort-installation-from-source"><strong>HailoRT Installation (From Source)</strong></h2>
+<h3 id="pcie-driver"><strong>PCIe Driver</strong></h3>
 <p>Download <code>hailort-pcie-driver-&lt;version&gt;.deb</code> from the Hailo Developer Zone.</p>
 <div class="admonition note">
 <p class="admonition-title">Info</p>
@@ -1601,13 +1601,13 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>modprobe<span class="w"> </span>hailo_pci
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ls<span class="w"> </span>/dev/hailo0
 </span></code></pre></div>
-<h3 id="hailort-library"><strong>HailoRT Library</strong><a class="headerlink" href="#hailort-library" title="Permanent link">&para;</a></h3>
+<h3 id="hailort-library"><strong>HailoRT Library</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hailo-ai/hailort.git
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>hailort
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>v4.23.0
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>cmake<span class="w"> </span>-S.<span class="w"> </span>-Bbuild<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--config<span class="w"> </span>release<span class="w"> </span>--target<span class="w"> </span>install
 </span></code></pre></div>
-<h3 id="verify-device"><strong>Verify Device</strong><a class="headerlink" href="#verify-device" title="Permanent link">&para;</a></h3>
+<h3 id="verify-device"><strong>Verify Device</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hailortcli<span class="w"> </span>scan
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># Expected: Hailo Devices:</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#           [-] Device: 0000:01:00.0</span>
@@ -1617,7 +1617,7 @@
 <p>If the kernel is updated, rebuild the PCIe driver with <code>sudo dpkg-reconfigure hailort-pcie-driver</code> or reinstall the <code>.deb</code> package.</p>
 </div>
 <hr />
-<h2 id="tappas-core-installation"><strong>TAPPAS Core Installation</strong><a class="headerlink" href="#tappas-core-installation" title="Permanent link">&para;</a></h2>
+<h2 id="tappas-core-installation"><strong>TAPPAS Core Installation</strong></h2>
 <p>Install TAPPAS Core with apt:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>hailo-tappas-core
 </span></code></pre></div>
@@ -1626,7 +1626,7 @@
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Expected: hailonet, hailofilter, hailooverlay, etc.</span>
 </span></code></pre></div>
 <hr />
-<h2 id="camera-verification"><strong>Camera Verification</strong><a class="headerlink" href="#camera-verification" title="Permanent link">&para;</a></h2>
+<h2 id="camera-verification"><strong>Camera Verification</strong></h2>
 <p>Connected cameras should appear in the kernel log:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Using sensor&quot;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># rp1-cfe 1f00110000.csi: Using sensor imx219 10-0010 for capture</span>
@@ -1648,7 +1648,7 @@
 </span></code></pre></div></p>
 </div>
 <hr />
-<h2 id="hailo-model-zoo"><strong>Hailo Model Zoo</strong><a class="headerlink" href="#hailo-model-zoo" title="Permanent link">&para;</a></h2>
+<h2 id="hailo-model-zoo"><strong>Hailo Model Zoo</strong></h2>
 <p>Pre-compiled HEF model files for various tasks are available at the <a href="https://github.com/hailo-ai/hailo_model_zoo">Hailo Model Zoo</a>.</p>
 <table>
 <thead>
@@ -1691,8 +1691,8 @@
 <p>Post-process libraries are installed to <code>/usr/lib/aarch64-linux-gnu/hailo/tappas/post_processes/</code>.</p>
 </div>
 <hr />
-<h2 id="gstreamer-pipeline-examples"><strong>GStreamer Pipeline Examples</strong><a class="headerlink" href="#gstreamer-pipeline-examples" title="Permanent link">&para;</a></h2>
-<h3 id="object-detection"><strong>Object Detection</strong><a class="headerlink" href="#object-detection" title="Permanent link">&para;</a></h3>
+<h2 id="gstreamer-pipeline-examples"><strong>GStreamer Pipeline Examples</strong></h2>
+<h3 id="object-detection"><strong>Object Detection</strong></h3>
 <p>Real-time YOLOv5 object detection with bounding-box overlay, displayed locally:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>libcamerasrc<span class="w"> </span>!<span class="w"> </span>video/x-raw,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">640</span>,height<span class="o">=</span><span class="m">480</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
@@ -1707,7 +1707,7 @@
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span>hailooverlay<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span>fpsdisplaysink<span class="w"> </span>video-sink<span class="o">=</span>autovideosink<span class="w"> </span><span class="nv">sync</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>text-overlay<span class="o">=</span><span class="nb">true</span>
 </span></code></pre></div>
-<h3 id="dual-camera-pipeline-object-detection"><strong>Dual Camera Pipeline (Object Detection)</strong><a class="headerlink" href="#dual-camera-pipeline-object-detection" title="Permanent link">&para;</a></h3>
+<h3 id="dual-camera-pipeline-object-detection"><strong>Dual Camera Pipeline (Object Detection)</strong></h3>
 <p>Running inference on two CSI cameras simultaneously using the Hailo-8 round-robin scheduler:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>libcamerasrc<span class="w"> </span>camera-name<span class="o">=</span><span class="s2">&quot;&lt;CAMERA_1_NAME&gt;&quot;</span><span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
@@ -1739,7 +1739,7 @@
 <p class="admonition-title">Note</p>
 <p>When using <code>scheduling-algorithm=1</code> (round-robin), do <strong>not</strong> set <code>is-active=true</code>. Both properties are mutually exclusive. Camera names can be obtained from <code>libcamera-hello --list-cameras</code> or <code>gst-device-monitor-1.0 Video | grep name</code>.</p>
 </div>
-<h3 id="stream-over-udp"><strong>Stream over UDP</strong><a class="headerlink" href="#stream-over-udp" title="Permanent link">&para;</a></h3>
+<h3 id="stream-over-udp"><strong>Stream over UDP</strong></h3>
 <p><strong>Sender (on the board):</strong></p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>gst-launch-1.0<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>libcamerasrc<span class="w"> </span>!<span class="w"> </span>video/x-raw,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">640</span>,height<span class="o">=</span><span class="m">480</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span>!<span class="w"> </span><span class="se">\</span>
@@ -1764,7 +1764,7 @@
 <p class="admonition-title">Info</p>
 <p>When using a dual camera, add the part after <code>videoconvert</code> to the second camera pipeline after changing the port.</p>
 </div>
-<h3 id="file-input"><strong>File Input</strong><a class="headerlink" href="#file-input" title="Permanent link">&para;</a></h3>
+<h3 id="file-input"><strong>File Input</strong></h3>
 <p>First download the provided sample video:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>wget<span class="w"> </span>https://hailo-csdata.s3.eu-west-2.amazonaws.com/resources/video/example_640.mp4
 </span></code></pre></div>
@@ -1815,7 +1815,7 @@
 </span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>vlc<span class="w"> </span>output_detection.mp4
 </span></code></pre></div>
 <hr />
-<h2 id="pipeline-element-reference"><strong>Pipeline Element Reference</strong><a class="headerlink" href="#pipeline-element-reference" title="Permanent link">&para;</a></h2>
+<h2 id="pipeline-element-reference"><strong>Pipeline Element Reference</strong></h2>
 <table>
 <thead>
 <tr>
@@ -1851,7 +1851,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="references"><strong>References</strong><a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references"><strong>References</strong></h2>
 <table>
 <thead>
 <tr>

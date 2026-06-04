@@ -1317,7 +1317,7 @@
 
 
 
-<h1 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h1>
+<h1 id="networking">Networking</h1>
 <p>On Jetson (Ubuntu-based) systems, networking can be controlled by three different mechanisms:</p>
 <ol>
 <li><strong>NetworkManager (NM)</strong></li>
@@ -1331,13 +1331,13 @@
 - NetworkManager being unable to manage Ethernet
 - Misconfigured profiles being ignored</p>
 </div>
-<h2 id="networkmanager"><strong>NetworkManager</strong><a class="headerlink" href="#networkmanager" title="Permanent link">&para;</a></h2>
+<h2 id="networkmanager"><strong>NetworkManager</strong></h2>
 <p>The default modern network management system.
 - Location: <code>/etc/NetworkManager/system-connections/</code>
 - Requires correct permissions and ownership
 - Handles Ethernet, Wi-Fi, VPN, DHCP, static IP
 - If NM does not manage eth0 → Connection appears as <code>DEVICE --</code></p>
-<h3 id="creating-a-fresh-eth0-profile-recommended">Creating a Fresh eth0 Profile (Recommended)<a class="headerlink" href="#creating-a-fresh-eth0-profile-recommended" title="Permanent link">&para;</a></h3>
+<h3 id="creating-a-fresh-eth0-profile-recommended">Creating a Fresh eth0 Profile (Recommended)</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Delete old profile (ignore errors)</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>nmcli<span class="w"> </span>connection<span class="w"> </span>delete<span class="w"> </span>eth0
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1360,7 +1360,7 @@
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1"># Verify assigned IP</span>
 </span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
 </span></code></pre></div>
-<h3 id="static-setup">Static Setup<a class="headerlink" href="#static-setup" title="Permanent link">&para;</a></h3>
+<h3 id="static-setup">Static Setup</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
 </span></code></pre></div>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[connection]
@@ -1380,7 +1380,7 @@
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>[ipv6]
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>method=ignore
 </span></code></pre></div>
-<h3 id="dhcp-setup">DHCP Setup<a class="headerlink" href="#dhcp-setup" title="Permanent link">&para;</a></h3>
+<h3 id="dhcp-setup">DHCP Setup</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/NetworkManager/system-connections/eth0
 </span></code></pre></div>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[connection]
@@ -1400,7 +1400,7 @@
 <p>This indicates: NetworkManager sees the connection profile but cannot bind it to the actual eth0 interface.
 On Jetson devices, the eth0 interface may be managed by a different legacy configuration mechanism compared to other network interfaces. If <code>/etc/network/interfaces</code> contains an old-style configuration entry for <strong>eth0</strong>, NetworkManager will stop managing this interface, causing it to appear as <code>DEVICE --</code> in nmcli. To resolve this, comment out or remove the eth0 lines in the interfaces file. Once these entries are disabled, NetworkManager will correctly take control of the eth0 interface, and the connection will function as expected.</p>
 </div>
-<h2 id="ifupdown"><strong>ifupdown</strong><a class="headerlink" href="#ifupdown" title="Permanent link">&para;</a></h2>
+<h2 id="ifupdown"><strong>ifupdown</strong></h2>
 <p>Legacy networking method. If this file contains:</p>
 <ul>
 <li>Location: <code>/etc/network/interfaces</code></li>
@@ -1419,7 +1419,7 @@ On Jetson devices, the eth0 interface may be managed by a different legacy confi
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>auto<span class="w"> </span>lo
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
 </span></code></pre></div>
-<h2 id="netplan"><strong>Netplan</strong><a class="headerlink" href="#netplan" title="Permanent link">&para;</a></h2>
+<h2 id="netplan"><strong>Netplan</strong></h2>
 <ul>
 <li>Installing Netplan (if missing): <code>sudo apt install netplan.io</code></li>
 <li>Controls which backend manages the network: <ul>

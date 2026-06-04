@@ -1605,7 +1605,7 @@
 
 
 
-<h1 id="fmu-cm5-serial-communication-guide">FMU ↔ CM5 Serial Communication Guide<a class="headerlink" href="#fmu-cm5-serial-communication-guide" title="Permanent link">&para;</a></h1>
+<h1 id="fmu-cm5-serial-communication-guide">FMU ↔ CM5 Serial Communication Guide</h1>
 <p><strong>UART / ROS 2 / uXRCE-DDS</strong> — serial link between the Flight Management Unit (FMU) and the Raspberry Pi Compute Module 5 (CM5).</p>
 <table>
 <thead>
@@ -1638,9 +1638,9 @@
 </tbody>
 </table>
 <hr />
-<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview"><strong>Overview</strong></h2>
 <p>This document describes how to establish serial UART communication between the <strong>FMU</strong> and the <strong>CM5</strong>. Once the link is configured, ROS 2 topics are exposed via the uXRCE-DDS bridge, allowing the companion computer to read telemetry from the FMU and send commands back to it.</p>
-<h3 id="architecture"><strong>Architecture</strong><a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
+<h3 id="architecture"><strong>Architecture</strong></h3>
 <table>
 <thead>
 <tr>
@@ -1660,16 +1660,16 @@
 </tbody>
 </table>
 <hr />
-<h2 id="prerequisites"><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
 <p>ROS 2 must be installed on the CM5 before proceeding. Install the distribution appropriate for Ubuntu 24.04 LTS (<strong>ROS 2 Jazzy Jalisco</strong>) by following the <a href="https://docs.ros.org/en/jazzy/Installation.html">official ROS 2 installation documentation</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Info</p>
 <p>After installation, source the ROS 2 setup script in every terminal session: <code>source /opt/ros/jazzy/setup.bash</code>. Add this line to <code>~/.bashrc</code> for persistence.</p>
 </div>
-<h3 id="required-build-tools"><strong>Required Build Tools</strong><a class="headerlink" href="#required-build-tools" title="Permanent link">&para;</a></h3>
+<h3 id="required-build-tools"><strong>Required Build Tools</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cmake<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>git<span class="w"> </span>build-essential
 </span></code></pre></div>
-<h3 id="enable-uart3-on-cm5"><strong>Enable UART3 on CM5</strong><a class="headerlink" href="#enable-uart3-on-cm5" title="Permanent link">&para;</a></h3>
+<h3 id="enable-uart3-on-cm5"><strong>Enable UART3 on CM5</strong></h3>
 <p>The UART3 device (<code>/dev/ttyAMA3</code>) is not enabled by default on the Raspberry Pi CM5. It must be activated by adding a device tree overlay to the boot configuration.</p>
 <p>Open the boot configuration file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/boot/firmware/config.txt
@@ -1688,10 +1688,10 @@
 <p>If <code>/dev/ttyAMA3</code> does not appear after reboot, confirm that the <code>dtoverlay=uart3</code> line was saved correctly and that no conflicting overlays are present in <code>config.txt</code>.</p>
 </div>
 <hr />
-<h2 id="micro-xrce-dds-agent-installation"><strong>Micro XRCE-DDS Agent Installation</strong><a class="headerlink" href="#micro-xrce-dds-agent-installation" title="Permanent link">&para;</a></h2>
+<h2 id="micro-xrce-dds-agent-installation"><strong>Micro XRCE-DDS Agent Installation</strong></h2>
 <p>The Micro XRCE-DDS Agent runs on the CM5 and bridges the serial UART link to ROS 2 DDS topics. It translates uORB messages from PX4 into standard ROS 2 topics.</p>
 <p>The steps below follow the procedure used on this platform. You can also follow the <a href="https://docs.px4.io/main/en/middleware/uxrce_dds#install-standalone-from-source">official PX4 documentation</a> for the standalone source installation.</p>
-<h3 id="clone-and-build"><strong>Clone and Build</strong><a class="headerlink" href="#clone-and-build" title="Permanent link">&para;</a></h3>
+<h3 id="clone-and-build"><strong>Clone and Build</strong></h3>
 <p>Set a source directory variable and build from tag <code>v2.4.2</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SOURCE_DIR</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v2.4.2<span class="w"> </span>https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -1702,7 +1702,7 @@
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>sudo<span class="w"> </span>ldconfig<span class="w"> </span>/usr/local/lib/
 </span></code></pre></div>
-<h3 id="known-build-issue-fastdds-checkout-error"><strong>Known Build Issue — FastDDS Checkout Error</strong><a class="headerlink" href="#known-build-issue-fastdds-checkout-error" title="Permanent link">&para;</a></h3>
+<h3 id="known-build-issue-fastdds-checkout-error"><strong>Known Build Issue — FastDDS Checkout Error</strong></h3>
 <div class="admonition warning">
 <p class="admonition-title">Note</p>
 <p>During the <code>make</code> step you may encounter: <code>Failed to checkout tag: '2.12.x'</code>. Follow the fix below before re-running <code>make</code>.</p>
@@ -1718,9 +1718,9 @@
 </span></code></pre></div>
 <p>After making this change, re-run <code>make</code> and <code>sudo make install</code> from the <code>build</code> directory.</p>
 <hr />
-<h2 id="fmu-configuration-qgroundcontrol"><strong>FMU Configuration (QGroundControl)</strong><a class="headerlink" href="#fmu-configuration-qgroundcontrol" title="Permanent link">&para;</a></h2>
+<h2 id="fmu-configuration-qgroundcontrol"><strong>FMU Configuration (QGroundControl)</strong></h2>
 <p>The FMU must be configured to output uXRCE-DDS traffic on its <strong>TELEM3 (USART2)</strong> port. Connect the FMU to your computer via USB, open QGroundControl, and apply the following parameters.</p>
-<h3 id="enable-uxrce-dds-on-telem3"><strong>Enable uXRCE-DDS on TELEM3</strong><a class="headerlink" href="#enable-uxrce-dds-on-telem3" title="Permanent link">&para;</a></h3>
+<h3 id="enable-uxrce-dds-on-telem3"><strong>Enable uXRCE-DDS on TELEM3</strong></h3>
 <table>
 <thead>
 <tr>
@@ -1742,7 +1742,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="reboot-sequence"><strong>Reboot Sequence</strong><a class="headerlink" href="#reboot-sequence" title="Permanent link">&para;</a></h3>
+<h3 id="reboot-sequence"><strong>Reboot Sequence</strong></h3>
 <ol>
 <li>Set <code>UXRCE_DDS_CFG = TELEM 3</code> and reboot the FMU.</li>
 <li>After reboot, set <code>SER_TEL2_BAUD = 921600</code>.</li>
@@ -1753,7 +1753,7 @@
 <p>If the USB cable remains connected after configuration, the serial bridge may not initialise correctly. In that case, disconnect USB, then power-cycle the entire system (power off → power on) before starting the agent on the CM5.</p>
 </div>
 <hr />
-<h2 id="starting-the-micro-xrce-dds-agent"><strong>Starting the Micro XRCE-DDS Agent</strong><a class="headerlink" href="#starting-the-micro-xrce-dds-agent" title="Permanent link">&para;</a></h2>
+<h2 id="starting-the-micro-xrce-dds-agent"><strong>Starting the Micro XRCE-DDS Agent</strong></h2>
 <p>On the CM5, run the agent pointing at UART3 with the same baud rate configured on the FMU:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>MicroXRCEAgent<span class="w"> </span>serial<span class="w"> </span>--dev<span class="w"> </span>/dev/ttyAMA3<span class="w"> </span>-b<span class="w"> </span><span class="m">921600</span>
 </span></code></pre></div>
@@ -1768,8 +1768,8 @@
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>[1780390531.987579] info     | ProxyClient.cpp       | create_datareader     | datareader created | client_key: 0x00000001, datareader_id: 0x800(6), subscriber_id: 0x800(4)
 </span></code></pre></div>
 <hr />
-<h2 id="verifying-the-connection"><strong>Verifying the Connection</strong><a class="headerlink" href="#verifying-the-connection" title="Permanent link">&para;</a></h2>
-<h3 id="list-available-topics"><strong>List Available Topics</strong><a class="headerlink" href="#list-available-topics" title="Permanent link">&para;</a></h3>
+<h2 id="verifying-the-connection"><strong>Verifying the Connection</strong></h2>
+<h3 id="list-available-topics"><strong>List Available Topics</strong></h3>
 <p>In a new terminal (with ROS 2 sourced), run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
 </span></code></pre></div>
@@ -1818,7 +1818,7 @@
 </span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>/parameter_events
 </span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>/rosout
 </span></code></pre></div>
-<h3 id="echo-a-topic"><strong>Echo a Topic</strong><a class="headerlink" href="#echo-a-topic" title="Permanent link">&para;</a></h3>
+<h3 id="echo-a-topic"><strong>Echo a Topic</strong></h3>
 <p>To verify live data is flowing from the FMU, echo a telemetry topic:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Vehicle attitude (quaternion)</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/fmu/out/vehicle_attitude
@@ -1829,11 +1829,11 @@
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Battery status</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/fmu/out/battery_status
 </span></code></pre></div>
-<h3 id="check-topic-frequency"><strong>Check Topic Frequency</strong><a class="headerlink" href="#check-topic-frequency" title="Permanent link">&para;</a></h3>
+<h3 id="check-topic-frequency"><strong>Check Topic Frequency</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/fmu/out/vehicle_attitude
 </span></code></pre></div>
 <hr />
-<h2 id="references"><strong>References</strong><a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h2 id="references"><strong>References</strong></h2>
 <ul>
 <li><a href="https://github.com/eProsima/Micro-XRCE-DDS-Agent">Micro XRCE-DDS Agent</a></li>
 <li><a href="https://docs.px4.io/main/en/middleware/uxrce_dds.html">PX4 uXRCE-DDS</a></li>

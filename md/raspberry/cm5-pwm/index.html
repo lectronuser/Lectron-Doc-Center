@@ -1267,7 +1267,7 @@
 
 
 
-<h1 id="cm5-pwm">CM5 PWM<a class="headerlink" href="#cm5-pwm" title="Permanent link">&para;</a></h1>
+<h1 id="cm5-pwm">CM5 PWM</h1>
 <p><strong>PWM Channels — Hardware &amp; Software Guide</strong></p>
 <table>
 <thead>
@@ -1292,14 +1292,14 @@
 </tbody>
 </table>
 <hr />
-<h2 id="hardware-overview"><strong>Hardware Overview</strong><a class="headerlink" href="#hardware-overview" title="Permanent link">&para;</a></h2>
+<h2 id="hardware-overview"><strong>Hardware Overview</strong></h2>
 <p>The CM SPI/PWM port is a 10-pin JST GH connector (<strong>SM10B-GHS</strong>) on the Lectron PI5 Autopilot board. Pins 6–9 expose four software PWM channels from the Raspberry Pi CM5, driven via <strong>GPIO12–GPIO15</strong>. Pin 1 provides 5 V power and pin 10 is ground. Pins 2–5 carry the SPI1 bus, which is documented separately.</p>
-<h3 id="board-photos"><strong>Board Photos</strong><a class="headerlink" href="#board-photos" title="Permanent link">&para;</a></h3>
+<h3 id="board-photos"><strong>Board Photos</strong></h3>
 <p>The images below show the LED test setup connected to the PWM pins, and the connector location on the board side panel.</p>
 <p><img alt="LED test board connected to PWM pins" src="../../../images/raspberry/pwm_figure_1.png" width="360" /></p>
 <p><img alt="CM SPI/PWM connector on the side panel" src="../../../images/raspberry/pwm_figure_2.png" width="320" /></p>
 <hr />
-<h2 id="pin-assignment"><strong>Pin Assignment</strong><a class="headerlink" href="#pin-assignment" title="Permanent link">&para;</a></h2>
+<h2 id="pin-assignment"><strong>Pin Assignment</strong></h2>
 <p>The four PWM pins are the focus of this document. SPI pins share the same connector but are documented separately.</p>
 <table>
 <thead>
@@ -1385,10 +1385,10 @@
 </tbody>
 </table>
 <hr />
-<h2 id="pwm-on-ubuntu-2404-cm5"><strong>PWM on Ubuntu 24.04 / CM5</strong><a class="headerlink" href="#pwm-on-ubuntu-2404-cm5" title="Permanent link">&para;</a></h2>
-<h3 id="hardware-pwm-limitation"><strong>Hardware PWM Limitation</strong><a class="headerlink" href="#hardware-pwm-limitation" title="Permanent link">&para;</a></h3>
+<h2 id="pwm-on-ubuntu-2404-cm5"><strong>PWM on Ubuntu 24.04 / CM5</strong></h2>
+<h3 id="hardware-pwm-limitation"><strong>Hardware PWM Limitation</strong></h3>
 <p>Software PWM via the Linux GPIO <code>ioctl</code> interface (<code>gpiochip4</code>) is the recommended approach and works reliably on all four PWM pins.</p>
-<h3 id="verify-gpio-lines"><strong>Verify GPIO Lines</strong><a class="headerlink" href="#verify-gpio-lines" title="Permanent link">&para;</a></h3>
+<h3 id="verify-gpio-lines"><strong>Verify GPIO Lines</strong></h3>
 <p>Confirm GPIO12–15 are available on <code>gpiochip4</code>:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>sudo<span class="w"> </span>gpioinfo<span class="w"> </span>gpiochip4<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;GPIO1[2-5]&#39;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">line  12: &quot;GPIO12&quot;  unused  input  active-high</span>
@@ -1397,7 +1397,7 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">line  15: &quot;GPIO15&quot;  unused  input  active-high</span>
 </span></code></pre></div>
 <hr />
-<h2 id="quick-test-command-line"><strong>Quick Test (Command Line)</strong><a class="headerlink" href="#quick-test-command-line" title="Permanent link">&para;</a></h2>
+<h2 id="quick-test-command-line"><strong>Quick Test (Command Line)</strong></h2>
 <p>Before running code, verify the pins work with a simple high/low test:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Drive all 4 PWM pins HIGH for 3 seconds</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>gpioset<span class="w"> </span>--mode<span class="o">=</span><span class="nb">time</span><span class="w"> </span>-s<span class="w"> </span><span class="m">3</span><span class="w"> </span>gpiochip4<span class="w"> </span><span class="nv">12</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">13</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">14</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">15</span><span class="o">=</span><span class="m">1</span>
@@ -1406,9 +1406,9 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo<span class="w"> </span>gpioset<span class="w"> </span>--mode<span class="o">=</span><span class="nb">time</span><span class="w"> </span>-s<span class="w"> </span><span class="m">1</span><span class="w"> </span>gpiochip4<span class="w"> </span><span class="nv">12</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">13</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">14</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">15</span><span class="o">=</span><span class="m">0</span>
 </span></code></pre></div>
 <hr />
-<h2 id="software-pwm-c-example"><strong>Software PWM — C Example</strong><a class="headerlink" href="#software-pwm-c-example" title="Permanent link">&para;</a></h2>
+<h2 id="software-pwm-c-example"><strong>Software PWM — C Example</strong></h2>
 <p>The program below implements software PWM using the Linux GPIO <code>ioctl</code> interface. It accepts a GPIO pin number as a command-line argument and cycles through 10%, 50%, and 90% brightness for 3 seconds each.</p>
-<h3 id="build-run"><strong>Build &amp; Run</strong><a class="headerlink" href="#build-run" title="Permanent link">&para;</a></h3>
+<h3 id="build-run"><strong>Build &amp; Run</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gcc<span class="w"> </span>-o<span class="w"> </span>pwm_test<span class="w"> </span>pwm_test.c
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Run on GPIO12 (PWM CH1)</span>
@@ -1417,7 +1417,7 @@
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Run on GPIO13 (PWM CH2)</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sudo<span class="w"> </span>./pwm_test<span class="w"> </span><span class="m">13</span>
 </span></code></pre></div>
-<h3 id="expected-output"><strong>Expected Output</strong><a class="headerlink" href="#expected-output" title="Permanent link">&para;</a></h3>
+<h3 id="expected-output"><strong>Expected Output</strong></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>=== CM PWM LED Test (GPIO12) ===
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[1] 10% brightness...
@@ -1426,7 +1426,7 @@
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Done.
 </span></code></pre></div>
-<h3 id="source-code"><strong>Source Code</strong><a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h3>
+<h3 id="source-code"><strong>Source Code</strong></h3>
 <div class="language-c highlight"><span class="filename">pwm_test.c</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
@@ -1504,7 +1504,7 @@
 </span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a><span class="p">}</span>
 </span></code></pre></div>
 <hr />
-<h2 id="how-software-pwm-works"><strong>How Software PWM Works</strong><a class="headerlink" href="#how-software-pwm-works" title="Permanent link">&para;</a></h2>
+<h2 id="how-software-pwm-works"><strong>How Software PWM Works</strong></h2>
 <p>Software PWM rapidly toggles a GPIO pin HIGH and LOW to simulate an analog output level. The ratio of ON time to the total period is called the <strong>duty cycle</strong>.</p>
 <table>
 <thead>

@@ -1671,7 +1671,7 @@
 
 
 
-<h1 id="cam1-port-setup-guide">CAM1 Port Setup Guide<a class="headerlink" href="#cam1-port-setup-guide" title="Permanent link">&para;</a></h1>
+<h1 id="cam1-port-setup-guide">CAM1 Port Setup Guide</h1>
 <p><strong>Second CSI Camera Configuration — Lectron PI5 Autopilot (CM5 Carrier Board)</strong></p>
 <table>
 <thead>
@@ -1696,11 +1696,11 @@
 </tbody>
 </table>
 <hr />
-<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview"><strong>Overview</strong></h2>
 <p>The Lectron PI5 Autopilot carrier board provides two MIPI CSI-2 camera ports for the Raspberry Pi Compute Module 5. The first port (<strong>CAM0</strong>) works with standard Raspberry Pi camera overlays. The second port (<strong>CAM1</strong>) uses a dedicated I2C bus and CSI receiver that requires a custom device tree overlay.</p>
 <p>This guide covers how to configure the CAM1 port using the provided <code>cam1-autodetect.sh</code> script, which automatically generates and installs the correct device tree overlay for any supported Raspberry Pi camera module.</p>
 <hr />
-<h2 id="board-configuration"><strong>Board Configuration</strong><a class="headerlink" href="#board-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="board-configuration"><strong>Board Configuration</strong></h2>
 <table>
 <thead>
 <tr>
@@ -1731,7 +1731,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="cam0-port-mipi0"><strong>CAM0 Port (MIPI0)</strong><a class="headerlink" href="#cam0-port-mipi0" title="Permanent link">&para;</a></h3>
+<h3 id="cam0-port-mipi0"><strong>CAM0 Port (MIPI0)</strong></h3>
 <p>The primary camera port uses dedicated CM5 I2C pins and works with standard Raspberry Pi camera overlays out of the box.</p>
 <table>
 <thead>
@@ -1763,7 +1763,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="cam1-port-mipi1"><strong>CAM1 Port (MIPI1)</strong><a class="headerlink" href="#cam1-port-mipi1" title="Permanent link">&para;</a></h3>
+<h3 id="cam1-port-mipi1"><strong>CAM1 Port (MIPI1)</strong></h3>
 <p>The secondary camera port uses the <code>ID_SC</code>/<code>ID_SD</code> I2C pins routed through a dedicated RP1 I2C controller. This port requires a custom device tree overlay, which the <code>cam1-autodetect.sh</code> script generates automatically.</p>
 <table>
 <thead>
@@ -1800,7 +1800,7 @@
 <p>Both connectors include 2.2 kΩ I2C pull-up resistors to <code>CM5_3V3_OUTPUT</code> and ESD protection.</p>
 </div>
 <hr />
-<h2 id="supported-cameras"><strong>Supported Cameras</strong><a class="headerlink" href="#supported-cameras" title="Permanent link">&para;</a></h2>
+<h2 id="supported-cameras"><strong>Supported Cameras</strong></h2>
 <p>The <code>cam1-autodetect.sh</code> script supports the following camera modules on the CAM1 port:</p>
 <table>
 <thead>
@@ -1897,7 +1897,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="prerequisites"><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
 <p>Install the required packages before running the setup script:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>i2c-tools<span class="w"> </span>device-tree-compiler<span class="w"> </span>git
 </span></code></pre></div>
@@ -1905,7 +1905,7 @@
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">#camera_auto_detect=1</span>
 </span></code></pre></div>
 <hr />
-<h2 id="downloading-the-setup-script"><strong>Downloading the Setup Script</strong><a class="headerlink" href="#downloading-the-setup-script" title="Permanent link">&para;</a></h2>
+<h2 id="downloading-the-setup-script"><strong>Downloading the Setup Script</strong></h2>
 <p>The <code>cam1-autodetect.sh</code> script is available from the Lectron GitHub repository.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Clone the repository</label><label for="__tabbed_1_2">Download only the script</label></div>
 <div class="tabbed-content">
@@ -1923,8 +1923,8 @@
 </div>
 </div>
 <hr />
-<h2 id="setting-up-the-cam1-port"><strong>Setting Up the CAM1 Port</strong><a class="headerlink" href="#setting-up-the-cam1-port" title="Permanent link">&para;</a></h2>
-<h3 id="script-usage"><strong>Script Usage</strong><a class="headerlink" href="#script-usage" title="Permanent link">&para;</a></h3>
+<h2 id="setting-up-the-cam1-port"><strong>Setting Up the CAM1 Port</strong></h2>
+<h3 id="script-usage"><strong>Script Usage</strong></h3>
 <p>The <code>cam1-autodetect.sh</code> script generates, compiles, and installs the correct device tree overlay for any supported camera on the CAM1 port.</p>
 <table>
 <thead>
@@ -1952,7 +1952,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="step-by-step-setup"><strong>Step-by-Step Setup</strong><a class="headerlink" href="#step-by-step-setup" title="Permanent link">&para;</a></h3>
+<h3 id="step-by-step-setup"><strong>Step-by-Step Setup</strong></h3>
 <p>Follow these steps to configure a camera on the CAM1 port.</p>
 <p><strong>Step 1 — Configure CAM0 (if using dual cameras)</strong></p>
 <p>If you are using a camera on CAM0 as well, add the standard overlay to <code>/boot/firmware/config.txt</code> with the <code>cam0</code> parameter:</p>
@@ -1985,26 +1985,26 @@
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>rp1-cfe<span class="w"> </span>1f00110000.csi:<span class="w"> </span>Using<span class="w"> </span>sensor<span class="w"> </span>imx219<span class="w"> </span><span class="m">10</span>-0010<span class="w"> </span><span class="k">for</span><span class="w"> </span>capture
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>rp1-cfe<span class="w"> </span>1f00128000.csi:<span class="w"> </span>Using<span class="w"> </span>sensor<span class="w"> </span>imx708<span class="w"> </span><span class="m">0</span>-001a<span class="w"> </span><span class="k">for</span><span class="w"> </span>capture
 </span></code></pre></div>
-<h3 id="switching-cameras"><strong>Switching Cameras</strong><a class="headerlink" href="#switching-cameras" title="Permanent link">&para;</a></h3>
+<h3 id="switching-cameras"><strong>Switching Cameras</strong></h3>
 <p>To replace the camera on the CAM1 port with a different model:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>./cam1-autodetect.sh<span class="w"> </span>--clean
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sudo<span class="w"> </span>./cam1-autodetect.sh<span class="w"> </span>ov9281
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>sudo<span class="w"> </span>reboot
 </span></code></pre></div>
 <hr />
-<h2 id="usage-examples"><strong>Usage Examples</strong><a class="headerlink" href="#usage-examples" title="Permanent link">&para;</a></h2>
-<h3 id="quick-test-with-rpicam-hello"><strong>Quick Test with <code>rpicam-hello</code></strong><a class="headerlink" href="#quick-test-with-rpicam-hello" title="Permanent link">&para;</a></h3>
+<h2 id="usage-examples"><strong>Usage Examples</strong></h2>
+<h3 id="quick-test-with-rpicam-hello"><strong>Quick Test with <code>rpicam-hello</code></strong></h3>
 <p>Test individual cameras using the camera index:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>rpicam-hello<span class="w"> </span>--camera<span class="w"> </span><span class="m">0</span><span class="w"> </span>-t<span class="w"> </span><span class="m">3000</span><span class="w">   </span><span class="c1"># Test CAM0 for 3 seconds</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>rpicam-hello<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">3000</span><span class="w">   </span><span class="c1"># Test CAM1 for 3 seconds</span>
 </span></code></pre></div>
-<h3 id="capture-a-still-image"><strong>Capture a Still Image</strong><a class="headerlink" href="#capture-a-still-image" title="Permanent link">&para;</a></h3>
+<h3 id="capture-a-still-image"><strong>Capture a Still Image</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rpicam-still<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span>cam1_photo.jpg
 </span></code></pre></div>
-<h3 id="record-video"><strong>Record Video</strong><a class="headerlink" href="#record-video" title="Permanent link">&para;</a></h3>
+<h3 id="record-video"><strong>Record Video</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>rpicam-vid<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">10000</span><span class="w"> </span>-o<span class="w"> </span>cam1_video.h264
 </span></code></pre></div>
-<h3 id="network-streaming-with-gstreamer"><strong>Network Streaming with GStreamer</strong><a class="headerlink" href="#network-streaming-with-gstreamer" title="Permanent link">&para;</a></h3>
+<h3 id="network-streaming-with-gstreamer"><strong>Network Streaming with GStreamer</strong></h3>
 <p>Stream video from the CAM1 port over TCP using GStreamer. Replace the <code>camera-name</code> path and host IP address with your actual values.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Sender — standard camera (IMX708 @ 1280×720)</label><label for="__tabbed_2_2">Sender — low-res camera (OV7251 @ 640×480)</label><label for="__tabbed_2_3">Receiver (viewing machine)</label></div>
 <div class="tabbed-content">
@@ -2035,7 +2035,7 @@
 <p class="admonition-title">Info</p>
 <p>The <code>camera-name</code> path can be found in the output of <code>rpicam-hello --list-cameras</code> or <code>gst-device-monitor-1.0 Video</code>.</p>
 </div>
-<h3 id="dual-camera-streaming"><strong>Dual Camera Streaming</strong><a class="headerlink" href="#dual-camera-streaming" title="Permanent link">&para;</a></h3>
+<h3 id="dual-camera-streaming"><strong>Dual Camera Streaming</strong></h3>
 <p>To stream both cameras simultaneously, run two GStreamer pipelines on different ports:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Terminal 1 — CAM0 on port 5000</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
@@ -2052,7 +2052,7 @@
 </span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5001</span>
 </span></code></pre></div>
 <hr />
-<h2 id="camera-resolutions"><strong>Camera Resolutions</strong><a class="headerlink" href="#camera-resolutions" title="Permanent link">&para;</a></h2>
+<h2 id="camera-resolutions"><strong>Camera Resolutions</strong></h2>
 <p>When configuring GStreamer pipelines, use a resolution supported by your camera. Common maximum resolutions:</p>
 <table>
 <thead>
@@ -2107,7 +2107,7 @@
 <p>Use <code>rpicam-hello --list-cameras</code> to see all available modes and frame rates for your specific camera.</p>
 </div>
 <hr />
-<h2 id="configtxt-reference"><strong><code>config.txt</code> Reference</strong><a class="headerlink" href="#configtxt-reference" title="Permanent link">&para;</a></h2>
+<h2 id="configtxt-reference"><strong><code>config.txt</code> Reference</strong></h2>
 <p>A complete <code>/boot/firmware/config.txt</code> camera section for a dual-camera setup:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Disable auto-detection</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">#camera_auto_detect=1</span>
@@ -2124,7 +2124,7 @@
 <p>When using both camera ports, the CAM0 overlay <strong>must</strong> include the <code>,cam0</code> parameter. Without it, the standard overlay defaults to the CAM1 I2C bus, causing a conflict.</p>
 </div>
 <hr />
-<h2 id="device-tree-label-reference"><strong>Device Tree Label Reference</strong><a class="headerlink" href="#device-tree-label-reference" title="Permanent link">&para;</a></h2>
+<h2 id="device-tree-label-reference"><strong>Device Tree Label Reference</strong></h2>
 <p>For advanced users and custom overlay development, the following device tree labels are relevant on the CM5:</p>
 <table>
 <thead>
@@ -2178,7 +2178,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="troubleshooting"><strong>Troubleshooting</strong><a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h2 id="troubleshooting"><strong>Troubleshooting</strong></h2>
 <div class="admonition failure">
 <p class="admonition-title">Camera not listed in <code>rpicam-hello --list-cameras</code></p>
 <ul>

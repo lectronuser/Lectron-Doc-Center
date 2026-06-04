@@ -2001,7 +2001,7 @@
 
 
 
-<h1 id="connections-ports">Connections &amp; Ports<a class="headerlink" href="#connections-ports" title="Permanent link">&para;</a></h1>
+<h1 id="connections-ports">Connections &amp; Ports</h1>
 <p>This page describes every external connector on the <strong>Lectron CM5 Autopilot</strong> baseboard, including its connector type, pin assignment, signal name and operating voltage.</p>
 <p>The board is organized into two functional domains:</p>
 <ul>
@@ -2055,12 +2055,12 @@
 <p>The peripheral 5V rail is shared across all connectors on each side. The <strong>total current</strong> drawn from all <strong>FMU ports</strong> combined must not exceed <strong>1.5 A</strong>. The same <strong>1.5 A</strong> total limit applies to all <strong>CM5 ports</strong> combined. Budget the current across connected peripherals accordingly.</p>
 </div>
 <hr />
-<h2 id="pin-1-identification"><strong>Pin 1 Identification</strong><a class="headerlink" href="#pin-1-identification" title="Permanent link">&para;</a></h2>
+<h2 id="pin-1-identification"><strong>Pin 1 Identification</strong></h2>
 <p>In every pinout table below, <strong>Pin 1</strong> is the first row. Use the image below to locate Pin 1 on the physical JST GH connector before wiring.</p>
 <p><img alt="JST GH Connector Pin Identification" src="../../../images/raspberry/jst_gh_pin1.png" width="420" /></p>
 <hr />
-<h2 id="fmu-connectors"><strong>FMU Connectors</strong><a class="headerlink" href="#fmu-connectors" title="Permanent link">&para;</a></h2>
-<h3 id="can"><strong>CAN</strong><a class="headerlink" href="#can" title="Permanent link">&para;</a></h3>
+<h2 id="fmu-connectors"><strong>FMU Connectors</strong></h2>
+<h3 id="can"><strong>CAN</strong></h3>
 <p>Primary CAN bus for the flight controller (<strong>BM04B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2093,7 +2093,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="sbus"><strong>SBUS</strong><a class="headerlink" href="#sbus" title="Permanent link">&para;</a></h3>
+<h3 id="sbus"><strong>SBUS</strong></h3>
 <p>RC receiver input (PPM/SBUS) with RSSI feedback (<strong>BM05B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2135,7 +2135,7 @@
 <p class="admonition-title">DSM Support</p>
 <p>The Lectron PI5 Autopilot product doesn't support DSM.</p>
 </div>
-<h3 id="i2c3-uart4"><strong>I2C3 / UART4</strong><a class="headerlink" href="#i2c3-uart4" title="Permanent link">&para;</a></h3>
+<h3 id="i2c3-uart4"><strong>I2C3 / UART4</strong></h3>
 <p>Combined serial + I2C peripheral port (<strong>BM06B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2178,7 +2178,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="spi6"><strong>SPI6</strong><a class="headerlink" href="#spi6" title="Permanent link">&para;</a></h3>
+<h3 id="spi6"><strong>SPI6</strong></h3>
 <p>External high-speed SPI bus with two chip-selects and two data-ready lines (<strong>BM11B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2246,7 +2246,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="io-pwm-main"><strong>IO PWM (MAIN)</strong><a class="headerlink" href="#io-pwm-main" title="Permanent link">&para;</a></h3>
+<h3 id="io-pwm-main"><strong>IO PWM (MAIN)</strong></h3>
 <p>Main PWM outputs driven by the IO co-processor (<strong>BM10B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2309,7 +2309,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fmu-pwm-aux"><strong>FMU PWM (AUX)</strong><a class="headerlink" href="#fmu-pwm-aux" title="Permanent link">&para;</a></h3>
+<h3 id="fmu-pwm-aux"><strong>FMU PWM (AUX)</strong></h3>
 <p>Auxiliary PWM outputs driven directly by the FMU (<strong>BM10B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2372,7 +2372,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fmu-debug"><strong>FMU Debug</strong><a class="headerlink" href="#fmu-debug" title="Permanent link">&para;</a></h3>
+<h3 id="fmu-debug"><strong>FMU Debug</strong></h3>
 <p>SWD + serial debug for the FMU processor (<strong>SM10B-SRSS</strong>).</p>
 <table>
 <thead>
@@ -2435,7 +2435,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="io-debug"><strong>IO Debug</strong><a class="headerlink" href="#io-debug" title="Permanent link">&para;</a></h3>
+<h3 id="io-debug"><strong>IO Debug</strong></h3>
 <p>SWD + serial debug for the IO co-processor (<strong>SM10B-SRSS</strong>).</p>
 <table>
 <thead>
@@ -2498,7 +2498,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="i2c2"><strong>I2C2</strong><a class="headerlink" href="#i2c2" title="Permanent link">&para;</a></h3>
+<h3 id="i2c2"><strong>I2C2</strong></h3>
 <p>Secondary I2C peripheral bus (<strong>BM04B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2531,7 +2531,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="telemetry-1"><strong>Telemetry 1</strong><a class="headerlink" href="#telemetry-1" title="Permanent link">&para;</a></h3>
+<h3 id="telemetry-1"><strong>Telemetry 1</strong></h3>
 <p>Primary telemetry serial port with flow control (UART7) (<strong>BM06B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2574,7 +2574,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="telemetry-2"><strong>Telemetry 2</strong><a class="headerlink" href="#telemetry-2" title="Permanent link">&para;</a></h3>
+<h3 id="telemetry-2"><strong>Telemetry 2</strong></h3>
 <p>Secondary telemetry serial port with flow control (UART5) (<strong>BM06B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2617,7 +2617,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="gps-1-full"><strong>GPS-1 (FULL)</strong><a class="headerlink" href="#gps-1-full" title="Permanent link">&para;</a></h3>
+<h3 id="gps-1-full"><strong>GPS-1 (FULL)</strong></h3>
 <p>Full GPS port with safety switch, LED and buzzer outputs (<strong>BM10B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2680,7 +2680,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="gps-2-basic"><strong>GPS-2 (BASIC)</strong><a class="headerlink" href="#gps-2-basic" title="Permanent link">&para;</a></h3>
+<h3 id="gps-2-basic"><strong>GPS-2 (BASIC)</strong></h3>
 <p>Secondary GPS port (serial + I2C only) (<strong>BM06B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2723,7 +2723,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="ethernet"><strong>Ethernet</strong><a class="headerlink" href="#ethernet" title="Permanent link">&para;</a></h3>
+<h3 id="ethernet"><strong>Ethernet</strong></h3>
 <p>100BASE-T differential pairs for FMU networking (<strong>BM04B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2756,7 +2756,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="external-power-monitoring"><strong>External Power Monitoring</strong><a class="headerlink" href="#external-power-monitoring" title="Permanent link">&para;</a></h3>
+<h3 id="external-power-monitoring"><strong>External Power Monitoring</strong></h3>
 <p>External power module / smart-battery monitoring (I2C1) (<strong>BM04B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2793,7 +2793,7 @@
 <p class="admonition-title">Onboard Power Monitoring</p>
 <p>The board includes an onboard voltage-sensing module (<strong>INA238</strong>). To also measure current draw or monitor an external battery, connect a compatible I2C power module to this port.</p>
 </div>
-<h3 id="usb"><strong>USB</strong><a class="headerlink" href="#usb" title="Permanent link">&para;</a></h3>
+<h3 id="usb"><strong>USB</strong></h3>
 <p>USB 2.0 Type-C for firmware flashing and MAVLink over USB (<strong>USB 2.0 Type-C</strong>).</p>
 <table>
 <thead>
@@ -2811,7 +2811,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="sd-card"><strong>SD Card</strong><a class="headerlink" href="#sd-card" title="Permanent link">&para;</a></h3>
+<h3 id="sd-card"><strong>SD Card</strong></h3>
 <p>MicroSD slot for FMU logging (<strong>TF SD Card</strong>).</p>
 <table>
 <thead>
@@ -2830,8 +2830,8 @@
 </tbody>
 </table>
 <hr />
-<h2 id="cm5-connectors"><strong>CM5 Connectors</strong><a class="headerlink" href="#cm5-connectors" title="Permanent link">&para;</a></h2>
-<h3 id="gpio-spi-pwm"><strong>GPIO – SPI / PWM</strong><a class="headerlink" href="#gpio-spi-pwm" title="Permanent link">&para;</a></h3>
+<h2 id="cm5-connectors"><strong>CM5 Connectors</strong></h2>
+<h3 id="gpio-spi-pwm"><strong>GPIO – SPI / PWM</strong></h3>
 <p>SPI1 bus plus four PWM channels exposed from the Compute Module (<strong>SM10B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2894,7 +2894,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="gpio-uart"><strong>GPIO / UART</strong><a class="headerlink" href="#gpio-uart" title="Permanent link">&para;</a></h3>
+<h3 id="gpio-uart"><strong>GPIO / UART</strong></h3>
 <p>General-purpose GPIO header with UART2 (<strong>SM10B-GHS</strong>).</p>
 <table>
 <thead>
@@ -2957,7 +2957,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="i2c1-i2c3"><strong>I2C1 / I2C3</strong><a class="headerlink" href="#i2c1-i2c3" title="Permanent link">&para;</a></h3>
+<h3 id="i2c1-i2c3"><strong>I2C1 / I2C3</strong></h3>
 <p>Two CM5 I2C buses on a single connector (<strong>SM06B-GHS</strong>).</p>
 <table>
 <thead>
@@ -3000,7 +3000,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="can-spi-interfaced"><strong>CAN (SPI Interfaced)</strong><a class="headerlink" href="#can-spi-interfaced" title="Permanent link">&para;</a></h3>
+<h3 id="can-spi-interfaced"><strong>CAN (SPI Interfaced)</strong></h3>
 <p>CAN bus via an MCP2515 controller on SPI1-CS0 (<strong>SM04B-GHS</strong>).</p>
 <table>
 <thead>
@@ -3033,7 +3033,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fan"><strong>FAN</strong><a class="headerlink" href="#fan" title="Permanent link">&para;</a></h3>
+<h3 id="fan"><strong>FAN</strong></h3>
 <p>PWM-controlled cooling fan with tachometer feedback (<strong>SM04B-SRSS</strong>).</p>
 <table>
 <thead>
@@ -3066,7 +3066,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fpc1-camera-display-0"><strong>FPC1 — Camera / Display 0</strong><a class="headerlink" href="#fpc1-camera-display-0" title="Permanent link">&para;</a></h3>
+<h3 id="fpc1-camera-display-0"><strong>FPC1 — Camera / Display 0</strong></h3>
 <p>22-pin 0.5mm-pitch FPC carrying MIPI port 0 (4-lane) (<strong>22-pin FPC (0.5mm)</strong>).</p>
 <table>
 <thead>
@@ -3189,7 +3189,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fpc2-camera-display-1"><strong>FPC2 — Camera / Display 1</strong><a class="headerlink" href="#fpc2-camera-display-1" title="Permanent link">&para;</a></h3>
+<h3 id="fpc2-camera-display-1"><strong>FPC2 — Camera / Display 1</strong></h3>
 <p>22-pin 0.5mm-pitch FPC carrying MIPI port 1 (4-lane) (<strong>22-pin FPC (0.5mm)</strong>).</p>
 <table>
 <thead>
@@ -3312,7 +3312,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="m2-key"><strong>M.2 Key</strong><a class="headerlink" href="#m2-key" title="Permanent link">&para;</a></h3>
+<h3 id="m2-key"><strong>M.2 Key</strong></h3>
 <p>M.2 M-Key 2230 or 2242 slot (PCIe / NVMe storage) (<strong>M.2 M-Key</strong>).</p>
 <table>
 <thead>
@@ -3330,7 +3330,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="hdmi"><strong>HDMI</strong><a class="headerlink" href="#hdmi" title="Permanent link">&para;</a></h3>
+<h3 id="hdmi"><strong>HDMI</strong></h3>
 <p>Micro-HDMI video output (<strong>Micro HDMI</strong>).</p>
 <table>
 <thead>
@@ -3348,7 +3348,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="usb-30-port-a"><strong>USB 3.0 (Port A)</strong><a class="headerlink" href="#usb-30-port-a" title="Permanent link">&para;</a></h3>
+<h3 id="usb-30-port-a"><strong>USB 3.0 (Port A)</strong></h3>
 <p>USB 3.0 Type-C host port (<strong>USB Type-C</strong>).</p>
 <table>
 <thead>
@@ -3366,7 +3366,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="usb-30-port-b"><strong>USB 3.0 (Port B)</strong><a class="headerlink" href="#usb-30-port-b" title="Permanent link">&para;</a></h3>
+<h3 id="usb-30-port-b"><strong>USB 3.0 (Port B)</strong></h3>
 <p>USB 3.0 Type-C host port (<strong>USB Type-C</strong>).</p>
 <table>
 <thead>
@@ -3384,7 +3384,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="usb-20"><strong>USB 2.0</strong><a class="headerlink" href="#usb-20" title="Permanent link">&para;</a></h3>
+<h3 id="usb-20"><strong>USB 2.0</strong></h3>
 <p>USB 2.0 Micro port (<strong>USB Micro</strong>).</p>
 <table>
 <thead>
@@ -3402,7 +3402,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="sd-card_1"><strong>SD Card</strong><a class="headerlink" href="#sd-card_1" title="Permanent link">&para;</a></h3>
+<h3 id="sd-card_1"><strong>SD Card</strong></h3>
 <p>MicroSD slot for the Compute Module (<strong>TF SD Card</strong>).</p>
 <table>
 <thead>
@@ -3421,7 +3421,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="dip-switch-cm-switch"><strong>DIP Switch (CM Switch)</strong><a class="headerlink" href="#dip-switch-cm-switch" title="Permanent link">&para;</a></h2>
+<h2 id="dip-switch-cm-switch"><strong>DIP Switch (CM Switch)</strong></h2>
 <p>The 8-position DIP switch (labelled <strong>CM SWITCH</strong>) configures CM5 boot and interface options.</p>
 <p><img alt="DIP switch location" src="../../../images/raspberry/dip_switch.png" width="320" /></p>
 <div class="admonition note">
@@ -3471,8 +3471,8 @@
 </tbody>
 </table>
 <hr />
-<h2 id="power-input"><strong>Power Input</strong><a class="headerlink" href="#power-input" title="Permanent link">&para;</a></h2>
-<h3 id="power-input-xt30"><strong>Power Input (XT30)</strong><a class="headerlink" href="#power-input-xt30" title="Permanent link">&para;</a></h3>
+<h2 id="power-input"><strong>Power Input</strong></h2>
+<h3 id="power-input-xt30"><strong>Power Input (XT30)</strong></h3>
 <p>Main board power input (<strong>XT30</strong>).</p>
 <table>
 <thead>
