@@ -10,9 +10,10 @@ nav:
         - Overview: md/jetson/index.md
         - Dimension: md/jetson/dimension.md
         - Block Diagram: md/jetson/block-diagram.md
-        - Pinout: md/jetson/pinout.md
         - Specification: md/jetson/specification.md
-        - Setup: md/jetson/setup.md        
+        - Pinout: md/jetson/pinout.md
+        - Assembly: md/jetson/assembly.md
+        - Initial Installation: md/jetson/setup.md
         - Getting Started : md/jetson/getting_started.md 
         - Commands: md/jetson/commands.md        
         - GPIO Control: md/jetson/gpio.md        

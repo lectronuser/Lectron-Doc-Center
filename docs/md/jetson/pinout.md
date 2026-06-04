@@ -13,7 +13,7 @@ The board is organized into two functional domains:
 
     | Symbol | Meaning |
     | :----: | :------ |
-    | `+5V` | Peripheral / system 5V rail |
+    | `+5V` | High Power / Peripheral / System 5V rail |
     | `+3.3V` | Logic-level signal (3.3V) |
     | `+12/28V` | Main power input range |
     | `0-16V` | Servo rail sense (depends on BEC) |
@@ -23,12 +23,15 @@ The board is organized into two functional domains:
 !!! danger "Warning"
     Most logic pins are **3.3V tolerant only**. Do **not** apply 5V logic levels to signal pins, and never source servo/motor power from the peripheral 5V rail.
 
+!!! warning "5V Power Output Limit"
+    The board provides three independent 5V buses exposed at external connectors. Each bus is **current-limited to 1.5 A**. Do not exceed this limit across all peripherals connected to the same bus.
+
 ---
 
 ## **FMU Connectors**
 
 ### **Telemetry 1**
-Primary telemetry serial port with flow control (UART7) — designator `TELEM1` (**BM06B-GHS**).
+Primary telemetry serial port with flow control (UART7)  (**BM06B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -40,7 +43,7 @@ Primary telemetry serial port with flow control (UART7) — designator `TELEM1` 
 | 6 | GROUND | GND |
 
 ### **Telemetry 2**
-Secondary telemetry serial port with flow control (UART5) — designator `TELEM2` (**BM06B-GHS**).
+Secondary telemetry serial port with flow control (UART5)  (**BM06B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -52,7 +55,7 @@ Secondary telemetry serial port with flow control (UART5) — designator `TELEM2
 | 6 | GROUND | GND |
 
 ### **Telemetry 3**
-Tertiary telemetry serial port with flow control (USART2) — designator `TELEM3` (**BM06B-GHS**).
+Tertiary telemetry serial port with flow control (USART2)  (**BM06B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -64,7 +67,7 @@ Tertiary telemetry serial port with flow control (USART2) — designator `TELEM3
 | 6 | GROUND | GND |
 
 ### **CAN**
-Primary CAN bus for the flight controller — designator `CAN` (**BM04B-GHS**).
+Primary CAN bus for the flight controller  (**BM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -74,7 +77,7 @@ Primary CAN bus for the flight controller — designator `CAN` (**BM04B-GHS**).
 | 4 | GROUND | GND |
 
 ### **FMU Debug**
-SWD + serial debug for the FMU processor — designator `FMU_DEBUG1` (**SM10B-SRSS**).
+SWD + serial debug for the FMU processor  (**SM10B-SRSS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -90,7 +93,7 @@ SWD + serial debug for the FMU processor — designator `FMU_DEBUG1` (**SM10B-SR
 | 10 | GROUND | GND |
 
 ### **IO Debug**
-SWD + serial debug for the IO co-processor — designator `IO_DEBUG1` (**SM10B-SRSS**).
+SWD + serial debug for the IO co-processor  (**SM10B-SRSS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -106,7 +109,7 @@ SWD + serial debug for the IO co-processor — designator `IO_DEBUG1` (**SM10B-S
 | 10 | GROUND | GND |
 
 ### **GPS-1 (FULL)**
-Full GPS port with safety switch, LED and buzzer outputs — designator `GPS1` (**BM10B-GHS**).
+Full GPS port with safety switch, LED and buzzer outputs  (**BM10B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -122,7 +125,7 @@ Full GPS port with safety switch, LED and buzzer outputs — designator `GPS1` (
 | 10 | GROUND | GND |
 
 ### **GPS-2 (BASIC)**
-Secondary GPS port (serial + I2C only) — designator `GPS2` (**BM06B-GHS**).
+Secondary GPS port (serial + I2C only)  (**BM06B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -134,7 +137,7 @@ Secondary GPS port (serial + I2C only) — designator `GPS2` (**BM06B-GHS**).
 | 6 | GROUND | GND |
 
 ### **SBUS**
-RC receiver input (PPM/SBUS) with RSSI feedback — designator `SBUS1` (**BM05B-GHS**).
+RC receiver input (PPM/SBUS) with RSSI feedback  (**BM05B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -144,15 +147,18 @@ RC receiver input (PPM/SBUS) with RSSI feedback — designator `SBUS1` (**BM05B-
 | 4 | RSSI IN / SBUS OUTPUT | +3.3V |
 | 5 | GROUND | GND |
 
+!!! warning "DSM Support"
+    The Lectron Jetson Autopilot product doesn't support DSM.
+
 ### **FMU USB**
-USB 2.0 Type-C for firmware flashing and MAVLink over USB — designator `PX_USB1` (**USB 2.0 Type-C**).
+USB 2.0 Type-C for firmware flashing and MAVLink over USB  (**USB 2.0 Type-C**).
 
 | Pin | Signal | Voltage |
 | :-: | :--- | :-----: |
-| - | - | --- |
+| - | - | 5V |
 
 ### **IO PWM (MAIN)**
-Main PWM outputs driven by the IO co-processor — designator `IO_PWM1` (**BM10B-GHS**).
+Main PWM outputs driven by the IO co-processor  (**BM10B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -168,7 +174,7 @@ Main PWM outputs driven by the IO co-processor — designator `IO_PWM1` (**BM10B
 | 10 | GROUND | GND |
 
 ### **FMU PWM (AUX)**
-Auxiliary PWM outputs driven directly by the FMU — designator `FMU_PWM1` (**BM10B-GHS**).
+Auxiliary PWM outputs driven directly by the FMU  (**BM10B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -184,7 +190,7 @@ Auxiliary PWM outputs driven directly by the FMU — designator `FMU_PWM1` (**BM
 | 10 | GROUND | GND |
 
 ### **I2C3**
-I2C3 peripheral bus — designator `I2C3` (**BM04B-GHS**).
+I2C3 peripheral bus  (**BM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -194,7 +200,7 @@ I2C3 peripheral bus — designator `I2C3` (**BM04B-GHS**).
 | 4 | GROUND | GND |
 
 ### **UART4**
-UART4 peripheral port — designator `UART4` (**BM04B-GHS**).
+UART4 peripheral port  (**BM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -204,7 +210,7 @@ UART4 peripheral port — designator `UART4` (**BM04B-GHS**).
 | 4 | GROUND | GND |
 
 ### **External Power Sensor Input**
-External power module / battery monitoring (I2C1) — designator `U66` (**SM04B-GHS**).
+External power module / battery monitoring (I2C1)  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -215,35 +221,10 @@ External power module / battery monitoring (I2C1) — designator `U66` (**SM04B-
 
 ---
 
-## **System Power**
-
-### **General 12V Out**
-Switched 12V system output — designator `U1` (**SM04B-GHS**).
-
-| Pin | Signal | Voltage |
-| :-: | :----- | :------: |
-| 1 | SYSTEM 12V | +12V |
-| 2 | SYSTEM 12V | +12V |
-| 3 | GROUND | GND |
-| 4 | GROUND | GND |
-
-### **Power Input (XT30)**
-Main board power input — designator `CN2` (**XT30**).
-
-| Pin | Signal | Voltage |
-| :-: | :----- | :-------: |
-| 1 | 12-28V INPUT | +12/28V |
-| 2 | GROUND | GND |
-
-!!! danger "Power Input"
-    Observe correct polarity on the XT30 input. Input voltage must stay within **+12V to +28V**; reverse polarity or over-voltage may permanently damage the board.
-
----
-
 ## **Jetson Connectors**
 
 ### **Jetson GPIO**
-General-purpose I/O header — designator `U28` (**SM10B-GHS**).
+General-purpose I/O header  (**SM10B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -259,7 +240,7 @@ General-purpose I/O header — designator `U28` (**SM10B-GHS**).
 | 10 | GROUND | GND |
 
 ### **Jetson SPI**
-SPI0 bus with single chip-select — designator `CN3` (**SM06B-GHS**).
+SPI0 bus with single chip-select  (**SM06B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -271,7 +252,7 @@ SPI0 bus with single chip-select — designator `CN3` (**SM06B-GHS**).
 | 6 | GROUND | GND |
 
 ### **Jetson UART0**
-General-purpose serial port — designator `U34` (**SM04B-GHS**).
+General-purpose serial port  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -281,7 +262,7 @@ General-purpose serial port — designator `U34` (**SM04B-GHS**).
 | 4 | GROUND | GND |
 
 ### **Jetson UART1**
-General-purpose serial port — designator `U35` (**SM04B-GHS**).
+General-purpose serial port  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -291,7 +272,7 @@ General-purpose serial port — designator `U35` (**SM04B-GHS**).
 | 4 | GROUND | GND |
 
 ### **Jetson UART2 (Debug)**
-Serial debug console — designator `U36` (**SM03B-GHS**).
+Serial debug console  (**SM03B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -300,7 +281,7 @@ Serial debug console — designator `U36` (**SM03B-GHS**).
 | 3 | GROUND | GND |
 
 ### **Jetson I2C0**
-I2C0 peripheral bus — designator `U30` (**SM04B-GHS**).
+I2C0 peripheral bus  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -310,7 +291,7 @@ I2C0 peripheral bus — designator `U30` (**SM04B-GHS**).
 | 4 | GROUND | GND |
 
 ### **Jetson I2C1**
-I2C1 peripheral bus — designator `U32` (**SM04B-GHS**).
+I2C1 peripheral bus  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -320,7 +301,7 @@ I2C1 peripheral bus — designator `U32` (**SM04B-GHS**).
 | 4 | GROUND | GND |
 
 ### **System Ethernet 1**
-Differential Ethernet pairs — designator `U39` (**SM04B-GHS**).
+Differential Ethernet pairs  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -330,7 +311,7 @@ Differential Ethernet pairs — designator `U39` (**SM04B-GHS**).
 | 4 | ETH1 RXN | --- |
 
 ### **System Ethernet 2**
-Differential Ethernet pairs — designator `U40` (**SM04B-GHS**).
+Differential Ethernet pairs  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -340,7 +321,7 @@ Differential Ethernet pairs — designator `U40` (**SM04B-GHS**).
 | 4 | ETH2 RXN | --- |
 
 ### **Jetson FPC1 — Camera**
-15-pin 1mm-pitch FPC carrying CSI port 3 plus camera control — designator `FPC1` (**15-pin FPC (1mm)**).
+15-pin 1mm-pitch FPC carrying CSI port 3 plus camera control  (**15-pin FPC (1mm)**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -361,7 +342,7 @@ Differential Ethernet pairs — designator `U40` (**SM04B-GHS**).
 | 15 | SYSTEM 3.3V | +3.3V |
 
 ### **Jetson FPC2 — Camera**
-15-pin 1mm-pitch FPC carrying CSI port 0 plus camera control — designator `FPC2` (**15-pin FPC (1mm)**).
+15-pin 1mm-pitch FPC carrying CSI port 0 plus camera control  (**15-pin FPC (1mm)**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -382,7 +363,7 @@ Differential Ethernet pairs — designator `U40` (**SM04B-GHS**).
 | 15 | SYSTEM 3.3V | +3.3V |
 
 ### **Jetson CAN (SPI Interfaced)**
-CAN bus via an MCP2515 controller on SPI0-CS1 — designator `U46` (**SM04B-GHS**).
+CAN bus via an MCP2515 controller on SPI0-CS1  (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -392,7 +373,7 @@ CAN bus via an MCP2515 controller on SPI0-CS1 — designator `U46` (**SM04B-GHS*
 | 4 | GROUND | GND |
 
 ### **Jetson Fan 1**
-PWM-controlled cooling fan with tachometer feedback — designator `SYS_FAN1` (**SM04B-SRSS**).
+PWM-controlled cooling fan with tachometer feedback  (**SM04B-SRSS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -402,7 +383,7 @@ PWM-controlled cooling fan with tachometer feedback — designator `SYS_FAN1` (*
 | 4 | JETSON TACHO [^c] | +3.3V |
 
 ### **Jetson Fan 2**
-PWM-controlled cooling fan (no tachometer) — designator `SYS_FAN2` (**SM04B-SRSS**).
+PWM-controlled cooling fan (no tacho)  (**SM04B-SRSS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-----: |
@@ -412,25 +393,53 @@ PWM-controlled cooling fan (no tachometer) — designator `SYS_FAN2` (**SM04B-SR
 | 4 | NC [^d] | --- |
 
 ### **Jetson USB 3.0**
-USB 3.0 Type-C host port — designator `JN_USB` (**USB Type-C**).
+USB 3.0 Type-C host port  (**USB Type-C**).
 
 | Pin | Signal | Voltage |
 | :-: | :--- | :-----: |
 | - | - | +5V |
 
 ### **Jetson USB 2.0 (Debug)**
-USB 2.0 Mini debug port — designator `USB1` (**USB Mini**).
+USB 2.0 Mini debug port  (**USB Mini**).
 
 | Pin | Signal | Voltage |
 | :-: | :--- | :-----: |
 | - | - | +5V |
 
 ### **Jetson SD Card**
-MicroSD slot — designator `CARD1` (**TF SD Card**).
+MicroSD slot  (**TF SD Card**).
 
 | Pin | Signal | Voltage |
 | :-: | :--- | :-----: |
 | - | - | +3.3V |
+
+---
+
+## **System Power**
+
+### **General 12V Out**
+Regulated 12V output stepped down from the main power input, current-limited to 2A — designator `U1` (**SM04B-GHS**).
+
+| Pin | Signal | Voltage |
+| :-: | :----- | :------: |
+| 1 | SYSTEM 12V | +12V |
+| 2 | SYSTEM 12V | +12V |
+| 3 | GROUND | GND |
+| 4 | GROUND | GND |
+
+### **Power Input (XT30)**
+Main board power input  (**XT30**).
+
+| Pin | Signal | Voltage |
+| :-: | :----- | :-------: |
+| 1 | 12-28V INPUT | +12/28V |
+| 2 | GROUND | GND |
+
+!!! danger "Power Input"
+    Observe correct polarity on the XT30 input. Input voltage must stay within **+12V to +28V**; reverse polarity or over-voltage may permanently damage the board.
+
+!!! danger "Use the Supplied XT30 Cable Only"
+    Power the board exclusively through the XT30 cable supplied by Lectron. Using a third-party or incorrectly wired cable may damage the onboard regulator stage. This cable compansate voltage ripples that are caused by motors.
 
 ---
 
