@@ -86,7 +86,7 @@ SWD + serial debug for the FMU processor  (**SM10B-SRSS**).
 | 3 | USART3_RX_DEBUG | +3.3V |
 | 4 | FMU_SWDIO | +3.3V |
 | 5 | FMU_SWCLK | +3.3V |
-| 6 | SPI6_SCK_EXTERNAL1 | +3.3V |
+| 6 | NC |  |
 | 7 | NFC_GPIO | +3.3V |
 | 8 | PH11 | +3.3V |
 | 9 | FMU_NRST | +3.3V |
@@ -103,8 +103,8 @@ SWD + serial debug for the IO co-processor  (**SM10B-SRSS**).
 | 4 | IO_SWDIO | +3.3V |
 | 5 | IO_SWCLK | +3.3V |
 | 6 | IO_SWO | +3.3V |
-| 7 | IO_SPARE_GPIO1 | +3.3V |
-| 8 | IO_SPARE_GPIO2 | +3.3V |
+| 7 | NC |  |
+| 8 | NC |  |
 | 9 | IO_NRST | +3.3V |
 | 10 | GROUND | GND |
 
@@ -115,13 +115,13 @@ Full GPS port with safety switch, LED and buzzer outputs  (**BM10B-GHS**).
 | :-: | :----- | :-----: |
 | 1 | PERIPHERAL 5V | +5V |
 | 2 | USART1 TX | +3.3V |
-| 3 | USART2 RX | +3.3V |
+| 3 | USART1 RX | +3.3V |
 | 4 | I2C1 SCL | +3.3V |
 | 5 | I2C1 SDA | +3.3V |
 | 6 | SAFETY SWITCH IN | +3.3V |
 | 7 | SAFETY LED OUT | +3.3V |
 | 8 | FMU 3.3V | +3.3V |
-| 9 | BUZZER | +3.3V |
+| 9 | BUZZER(-) | +3.3V |
 | 10 | GROUND | GND |
 
 ### **GPS-2 (BASIC)**
@@ -320,7 +320,7 @@ Differential Ethernet pairs  (**SM04B-GHS**).
 | 3 | ETH2 RXP | --- |
 | 4 | ETH2 RXN | --- |
 
-### **Jetson FPC1 — Camera**
+### **Jetson CSI-1 — Camera**
 15-pin 1mm-pitch FPC carrying CSI port 3 plus camera control  (**15-pin FPC (1mm)**).
 
 | Pin | Signal | Voltage |
@@ -341,7 +341,7 @@ Differential Ethernet pairs  (**SM04B-GHS**).
 | 14 | JN_CAM_I2C_SDA [^b] | +3.3V |
 | 15 | SYSTEM 3.3V | +3.3V |
 
-### **Jetson FPC2 — Camera**
+### **Jetson CSI-2 — Camera**
 15-pin 1mm-pitch FPC carrying CSI port 0 plus camera control  (**15-pin FPC (1mm)**).
 
 | Pin | Signal | Voltage |
@@ -391,6 +391,10 @@ PWM-controlled cooling fan (no tacho)  (**SM04B-SRSS**).
 | 2 | JETSON PWM (INVERTED) | +3.3V |
 | 3 | GROUND | GND |
 | 4 | NC [^d] | --- |
+
+
+!!! note "Shared PWM Signal"
+    Both fans are driven by the same PWM source. They cannot be controlled independently.
 
 ### **Jetson USB 3.0**
 USB 3.0 Type-C host port  (**USB Type-C**).
