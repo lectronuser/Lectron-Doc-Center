@@ -50,11 +50,14 @@ Once seated correctly, the assembly should look like this:
 
     ![Insert SD card for CM5 Lite](../../images/raspberry/assembly_4.png)
 
+!!! note "Install Before Closing the Bottom Case"
+    The Hailo M.2 connector is located on the **underside** of the board, which becomes inaccessible once the bottom case is fitted. If you intend to use the Hailo module, install it **before** placing the board into the bottom case — see [Hailo Integration](#hailo-integration).
+
 ---
 
 ## **Step 3 — Place the Board in the Bottom Case**
 
-Lower the assembled baseboard into the **bottom case (1)**, aligning the mounting holes.
+Lower the assembled baseboard into the **bottom case**, aligning the mounting holes.
 
 ![Place the board into the bottom case](../../images/raspberry/assembly_5.png)
 
@@ -62,7 +65,7 @@ Lower the assembled baseboard into the **bottom case (1)**, aligning the mountin
 
 ## **Step 4 — Close with the Top Case**
 
-Fit the **top case (2)** — the P15 Autopilot heatsink and fan assembly — over the board, aligning the connector cutouts with the baseboard ports.
+Fit the **top case** — the P15 Autopilot heatsink and fan assembly — over the board, aligning the connector cutouts with the baseboard ports.
 
 ![Close the board with the top case](../../images/raspberry/assembly_6.png)
 
@@ -70,7 +73,7 @@ Fit the **top case (2)** — the P15 Autopilot heatsink and fan assembly — ove
 
 ## **Step 5 — Connect the IMU Board**
 
-The **IMU board (4)** connects to the FMU via the FPC ribbon cable.
+The **IMU board** connects to the FMU via the FPC ribbon cable.
 
 ![The IMU board](../../images/raspberry/assembly_7.png)
 
@@ -94,3 +97,34 @@ Secure the assembly with the supplied screws:
 
 !!! tip "Done"
     The Lectron PI5 Autopilot is now assembled. Continue with the [Initial Installation](setup.md) guide to flash the Compute Module and the FMU firmware.
+
+
+## **Hailo Integration**
+
+The Hailo-8 AI accelerator is installed in the M.2 M-Key slot on the CM5 carrier board.
+
+!!! note "M.2 Standoff — 2242 vs. 2230"
+    The Lectron PI5 Autopilot ships with the M.2 M-Key standoff fitted for a **2242** module. To install a **2230** module, move this standoff from the 2242 hole to the **2230** hole. Once relocated, the board supports a 2230 build.
+
+### **Step 1 — Locate the Connector, Screw and Thermal Pad**
+The image below shows the Hailo module and the CM5 carrier board. The **red rectangles** mark the M.2 connector, the **red circles** mark the standoff/screw locations, and the **blue rectangle** marks where the thermal pad must be applied on the Hailo module.
+
+![Hailo module and CM5 carrier board — connector, screw and thermal pad locations](../../images/raspberry/hailo_assembly_1.png){ width="360" }
+
+!!! warning "Apply the Thermal Pad"
+    Before installing the Hailo module, apply a thermal pad to the area marked by the **blue rectangle** on the module. The pad is **required** for proper heat dissipation — operating the Hailo-8 without it can cause overheating and thermal throttling.
+
+### **Step 2 — Insert the Module**
+Hold the Hailo module at a slight incline, align its M.2 edge connector with the slot, and push it firmly into the connector.
+
+![Inserting the Hailo module at an incline](../../images/raspberry/hailo_assembly_2.png){ width="360" }
+
+!!! warning "Insert Carefully"
+    Be careful and gentle while pushing the module into the connector.
+
+
+### **Step 3 — Fasten the Screw**
+Press the module down until it lies **flat** against the standoff, then fasten the screw at the location marked by the **red circle** in Step 1. The fully installed module is shown below.
+
+![Hailo module seated flat and secured](../../images/raspberry/hailo_assembly_3.png){ width="360" }
+

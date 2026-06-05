@@ -1,19 +1,21 @@
-.md-header {
+/* Dark mode: transparent header that gains a frosted background on scroll */
+[data-md-color-scheme="slate"] .md-header {
   background: transparent !important;
   box-shadow: none !important;
 }
 
-[data-md-state="scrolled"] .md-header {
+[data-md-color-scheme="slate"][data-md-state="scrolled"] .md-header,
+[data-md-color-scheme="slate"] [data-md-state="scrolled"].md-header {
   background: rgba(18, 18, 18, 0.85) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-.md-tabs {
+[data-md-color-scheme="slate"] .md-tabs {
   background: transparent !important;
 }
 
-[data-md-state="scrolled"] .md-tabs {
+[data-md-color-scheme="slate"] [data-md-state="scrolled"] .md-tabs {
   background: rgba(18, 18, 18, 0.70) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
