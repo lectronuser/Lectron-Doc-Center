@@ -6,4 +6,4 @@
 
 ## **Case Dimension**
 
-![CM5 Autopilot Case Dimension](../../images/raspberry/case_dimension.png)
+![CM5 Autopilot Case Dimension](../../images/raspberry/case_dimension.jpg)

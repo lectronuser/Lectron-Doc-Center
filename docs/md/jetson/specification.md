@@ -3,10 +3,6 @@
 
 ## **Jetson & System Support**
 
-<div class="image-row" markdown="1">
-![Jetson Board](../../images/jetson/board_7.png)
-![Jetson Board](../../images/jetson/board_8.png)
-</div>
 
 
 
@@ -35,11 +31,6 @@
 
 
 ## **Pixhawk & System Support**
-
-<div class="image-row" markdown="1">
-![Jetson Board](../../images/jetson/board_9.png)
-<!-- ![Jetson Board](../../images/jetson/board_2.png) -->
-</div>
 
 
 | Feature | Description |
@@ -73,12 +64,6 @@
 ## **Power Architecture**
 
 
-<div class="image-row" markdown="1">
-![Jetson Board](../../images/jetson/board_10.png)
-![Jetson Board](../../images/jetson/board_6.png)
-</div>
-
-
 | Feature | Description |
 |-------|---------------|
 | Power-In           | XT30 with reverse protection |
@@ -103,11 +88,6 @@
 | Status LEDs         | 4 × Blue — link / activity per port |
 
 ## **Thermal Management**
-
-<div class="image-row" markdown="1">
-![Jetson Board](../../images/jetson/board_4.png)
-![Jetson Board](../../images/jetson/board_5.png)
-</div>
 
 | Feature | Description |
 |-------|---------------|
