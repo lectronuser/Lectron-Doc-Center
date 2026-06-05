@@ -1326,12 +1326,8 @@
 <td>2 × 4-Pin, 100 Mbps</td>
 </tr>
 <tr>
-<td>CSI Camera</td>
-<td>2x 15-pin FFC</td>
-</tr>
-<tr>
 <td>GPIO</td>
-<td>6-Pin</td>
+<td>8-Pin</td>
 </tr>
 <tr>
 <td>I2C</td>
@@ -1369,6 +1365,10 @@
 <td></td>
 <td>ETH Switch (KSZ8795) -&gt; GPIO11</td>
 </tr>
+<tr>
+<td>LED</td>
+<td>Blue (Status / Power)</td>
+</tr>
 </tbody>
 </table>
 <h2 id="pixhawk-system-support"><strong>Pixhawk &amp; System Support</strong></h2>
@@ -1394,11 +1394,15 @@
 </tr>
 <tr>
 <td>Power Regulation</td>
-<td>Dedicated 5.1 V – 3 A rail</td>
+<td>Dedicated 5.0 V – 3 A rail</td>
 </tr>
 <tr>
 <td>Power Distribution</td>
 <td>Onboard regulated</td>
+</tr>
+<tr>
+<td>IO Status LEDs</td>
+<td>3x LEDs (Blue, Amber, Green)</td>
 </tr>
 <tr>
 <td>Ethernet</td>
@@ -1457,10 +1461,6 @@
 <td>8 Channels FMU + 8 Channels IO (10-Pin JST-GH)</td>
 </tr>
 <tr>
-<td>Ethernet</td>
-<td>1 × 4-Pin</td>
-</tr>
-<tr>
 <td>FMU/IO Debug Interface</td>
 <td>SWD (10-Pin JST-SH)</td>
 </tr>
@@ -1469,11 +1469,11 @@
 <td>UART or Ethernet</td>
 </tr>
 <tr>
-<td>FMU Onboard Sensors</td>
-<td>IMU: ICM-42670-P (SPI)</td>
+<td>FMU Onboard Sensor (Lectron V6X)</td>
+<td>IMU: ICM-42670-P (SPI), Barometer: BMP390 (I2C), FRAM: FM25V02A, EEPROM: AT24C02D</td>
 </tr>
 <tr>
-<td>Sensor Board</td>
+<td>Sensor Board  (Lectron IMU-01)</td>
 <td>IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer:BMP390 (I2C), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T</td>
 </tr>
 </tbody>

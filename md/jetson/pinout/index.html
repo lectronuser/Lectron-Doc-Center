@@ -550,6 +550,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pin-1-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin 1 Identification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fmu-connectors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1582,6 +1593,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pin-1-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin 1 Identification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fmu-connectors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2027,8 +2049,8 @@
 <p>This page describes every external connector on the <strong>Lectron Jetson Autopilot</strong> baseboard, including its connector type, pin assignment, signal name and operating voltage.</p>
 <p>The board is organized into two functional domains:</p>
 <ul>
-<li><strong>Pixhawk FMU side</strong> — the flight-controller connectors that follow the Pixhawk Bus Standard (telemetry, CAN, GPS, PWM, debug, etc.).</li>
-<li><strong>Jetson compute side</strong> — the Jetson module connectors (GPIO, SPI, UART, I2C, camera FPC, CAN, Ethernet, USB, etc.).</li>
+<li><strong>Pixhawk FMU side</strong> — the flight-controller connectors that follow the Pixhawk Bus Standard (TELEMETRY, CAN, GPS, PWM, DEBUG, etc.).</li>
+<li><strong>Jetson compute side</strong> — the Jetson module connectors (GPIO, SPI, UART, I2C, CSI CAMERA, CAN, Ethernet, USB, etc.).</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Voltage Legend</p>
@@ -2076,6 +2098,10 @@
 <p class="admonition-title">5V Power Output Limit</p>
 <p>The board provides three independent 5V buses exposed at external connectors. Each bus is <strong>current-limited to 1.5 A</strong>. Do not exceed this limit across all peripherals connected to the same bus.</p>
 </div>
+<hr />
+<h2 id="pin-1-identification"><strong>Pin 1 Identification</strong></h2>
+<p>In every pinout table below, <strong>Pin 1</strong> is the first row. Use the image below to locate Pin 1 on the physical JST GH connector before wiring.</p>
+<p><img alt="JST GH Connector Pin Identification" src="../../../images/raspberry/jst_gh_pin1.png" width="420" /></p>
 <hr />
 <h2 id="fmu-connectors"><strong>FMU Connectors</strong></h2>
 <h3 id="telemetry-1"><strong>Telemetry 1</strong></h3>
@@ -2658,6 +2684,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not apply servo sense voltage above 16V.</p>
+</div>
 <h3 id="i2c3"><strong>I2C3</strong></h3>
 <p>I2C3 peripheral bus  (<strong>BM04B-GHS</strong>).</p>
 <table>
