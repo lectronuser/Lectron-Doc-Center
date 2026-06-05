@@ -843,10 +843,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jetson-fpc1-camera" class="md-nav__link">
+  <a href="#jetson-csi-1-camera" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson FPC1 — Camera
+        Jetson CSI-1 — Camera
       
     </span>
   </a>
@@ -854,10 +854,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jetson-fpc2-camera" class="md-nav__link">
+  <a href="#jetson-csi-2-camera" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson FPC2 — Camera
+        Jetson CSI-2 — Camera
       
     </span>
   </a>
@@ -1875,10 +1875,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jetson-fpc1-camera" class="md-nav__link">
+  <a href="#jetson-csi-1-camera" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson FPC1 — Camera
+        Jetson CSI-1 — Camera
       
     </span>
   </a>
@@ -1886,10 +1886,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jetson-fpc2-camera" class="md-nav__link">
+  <a href="#jetson-csi-2-camera" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson FPC2 — Camera
+        Jetson CSI-2 — Camera
       
     </span>
   </a>
@@ -2278,8 +2278,8 @@
 </tr>
 <tr>
 <td style="text-align: center;">6</td>
-<td style="text-align: left;">SPI6_SCK_EXTERNAL1</td>
-<td style="text-align: center;">+3.3V</td>
+<td style="text-align: left;">NC</td>
+<td style="text-align: center;"></td>
 </tr>
 <tr>
 <td style="text-align: center;">7</td>
@@ -2346,13 +2346,13 @@
 </tr>
 <tr>
 <td style="text-align: center;">7</td>
-<td style="text-align: left;">IO_SPARE_GPIO1</td>
-<td style="text-align: center;">+3.3V</td>
+<td style="text-align: left;">NC</td>
+<td style="text-align: center;"></td>
 </tr>
 <tr>
 <td style="text-align: center;">8</td>
-<td style="text-align: left;">IO_SPARE_GPIO2</td>
-<td style="text-align: center;">+3.3V</td>
+<td style="text-align: left;">NC</td>
+<td style="text-align: center;"></td>
 </tr>
 <tr>
 <td style="text-align: center;">9</td>
@@ -2389,7 +2389,7 @@
 </tr>
 <tr>
 <td style="text-align: center;">3</td>
-<td style="text-align: left;">USART2 RX</td>
+<td style="text-align: left;">USART1 RX</td>
 <td style="text-align: center;">+3.3V</td>
 </tr>
 <tr>
@@ -2419,7 +2419,7 @@
 </tr>
 <tr>
 <td style="text-align: center;">9</td>
-<td style="text-align: left;">BUZZER</td>
+<td style="text-align: left;">BUZZER(-)</td>
 <td style="text-align: center;">+3.3V</td>
 </tr>
 <tr>
@@ -3091,7 +3091,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="jetson-fpc1-camera"><strong>Jetson FPC1 — Camera</strong></h3>
+<h3 id="jetson-csi-1-camera"><strong>Jetson CSI-1 — Camera</strong></h3>
 <p>15-pin 1mm-pitch FPC carrying CSI port 3 plus camera control  (<strong>15-pin FPC (1mm)</strong>).</p>
 <table>
 <thead>
@@ -3179,7 +3179,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="jetson-fpc2-camera"><strong>Jetson FPC2 — Camera</strong></h3>
+<h3 id="jetson-csi-2-camera"><strong>Jetson CSI-2 — Camera</strong></h3>
 <p>15-pin 1mm-pitch FPC carrying CSI port 0 plus camera control  (<strong>15-pin FPC (1mm)</strong>).</p>
 <table>
 <thead>
@@ -3366,6 +3366,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Shared PWM Signal</p>
+<p>Both fans are driven by the same PWM source. They cannot be controlled independently.</p>
+</div>
 <h3 id="jetson-usb-30"><strong>Jetson USB 3.0</strong></h3>
 <p>USB 3.0 Type-C host port  (<strong>USB Type-C</strong>).</p>
 <table>
