@@ -43,7 +43,7 @@ Align the Lectron V6X board over the baseboard using the four mounting holes (**
 
 Two add-on modules attach to the top of the baseboard in the positions marked by the numbered labels:
 
-- **Top right** — Power module, aligned to positions **2** and **3**
+- **Top right** — Power module, aligned to positions **1**, **2** and **3**
 - **Bottom right** — IO expansion module, aligned to positions **4** and **5**
 
 Seat each module in order, following the numbering on the board.
@@ -94,7 +94,7 @@ Place the bottom case plate onto the bottom case and fasten it using the supplie
 ![Secure the plate to the bottom case with M2×4 mm screws](../../images/jetson/assembly_9.png)
 
 !!! Warning "Plate Orientation"
-    The bottom case is **not symmetric**. Make sure the plate is oriented correctly before fastening — fitting it the wrong way will misalign the screw holes and connector cutouts. It affect the thermal performance of the case.
+    The bottom case is **not symmetric**. Make sure the plate is oriented correctly before fastening. Incorrect orientation will block airflow.
 
 ---
 

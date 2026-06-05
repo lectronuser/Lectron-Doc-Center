@@ -5,8 +5,8 @@ This page describes every external connector on the **Lectron Jetson Autopilot**
 
 The board is organized into two functional domains:
 
-- **Pixhawk FMU side** — the flight-controller connectors that follow the Pixhawk Bus Standard (telemetry, CAN, GPS, PWM, debug, etc.).
-- **Jetson compute side** — the Jetson module connectors (GPIO, SPI, UART, I2C, camera FPC, CAN, Ethernet, USB, etc.).
+- **Pixhawk FMU side** — the flight-controller connectors that follow the Pixhawk Bus Standard (TELEMETRY, CAN, GPS, PWM, DEBUG, etc.).
+- **Jetson compute side** — the Jetson module connectors (GPIO, SPI, UART, I2C, CSI CAMERA, CAN, Ethernet, USB, etc.).
 
 !!! note "Voltage Legend"
     Unless otherwise noted, **all signal pins are +3.3V**.
@@ -25,6 +25,14 @@ The board is organized into two functional domains:
 
 !!! warning "5V Power Output Limit"
     The board provides three independent 5V buses exposed at external connectors. Each bus is **current-limited to 1.5 A**. Do not exceed this limit across all peripherals connected to the same bus.
+
+---
+
+## **Pin 1 Identification**
+
+In every pinout table below, **Pin 1** is the first row. Use the image below to locate Pin 1 on the physical JST GH connector before wiring.
+
+![JST GH Connector Pin Identification](../../images/raspberry/jst_gh_pin1.png){ width="420" }
 
 ---
 
@@ -188,6 +196,10 @@ Auxiliary PWM outputs driven directly by the FMU  (**BM10B-GHS**).
 | 8 | FMU PWM CH7 | +3.3V |
 | 9 | FMU PWM CH8 | +3.3V |
 | 10 | GROUND | GND |
+
+!!! warning
+    Do not apply servo sense voltage above 16V.
+
 
 ### **I2C3**
 I2C3 peripheral bus  (**BM04B-GHS**).

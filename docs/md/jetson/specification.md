@@ -16,8 +16,7 @@
 | USB                      | USB 3.0 Type-C (2 A), USB 2.0 Mini-B |
 | Debug                    | Debug UART, Force Recovery & Reset |
 | Ethernet                 | 2 × 4-Pin, 100 Mbps |
-| CSI Camera               | 2x 15-pin FFC |
-| GPIO                     | 6-Pin |
+| GPIO                     | 8-Pin |
 | I2C                      | I2C0 |
 |                          | I2C1 |
 | UART                     | UART0 [^a] |
@@ -27,7 +26,7 @@
 |                          | CAN -> CS1 |
 |                          | BMI270 -> GPIO10 |
 |                          | ETH Switch (KSZ8795) -> GPIO11 |
-
+| LED                      | Blue (Status / Power) |
 
 
 ## **Pixhawk & System Support**
@@ -38,8 +37,9 @@
 | Supported Firmware     | ArduPilot, PX4 |
 | FMU Processor          | STM32H753IIK6TR (32-bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM)|
 | IO Processor           | STM32F103 (32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM) |
-| Power Regulation       | Dedicated 5.1 V – 3 A rail |
+| Power Regulation       | Dedicated 5.0 V – 3 A rail |
 | Power Distribution     | Onboard regulated |
+| IO Status LEDs           | 3x LEDs (Blue, Amber, Green) |
 | Ethernet               | Embedded 100 Mbps |
 | Port Compatibility     | Pixhawk & Jetson standards |
 | Main Connectors        | 100-Pin & 50-Pin Hirose DF40 |
@@ -54,11 +54,10 @@
 | FMU USB                | USB Type-C |
 | RC / SBUS              | PPM, S.BUS (5-Pin JST-GH) |
 | PWM Outputs            | 8 Channels FMU + 8 Channels IO (10-Pin JST-GH) |
-| Ethernet               | 1 × 4-Pin |
 | FMU/IO Debug Interface | SWD (10-Pin JST-SH) |
 | Jetson Link            | UART or Ethernet |
-| FMU Onboard Sensors    | IMU: ICM-42670-P (SPI) | Barometer: BMP390 (I2C) | FRAM: FM25V02A | EEPROM: AT24C02D |
-| Sensor Board           | IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer:BMP390 (I2C), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T |
+| FMU Onboard Sensor (Lectron V6X)    | IMU: ICM-42670-P (SPI), Barometer: BMP390 (I2C), FRAM: FM25V02A, EEPROM: AT24C02D |
+| Sensor Board  (Lectron IMU-01)  | IMU1: BMI270 (SPI), IMU2: ICM-42670-P (SPI), Barometer:BMP390 (I2C), Magnetometer: BMM350 (I2C), EEPROM: 24LC64T |
 
 
 ## **Power Architecture**

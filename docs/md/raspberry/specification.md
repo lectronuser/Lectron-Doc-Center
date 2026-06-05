@@ -29,7 +29,7 @@
 | Supported Firmware   | ArduPilot, PX4 |
 | Power Regulation     | 5V rail, shared 5V bus with CM5 (no separate regulation) |
 | Power Distribution   | Onboard regulated |
-| FMU Processor        | STM32H753IIK6TR (32-bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM) |
+| FMU Processor        | STM32H753IIK6 (32-bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM) |
 | IO Processor         | STM32F103 (32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM) |
 | FMU Status LEDs          | 3x LEDs (Red, Green, Blue) | 
 | IO Status LEDs          | 3x LEDs (Blue, Amber, Green) |
