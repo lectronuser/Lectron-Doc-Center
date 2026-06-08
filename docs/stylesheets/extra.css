@@ -239,8 +239,21 @@
   max-width: 100% !important;
 
   border-radius: 12px !important;
-  border: 1px solid rgba(255,255,255,0.18) !important;
   padding: 0.6rem 0.9rem !important;
+}
+
+[data-md-color-scheme="slate"] .md-footer__link {
+  border: 1px solid rgba(255,255,255,0.18) !important;
+}
+
+[data-md-color-scheme="default"] .md-footer__link {
+  border: 1px solid rgba(0,0,0,0.18) !important;
+  color: var(--md-default-fg-color) !important;
+}
+
+[data-md-color-scheme="default"] .md-footer__link .md-footer__title,
+[data-md-color-scheme="default"] .md-footer__link .md-footer__direction {
+  color: var(--md-default-fg-color) !important;
 }
 
 .image-row {

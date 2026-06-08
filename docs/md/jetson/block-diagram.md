@@ -1,3 +1,3 @@
 # Block Diagram
 
-![Jetson Custom Board](../../images/jetson/block_diagram.png)
+![Jetson Block Diagram](../../images/jetson/block_diagram.drawio)

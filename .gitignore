@@ -1,3 +1,4 @@
 test/**
 dts/**
 site/**
+.cache/**
