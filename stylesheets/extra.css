@@ -292,6 +292,20 @@
 .md-footer__link--prev { margin-right: auto !important; }
 .md-footer__link--next { margin-left: auto !important; }
 
+/* Hide pencil/edit button sitewide (no repo configured) */
+.md-content__button {
+  display: none !important;
+}
+
+/* Hide details marker icon shown by Material theme */
+details summary::before {
+  display: none !important;
+}
+
+details[open] summary::before {
+  display: none !important;
+}
+
 /* ---- Right-hand "On this page" table of contents ---- */
 
 /* Make the TOC title stand out */
