@@ -6,48 +6,53 @@ hide:
 
 <div class="hero">
   <div class="hero__content">
-    <h1>About Us</h1>
+    <h1>Welcome to Lectron Documentation</h1>
     <p>
-      We are a passionate team committed to transforming the world through innovative drone and robotics technologies. With a forward-thinking mindset, we push the limits of what’s possible in autonomous systems. Our mission is to deliver practical, high impact solutions for sectors like defense, agriculture, and industry shaping a smarter and more efficient future through bold ideas and agile thinking.
+      This documentation will help you understand Lectron's autopilot products — technical specifications, pinouts, block diagrams, assembly guides, software setup, and integration tutorials.
     </p>
-    <div class="hero__actions">
-      <a href="md/jetson/" class="md-button md-button--primary">JETSON AUTOPILOT</a>
-      <a href="md/raspberry/" class="md-button">PI5 AUTOPILOT</a>
-      <!-- <a href="#About Us" class="md-button md-button--ghost">Quickstart</a> -->
-    </div>
+    <p style="font-size:0.9rem; opacity:0.75;">
+      Questions or feedback? Contact us at <a href="mailto:contact@lectrontech.com">contact@lectrontech.com</a>
+    </p>
   </div>
 </div>
 
-<!-- <div class="split split--reverse">
-  <div class="split__text">
-    <h2>Lectron Jetson Autopilot</h2>
-    <p>Jetson Nano / Xavier NX / Orin Nano — PX4 FMUv6X</p>
-    <ul>
-      <li>GPU-Based Autopilot</li>
-      <li>Dual CSI Camera Support</li>
-      <li>PX4 FMUv6X Integrated</li>
-      <li>Integrated Ethernet Switching</li>
-    </ul>
-    <a href="md/jetson/" class="md-button md-button--primary">Open Jetson Docs</a>
-  </div>
-  <div class="split__media">
-    <img src="images/jetson/board_1.png" alt="Raspberry Pi documentation cover" loading="lazy">
-  </div>
-</div>
+<details style="border-radius:16px; border:1px solid rgba(128,128,128,0.2); margin-bottom:0.75rem; overflow:hidden;">
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    Jetson Autopilot
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">Jetson Orin Nano · PX4 FMUv6X · GPU-based autopilot</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/jetson/">Overview</a></li>
+    <li><a href="md/jetson/dimension/">Dimension</a></li>
+    <li><a href="md/jetson/block-diagram/">Block Diagram</a></li>
+    <li><a href="md/jetson/specification/">Specification</a></li>
+    <li><a href="md/jetson/pinout/">Pinout</a></li>
+    <li><a href="md/jetson/assembly/">Assembly</a></li>
+    <li><a href="md/jetson/setup/">Initial Installation</a></li>
+    <li><a href="md/jetson/getting_started/">Getting Started</a></li>
+    <li><a href="md/jetson/commands/">Commands</a></li>
+    <li><a href="md/jetson/gpio/">GPIO Control</a></li>
+    <li><a href="md/jetson/network/">Network</a></li>
+  </ul>
+</details>
 
-<div class="split split--media-right">
-  <div class="split__text">
-    <h2>Lectron Pi5 Autopilot</h2>
-    <p>CM5 + Hailo Edge AI — PX4 FMUv6X</p>
-    <ul>
-      <li>Hailo-26 TOPS AI Acceleration</li>
-      <li>Dual CSI Camera Support</li>
-      <li>PX4 FMUv6X Integrated</li>
-      <li>Gigabit Ethernet Ready</li>
-    </ul>
-    <a href="md/raspberry/" class="md-button md-button--primary">Open CM5 Docs</a>
-  </div>
-  <div class="split__media">
-    <img src="images/raspberry/board_1.png" alt="Raspberry Pi documentation cover" loading="lazy">
-  </div>
-</div> -->
+<details style="border-radius:16px; border:1px solid rgba(128,128,128,0.2); margin-bottom:0.75rem; overflow:hidden;">
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    Pi5 Autopilot
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Hailo-8 Edge AI · PX4 FMUv6X</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/raspberry/">Overview</a></li>
+    <li><a href="md/raspberry/dimension/">Dimension</a></li>
+    <li><a href="md/raspberry/block-diagram/">Block Diagram</a></li>
+    <li><a href="md/raspberry/specification/">Specification</a></li>
+    <li><a href="md/raspberry/pinout/">Pinout</a></li>
+    <li><a href="md/raspberry/assembly/">Assembly</a></li>
+    <li><a href="md/raspberry/setup/">Initial Installation</a></li>
+    <li><a href="md/raspberry/cm5-gpio/">CM5 GPIO</a></li>
+    <li><a href="md/raspberry/cam1-setup/">Camera Setup</a></li>
+    <li><a href="md/raspberry/hailo-setup/">Hailo-8 Integration</a></li>
+    <li><a href="md/raspberry/realsense-setup/">RealSense Integration</a></li>
+    <li><a href="md/raspberry/fmu-cm5-comm/">FMU ↔ CM5 Communication</a></li>
+  </ul>
+</details>
