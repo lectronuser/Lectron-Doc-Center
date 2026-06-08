@@ -1,10 +1,10 @@
 # Block Diagram
 
 ## **Power**
-![image](../../images/raspberry/block_diagram1.png)
+![Power Block Diagram](../../images/raspberry/power_block_diagram.drawio)
 
 ## **FMU**
-![image](../../images/raspberry/block_diagram2.png)
+![FMU Block Diagram](../../images/raspberry/pi5_fmu_block_diagram.drawio)
 
 ## **RPI CM5**
-![image](../../images/raspberry/block_diagram3.png)
+![CM5 Block Diagram](../../images/raspberry/pi5_cm5_block_diagram.drawio)

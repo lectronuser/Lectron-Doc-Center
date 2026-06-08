@@ -78,6 +78,8 @@ theme:
 
 plugins:
   - search
+  - drawio
+  - optimize
 
 markdown_extensions:
   - admonition
