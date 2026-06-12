@@ -2,13 +2,7 @@
 
 ## **JN GPIO Port**
 
-The Jetson GPIO signals are routed through a **TXB0108RGYR** bidirectional level shifter (U33) before reaching the external GPIO connector (U28). The level shifter translates between the Jetson's **1.8V** I/O domain (`VDD_1V8`) and the connector-side **3.3V** domain (`VDD_3V3_SYS`).
-
-```
-Jetson SoC (1.8V) ──► TXB0108RGYR ──► U28 GPIO Connector (3.3V)
-                      (VCCA=1.8V)
-                      (VCCB=3.3V)
-```
+The Jetson GPIO signals are routed through a bidirectional level shifter before reaching the external GPIO connector. The level shifter translates between the Jetson's **1.8V** I/O domain and the connector-side **3.3V** domain.
 
 | Connector Pin | Signal  | Jetson SODIMM Pin | GPIO Identifier | Sysfs # |
 |:---:|---------|:-----------------:|-----------------|:-------:|
@@ -22,11 +16,9 @@ Jetson SoC (1.8V) ──► TXB0108RGYR ──► U28 GPIO Connector (3.3V)
 | 8   | GPIO10  | 212               | GPIO3_PV.01     | **169** |
 | 9   | GPIO11  | 216               | GPIO3_PZ.00     | **200** |
 | 10  | GND     | —                 | —               | —       |
-| 11  | —       | —                 | —               | —       |
-| 12  | GND     | —                 | —               | —       |
 
 !!! note "Level Shifter"
-    The 5V supply on Pin 1 passes through an **NFM18PC104R1C3D** EMI filter before reaching the connector. GPIO signals are level-shifted to 3.3V
+    GPIO pins on this connector operate at **3.3V**. Do not apply 5V directly to any GPIO pin.
 
 ---
 
@@ -46,97 +38,6 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     echo 1 > /sys/class/gpio/gpio228/value
     echo 0 > /sys/class/gpio/gpio228/value
     ```
-
-=== "C (libgpiod)"
-
-    ```c
-    #include <gpiod.h>
-    #include <stdio.h>
-    #include <stdlib.h>
-
-    int main(int argc, char *argv[])
-    {
-        if (argc != 3) {
-            fprintf(stderr, "Usage: %s <LINE_OFFSET> <VALUE>\n", argv[0]);
-            fprintf(stderr, "VALUE: 0 (low) or 1 (high)\n");
-            return 1;
-        }
-
-        int line_offset = atoi(argv[1]);
-        int value       = atoi(argv[2]);
-
-        if (value != 0 && value != 1) {
-            fprintf(stderr, "Error: VALUE must be 0 or 1\n");
-            return 1;
-        }
-
-        struct gpiod_chip *chip = gpiod_chip_open_by_name("gpiochip0");
-        if (!chip) {
-            perror("gpiod_chip_open_by_name");
-            return 1;
-        }
-
-        struct gpiod_line *line = gpiod_chip_get_line(chip, line_offset);
-        if (!line) {
-            perror("gpiod_chip_get_line");
-            gpiod_chip_close(chip);
-            return 1;
-        }
-
-        if (gpiod_line_request_output(line, "gpio_set", value) < 0) {
-            perror("gpiod_line_request_output");
-            gpiod_chip_close(chip);
-            return 1;
-        }
-
-        gpiod_line_release(line);
-        gpiod_chip_close(chip);
-
-        return 0;
-    }
-    ```
-
-=== "Shell (sysfs)"
-
-    ```bash
-    #!/bin/sh
-
-    if [ $# -ne 2 ]; then
-        echo "Usage: $0 <GPIO_PIN> <VALUE>"
-        echo "VALUE: 0 (low) or 1 (high)"
-        exit 1
-    fi
-
-    GPIO_PIN="$1"
-    VALUE="$2"
-
-    if [ "$VALUE" != "0" ] && [ "$VALUE" != "1" ]; then
-        echo "Error: VALUE must be 0 or 1"
-        exit 1
-    fi
-
-    GPIO_PATH="/sys/class/gpio/gpio$GPIO_PIN"
-
-    if [ ! -d "$GPIO_PATH" ]; then
-        echo "$GPIO_PIN" > /sys/class/gpio/export
-        sleep 0.1
-    fi
-
-    echo "out" > "$GPIO_PATH/direction"
-    echo "$VALUE" > "$GPIO_PATH/value"
-    ```
-
-!!! tip "Info"
-    You can access these codes on Lectron's GitHub page through [this link](https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs); the files are named **gpio_set.sh** and **gpio_set.c**.
-
-!!! danger "Warning"
-    If you receive an error stating that `<gpiod.h>` cannot be found during compilation, it means the `libgpiod` development packages are not installed on your system.  
-    To resolve this issue, install the required packages using:
-     ```bash
-    sudo apt-get install -y gpiod libgpiod-dev
-    ```
-
----
 
 ## **How to Calculate the Sysfs Value from a GPIO Name?**
 
@@ -211,3 +112,169 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     - **max77620-gpio** → [504–511] PMIC GPIOs
 - If the GPIO belongs to tegra-gpio → Use Tegra Port Formula.
 - If it belongs to max77620-gpio → The sysfs number is assigned directly by the kernel and the correct calculation is `offset = sysfs_gpio - gpiochip_base   # Example: 509 - 504 = 5`
+
+## **GPIO Usage**
+=== "C (libgpiod)"
+
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <unistd.h>
+    #include <string.h>
+
+    #define GPIO_BASE "/sys/class/gpio"
+
+    static int gpios[] = {228, 149, 62, 66, 63, 168, 169, 200};
+    static const char *names[] = {
+        "GPIO00","GPIO01","GPIO02","GPIO03",
+        "GPIO05","GPIO07","GPIO10","GPIO11"
+    };
+    #define GPIO_COUNT (sizeof(gpios) / sizeof(gpios[0]))
+
+    static int gpio_write_file(const char *path, const char *value) {
+        FILE *f = fopen(path, "w");
+        if (!f) { perror(path); return -1; }
+        fprintf(f, "%s", value);
+        fclose(f);
+        return 0;
+    }
+
+    static void export_gpio(int gpio) {
+        char path[64], buf[8];
+
+        /* Export */
+        snprintf(buf, sizeof(buf), "%d", gpio);
+        gpio_write_file(GPIO_BASE "/export", buf);
+
+        /* Set direction */
+        snprintf(path, sizeof(path), GPIO_BASE "/gpio%d/direction", gpio);
+        gpio_write_file(path, "out");
+    }
+
+    static void unexport_gpio(int gpio) {
+        char buf[8];
+        snprintf(buf, sizeof(buf), "%d", gpio);
+        gpio_write_file(GPIO_BASE "/unexport", buf);
+    }
+
+    static void set_value(int gpio, int value) {
+        char path[64];
+        snprintf(path, sizeof(path), GPIO_BASE "/gpio%d/value", gpio);
+        gpio_write_file(path, value ? "1" : "0");
+    }
+
+    int main(void) {
+        /* Export all */
+        for (size_t i = 0; i < GPIO_COUNT; i++)
+            export_gpio(gpios[i]);
+
+        printf("Sequential blink — watch your LED bar...\n");
+
+        for (size_t i = 0; i < GPIO_COUNT; i++) {
+            printf("  ON  -> %s (gpio%d)\n", names[i], gpios[i]);
+            set_value(gpios[i], 1);
+            usleep(500000);   /* 500 ms */
+            set_value(gpios[i], 0);
+            usleep(200000);   /* 200 ms */
+        }
+
+        printf("Done. Cleaning up.\n");
+        for (size_t i = 0; i < GPIO_COUNT; i++)
+            unexport_gpio(gpios[i]);
+
+        return 0;
+    }
+    ```
+    Compile and run:
+    ```bash
+        gcc -o test_gpio test_gpio.c
+        sudo ./test_gpio
+    ```
+
+=== "Shell (sysfs)"
+
+    ```bash
+    #!/bin/sh
+
+    if [ $# -ne 2 ]; then
+        echo "Usage: $0 <GPIO_PIN> <VALUE>"
+        echo "VALUE: 0 (low) or 1 (high)"
+        exit 1
+    fi
+
+    GPIO_PIN="$1"
+    VALUE="$2"
+
+    if [ "$VALUE" != "0" ] && [ "$VALUE" != "1" ]; then
+        echo "Error: VALUE must be 0 or 1"
+        exit 1
+    fi
+
+    GPIO_PATH="/sys/class/gpio/gpio$GPIO_PIN"
+
+    if [ ! -d "$GPIO_PATH" ]; then
+        echo "$GPIO_PIN" > /sys/class/gpio/export
+        sleep 0.1
+    fi
+
+    echo "out" > "$GPIO_PATH/direction"
+    echo "$VALUE" > "$GPIO_PATH/value"
+    ```
+    Make executable and run:
+    ```bash
+        chmod +x gpio_set.sh
+        sudo ./gpio_set.sh 228 1
+    ```
+
+
+=== "Python"
+
+    ```python
+    #!/usr/bin/env python3
+    import time
+    import os
+
+    GPIOS  = [228, 149, 62, 66, 63, 168, 169, 200]
+    NAMES  = ["GPIO00","GPIO01","GPIO02","GPIO03",
+            "GPIO05","GPIO07","GPIO10","GPIO11"]
+    GPIO_BASE = "/sys/class/gpio"
+
+    def gpio_write(gpio, filename, value):
+        with open(f"{GPIO_BASE}/gpio{gpio}/{filename}", "w") as f:
+            f.write(str(value))
+
+    def export(gpio):
+        export_path = f"{GPIO_BASE}/gpio{gpio}"
+        if not os.path.exists(export_path):
+            with open(f"{GPIO_BASE}/export", "w") as f:
+                f.write(str(gpio))
+        gpio_write(gpio, "direction", "out")
+
+    def unexport(gpio):
+        with open(f"{GPIO_BASE}/unexport", "w") as f:
+            f.write(str(gpio))
+
+    for gpio in GPIOS:
+        export(gpio)
+
+    print("Sequential blink — watch your LED bar...")
+
+    try:
+        for gpio, name in zip(GPIOS, NAMES):
+            print(f"  ON  → {name} (gpio{gpio})")
+            gpio_write(gpio, "value", 1)
+            time.sleep(0.5)
+            gpio_write(gpio, "value", 0)
+            time.sleep(0.2)
+    finally:
+        print("Done. Cleaning up.")
+        for gpio in GPIOS:
+            gpio_write(gpio, "value", 0)
+            unexport(gpio)
+    ```
+     Run:
+    ```bash
+        sudo python3 test_gpio.py
+    ```   
+
+---
