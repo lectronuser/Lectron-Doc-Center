@@ -704,10 +704,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jn-gpio-port-connector-pinout-u28-sm10b-ghs-tb" class="md-nav__link">
+  <a href="#jn-gpio-port" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JN GPIO Port — Connector Pinout (U28 / SM10B-GHS-TB)
+        JN GPIO Port
       
     </span>
   </a>
@@ -1204,10 +1204,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jn-gpio-port-connector-pinout-u28-sm10b-ghs-tb" class="md-nav__link">
+  <a href="#jn-gpio-port" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JN GPIO Port — Connector Pinout (U28 / SM10B-GHS-TB)
+        JN GPIO Port
       
     </span>
   </a>
@@ -1254,7 +1254,7 @@
 
 
 <h1 id="gpio-control">GPIO Control</h1>
-<h2 id="jn-gpio-port-connector-pinout-u28-sm10b-ghs-tb"><strong>JN GPIO Port — Connector Pinout (U28 / SM10B-GHS-TB)</strong></h2>
+<h2 id="jn-gpio-port"><strong>JN GPIO Port</strong></h2>
 <p>The Jetson GPIO signals are routed through a <strong>TXB0108RGYR</strong> bidirectional level shifter (U33) before reaching the external GPIO connector (U28). The level shifter translates between the Jetson's <strong>1.8V</strong> I/O domain (<code>VDD_1V8</code>) and the connector-side <strong>3.3V</strong> domain (<code>VDD_3V3_SYS</code>).</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Jetson SoC (1.8V) ──► TXB0108RGYR ──► U28 GPIO Connector (3.3V)
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                      (VCCA=1.8V)
@@ -1359,7 +1359,7 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Level Shifter</p>
-<p>The 5V supply on Pin 1 passes through an <strong>NFM18PC104R1C3D</strong> EMI filter (C109) before reaching the connector. GPIO signals are level-shifted to 3.3V — do not apply 5V directly to any GPIO pin.</p>
+<p>The 5V supply on Pin 1 passes through an <strong>NFM18PC104R1C3D</strong> EMI filter before reaching the connector. GPIO signals are level-shifted to 3.3V</p>
 </div>
 <hr />
 <h2 id="what-is-sysfs"><strong>What is <code>sysfs</code>?</strong></h2>
