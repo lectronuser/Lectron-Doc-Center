@@ -16,10 +16,10 @@ hide:
   </div>
 </div>
 
-<details style="border-radius:16px; border:1px solid rgba(128,128,128,0.2); margin-bottom:0.75rem; overflow:hidden;">
+<details>
   <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
     Jetson Autopilot
-    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">Jetson Orin Nano · PX4 FMUv6X · GPU-based autopilot</span>
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">Jetson Nano/Xavier NX/TX2 NX · FMUv6X · GPU-based autopilot</span>
   </summary>
   <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
     <li><a href="md/jetson/">Overview</a></li>
@@ -36,7 +36,7 @@ hide:
   </ul>
 </details>
 
-<details style="border-radius:16px; border:1px solid rgba(128,128,128,0.2); margin-bottom:0.75rem; overflow:hidden;">
+<details>
   <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
     Pi5 Autopilot
     <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Hailo-8 Edge AI · PX4 FMUv6X</span>

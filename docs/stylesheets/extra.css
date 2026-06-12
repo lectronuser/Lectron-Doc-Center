@@ -34,6 +34,12 @@
   box-shadow: 0 10px 30px rgba(0,0,0,.20);
 }
 
+details {
+  border-radius: 16px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
 .hero__content h1 {
   margin: 0 0 .5rem 0;
   font-weight: 800;
@@ -79,19 +85,15 @@
   border-radius: 10px;
 }
 
-[data-md-color-scheme="slate"] .hero {
-  background:
-    radial-gradient(1200px circle at 10% 20%, rgba(0, 255, 255, .18), transparent 40%),
-    radial-gradient(900px circle at 80% 30%, rgba(99, 102, 241, .22), transparent 42%),
-    linear-gradient(135deg, rgba(17, 24, 39, 1), rgba(10, 14, 25, 1));
+[data-md-color-scheme="slate"] .hero,
+[data-md-color-scheme="slate"] details {
+  background: rgba(30, 35, 45, 0.6);
   border: 1px solid rgba(255,255,255,.08);
 }
 
-[data-md-color-scheme="default"] .hero {
-  background:
-    radial-gradient(1200px circle at 10% 20%, rgba(0, 160, 255, .18), transparent 40%),
-    radial-gradient(900px circle at 80% 30%, rgba(99, 102, 241, .18), transparent 42%),
-    linear-gradient(135deg, rgba(248, 250, 252, 1), rgba(241, 245, 249, 1));
+[data-md-color-scheme="default"] .hero,
+[data-md-color-scheme="default"] details {
+  background: rgba(240, 245, 250, 0.8);
   border: 1px solid rgba(2,6,23,.08);
 }
 
