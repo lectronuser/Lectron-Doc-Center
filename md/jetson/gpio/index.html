@@ -704,10 +704,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetson-nano-gpio-to-sysfs-mapping-table" class="md-nav__link">
+  <a href="#jn-gpio-port-connector-pinout-u28-sm10b-ghs-tb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson Nano GPIO to Sysfs Mapping Table
+        JN GPIO Port — Connector Pinout (U28 / SM10B-GHS-TB)
       
     </span>
   </a>
@@ -1204,10 +1204,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetson-nano-gpio-to-sysfs-mapping-table" class="md-nav__link">
+  <a href="#jn-gpio-port-connector-pinout-u28-sm10b-ghs-tb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson Nano GPIO to Sysfs Mapping Table
+        JN GPIO Port — Connector Pinout (U28 / SM10B-GHS-TB)
       
     </span>
   </a>
@@ -1254,17 +1254,114 @@
 
 
 <h1 id="gpio-control">GPIO Control</h1>
-<h2 id="jetson-nano-gpio-to-sysfs-mapping-table"><strong>Jetson Nano GPIO to Sysfs Mapping Table</strong></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">28</span>:<span class="w"> </span>GPI02<span class="w"> </span>→<span class="w"> </span><span class="m">62</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">34</span>:<span class="w"> </span>GPI05<span class="w"> </span>→<span class="w"> </span><span class="m">63</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">36</span>:<span class="w"> </span>GPI06<span class="w"> </span>→<span class="w"> </span><span class="m">64</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>-<span class="w"> </span>Pin<span class="w"> </span>..:<span class="w"> </span>GPIO4<span class="w"> </span>→<span class="w"> </span><span class="m">65</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>-<span class="w"> </span>Pin<span class="w"> </span>..:<span class="w"> </span>GPIO3<span class="w"> </span>→<span class="w"> </span><span class="m">66</span><span class="w">  </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">26</span>:<span class="w"> </span>GPI01<span class="w"> </span>→<span class="w"> </span><span class="m">149</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">38</span>:<span class="w"> </span>GPI07<span class="w"> </span>→<span class="w"> </span><span class="m">168</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>-<span class="w"> </span>Pin<span class="w"> </span><span class="m">40</span>:<span class="w"> </span>GPI08<span class="w"> </span>→<span class="w"> </span><span class="m">202</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>-<span class="w"> </span>Pin<span class="w"> </span>..:<span class="w"> </span>GPI09<span class="w"> </span>→<span class="w"> </span><span class="m">216</span><span class="w"> </span><span class="o">(</span>sysfs<span class="o">)</span>
+<h2 id="jn-gpio-port-connector-pinout-u28-sm10b-ghs-tb"><strong>JN GPIO Port — Connector Pinout (U28 / SM10B-GHS-TB)</strong></h2>
+<p>The Jetson GPIO signals are routed through a <strong>TXB0108RGYR</strong> bidirectional level shifter (U33) before reaching the external GPIO connector (U28). The level shifter translates between the Jetson's <strong>1.8V</strong> I/O domain (<code>VDD_1V8</code>) and the connector-side <strong>3.3V</strong> domain (<code>VDD_3V3_SYS</code>).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Jetson SoC (1.8V) ──► TXB0108RGYR ──► U28 GPIO Connector (3.3V)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                      (VCCA=1.8V)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                      (VCCB=3.3V)
 </span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Connector Pin</th>
+<th>Signal</th>
+<th style="text-align: center;">Jetson SODIMM Pin</th>
+<th>GPIO Identifier</th>
+<th style="text-align: center;">Sysfs #</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>VDD_5V_SYS</td>
+<td style="text-align: center;">—</td>
+<td>Power</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>GPIO00</td>
+<td style="text-align: center;">87</td>
+<td>GPIO3_PCC.04</td>
+<td style="text-align: center;"><strong>228</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>GPIO01</td>
+<td style="text-align: center;">118</td>
+<td>GPIO3_PS.05</td>
+<td style="text-align: center;"><strong>149</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>GPIO02</td>
+<td style="text-align: center;">124</td>
+<td>GPIO3_PH.06</td>
+<td style="text-align: center;"><strong>62</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>GPIO03</td>
+<td style="text-align: center;">126</td>
+<td>GPIO3_PI.02</td>
+<td style="text-align: center;"><strong>66</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>GPIO05</td>
+<td style="text-align: center;">128</td>
+<td>GPIO3_PH.07</td>
+<td style="text-align: center;"><strong>63</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>GPIO07</td>
+<td style="text-align: center;">206</td>
+<td>GPIO3_PV.00</td>
+<td style="text-align: center;"><strong>168</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>GPIO10</td>
+<td style="text-align: center;">212</td>
+<td>GPIO3_PV.01</td>
+<td style="text-align: center;"><strong>169</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>GPIO11</td>
+<td style="text-align: center;">216</td>
+<td>GPIO3_PZ.00</td>
+<td style="text-align: center;"><strong>200</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td>GND</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td>—</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td>GND</td>
+<td style="text-align: center;">—</td>
+<td>—</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Level Shifter</p>
+<p>The 5V supply on Pin 1 passes through an <strong>NFM18PC104R1C3D</strong> EMI filter (C109) before reaching the connector. GPIO signals are level-shifted to 3.3V — do not apply 5V directly to any GPIO pin.</p>
+</div>
+<hr />
 <h2 id="what-is-sysfs"><strong>What is <code>sysfs</code>?</strong></h2>
 <p>Linux exposes hardware interfaces under <code>/sys</code> using a special virtual filesystem called sysfs.
 GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside this structure.</p>
@@ -1274,11 +1371,11 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
 </div>
 <div class="admonition example">
 <p class="admonition-title">Terminal Code Example</p>
-<p>This example demonstrates how to set GPIO with sysfs ID <strong>79</strong> to HIGH and LOW using the terminal.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="m">79</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio79/direction
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio79/value
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio79/value
+<p>This example demonstrates how to set GPIO with sysfs ID <strong>228</strong> (GPIO00) to HIGH and LOW using the terminal.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="m">228</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/direction
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/value
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/value
 </span></code></pre></div>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C (libgpiod)</label><label for="__tabbed_1_2">Shell (sysfs)</label></div>
@@ -1304,7 +1401,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpiod_chip</span><span class="w"> </span><span class="o">*</span><span class="n">chip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpiod_chip_open_by_name</span><span class="p">(</span><span class="s">&quot;gpiochip3&quot;</span><span class="p">);</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpiod_chip</span><span class="w"> </span><span class="o">*</span><span class="n">chip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpiod_chip_open_by_name</span><span class="p">(</span><span class="s">&quot;gpiochip0&quot;</span><span class="p">);</span>
 </span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">chip</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gpiod_chip_open_by_name&quot;</span><span class="p">);</span>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -1362,7 +1459,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Info</p>
-<p>You can access these codes on Lectron’s GitHub page through <a href="https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs">this link</a>; the files are named <strong>gpio_set.sh</strong> and <strong>gpio_set.c</strong>.</p>
+<p>You can access these codes on Lectron's GitHub page through <a href="https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs">this link</a>; the files are named <strong>gpio_set.sh</strong> and <strong>gpio_set.c</strong>.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Warning</p>
@@ -1371,9 +1468,10 @@ To resolve this issue, install the required packages using:
  <code>bash
 sudo apt-get install -y gpiod libgpiod-dev</code></p>
 </div>
+<hr />
 <h2 id="how-to-calculate-the-sysfs-value-from-a-gpio-name"><strong>How to Calculate the Sysfs Value from a GPIO Name?</strong></h2>
 <ul>
-<li>Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA’s official <a href="https://developer.nvidia.com/embedded/downloads">documentation page</a>.</li>
+<li>Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA's official <a href="https://developer.nvidia.com/embedded/downloads">documentation page</a>.</li>
 <li>Inside the downloaded <code>pinmux_config_template.xlsm</code> file, you will find two sheets:<ul>
 <li>The first sheet contains general notes and explanations.</li>
 <li>The second sheet (<strong>jetson_[xx]_module</strong>) lists the GPIO names along with their detailed identifiers (e.g., <code>GPIO3_PI.01</code>).</li>
@@ -1383,55 +1481,59 @@ sudo apt-get install -y gpiod libgpiod-dev</code></p>
 <p><img alt="&quot;image&quot;" src="../../../images/jetson/pinmux_gpio.png" /></p>
 <ul>
 <li>In an identifier such as <code>GPIO3_PI.01</code>:<ul>
-<li>The letters (e.g., PI, where I is important) correspond to the <code>TEGRA_GPIO_PORT</code> value.</li>
+<li>The letters (e.g., PI, where <strong>I</strong> is important) correspond to the <code>TEGRA_GPIO_PORT</code> value.</li>
 <li>The number after the dot (<code>01</code>) represents the pin <strong>offset</strong>.</li>
 </ul>
 </li>
-<li>The Sysfs GPIO number is computed using the following formula: <code>TEGRA_GPIO = (TEGRA_GPIO_PORT * 8) + pin_offset</code> <ul>
+<li>The Sysfs GPIO number is computed using the following formula: <code>TEGRA_GPIO = (TEGRA_GPIO_PORT * 8) + pin_offset</code><ul>
 <li>You can find this formula in the <code>tegra194-gpio.h</code> header file.</li>
 </ul>
 </li>
 </ul>
 <div class="language-c highlight"><span class="filename">tegra194-gpio.h</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="hll"><span class="cp">#define TEGRA_GPIO(port, offset) \ ((TEGRA_GPIO_PORT_##port * 8) + offset)</span>
-</span></span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#define TEGRA_GPIO_PORT_A 0</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#define TEGRA_GPIO_PORT_B 1</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cp">#define TEGRA_GPIO_PORT_C 2</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cp">#define TEGRA_GPIO_PORT_D 3</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="cp">#define TEGRA_GPIO_PORT_E 4</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="cp">#define TEGRA_GPIO_PORT_F 5</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="cp">#define TEGRA_GPIO_PORT_G 6</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="cp">#define TEGRA_GPIO_PORT_H 7</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="cp">#define TEGRA_GPIO_PORT_I 8</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="cp">#define TEGRA_GPIO_PORT_J 9</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="cp">#define TEGRA_GPIO_PORT_K 10</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="cp">#define TEGRA_GPIO_PORT_L 11</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="cp">#define TEGRA_GPIO_PORT_M 12</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="cp">#define TEGRA_GPIO_PORT_N 13</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="cp">#define TEGRA_GPIO_PORT_O 14</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="cp">#define TEGRA_GPIO_PORT_P 15</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="cp">#define TEGRA_GPIO_PORT_Q 16</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="cp">#define TEGRA_GPIO_PORT_R 17</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="cp">#define TEGRA_GPIO_PORT_S 18</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="cp">#define TEGRA_GPIO_PORT_T 19</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="cp">#define TEGRA_GPIO_PORT_U 20</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="cp">#define TEGRA_GPIO_PORT_V 21</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="cp">#define TEGRA_GPIO_PORT_W 22</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="cp">#define TEGRA_GPIO_PORT_X 23</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="cp">#define TEGRA_GPIO_PORT_Y 24</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="cp">#define TEGRA_GPIO_PORT_Z 25</span>
+</span></span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#define TEGRA_GPIO_PORT_A   0</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#define TEGRA_GPIO_PORT_B   1</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cp">#define TEGRA_GPIO_PORT_C   2</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cp">#define TEGRA_GPIO_PORT_D   3</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="cp">#define TEGRA_GPIO_PORT_E   4</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="cp">#define TEGRA_GPIO_PORT_F   5</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="cp">#define TEGRA_GPIO_PORT_G   6</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="cp">#define TEGRA_GPIO_PORT_H   7</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="cp">#define TEGRA_GPIO_PORT_I   8</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="cp">#define TEGRA_GPIO_PORT_J   9</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="cp">#define TEGRA_GPIO_PORT_K  10</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="cp">#define TEGRA_GPIO_PORT_L  11</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="cp">#define TEGRA_GPIO_PORT_M  12</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="cp">#define TEGRA_GPIO_PORT_N  13</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="cp">#define TEGRA_GPIO_PORT_O  14</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="cp">#define TEGRA_GPIO_PORT_P  15</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="cp">#define TEGRA_GPIO_PORT_Q  16</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="cp">#define TEGRA_GPIO_PORT_R  17</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="cp">#define TEGRA_GPIO_PORT_S  18</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="cp">#define TEGRA_GPIO_PORT_T  19</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="cp">#define TEGRA_GPIO_PORT_U  20</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="cp">#define TEGRA_GPIO_PORT_V  21</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="cp">#define TEGRA_GPIO_PORT_W  22</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="cp">#define TEGRA_GPIO_PORT_X  23</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="cp">#define TEGRA_GPIO_PORT_Y  24</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="cp">#define TEGRA_GPIO_PORT_Z  25</span>
 </span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="cp">#define TEGRA_GPIO_PORT_AA 26</span>
 </span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="cp">#define TEGRA_GPIO_PORT_BB 27</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="cp">#define TEGRA_GPIO_PORT_CC 28</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="cp">#define TEGRA_GPIO_PORT_DD 29</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="cp">#define TEGRA_GPIO_PORT_EE 30</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="cp">#define TEGRA_GPIO_PORT_FF 31</span>
 </span></code></pre></div>
 <ul>
 <li>After substituting the port index and the pin offset into the formula, you obtain the corresponding sysfs GPIO number.</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="language-text highlight"><pre><span></span><code>GPIO09 sysfs value is 216
-GPIO09 -&gt; GPIO3_PBB.00
-TEGRA_GPIO_PORT = BB 
-Offset = 0
-TEGRA_GPIO = (TEGRA_GPIO_PORT_BB * 8) + 0 -&gt; (27 * 8) + 0 = 216
+<div class="language-text highlight"><pre><span></span><code>GPIO00 sysfs value is 228
+GPIO00 -&gt; GPIO3_PCC.04
+TEGRA_GPIO_PORT = CC
+Offset = 4
+TEGRA_GPIO = (TEGRA_GPIO_PORT_CC * 8) + 4 -&gt; (28 * 8) + 4 = 228
 </code></pre></div>
 </div>
 <div class="admonition danger">
@@ -1443,9 +1545,9 @@ TEGRA_GPIO = (TEGRA_GPIO_PORT_BB * 8) + 0 -&gt; (27 * 8) + 0 = 216
 </span></code></pre></div></p>
 </div>
 <ul>
-<li>Jetson platforms have two separate GPIO controllers: <ul>
-<li><strong>tegra-gpio</strong> -&gt; [0-255] On-SoC Tegra GPIOs</li>
-<li><strong>max77620-gpio</strong> -&gt; [504–511]  PMIC GPIOs</li>
+<li>Jetson platforms have two separate GPIO controllers:<ul>
+<li><strong>tegra-gpio</strong> → [0–255] On-SoC Tegra GPIOs</li>
+<li><strong>max77620-gpio</strong> → [504–511] PMIC GPIOs</li>
 </ul>
 </li>
 <li>If the GPIO belongs to tegra-gpio → Use Tegra Port Formula.</li>
