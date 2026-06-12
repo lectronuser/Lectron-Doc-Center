@@ -1,18 +1,34 @@
-
 # GPIO Control
 
-## **Jetson Nano GPIO to Sysfs Mapping Table**
-```bash 
-- Pin 28: GPI02 → 62  (sysfs)
-- Pin 34: GPI05 → 63  (sysfs)
-- Pin 36: GPI06 → 64  (sysfs)
-- Pin ..: GPIO4 → 65  (sysfs)
-- Pin ..: GPIO3 → 66  (sysfs)
-- Pin 26: GPI01 → 149 (sysfs)
-- Pin 38: GPI07 → 168 (sysfs)
-- Pin 40: GPI08 → 202 (sysfs)
-- Pin ..: GPI09 → 216 (sysfs)
+## **JN GPIO Port**
+
+The Jetson GPIO signals are routed through a **TXB0108RGYR** bidirectional level shifter (U33) before reaching the external GPIO connector (U28). The level shifter translates between the Jetson's **1.8V** I/O domain (`VDD_1V8`) and the connector-side **3.3V** domain (`VDD_3V3_SYS`).
+
 ```
+Jetson SoC (1.8V) ──► TXB0108RGYR ──► U28 GPIO Connector (3.3V)
+                      (VCCA=1.8V)
+                      (VCCB=3.3V)
+```
+
+| Connector Pin | Signal  | Jetson SODIMM Pin | GPIO Identifier | Sysfs # |
+|:---:|---------|:-----------------:|-----------------|:-------:|
+| 1   | VDD_5V_SYS | —             | Power           | —       |
+| 2   | GPIO00  | 87                | GPIO3_PCC.04    | **228** |
+| 3   | GPIO01  | 118               | GPIO3_PS.05     | **149** |
+| 4   | GPIO02  | 124               | GPIO3_PH.06     | **62**  |
+| 5   | GPIO03  | 126               | GPIO3_PI.02     | **66**  |
+| 6   | GPIO05  | 128               | GPIO3_PH.07     | **63**  |
+| 7   | GPIO07  | 206               | GPIO3_PV.00     | **168** |
+| 8   | GPIO10  | 212               | GPIO3_PV.01     | **169** |
+| 9   | GPIO11  | 216               | GPIO3_PZ.00     | **200** |
+| 10  | GND     | —                 | —               | —       |
+| 11  | —       | —                 | —               | —       |
+| 12  | GND     | —                 | —               | —       |
+
+!!! note "Level Shifter"
+    The 5V supply on Pin 1 passes through an **NFM18PC104R1C3D** EMI filter before reaching the connector. GPIO signals are level-shifted to 3.3V
+
+---
 
 ## **What is `sysfs`?**
 Linux exposes hardware interfaces under `/sys` using a special virtual filesystem called sysfs.
@@ -22,13 +38,13 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     This allows GPIO pins to be controlled using simple file writes:  **`export → direction → value`**.
 
 !!! example "Terminal Code Example"
-    This example demonstrates how to set GPIO with sysfs ID **79** to HIGH and LOW using the terminal.
+    This example demonstrates how to set GPIO with sysfs ID **228** (GPIO00) to HIGH and LOW using the terminal.
 
     ```bash
-    echo 79 > /sys/class/gpio/export
-    echo out > /sys/class/gpio/gpio79/direction
-    echo 1 > /sys/class/gpio/gpio79/value
-    echo 0 > /sys/class/gpio/gpio79/value
+    echo 228 > /sys/class/gpio/export
+    echo out > /sys/class/gpio/gpio228/direction
+    echo 1 > /sys/class/gpio/gpio228/value
+    echo 0 > /sys/class/gpio/gpio228/value
     ```
 
 === "C (libgpiod)"
@@ -54,7 +70,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
             return 1;
         }
 
-        struct gpiod_chip *chip = gpiod_chip_open_by_name("gpiochip3");
+        struct gpiod_chip *chip = gpiod_chip_open_by_name("gpiochip0");
         if (!chip) {
             perror("gpiod_chip_open_by_name");
             return 1;
@@ -111,7 +127,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     ```
 
 !!! tip "Info"
-    You can access these codes on Lectron’s GitHub page through [this link](https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs); the files are named **gpio_set.sh** and **gpio_set.c**.
+    You can access these codes on Lectron's GitHub page through [this link](https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs); the files are named **gpio_set.sh** and **gpio_set.c**.
 
 !!! danger "Warning"
     If you receive an error stating that `<gpiod.h>` cannot be found during compilation, it means the `libgpiod` development packages are not installed on your system.  
@@ -120,10 +136,11 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     sudo apt-get install -y gpiod libgpiod-dev
     ```
 
+---
 
 ## **How to Calculate the Sysfs Value from a GPIO Name?**
 
-- Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA’s official [documentation page](https://developer.nvidia.com/embedded/downloads).
+- Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA's official [documentation page](https://developer.nvidia.com/embedded/downloads).
 - Inside the downloaded `pinmux_config_template.xlsm` file, you will find two sheets:
     - The first sheet contains general notes and explanations.
     - The second sheet (**jetson_[xx]_module**) lists the GPIO names along with their detailed identifiers (e.g., `GPIO3_PI.01`).
@@ -131,51 +148,55 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
 !["image"](../../images/jetson/pinmux_gpio.png)
 
 - In an identifier such as `GPIO3_PI.01`:
-    - The letters (e.g., PI, where I is important) correspond to the `TEGRA_GPIO_PORT` value.
+    - The letters (e.g., PI, where **I** is important) correspond to the `TEGRA_GPIO_PORT` value.
     - The number after the dot (`01`) represents the pin **offset**.
-- The Sysfs GPIO number is computed using the following formula: `TEGRA_GPIO = (TEGRA_GPIO_PORT * 8) + pin_offset` 
+- The Sysfs GPIO number is computed using the following formula: `TEGRA_GPIO = (TEGRA_GPIO_PORT * 8) + pin_offset`
     - You can find this formula in the `tegra194-gpio.h` header file.
 
 ```c title="tegra194-gpio.h" hl_lines="1"
 #define TEGRA_GPIO(port, offset) \ ((TEGRA_GPIO_PORT_##port * 8) + offset)
-#define TEGRA_GPIO_PORT_A 0
-#define TEGRA_GPIO_PORT_B 1
-#define TEGRA_GPIO_PORT_C 2
-#define TEGRA_GPIO_PORT_D 3
-#define TEGRA_GPIO_PORT_E 4
-#define TEGRA_GPIO_PORT_F 5
-#define TEGRA_GPIO_PORT_G 6
-#define TEGRA_GPIO_PORT_H 7
-#define TEGRA_GPIO_PORT_I 8
-#define TEGRA_GPIO_PORT_J 9
-#define TEGRA_GPIO_PORT_K 10
-#define TEGRA_GPIO_PORT_L 11
-#define TEGRA_GPIO_PORT_M 12
-#define TEGRA_GPIO_PORT_N 13
-#define TEGRA_GPIO_PORT_O 14
-#define TEGRA_GPIO_PORT_P 15
-#define TEGRA_GPIO_PORT_Q 16
-#define TEGRA_GPIO_PORT_R 17
-#define TEGRA_GPIO_PORT_S 18
-#define TEGRA_GPIO_PORT_T 19
-#define TEGRA_GPIO_PORT_U 20
-#define TEGRA_GPIO_PORT_V 21
-#define TEGRA_GPIO_PORT_W 22
-#define TEGRA_GPIO_PORT_X 23
-#define TEGRA_GPIO_PORT_Y 24
-#define TEGRA_GPIO_PORT_Z 25
+#define TEGRA_GPIO_PORT_A   0
+#define TEGRA_GPIO_PORT_B   1
+#define TEGRA_GPIO_PORT_C   2
+#define TEGRA_GPIO_PORT_D   3
+#define TEGRA_GPIO_PORT_E   4
+#define TEGRA_GPIO_PORT_F   5
+#define TEGRA_GPIO_PORT_G   6
+#define TEGRA_GPIO_PORT_H   7
+#define TEGRA_GPIO_PORT_I   8
+#define TEGRA_GPIO_PORT_J   9
+#define TEGRA_GPIO_PORT_K  10
+#define TEGRA_GPIO_PORT_L  11
+#define TEGRA_GPIO_PORT_M  12
+#define TEGRA_GPIO_PORT_N  13
+#define TEGRA_GPIO_PORT_O  14
+#define TEGRA_GPIO_PORT_P  15
+#define TEGRA_GPIO_PORT_Q  16
+#define TEGRA_GPIO_PORT_R  17
+#define TEGRA_GPIO_PORT_S  18
+#define TEGRA_GPIO_PORT_T  19
+#define TEGRA_GPIO_PORT_U  20
+#define TEGRA_GPIO_PORT_V  21
+#define TEGRA_GPIO_PORT_W  22
+#define TEGRA_GPIO_PORT_X  23
+#define TEGRA_GPIO_PORT_Y  24
+#define TEGRA_GPIO_PORT_Z  25
 #define TEGRA_GPIO_PORT_AA 26
 #define TEGRA_GPIO_PORT_BB 27
+#define TEGRA_GPIO_PORT_CC 28
+#define TEGRA_GPIO_PORT_DD 29
+#define TEGRA_GPIO_PORT_EE 30
+#define TEGRA_GPIO_PORT_FF 31
 ```
 
 - After substituting the port index and the pin offset into the formula, you obtain the corresponding sysfs GPIO number.
 
 !!! example "Example"
-        GPIO09 sysfs value is 216
-        GPIO09 -> GPIO3_PBB.00
-        TEGRA_GPIO_PORT = BB 
-        Offset = 0
-        TEGRA_GPIO = (TEGRA_GPIO_PORT_BB * 8) + 0 -> (27 * 8) + 0 = 216
+        GPIO00 sysfs value is 228
+        GPIO00 -> GPIO3_PCC.04
+        TEGRA_GPIO_PORT = CC
+        Offset = 4
+        TEGRA_GPIO = (TEGRA_GPIO_PORT_CC * 8) + 4 -> (28 * 8) + 4 = 228
 
 !!! danger "Warning"
     This Formula Does NOT Apply to PMIC GPIOs **(`max77620-gpio`)**
@@ -185,8 +206,8 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     [    0.591897] gpiochip_setup_dev: registered GPIOs 504 to 511 on device: gpiochip1 (max77620-gpio)
     ```
 
-- Jetson platforms have two separate GPIO controllers: 
-    - **tegra-gpio** -> [0-255] On-SoC Tegra GPIOs
-    - **max77620-gpio** -> [504–511]  PMIC GPIOs
+- Jetson platforms have two separate GPIO controllers:
+    - **tegra-gpio** → [0–255] On-SoC Tegra GPIOs
+    - **max77620-gpio** → [504–511] PMIC GPIOs
 - If the GPIO belongs to tegra-gpio → Use Tegra Port Formula.
 - If it belongs to max77620-gpio → The sysfs number is assigned directly by the kernel and the correct calculation is `offset = sysfs_gpio - gpiochip_base   # Example: 509 - 504 = 5`
