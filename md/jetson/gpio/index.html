@@ -736,6 +736,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gpio-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1236,6 +1247,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gpio-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1255,11 +1277,7 @@
 
 <h1 id="gpio-control">GPIO Control</h1>
 <h2 id="jn-gpio-port"><strong>JN GPIO Port</strong></h2>
-<p>The Jetson GPIO signals are routed through a <strong>TXB0108RGYR</strong> bidirectional level shifter (U33) before reaching the external GPIO connector (U28). The level shifter translates between the Jetson's <strong>1.8V</strong> I/O domain (<code>VDD_1V8</code>) and the connector-side <strong>3.3V</strong> domain (<code>VDD_3V3_SYS</code>).</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Jetson SoC (1.8V) ──► TXB0108RGYR ──► U28 GPIO Connector (3.3V)
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                      (VCCA=1.8V)
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                      (VCCB=3.3V)
-</span></code></pre></div>
+<p>The Jetson GPIO signals are routed through a bidirectional level shifter before reaching the external GPIO connector. The level shifter translates between the Jetson's <strong>1.8V</strong> I/O domain and the connector-side <strong>3.3V</strong> domain.</p>
 <table>
 <thead>
 <tr>
@@ -1341,25 +1359,11 @@
 <td>—</td>
 <td style="text-align: center;">—</td>
 </tr>
-<tr>
-<td style="text-align: center;">11</td>
-<td>—</td>
-<td style="text-align: center;">—</td>
-<td>—</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td style="text-align: center;">12</td>
-<td>GND</td>
-<td style="text-align: center;">—</td>
-<td>—</td>
-<td style="text-align: center;">—</td>
-</tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Level Shifter</p>
-<p>The 5V supply on Pin 1 passes through an <strong>NFM18PC104R1C3D</strong> EMI filter before reaching the connector. GPIO signals are level-shifted to 3.3V</p>
+<p>GPIO pins on this connector operate at <strong>3.3V</strong>. Do not apply 5V directly to any GPIO pin.</p>
 </div>
 <hr />
 <h2 id="what-is-sysfs"><strong>What is <code>sysfs</code>?</strong></h2>
@@ -1372,103 +1376,12 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
 <div class="admonition example">
 <p class="admonition-title">Terminal Code Example</p>
 <p>This example demonstrates how to set GPIO with sysfs ID <strong>228</strong> (GPIO00) to HIGH and LOW using the terminal.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="m">228</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/direction
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/value
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/value
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="m">228</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/direction
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/value
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio228/value
 </span></code></pre></div>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C (libgpiod)</label><label for="__tabbed_1_2">Shell (sysfs)</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gpiod.h&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">{</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Usage: %s &lt;LINE_OFFSET&gt; &lt;VALUE&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;VALUE: 0 (low) or 1 (high)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">line_offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Error: VALUE must be 0 or 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpiod_chip</span><span class="w"> </span><span class="o">*</span><span class="n">chip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpiod_chip_open_by_name</span><span class="p">(</span><span class="s">&quot;gpiochip0&quot;</span><span class="p">);</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">chip</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gpiod_chip_open_by_name&quot;</span><span class="p">);</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpiod_line</span><span class="w"> </span><span class="o">*</span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpiod_chip_get_line</span><span class="p">(</span><span class="n">chip</span><span class="p">,</span><span class="w"> </span><span class="n">line_offset</span><span class="p">);</span>
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gpiod_chip_get_line&quot;</span><span class="p">);</span>
-</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="n">gpiod_chip_close</span><span class="p">(</span><span class="n">chip</span><span class="p">);</span>
-</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
-</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gpiod_line_request_output</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gpio_set&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gpiod_line_request_output&quot;</span><span class="p">);</span>
-</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">        </span><span class="n">gpiod_chip_close</span><span class="p">(</span><span class="n">chip</span><span class="p">);</span>
-</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>
-</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">    </span><span class="n">gpiod_line_release</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
-</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">    </span><span class="n">gpiod_chip_close</span><span class="p">(</span><span class="n">chip</span><span class="p">);</span>
-</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
-</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/bin/sh</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> &lt;GPIO_PIN&gt; &lt;VALUE&gt;&quot;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VALUE: 0 (low) or 1 (high)&quot;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">fi</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nv">GPIO_PIN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: VALUE must be 0 or 1&quot;</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">fi</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="nv">GPIO_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/class/gpio/gpio</span><span class="nv">$GPIO_PIN</span><span class="s2">&quot;</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PIN</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span>sleep<span class="w"> </span><span class="m">0</span>.1
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="k">fi</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;out&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">/direction&quot;</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">/value&quot;</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Info</p>
-<p>You can access these codes on Lectron's GitHub page through <a href="https://github.com/lectronuser/Lectron-Doc-Center/tree/main/docs">this link</a>; the files are named <strong>gpio_set.sh</strong> and <strong>gpio_set.c</strong>.</p>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Warning</p>
-<p>If you receive an error stating that <code>&lt;gpiod.h&gt;</code> cannot be found during compilation, it means the <code>libgpiod</code> development packages are not installed on your system.<br />
-To resolve this issue, install the required packages using:
- <code>bash
-sudo apt-get install -y gpiod libgpiod-dev</code></p>
-</div>
-<hr />
 <h2 id="how-to-calculate-the-sysfs-value-from-a-gpio-name"><strong>How to Calculate the Sysfs Value from a GPIO Name?</strong></h2>
 <ul>
 <li>Download the pinmux configuration file for your specific Jetson module. It is available on NVIDIA's official <a href="https://developer.nvidia.com/embedded/downloads">documentation page</a>.</li>
@@ -1490,39 +1403,39 @@ sudo apt-get install -y gpiod libgpiod-dev</code></p>
 </ul>
 </li>
 </ul>
-<div class="language-c highlight"><span class="filename">tegra194-gpio.h</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="hll"><span class="cp">#define TEGRA_GPIO(port, offset) \ ((TEGRA_GPIO_PORT_##port * 8) + offset)</span>
-</span></span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#define TEGRA_GPIO_PORT_A   0</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#define TEGRA_GPIO_PORT_B   1</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cp">#define TEGRA_GPIO_PORT_C   2</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cp">#define TEGRA_GPIO_PORT_D   3</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="cp">#define TEGRA_GPIO_PORT_E   4</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="cp">#define TEGRA_GPIO_PORT_F   5</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="cp">#define TEGRA_GPIO_PORT_G   6</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="cp">#define TEGRA_GPIO_PORT_H   7</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="cp">#define TEGRA_GPIO_PORT_I   8</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="cp">#define TEGRA_GPIO_PORT_J   9</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="cp">#define TEGRA_GPIO_PORT_K  10</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="cp">#define TEGRA_GPIO_PORT_L  11</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="cp">#define TEGRA_GPIO_PORT_M  12</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="cp">#define TEGRA_GPIO_PORT_N  13</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="cp">#define TEGRA_GPIO_PORT_O  14</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="cp">#define TEGRA_GPIO_PORT_P  15</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="cp">#define TEGRA_GPIO_PORT_Q  16</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="cp">#define TEGRA_GPIO_PORT_R  17</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="cp">#define TEGRA_GPIO_PORT_S  18</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="cp">#define TEGRA_GPIO_PORT_T  19</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="cp">#define TEGRA_GPIO_PORT_U  20</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="cp">#define TEGRA_GPIO_PORT_V  21</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="cp">#define TEGRA_GPIO_PORT_W  22</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="cp">#define TEGRA_GPIO_PORT_X  23</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="cp">#define TEGRA_GPIO_PORT_Y  24</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="cp">#define TEGRA_GPIO_PORT_Z  25</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="cp">#define TEGRA_GPIO_PORT_AA 26</span>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="cp">#define TEGRA_GPIO_PORT_BB 27</span>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="cp">#define TEGRA_GPIO_PORT_CC 28</span>
-</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="cp">#define TEGRA_GPIO_PORT_DD 29</span>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="cp">#define TEGRA_GPIO_PORT_EE 30</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="cp">#define TEGRA_GPIO_PORT_FF 31</span>
+<div class="language-c highlight"><span class="filename">tegra194-gpio.h</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="hll"><span class="cp">#define TEGRA_GPIO(port, offset) \ ((TEGRA_GPIO_PORT_##port * 8) + offset)</span>
+</span></span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#define TEGRA_GPIO_PORT_A   0</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#define TEGRA_GPIO_PORT_B   1</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cp">#define TEGRA_GPIO_PORT_C   2</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cp">#define TEGRA_GPIO_PORT_D   3</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="cp">#define TEGRA_GPIO_PORT_E   4</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="cp">#define TEGRA_GPIO_PORT_F   5</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="cp">#define TEGRA_GPIO_PORT_G   6</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="cp">#define TEGRA_GPIO_PORT_H   7</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="cp">#define TEGRA_GPIO_PORT_I   8</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="cp">#define TEGRA_GPIO_PORT_J   9</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="cp">#define TEGRA_GPIO_PORT_K  10</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="cp">#define TEGRA_GPIO_PORT_L  11</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="cp">#define TEGRA_GPIO_PORT_M  12</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="cp">#define TEGRA_GPIO_PORT_N  13</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="cp">#define TEGRA_GPIO_PORT_O  14</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="cp">#define TEGRA_GPIO_PORT_P  15</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="cp">#define TEGRA_GPIO_PORT_Q  16</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="cp">#define TEGRA_GPIO_PORT_R  17</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="cp">#define TEGRA_GPIO_PORT_S  18</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="cp">#define TEGRA_GPIO_PORT_T  19</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="cp">#define TEGRA_GPIO_PORT_U  20</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="cp">#define TEGRA_GPIO_PORT_V  21</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="cp">#define TEGRA_GPIO_PORT_W  22</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="cp">#define TEGRA_GPIO_PORT_X  23</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="cp">#define TEGRA_GPIO_PORT_Y  24</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="cp">#define TEGRA_GPIO_PORT_Z  25</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="cp">#define TEGRA_GPIO_PORT_AA 26</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="cp">#define TEGRA_GPIO_PORT_BB 27</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="cp">#define TEGRA_GPIO_PORT_CC 28</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="cp">#define TEGRA_GPIO_PORT_DD 29</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="cp">#define TEGRA_GPIO_PORT_EE 30</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="cp">#define TEGRA_GPIO_PORT_FF 31</span>
 </span></code></pre></div>
 <ul>
 <li>After substituting the port index and the pin offset into the formula, you obtain the corresponding sysfs GPIO number.</li>
@@ -1539,9 +1452,9 @@ TEGRA_GPIO = (TEGRA_GPIO_PORT_CC * 8) + 4 -&gt; (28 * 8) + 4 = 228
 <div class="admonition danger">
 <p class="admonition-title">Warning</p>
 <p>This Formula Does NOT Apply to PMIC GPIOs <strong>(<code>max77620-gpio</code>)</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;registered GPIO&quot;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.534131<span class="o">]</span><span class="w"> </span>gpiochip_setup_dev:<span class="w"> </span>registered<span class="w"> </span>GPIOs<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span><span class="m">255</span><span class="w"> </span>on<span class="w"> </span>device:<span class="w"> </span>gpiochip0<span class="w"> </span><span class="o">(</span>tegra-gpio<span class="o">)</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.591897<span class="o">]</span><span class="w"> </span>gpiochip_setup_dev:<span class="w"> </span>registered<span class="w"> </span>GPIOs<span class="w"> </span><span class="m">504</span><span class="w"> </span>to<span class="w"> </span><span class="m">511</span><span class="w"> </span>on<span class="w"> </span>device:<span class="w"> </span>gpiochip1<span class="w"> </span><span class="o">(</span>max77620-gpio<span class="o">)</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;registered GPIO&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.534131<span class="o">]</span><span class="w"> </span>gpiochip_setup_dev:<span class="w"> </span>registered<span class="w"> </span>GPIOs<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span><span class="m">255</span><span class="w"> </span>on<span class="w"> </span>device:<span class="w"> </span>gpiochip0<span class="w"> </span><span class="o">(</span>tegra-gpio<span class="o">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.591897<span class="o">]</span><span class="w"> </span>gpiochip_setup_dev:<span class="w"> </span>registered<span class="w"> </span>GPIOs<span class="w"> </span><span class="m">504</span><span class="w"> </span>to<span class="w"> </span><span class="m">511</span><span class="w"> </span>on<span class="w"> </span>device:<span class="w"> </span>gpiochip1<span class="w"> </span><span class="o">(</span>max77620-gpio<span class="o">)</span>
 </span></code></pre></div></p>
 </div>
 <ul>
@@ -1553,6 +1466,165 @@ TEGRA_GPIO = (TEGRA_GPIO_PORT_CC * 8) + 4 -&gt; (28 * 8) + 4 = 228
 <li>If the GPIO belongs to tegra-gpio → Use Tegra Port Formula.</li>
 <li>If it belongs to max77620-gpio → The sysfs number is assigned directly by the kernel and the correct calculation is <code>offset = sysfs_gpio - gpiochip_base   # Example: 509 - 504 = 5</code></li>
 </ul>
+<h2 id="gpio-usage"><strong>GPIO Usage</strong></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C (libgpiod)</label><label for="__tabbed_1_2">Shell (sysfs)</label><label for="__tabbed_1_3">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="cp">#define GPIO_BASE &quot;/sys/class/gpio&quot;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">gpios</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">228</span><span class="p">,</span><span class="w"> </span><span class="mi">149</span><span class="p">,</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w"> </span><span class="mi">168</span><span class="p">,</span><span class="w"> </span><span class="mi">169</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">};</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">names</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="s">&quot;GPIO00&quot;</span><span class="p">,</span><span class="s">&quot;GPIO01&quot;</span><span class="p">,</span><span class="s">&quot;GPIO02&quot;</span><span class="p">,</span><span class="s">&quot;GPIO03&quot;</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="s">&quot;GPIO05&quot;</span><span class="p">,</span><span class="s">&quot;GPIO07&quot;</span><span class="p">,</span><span class="s">&quot;GPIO10&quot;</span><span class="p">,</span><span class="s">&quot;GPIO11&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">};</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="cp">#define GPIO_COUNT (sizeof(gpios) / sizeof(gpios[0]))</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">gpio_write_file</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">perror</span><span class="p">(</span><span class="n">path</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">}</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">export_gpio</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">gpio</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">64</span><span class="p">],</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="cm">/* Export */</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio</span><span class="p">);</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="n">gpio_write_file</span><span class="p">(</span><span class="n">GPIO_BASE</span><span class="w"> </span><span class="s">&quot;/export&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">    </span><span class="cm">/* Set direction */</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="n">GPIO_BASE</span><span class="w"> </span><span class="s">&quot;/gpio%d/direction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio</span><span class="p">);</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="n">gpio_write_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;out&quot;</span><span class="p">);</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="p">}</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">unexport_gpio</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">gpio</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio</span><span class="p">);</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="n">gpio_write_file</span><span class="p">(</span><span class="n">GPIO_BASE</span><span class="w"> </span><span class="s">&quot;/unexport&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="p">}</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_value</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">gpio</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="n">GPIO_BASE</span><span class="w"> </span><span class="s">&quot;/gpio%d/value&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio</span><span class="p">);</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">    </span><span class="n">gpio_write_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">);</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="p">}</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">    </span><span class="cm">/* Export all */</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GPIO_COUNT</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="w">        </span><span class="n">export_gpio</span><span class="p">(</span><span class="n">gpios</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sequential blink — watch your LED bar...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GPIO_COUNT</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  ON  -&gt; %s (gpio%d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">gpios</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="w">        </span><span class="n">set_value</span><span class="p">(</span><span class="n">gpios</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="w">        </span><span class="n">usleep</span><span class="p">(</span><span class="mi">500000</span><span class="p">);</span><span class="w">   </span><span class="cm">/* 500 ms */</span>
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="w">        </span><span class="n">set_value</span><span class="p">(</span><span class="n">gpios</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="w">        </span><span class="n">usleep</span><span class="p">(</span><span class="mi">200000</span><span class="p">);</span><span class="w">   </span><span class="cm">/* 200 ms */</span>
+</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>
+</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Done. Cleaning up.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GPIO_COUNT</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a><span class="w">        </span><span class="n">unexport_gpio</span><span class="p">(</span><span class="n">gpios</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>
+</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a><span class="p">}</span>
+</span></code></pre></div>
+Compile and run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span>test_gpio<span class="w"> </span>test_gpio.c
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span>sudo<span class="w"> </span>./test_gpio
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/sh</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> &lt;GPIO_PIN&gt; &lt;VALUE&gt;&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VALUE: 0 (low) or 1 (high)&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">fi</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nv">GPIO_PIN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: VALUE must be 0 or 1&quot;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">fi</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nv">GPIO_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/class/gpio/gpio</span><span class="nv">$GPIO_PIN</span><span class="s2">&quot;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PIN</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span>sleep<span class="w"> </span><span class="m">0</span>.1
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="k">fi</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;out&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">/direction&quot;</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VALUE</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GPIO_PATH</span><span class="s2">/value&quot;</span>
+</span></code></pre></div>
+Make executable and run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span>chmod<span class="w"> </span>+x<span class="w"> </span>gpio_set.sh
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>sudo<span class="w"> </span>./gpio_set.sh<span class="w"> </span><span class="m">228</span><span class="w"> </span><span class="m">1</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">GPIOS</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">228</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">169</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">NAMES</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;GPIO00&quot;</span><span class="p">,</span><span class="s2">&quot;GPIO01&quot;</span><span class="p">,</span><span class="s2">&quot;GPIO02&quot;</span><span class="p">,</span><span class="s2">&quot;GPIO03&quot;</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="s2">&quot;GPIO05&quot;</span><span class="p">,</span><span class="s2">&quot;GPIO07&quot;</span><span class="p">,</span><span class="s2">&quot;GPIO10&quot;</span><span class="p">,</span><span class="s2">&quot;GPIO11&quot;</span><span class="p">]</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">GPIO_BASE</span> <span class="o">=</span> <span class="s2">&quot;/sys/class/gpio&quot;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">gpio_write</span><span class="p">(</span><span class="n">gpio</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">GPIO_BASE</span><span class="si">}</span><span class="s2">/gpio</span><span class="si">{</span><span class="n">gpio</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span><span class="n">gpio</span><span class="p">):</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">export_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">GPIO_BASE</span><span class="si">}</span><span class="s2">/gpio</span><span class="si">{</span><span class="n">gpio</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">export_path</span><span class="p">):</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">GPIO_BASE</span><span class="si">}</span><span class="s2">/export&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">gpio</span><span class="p">))</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="n">gpio_write</span><span class="p">(</span><span class="n">gpio</span><span class="p">,</span> <span class="s2">&quot;direction&quot;</span><span class="p">,</span> <span class="s2">&quot;out&quot;</span><span class="p">)</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">unexport</span><span class="p">(</span><span class="n">gpio</span><span class="p">):</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">GPIO_BASE</span><span class="si">}</span><span class="s2">/unexport&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">gpio</span><span class="p">))</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="k">for</span> <span class="n">gpio</span> <span class="ow">in</span> <span class="n">GPIOS</span><span class="p">:</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="n">export</span><span class="p">(</span><span class="n">gpio</span><span class="p">)</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sequential blink — watch your LED bar...&quot;</span><span class="p">)</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>    <span class="k">for</span> <span class="n">gpio</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">GPIOS</span><span class="p">,</span> <span class="n">NAMES</span><span class="p">):</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ON  → </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (gpio</span><span class="si">{</span><span class="n">gpio</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>        <span class="n">gpio_write</span><span class="p">(</span><span class="n">gpio</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>        <span class="n">gpio_write</span><span class="p">(</span><span class="n">gpio</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done. Cleaning up.&quot;</span><span class="p">)</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>    <span class="k">for</span> <span class="n">gpio</span> <span class="ow">in</span> <span class="n">GPIOS</span><span class="p">:</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>        <span class="n">gpio_write</span><span class="p">(</span><span class="n">gpio</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>        <span class="n">unexport</span><span class="p">(</span><span class="n">gpio</span><span class="p">)</span>
+</span></code></pre></div>
+ Run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span>sudo<span class="w"> </span>python3<span class="w"> </span>test_gpio.py
+</span></code></pre></div></p>
+</div>
+</div>
+</div>
+<hr />
 
 
 
