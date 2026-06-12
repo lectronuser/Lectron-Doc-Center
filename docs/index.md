@@ -39,7 +39,7 @@ hide:
 <details>
   <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
     Pi5 Autopilot
-    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Hailo-8 Edge AI · PX4 FMUv6X</span>
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Hailo-8 Edge AI · FMUv6X</span>
   </summary>
   <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
     <li><a href="md/raspberry/">Overview</a></li>
