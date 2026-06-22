@@ -2,6 +2,9 @@
 
 ## **JN GPIO Port**
 
+### **Jetson Nano**
+
+
 The Jetson GPIO signals are routed through a bidirectional level shifter before reaching the external GPIO connector. The level shifter translates between the Jetson's **1.8V** I/O domain and the connector-side **3.3V** domain.
 
 | Connector Pin | Signal  | Jetson SODIMM Pin | GPIO Identifier | Sysfs # |
@@ -16,6 +19,27 @@ The Jetson GPIO signals are routed through a bidirectional level shifter before 
 | 8   | GPIO10  | 212               | GPIO3_PV.01     | **169** |
 | 9   | GPIO11  | 216               | GPIO3_PZ.00     | **200** |
 | 10  | GND     | —                 | —               | —       |
+
+## **Jetson Xavier NX**
+
+Same external GPIO connector and level shifter as the Nano variant: the Jetson's **1.8V** I/O is translated to the connector-side **3.3V** domain. Note the GPIO identifiers and sysfs numbers differ from the Nano because the Xavier NX uses a different SoC and pin map.
+
+| Connector Pin | Signal  | SoC Signal      | GPIO Identifier | Sysfs # |
+|:---:|---------|-----------------|-----------------|:-------:|
+| 1   | VDD_5V_SYS | —            | Power           | —       |
+| 2   | GPIO00  | USB_VBUS_EN0    | GPIO3_PZ.01     | **489** |
+| 3   | GPIO01  | SOC_GPIO41      | GPIO3_PQ.05     | **421** |
+| 4   | GPIO02  | SOC_GPIO23      | GPIO3_PQ.03     | **419** |
+| 5   | GPIO03  | SPI2_SCK        | GPIO3_PCC.00*   | **264** |
+| 6   | GPIO05  | SPI2_MOSI       | GPIO3_PCC.02*   | **266** |
+| 7   | GPIO07  | SOC_GPIO44      | GPIO3_PR.00     | **424** |
+| 8   | GPIO10  | SOC_GPIO21      | GPIO3_PQ.01     | **417** |
+| 9   | GPIO11  | SOC_GPIO42      | GPIO3_PQ.06     | **422** |
+| 10  | GND     | —               | —               | —       |
+
+!!! note "AON GPIO Logic"
+    GPIO03 and GPIO05 (marked with *) are on the always-on (AON) controller and have inverted logic — write `0` to drive high, write `1` to drive low.
+
 
 !!! note "Level Shifter"
     GPIO pins on this connector operate at **3.3V**. Do not apply 5V directly to any GPIO pin.
