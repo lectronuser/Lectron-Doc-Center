@@ -712,6 +712,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="JN GPIO Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jetson-nano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jetson Nano
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetson-xavier-nx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jetson Xavier NX
+      
+    </span>
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1223,6 +1251,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="JN GPIO Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jetson-nano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jetson Nano
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetson-xavier-nx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jetson Xavier NX
+      
+    </span>
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1277,6 +1333,7 @@
 
 <h1 id="gpio-control">GPIO Control</h1>
 <h2 id="jn-gpio-port"><strong>JN GPIO Port</strong></h2>
+<h3 id="jetson-nano"><strong>Jetson Nano</strong></h3>
 <p>The Jetson GPIO signals are routed through a bidirectional level shifter before reaching the external GPIO connector. The level shifter translates between the Jetson's <strong>1.8V</strong> I/O domain and the connector-side <strong>3.3V</strong> domain.</p>
 <table>
 <thead>
@@ -1361,6 +1418,95 @@
 </tr>
 </tbody>
 </table>
+<h2 id="jetson-xavier-nx"><strong>Jetson Xavier NX</strong></h2>
+<p>Same external GPIO connector and level shifter as the Nano variant: the Jetson's <strong>1.8V</strong> I/O is translated to the connector-side <strong>3.3V</strong> domain. Note the GPIO identifiers and sysfs numbers differ from the Nano because the Xavier NX uses a different SoC and pin map.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Connector Pin</th>
+<th>Signal</th>
+<th>SoC Signal</th>
+<th>GPIO Identifier</th>
+<th style="text-align: center;">Sysfs #</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>VDD_5V_SYS</td>
+<td>—</td>
+<td>Power</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>GPIO00</td>
+<td>USB_VBUS_EN0</td>
+<td>GPIO3_PZ.01</td>
+<td style="text-align: center;"><strong>489</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>GPIO01</td>
+<td>SOC_GPIO41</td>
+<td>GPIO3_PQ.05</td>
+<td style="text-align: center;"><strong>421</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>GPIO02</td>
+<td>SOC_GPIO23</td>
+<td>GPIO3_PQ.03</td>
+<td style="text-align: center;"><strong>419</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>GPIO03</td>
+<td>SPI2_SCK</td>
+<td>GPIO3_PCC.00*</td>
+<td style="text-align: center;"><strong>264</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>GPIO05</td>
+<td>SPI2_MOSI</td>
+<td>GPIO3_PCC.02*</td>
+<td style="text-align: center;"><strong>266</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>GPIO07</td>
+<td>SOC_GPIO44</td>
+<td>GPIO3_PR.00</td>
+<td style="text-align: center;"><strong>424</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>GPIO10</td>
+<td>SOC_GPIO21</td>
+<td>GPIO3_PQ.01</td>
+<td style="text-align: center;"><strong>417</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>GPIO11</td>
+<td>SOC_GPIO42</td>
+<td>GPIO3_PQ.06</td>
+<td style="text-align: center;"><strong>422</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td>GND</td>
+<td>—</td>
+<td>—</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">AON GPIO Logic</p>
+<p>GPIO03 and GPIO05 (marked with *) are on the always-on (AON) controller and have inverted logic — write <code>0</code> to drive high, write <code>1</code> to drive low.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Level Shifter</p>
 <p>GPIO pins on this connector operate at <strong>3.3V</strong>. Do not apply 5V directly to any GPIO pin.</p>
