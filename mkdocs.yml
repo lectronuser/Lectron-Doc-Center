@@ -15,9 +15,10 @@ nav:
         - Assembly: md/jetson/assembly.md
         - Initial Installation: md/jetson/setup.md
         - Getting Started : md/jetson/getting_started.md 
-        - Commands: md/jetson/commands.md        
-        - GPIO Control: md/jetson/gpio.md        
-        - Network: md/jetson/network.md        
+        - Commands: md/jetson/commands.md
+        - GPIO Control: md/jetson/gpio.md
+        - Network: md/jetson/network.md
+        - Fan Control: md/jetson/fan_control.md
 
     - Pi5 Autopilot:
         - Overview: md/raspberry/index.md

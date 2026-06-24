@@ -33,6 +33,7 @@ hide:
     <li><a href="md/jetson/commands/">Commands</a></li>
     <li><a href="md/jetson/gpio/">GPIO Control</a></li>
     <li><a href="md/jetson/network/">Network</a></li>
+    <li><a href="md/jetson/fan_control/">Fan Control</a></li>
   </ul>
 </details>
 
