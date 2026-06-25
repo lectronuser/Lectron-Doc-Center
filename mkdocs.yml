@@ -18,6 +18,7 @@ nav:
         - Commands: md/jetson/commands.md
         - GPIO Control: md/jetson/gpio.md
         - Network: md/jetson/network.md
+        - Mavlink UART: md/jetson/mavlink_setup_uart.md
         - Fan Control: md/jetson/fan_control.md
 
     - Pi5 Autopilot:
