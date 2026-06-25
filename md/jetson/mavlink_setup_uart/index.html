@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../assembly/">
+        <link rel="prev" href="../network/">
       
       
-        <link rel="next" href="../getting_started/">
+        <link rel="next" href="../fan_control/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Initial Installation - Technical Manual</title>
+        <title>Mavlink UART - Technical Manual</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#initial-installation" class="md-skip">
+        <a href="#mavlink-companion-link-setup-over-uart" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Initial Installation
+              Mavlink UART
             
           </span>
         </div>
@@ -557,37 +557,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Initial Installation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
         
   
   
@@ -603,143 +576,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#jetson-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Jetson Installation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Jetson Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fmu-firmware-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMU Firmware Installation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="FMU Firmware Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#connection-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connection Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-io-chip-flashing-f103" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. IO Chip Flashing (F103)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-fmu-chip-flashing-h753" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. FMU Chip Flashing (H753)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. FMU Chip Flashing (H753)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fmu-bootloader-flashing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMU Bootloader Flashing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fmu-firmware-flashing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMU Firmware Flashing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -861,10 +697,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../mavlink_setup_uart/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mavlink UART
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -880,6 +743,171 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-connectivity-the-bridge-resistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Connectivity — the bridge resistors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Connectivity — the bridge resistors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-bridge-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the bridge does
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-qgroundcontrol-configuration-px4-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. QGroundControl configuration (PX4 side)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. QGroundControl configuration (PX4 side)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-on-the-fmu-qgc-analyze-tools-mavlink-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify on the FMU (QGC → Analyze Tools → MAVLink Console)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verify-the-connection-with-xxd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verify the connection with xxd
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Verify the connection with xxd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-read-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-what-you-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpreting what you see
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-decode-with-pymavlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Decode with pymavlink
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Decode with pymavlink">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-script-mavlink_testpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test script (mavlink_test.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1344,33 +1372,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetson-installation" class="md-nav__link">
+  <a href="#1-connectivity-the-bridge-resistors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson Installation
+        1. Connectivity — the bridge resistors
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jetson Installation">
+    <nav class="md-nav" aria-label="1. Connectivity — the bridge resistors">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#what-the-bridge-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
+        What the bridge does
       
     </span>
   </a>
@@ -1383,22 +1400,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fmu-firmware-installation" class="md-nav__link">
+  <a href="#2-qgroundcontrol-configuration-px4-side" class="md-nav__link">
     <span class="md-ellipsis">
       
-        FMU Firmware Installation
+        2. QGroundControl configuration (PX4 side)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="FMU Firmware Installation">
+    <nav class="md-nav" aria-label="2. QGroundControl configuration (PX4 side)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#connection-settings" class="md-nav__link">
+  <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connection Settings
+        Steps
       
     </span>
   </a>
@@ -1406,44 +1423,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-io-chip-flashing-f103" class="md-nav__link">
+  <a href="#verify-on-the-fmu-qgc-analyze-tools-mavlink-console" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. IO Chip Flashing (F103)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-fmu-chip-flashing-h753" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. FMU Chip Flashing (H753)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. FMU Chip Flashing (H753)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fmu-bootloader-flashing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMU Bootloader Flashing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fmu-firmware-flashing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FMU Firmware Flashing
+        Verify on the FMU (QGC → Analyze Tools → MAVLink Console)
       
     </span>
   </a>
@@ -1452,6 +1435,79 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verify-the-connection-with-xxd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verify the connection with xxd
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Verify the connection with xxd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-read-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-what-you-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpreting what you see
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-decode-with-pymavlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Decode with pymavlink
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Decode with pymavlink">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-script-mavlink_testpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test script (mavlink_test.py)
+      
+    </span>
+  </a>
   
 </li>
         
@@ -1477,166 +1533,177 @@
 
 
 
-<h1 id="initial-installation">Initial Installation</h1>
-<h2 id="jetson-installation"><strong>Jetson Installation</strong></h2>
-<p>This document describes the Linux for Tegra (L4T) installation process for a <strong>custom Jetson Nano based carrier board</strong>. The packages used are derived from NVIDIA’s official releases and adapted to support board specific hardware components.</p>
-<div class="admonition tip">
-<p class="admonition-title">Note</p>
-<p>The steps are written for Jetson Nano. The same procedure applies to other Jetson models; only the Ubuntu version and package names differ.</p>
-</div>
-<h3 id="requirements"><strong>Requirements</strong></h3>
-<ol>
-<li><a href="">Jetson-210_Linux_R32.7.6_aarch64.tbz2</a></li>
-<li><a href="">Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2</a></li>
-<li>Host system:<ul>
-<li>Ubuntu 18.04</li>
-<li>Or Ubuntu 18.04 running inside Docker</li>
-</ul>
-</li>
-</ol>
-<h3 id="installation"><strong>Installation</strong></h3>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>By default, the installation is performed under a <code>workspace</code> directory in the user’s home path. A custom directory may be used if preferred</p>
-</div>
-<ol>
-<li>
-<p><strong>Extracting the L4T Package:</strong> Create the workspace and extract the L4T package (This will create the <strong>Linux_for_Tegra</strong> directory.)
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>~/workspace
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>~/workspace
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>tar<span class="w"> </span>xf<span class="w"> </span>Jetson-210_Linux_R32.7.6_aarch64.tbz2
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Installing the Root Filesystem:</strong> Extract the root filesystem into the rootfs directory:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra/rootfs
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>tar<span class="w"> </span>xpf<span class="w"> </span>../../Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Applying NVIDIA Binary Files:</strong> Run the following script to install NVIDIA-specific binaries into the root filesystem
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>./apply_binaries.sh
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Verifying the Installation:</strong> Verify that the base system was created successfully. (If the file exists, the setup is valid.)
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>rootfs/etc/nv_tegra_release
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Creating a Default User:</strong> To predefine the default user credentials (<code>-u</code>: Username, <code>-p</code>: Password, <code>-n</code>: Hostname)
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sudo<span class="w"> </span>./tools/l4t_create_default_user.sh<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-u<span class="w"> </span>ems<span class="w"> </span><span class="se">\ </span><span class="w">                                      </span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-p<span class="w"> </span><span class="s1">&#39;1234!&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>-n<span class="w"> </span>lectorn
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Entering Force Recovery Mode (RCM):</strong>  To flash the device, Jetson Nano must be placed into Force Recovery Mode (RCM).</p>
+<h1 id="mavlink-companion-link-setup-over-uart">MAVLink Companion Link Setup over UART</h1>
+<p>This file explaint how to bring up PX4 TELEM3 (FMU USART2) as a MAVLink port and receive its stream on the Jetson over UART0.</p>
+<hr />
+<h2 id="1-connectivity-the-bridge-resistors">1. Connectivity — the bridge resistors</h2>
+<p>On this autopilot baseboard, the FMU's <strong>TELEM3 (USART2)</strong> is wired toward the <strong>Jetson module's UART0</strong> through four <strong>0 Ω bridge resistors</strong>. The crossover is correct end to end (TX↔RX, RTS↔CTS):</p>
+<table>
+<thead>
+<tr>
+<th>FMU side (TELEM3 / USART2)</th>
+<th>Resistor</th>
+<th>Jetson side (UART0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>USART2_TX_TELEM3</code></td>
+<td><strong>R218</strong></td>
+<td><code>JN_UART0_RXD</code></td>
+</tr>
+<tr>
+<td><code>USART2_RX_TELEM3</code></td>
+<td><strong>R217</strong></td>
+<td><code>JN_UART0_TXD</code></td>
+</tr>
+<tr>
+<td><code>USART2_RTS_TELEM3</code></td>
+<td><strong>R226</strong></td>
+<td><code>JN_UART0_CTS</code></td>
+</tr>
+<tr>
+<td><code>USART2_CTS_TELEM3</code></td>
+<td><strong>R227</strong></td>
+<td><code>JN_UART0_RTS</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-the-bridge-does">What the bridge does</h3>
+<p>The same <code>JN_UART0_*</code> nets also break out to a separate UART0 connector (U34 on the schematic). The resistors decide who owns UART0:</p>
 <ul>
-<li>Press and hold Recovery and Reset pins together</li>
-<li>Wait 15–30 seconds</li>
-<li>Release Reset first</li>
-<li>Then release Recovery</li>
-<li>Connect the board to the host PC via USB Type-B and verify: <code>lsusb</code> If NVIDIA Corp. appears, the device is ready for flashing.</li>
+<li><strong>Resistors populated</strong> → UART0 is committed to the FMU TELEM3 link. (Don't also drive the external U34 header, or you get bus contention.)</li>
+<li><strong>Resistors removed</strong> → TELEM3 and UART0 are isolated, freeing UART0 to be used as an independent external connector.</li>
 </ul>
-</li>
-<li>
-<p><strong>Flashing the Device:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>./flash.sh<span class="w"> </span>lectron-nano-emmc<span class="w"> </span>mmcblk0p1
-</span></code></pre></div></p>
-</li>
+<hr />
+<h2 id="2-qgroundcontrol-configuration-px4-side">2. QGroundControl configuration (PX4 side)</h2>
+<p>MAVLink parameters split into "which port" (<code>MAV_x_CONFIG</code>) and "how it behaves" (<code>MAV_x_MODE</code>, <code>_RATE</code>, …). The per-instance behavior params <strong>only appear after you assign a port and reboot</strong>.</p>
+<p>On this build, <code>MAV_0</code> is on TELEM1 and <code>MAV_2</code> is on Ethernet, so the free instance <strong><code>MAV_1</code></strong> is used for TELEM3.</p>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Set <strong><code>MAV_1_CONFIG = TELEM 3</code></strong>, then <strong>reboot</strong> (CONFIG params need a reboot before the rest appear).</li>
+<li>After reboot, set:</li>
 </ol>
-<h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong></h2>
-<p>This section contains step-by-step instructions for flashing the bootloader and firmware onto the <strong>FMU IO (F103)</strong> and <strong>FMU MAIN (H753)</strong> chips using <strong>STM32CubeProgrammer</strong>.</p>
-<div class="admonition danger">
-<p class="admonition-title">Wiring — Before You Start</p>
-<p>Before the flashing process, make sure the debug cable and the ST-Link / CubeProgrammer pins are connected correctly:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>SWDIO   &gt;&gt;&gt; SWDIO
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>SWDCLK  &gt;&gt;&gt; SWDCLK
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>GND     &gt;&gt;&gt; GND
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>NRST    &gt;&gt;&gt; NRST
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SER_TEL3_BAUD</code></td>
+<td><code>115200</code></td>
+</tr>
+<tr>
+<td><code>MAV_1_MODE</code></td>
+<td><code>Onboard</code></td>
+</tr>
+<tr>
+<td><code>MAV_1_FLOW_CTRL</code></td>
+<td><code>Force off</code></td>
+</tr>
+<tr>
+<td><code>MAV_1_RATE</code></td>
+<td>default / 0</td>
+</tr>
+<tr>
+<td><code>MAV_PROTO_VER</code></td>
+<td><code>2</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Reboot again.</strong></li>
+</ol>
+<h3 id="verify-on-the-fmu-qgc-analyze-tools-mavlink-console">Verify on the FMU (QGC → Analyze Tools → MAVLink Console)</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mavlink status
 </span></code></pre></div>
-<p>The Autopilot board must be powered (via <strong>USB</strong> or <strong>XT30</strong>) before performing these steps.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">ArduPilot vs. PX4</p>
-<p>The FMU bootloader and FMU firmware files differ depending on the autopilot software (<strong>ArduPilot</strong> or <strong>PX4</strong>). The flashing procedure remains the same — only the target files change.</p>
-</div>
-<h3 id="connection-settings"><strong>Connection Settings</strong></h3>
-<p>Select the connection settings on the right-hand panel as shown below, then use the <strong>Connect</strong> button. After connecting, the target chip is shown in the <strong>bottom-right corner</strong> (<code>STM32F10x</code> for the IO chip, <code>STM32H7</code> for the FMU chip).</p>
-<p><img alt="STM32CubeProgrammer connection settings" src="../../../images/raspberry/fmu_cubeprog_connection.jpg" /></p>
-<h3 id="1-io-chip-flashing-f103"><strong>1. IO Chip Flashing (F103)</strong></h3>
-<p><strong>Hardware Connections</strong></p>
-<ol>
-<li>Connect the debug cable (10-pin GHS-10) to the IO debug port.</li>
-<li>Connect the ST-Link to the computer.</li>
-</ol>
-<p><strong>STM32CubeProgrammer Steps</strong></p>
-<ol>
-<li>Launch <strong>STM32CubeProgrammer</strong>. Select the connection settings on the right panel and click <strong>Connect</strong>.</li>
-<li>Switch to the programming panel using the left-hand toolbar.</li>
-<li>After the ST-Link connects, verify that <strong>STM32F10x</strong> is displayed in the bottom-right corner.</li>
-<li>Click <strong>Full chip erase</strong> to wipe any existing code. In the confirmation pop-up (<em>"Are you sure you want to erase full chip flash memory"</em>), click <strong>OK</strong>.</li>
-<li>Select the provided <strong>IO bootloader</strong> file.</li>
-<li>Check the programming configuration options as indicated in the reference layout.</li>
-<li>Click <strong>Start Programming</strong>.</li>
-</ol>
-<p><img alt="IO bootloader installation" src="../../../images/raspberry/io-bootloader-_programming.png" /></p>
-<ol>
-<li>Once complete, dismiss the <em>"Download verified successfully"</em> and <em>"File download complete"</em> alerts by clicking <strong>OK</strong>.</li>
-<li>The <strong>IO installation is complete</strong>.</li>
-<li>For safety, disconnect from the hardware by clicking <strong>Disconnect</strong> (which replaces the <em>Connect</em> button).</li>
-</ol>
-<h3 id="2-fmu-chip-flashing-h753"><strong>2. FMU Chip Flashing (H753)</strong></h3>
-<p>This stage installs the <strong>Bootloader</strong> first, followed by the <strong>FMU Firmware</strong>.</p>
-<p><strong>Hardware Connections</strong></p>
-<ol>
-<li>Connect the debug cable (10-pin GHS-10) to the FMU debug port.</li>
-<li>Connect the ST-Link to the computer.</li>
-</ol>
-<h4 id="fmu-bootloader-flashing"><strong>FMU Bootloader Flashing</strong></h4>
-<ol>
-<li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
-<li>Switch to the programming panel using the left-hand toolbar.</li>
-<li>After the ST-Link connects, verify that <strong>STM32H7</strong> is displayed in the bottom-right corner.</li>
-<li>Click <strong>Full chip erase</strong> to wipe any existing code, then click <strong>OK</strong> on the confirmation pop-up.</li>
-<li>Select the provided <strong>FMU Bootloader</strong> file.</li>
-<li>Check the installation options as indicated in the reference layout.</li>
-<li>Click <strong>Start Programming</strong>.</li>
-</ol>
-<p><img alt="FMU bootloader installation" src="../../../images/raspberry/fmu_cubeprog_bootloader.jpg" /></p>
-<ol>
-<li>Once complete, close the <em>"Download verified successfully"</em> and <em>"File download complete"</em> prompts by clicking <strong>OK</strong>.</li>
-<li>The <strong>FMU Bootloader installation is complete</strong>.</li>
-<li>For safety, click <strong>Disconnect</strong> (top-right).</li>
-</ol>
-<h4 id="fmu-firmware-flashing"><strong>FMU Firmware Flashing</strong></h4>
-<ol>
-<li>Launch <strong>STM32CubeProgrammer</strong> and click <strong>Connect</strong> (top-right).</li>
-<li>Switch to the programming panel using the left-hand toolbar.</li>
-<li>Ensure that <strong>STM32H7</strong> is displayed in the bottom-right corner as the target chip.</li>
-<li>Select the provided <strong>FMU Firmware</strong> file.</li>
-<li>
-<p>Check the programming options as shown in the reference image.</p>
-<div class="admonition danger">
-<p class="admonition-title">CRITICAL</p>
-<p>Uncheck the <strong>Full chip erase</strong> box to prevent wiping the bootloader you just installed.</p>
-</div>
-</li>
-<li>
-<p>Click <strong>Start Programming</strong> to begin flashing the firmware.</p>
-</li>
-</ol>
-<p><img alt="FMU firmware installation" src="../../../images/raspberry/fmu_cubeprog_firmware.jpg" /></p>
-<ol>
-<li>When the operation completes, confirm and close the <em>"Download verified successfully"</em> and <em>"File download complete"</em> alerts by clicking <strong>OK</strong>.</li>
-<li>The <strong>FMU Firmware installation is complete</strong>.</li>
-</ol>
+<p>The TELEM3 instance (<code>MAV_1</code>) should be <strong>transmitting</strong> in <code>Onboard</code> mode at 115200:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>instance #1:
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    mavlink chan: #1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    flow control: OFF
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    rates:
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      tx: 3717.7 B/s
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      rx: 0.0 B/s          &lt;-- 0 until the Jetson sends its heartbeat back
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    mode: Onboard
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    MAVLink version: 2
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    transport protocol: serial (/dev/ttyS1 @115200)
+</span></code></pre></div>
+<p><code>tx</code> nonzero with <code>rx: 0.0</code> means <strong>PX4 is fine and transmitting</strong> — any remaining problem is on the Jetson receive side. Once the Jetson talks back, <code>rx</code> becomes nonzero.</p>
+<hr />
+<h2 id="3-verify-the-connection-with-xxd">3. Verify the connection with <code>xxd</code></h2>
+<p>On this carrier the TELEM3 link comes up on <strong><code>/dev/ttyTHS1</code></strong>. Look at the raw bytes:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>stty<span class="w"> </span>-F<span class="w"> </span>/dev/ttyTHS1<span class="w"> </span><span class="m">115200</span><span class="w"> </span>raw<span class="w"> </span>-echo
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/dev/ttyTHS1<span class="w"> </span><span class="p">|</span><span class="w"> </span>xxd<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+</span></code></pre></div>
+<p>If you see nothing on <code>ttyTHS1</code>, try <strong><code>/dev/ttyTHS0</code></strong> instead (same commands, swap the node).</p>
+<p>Expected output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>00000000: fd1c 0000 f901 011e 0000 2895 1000 bfd3  ..........(.....
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>00000010: 4840 fafe aabd 3156 cbbf c354 a6bb 30ad  H@....1V...T..0.
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>00000020: 963b 7c8a adb9 5ea2 fd09 0000 fa01 0100  .;|...^.........
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>00000030: 0000 0000 0403 020c 1d00 0322 34fd 0a00  ...........&quot;4...
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>...
+</span></code></pre></div>
+<h3 id="how-to-read-it">How to read it</h3>
+<p>The recurring <strong><code>fd</code></strong> is the MAVLink 2 start byte. Decoding a few frames confirms it's real telemetry, not noise:</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>len</th>
+<th>msgid</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fd 1c 00 00 f9 01 01 1e ...</code></td>
+<td>0x1c (28)</td>
+<td><code>0x1e</code> = 30</td>
+<td><strong>ATTITUDE</strong></td>
+</tr>
+<tr>
+<td><code>fd 09 00 00 fa 01 01 00 ...</code></td>
+<td>0x09 (9)</td>
+<td><code>0x00</code> = 0</td>
+<td><strong>HEARTBEAT</strong></td>
+</tr>
+<tr>
+<td><code>fd 0a 00 00 fb 01 01 04 ...</code></td>
+<td>0x0a (10)</td>
+<td><code>0x04</code> = 4</td>
+<td><strong>PING</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="interpreting-what-you-see">Interpreting what you see</h3>
+<p>Recurring <strong><code>0xFD</code></strong> frames → port, baud, and TX/RX polarity are all correct. ✅</p>
+<blockquote>
+<p><strong>Why minicom can lie:</strong> minicom defaults to <strong>Hardware Flow Control = ON</strong>. With RTS/CTS not in the state it expects, it shows a blank screen even while bytes arrive. For diagnosis, trust <code>cat | xxd</code> — it's unambiguous. To fix minicom: <code>Ctrl-A O</code> → <em>Serial port setup</em> → toggle hardware flow control to <strong>No</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="4-decode-with-pymavlink">4. Decode with pymavlink</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span><span class="w">    </span><span class="c1"># run the port as your user without root (re-login after)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pip3<span class="w"> </span>install<span class="w"> </span>pymavlink
+</span></code></pre></div>
+<h3 id="test-script-mavlink_testpy">Test script (<code>mavlink_test.py</code>)</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pymavlink</span><span class="w"> </span><span class="kn">import</span> <span class="n">mavutil</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">m</span> <span class="o">=</span> <span class="n">mavutil</span><span class="o">.</span><span class="n">mavlink_connection</span><span class="p">(</span><span class="s1">&#39;/dev/ttyTHS1&#39;</span><span class="p">,</span> <span class="n">baud</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">m</span><span class="o">.</span><span class="n">wait_heartbeat</span><span class="p">()</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Heartbeat from sys </span><span class="si">%d</span><span class="s2"> comp </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">target_system</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">target_component</span><span class="p">))</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">recv_match</span><span class="p">(</span><span class="n">blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">if</span> <span class="n">msg</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">get_type</span><span class="p">(),</span> <span class="n">msg</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python3<span class="w"> </span>mavlink_test.py
+</span></code></pre></div>
+<p>If <code>wait_heartbeat()</code> returns immediately, the bidirectional link is solid.</p>
 
 
 
@@ -1672,7 +1739,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../assembly/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Assembly">
+          <a href="../network/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Network">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1682,20 +1749,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Assembly
+                Network
               </div>
             </div>
           </a>
         
         
           
-          <a href="../getting_started/" class="md-footer__link md-footer__link--next" aria-label="Next: Getting Started">
+          <a href="../fan_control/" class="md-footer__link md-footer__link--next" aria-label="Next: Fan Control">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Getting Started
+                Fan Control
               </div>
             </div>
             <div class="md-footer__button md-icon">
