@@ -15,7 +15,7 @@
 
 The Lectron PI5 Autopilot carrier board provides two MIPI CSI-2 camera ports for the Raspberry Pi Compute Module 5. The first port (**CAM0**) works with standard Raspberry Pi camera overlays. The second port (**CAM1**) uses a dedicated I2C bus and CSI receiver that requires a custom device tree overlay.
 
-This guide covers how to configure the CAM1 port using the provided `cam1-autodetect.sh` script, which automatically generates and installs the correct device tree overlay for any supported Raspberry Pi camera module.
+This guide covers how to configure the CAM1 port using the provided `cam1_autodetect.sh` script, which automatically generates and installs the correct device tree overlay for any supported Raspberry Pi camera module.
 
 ---
 
@@ -39,7 +39,7 @@ The primary camera port uses dedicated CM5 I2C pins and works with standard Rasp
 | MIPI0 Data | 1–15 | csi@110000 | — |
 
 ### **CAM1 Port (MIPI1)**
-The secondary camera port uses the `ID_SC`/`ID_SD` I2C pins routed through a dedicated RP1 I2C controller. This port requires a custom device tree overlay, which the `cam1-autodetect.sh` script generates automatically.
+The secondary camera port uses the `ID_SC`/`ID_SD` I2C pins routed through a dedicated RP1 I2C controller. This port requires a custom device tree overlay, which the `cam1_autodetect.sh` script generates automatically.
 
 | Signal | Pin | RP1 Controller | Linux I2C Bus |
 | :----- | :-: | :------------- | :------------ |
@@ -54,7 +54,7 @@ The secondary camera port uses the `ID_SC`/`ID_SD` I2C pins routed through a ded
 
 ## **Supported Cameras**
 
-The `cam1-autodetect.sh` script supports the following camera modules on the CAM1 port:
+The `cam1_autodetect.sh` script supports the following camera modules on the CAM1 port:
 
 | ID | Description | Resolution | Lanes | Compatible | Tested |
 | :----- | :---------- | :--------- | :---- | :--------- | :----: |
@@ -89,36 +89,27 @@ Ensure `camera_auto_detect` is disabled in `/boot/firmware/config.txt`:
 
 ## **Downloading the Setup Script**
 
-The `cam1-autodetect.sh` script is available from the Lectron GitHub repository.
-
-=== "Clone the repository"
-
-    ```bash
-    git clone https://github.com/lectron/pi5-autopilot-cam1.git
-    cd pi5-autopilot-cam1
-    chmod +x cam1-autodetect.sh
-    ```
+The `cam1_autodetect.sh` script is available from the Lectron GitHub repository.
 
 === "Download only the script"
 
     ```bash
-    wget https://raw.githubusercontent.com/lectron/pi5-autopilot-cam1/main/cam1-autodetect.sh
-    chmod +x cam1-autodetect.sh
+    wget https://github.com/lectronuser/lectron-public/blob/main/cam1_autodetect.sh
+    chmod +x cam1_autodetect.sh
     ```
-
 ---
 
 ## **Setting Up the CAM1 Port**
 
 ### **Script Usage**
-The `cam1-autodetect.sh` script generates, compiles, and installs the correct device tree overlay for any supported camera on the CAM1 port.
+The `cam1_autodetect.sh` script generates, compiles, and installs the correct device tree overlay for any supported camera on the CAM1 port.
 
 | Command | Description |
 | :------ | :---------- |
-| `sudo ./cam1-autodetect.sh` | Auto-detect camera via I2C and install overlay |
-| `sudo ./cam1-autodetect.sh imx219` | Install overlay for a specific camera |
-| `sudo ./cam1-autodetect.sh --list` | Show all supported cameras |
-| `sudo ./cam1-autodetect.sh --clean` | Remove all auto-installed overlays |
+| `sudo ./cam1_autodetect.sh` | Auto-detect camera via I2C and install overlay |
+| `sudo ./cam1_autodetect.sh imx219` | Install overlay for a specific camera |
+| `sudo ./cam1_autodetect.sh --list` | Show all supported cameras |
+| `sudo ./cam1_autodetect.sh --clean` | Remove all auto-installed overlays |
 
 ### **Step-by-Step Setup**
 Follow these steps to configure a camera on the CAM1 port.
@@ -139,7 +130,7 @@ dtoverlay=imx219,cam0
 Connect your camera to the CAM1 port and run the script, specifying the camera model:
 
 ```bash
-sudo ./cam1-autodetect.sh imx708
+sudo ./cam1_autodetect.sh imx708
 ```
 
 The script will generate the device tree source, compile it, install the overlay to `/boot/firmware/overlays/`, and add the `dtoverlay` entry to `/boot/firmware/config.txt`.
@@ -179,8 +170,8 @@ rp1-cfe 1f00128000.csi: Using sensor imx708 0-001a for capture
 To replace the camera on the CAM1 port with a different model:
 
 ```bash
-sudo ./cam1-autodetect.sh --clean
-sudo ./cam1-autodetect.sh ov9281
+sudo ./cam1_autodetect.sh --clean
+sudo ./cam1_autodetect.sh ov9281
 sudo reboot
 ```
 
@@ -291,8 +282,8 @@ A complete `/boot/firmware/config.txt` camera section for a dual-camera setup:
 # CAM0: standard Raspberry Pi overlay
 dtoverlay=imx219,cam0
 
-# CAM1: auto-generated overlay (managed by cam1-autodetect.sh)
-# cam1-autodetect managed
+# CAM1: auto-generated overlay (managed by cam1_autodetect.sh)
+# cam1_autodetect managed
 dtoverlay=cam1-auto-imx708
 ```
 
@@ -327,7 +318,7 @@ For advanced users and custom overlay development, the following device tree lab
       sudo dmesg | grep -E "csi|imx|ov"
       ```
     - Ensure the correct overlay is loaded by checking `/boot/firmware/config.txt`.
-    - Run `sudo ./cam1-autodetect.sh --clean` and re-run the setup.
+    - Run `sudo ./cam1_autodetect.sh --clean` and re-run the setup.
 
 !!! failure "GStreamer pipeline fails with \"not-negotiated\""
     The requested resolution or frame rate is not supported by the camera. Run `rpicam-hello --list-cameras` to see available modes and adjust the `width`, `height`, and `framerate` values in the pipeline.
@@ -336,4 +327,4 @@ For advanced users and custom overlay development, the following device tree lab
     The `camera-name` path is incorrect. Use `gst-device-monitor-1.0 Video` to find the exact device path.
 
 !!! failure "Switching to a different camera model"
-    Always run `sudo ./cam1-autodetect.sh --clean` before installing an overlay for a different camera, then reboot after installing the new one.
+    Always run `sudo ./cam1_autodetect.sh --clean` before installing an overlay for a different camera, then reboot after installing the new one.
