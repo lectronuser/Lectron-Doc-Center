@@ -620,22 +620,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetson-installation" class="md-nav__link">
+  <a href="#jetson-xavier-nx-flashing-the-custom-bsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson Installation
+        Jetson Xavier NX — Flashing the Custom BSP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jetson Installation">
+    <nav class="md-nav" aria-label="Jetson Xavier NX — Flashing the Custom BSP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#1-create-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        1. Create the Container
       
     </span>
   </a>
@@ -643,10 +643,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#2-load-the-bsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        2. Load the BSP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-force-recovery-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Force Recovery Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-flash-to-emmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Flash to eMMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-flash-to-sd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Flash to SD Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-first-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. First Boot
       
     </span>
   </a>
@@ -1344,22 +1388,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetson-installation" class="md-nav__link">
+  <a href="#jetson-xavier-nx-flashing-the-custom-bsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson Installation
+        Jetson Xavier NX — Flashing the Custom BSP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jetson Installation">
+    <nav class="md-nav" aria-label="Jetson Xavier NX — Flashing the Custom BSP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#1-create-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        1. Create the Container
       
     </span>
   </a>
@@ -1367,10 +1411,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#2-load-the-bsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        2. Load the BSP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-force-recovery-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Force Recovery Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-flash-to-emmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Flash to eMMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-flash-to-sd-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Flash to SD Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-first-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. First Boot
       
     </span>
   </a>
@@ -1478,88 +1566,91 @@
 
 
 <h1 id="initial-installation">Initial Installation</h1>
-<h2 id="jetson-installation"><strong>Jetson Installation</strong></h2>
-<p>This document describes the Linux for Tegra (L4T) installation process for a <strong>custom Jetson Nano based carrier board</strong>. The packages used are derived from NVIDIA’s official releases and adapted to support board specific hardware components.</p>
+<h2 id="jetson-xavier-nx-flashing-the-custom-bsp"><strong>Jetson Xavier NX — Flashing the Custom BSP</strong></h2>
+<p>Flashing is done from a Linux host using a Docker container. The BSP targets <strong>Jetson Xavier NX</strong> on the Lectron carrier board (L4T R32.7.3 / JetPack 4.6.x, board config <code>lectron-jetson-xavier-nx</code>). Boot target is either the module’s internal <strong>eMMC</strong> or an external <strong>SD card</strong>.</p>
 <div class="admonition tip">
-<p class="admonition-title">Note</p>
-<p>The steps are written for Jetson Nano. The same procedure applies to other Jetson models; only the Ubuntu version and package names differ.</p>
+<p class="admonition-title">Jetson Nano</p>
+<p>The same procedure applies to Jetson Nano — replace <code>lectron-jetson-xavier-nx</code> with <code>lectron-jetson-nano</code> wherever it appears.</p>
 </div>
-<h3 id="requirements"><strong>Requirements</strong></h3>
-<ol>
-<li><a href="">Jetson-210_Linux_R32.7.6_aarch64.tbz2</a></li>
-<li><a href="">Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2</a></li>
-<li>Host system:<ul>
-<li>Ubuntu 18.04</li>
-<li>Or Ubuntu 18.04 running inside Docker</li>
-</ul>
-</li>
-</ol>
-<h3 id="installation"><strong>Installation</strong></h3>
+<p><strong>Requirements:</strong> Linux host with Docker and a mini-USB cable. SD-card option also needs a card reader.</p>
+<hr />
+<h3 id="1-create-the-container"><strong>1. Create the Container</strong></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">L4T_WORK</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/l4t/work&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$L4T_WORK</span><span class="s2">&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--privileged<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--name<span class="w"> </span>l4t-flash<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-v<span class="w"> </span>/dev:/dev<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$L4T_WORK</span><span class="s2">:/work&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>ubuntu:18.04<span class="w"> </span>bash
+</span></code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>By default, the installation is performed under a <code>workspace</code> directory in the user’s home path. A custom directory may be used if preferred</p>
+<p class="admonition-title">Re-entering</p>
+<p>Use <code>sudo docker start -ai l4t-flash</code> to re-attach — don’t run <code>docker run</code> again.</p>
 </div>
+<p>Install dependencies inside the container:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>binutils<span class="w"> </span>perl<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>libxml2-utils<span class="w"> </span>device-tree-compiler<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>abootimg<span class="w"> </span>cpp<span class="w"> </span>sshpass<span class="w"> </span>udev<span class="w"> </span>dosfstools<span class="w"> </span>openssl<span class="w"> </span>uuid-runtime<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>qemu-user-static<span class="w"> </span>binfmt-support<span class="w"> </span>libgmp10<span class="w"> </span>bc<span class="w"> </span>liblz4-tool<span class="w"> </span>zip<span class="w"> </span>unzip<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>cpio<span class="w"> </span>rsync<span class="w"> </span>xxd<span class="w"> </span>bzip2<span class="w"> </span>lbzip2<span class="w"> </span>whiptail<span class="w"> </span>wget<span class="w"> </span>nano<span class="w"> </span>sudo
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/bin/python3<span class="w"> </span>/usr/bin/python
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>pip3<span class="w"> </span>install<span class="w"> </span>pycryptodome
+</span></code></pre></div>
+<hr />
+<h3 id="2-load-the-bsp"><strong>2. Load the BSP</strong></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>/work
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>wget<span class="w"> </span>https://github.com/lectronuser/lectron-public/releases/download/v1.0.0/Lectron_Jetson_Xavier_NX_BSP_R32.7.3.tbz2
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>tar<span class="w"> </span>-xpf<span class="w"> </span>Lectron_Jetson_Xavier_NX_BSP_R32.7.3.tbz2<span class="w"> </span>--numeric-owner
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">cd</span><span class="w"> </span>/work/Linux_for_Tegra
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>./apply_binaries.sh
+</span></code></pre></div>
+<p>Other supported BSPs are available on the <a href="https://github.com/lectronuser/lectron-public/releases">releases</a> page.</p>
+<hr />
+<h3 id="3-force-recovery-mode"><strong>3. Force Recovery Mode</strong></h3>
+<p>Required before any flash operation.</p>
 <ol>
-<li>
-<p><strong>Extracting the L4T Package:</strong> Create the workspace and extract the L4T package (This will create the <strong>Linux_for_Tegra</strong> directory.)
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>~/workspace
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>~/workspace
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>tar<span class="w"> </span>xf<span class="w"> </span>Jetson-210_Linux_R32.7.6_aarch64.tbz2
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Installing the Root Filesystem:</strong> Extract the root filesystem into the rootfs directory:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra/rootfs
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>tar<span class="w"> </span>xpf<span class="w"> </span>../../Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Applying NVIDIA Binary Files:</strong> Run the following script to install NVIDIA-specific binaries into the root filesystem
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>./apply_binaries.sh
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Verifying the Installation:</strong> Verify that the base system was created successfully. (If the file exists, the setup is valid.)
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>rootfs/etc/nv_tegra_release
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Creating a Default User:</strong> To predefine the default user credentials (<code>-u</code>: Username, <code>-p</code>: Password, <code>-n</code>: Hostname)
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sudo<span class="w"> </span>./tools/l4t_create_default_user.sh<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-u<span class="w"> </span>ems<span class="w"> </span><span class="se">\ </span><span class="w">                                      </span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-p<span class="w"> </span><span class="s1">&#39;1234!&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>-n<span class="w"> </span>lectorn
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Entering Force Recovery Mode (RCM):</strong>  To flash the device, Jetson Nano must be placed into Force Recovery Mode (RCM).</p>
-<ul>
-<li>Press and hold Recovery and Reset pins together</li>
-<li>Wait 15–30 seconds</li>
-<li>Release Reset first</li>
-<li>Then release Recovery</li>
-<li>Connect the board to the host PC via USB Type-B and verify: <code>lsusb</code> If NVIDIA Corp. appears, the device is ready for flashing.</li>
-</ul>
-</li>
-<li>
-<p><strong>Flashing the Device:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/workspace/Linux_for_Tegra
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>./flash.sh<span class="w"> </span>lectron-nano-emmc<span class="w"> </span>mmcblk0p1
-</span></code></pre></div></p>
-</li>
+<li>Press and hold both <strong>FRCV</strong> and <strong>RST</strong> buttons.</li>
+<li>Apply power while holding them; keep held ~10 seconds.</li>
+<li>Release <strong>RST</strong> first, then <strong>FRCV</strong>.</li>
+<li>Connect a mini-USB cable from the host to the <strong>JN USB0</strong> port.</li>
 </ol>
+<p>Confirm with <code>lsusb</code> — an <strong>NVIDIA Corp.</strong> entry means recovery mode is active.</p>
+<hr />
+<h3 id="4-flash-to-emmc"><strong>4. Flash to eMMC</strong></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>/work/Linux_for_Tegra
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>./flash.sh<span class="w"> </span>lectron-jetson-xavier-nx<span class="w"> </span>mmcblk0p1
+</span></code></pre></div>
+<hr />
+<h3 id="5-flash-to-sd-card"><strong>5. Flash to SD Card</strong></h3>
+<p><strong>5.1 Prepare the card</strong> (host card reader required — destructive, confirm device node first):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>lsblk<span class="w">   </span><span class="c1"># identify your card, e.g. /dev/sdX</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>/work/Linux_for_Tegra
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sudo<span class="w"> </span>./prepare_sd_card.sh<span class="w"> </span>/dev/sdX
+</span></code></pre></div>
+<p>Remove the card from the reader when the script reports completion.</p>
+<p><strong>5.2 Flash the bootloader:</strong></p>
+<ol>
+<li>Insert the prepared SD card into the board’s SD slot.</li>
+<li>Enter Force Recovery mode (Section 3).</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>/work/Linux_for_Tegra
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>./flash.sh<span class="w"> </span>lectron-jetson-xavier-nx<span class="w"> </span>external
+</span></code></pre></div>
+<hr />
+<h3 id="6-first-boot"><strong>6. First Boot</strong></h3>
+<p>The module reboots automatically after flashing. Initial boot takes longer than usual. Use a FTDI module on the <strong>JN UART2</strong> port for first-boot setup. Verify board customizations:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>ksz8795-init.service
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ls<span class="w"> </span>/dev/spidev*
+</span></code></pre></div>
 <h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong></h2>
 <p>This section contains step-by-step instructions for flashing the bootloader and firmware onto the <strong>FMU IO (F103)</strong> and <strong>FMU MAIN (H753)</strong> chips using <strong>STM32CubeProgrammer</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Wiring — Before You Start</p>
 <p>Before the flashing process, make sure the debug cable and the ST-Link / CubeProgrammer pins are connected correctly:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>SWDIO   &gt;&gt;&gt; SWDIO
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>SWDCLK  &gt;&gt;&gt; SWDCLK
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>GND     &gt;&gt;&gt; GND
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>NRST    &gt;&gt;&gt; NRST
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SWDIO   &gt;&gt;&gt; SWDIO
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>SWDCLK  &gt;&gt;&gt; SWDCLK
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>GND     &gt;&gt;&gt; GND
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>NRST    &gt;&gt;&gt; NRST
 </span></code></pre></div>
 <p>The Autopilot board must be powered (via <strong>USB</strong> or <strong>XT30</strong>) before performing these steps.</p>
 </div>
