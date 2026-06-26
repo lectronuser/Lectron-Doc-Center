@@ -1,70 +1,112 @@
 # Initial Installation
 
-## **Jetson Installation**
+## **Jetson Xavier NX — Flashing the Custom BSP**
 
-This document describes the Linux for Tegra (L4T) installation process for a **custom Jetson Nano based carrier board**. The packages used are derived from NVIDIA’s official releases and adapted to support board specific hardware components.
+Flashing is done from a Linux host using a Docker container. The BSP targets **Jetson Xavier NX** on the Lectron carrier board (L4T R32.7.3 / JetPack 4.6.x, board config `lectron-jetson-xavier-nx`). Boot target is either the module’s internal **eMMC** or an external **SD card**.
 
-!!! tip "Note"
-    The steps are written for Jetson Nano. The same procedure applies to other Jetson models; only the Ubuntu version and package names differ.
+!!! tip "Jetson Nano"
+    The same procedure applies to Jetson Nano — replace `lectron-jetson-xavier-nx` with `lectron-jetson-nano` wherever it appears.
 
-### **Requirements**
+**Requirements:** Linux host with Docker and a mini-USB cable. SD-card option also needs a card reader.
 
-1. [Jetson-210_Linux_R32.7.6_aarch64.tbz2]()
-2. [Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2]()
-3. Host system:
-    - Ubuntu 18.04
-    - Or Ubuntu 18.04 running inside Docker
+---
 
-### **Installation**
+### **1. Create the Container**
 
-!!! info "Info"
-    By default, the installation is performed under a `workspace` directory in the user’s home path. A custom directory may be used if preferred
-
-1. **Extracting the L4T Package:** Create the workspace and extract the L4T package (This will create the **Linux_for_Tegra** directory.)
 ```bash
-mkdir ~/workspace
-cd ~/workspace
-tar xf Jetson-210_Linux_R32.7.6_aarch64.tbz2
+export L4T_WORK="$HOME/l4t/work"
+mkdir -p "$L4T_WORK"
+sudo docker run -it --privileged \
+  --name l4t-flash \
+  -v /dev:/dev \
+  -v "$L4T_WORK:/work" \
+  ubuntu:18.04 bash
 ```
 
-2. **Installing the Root Filesystem:** Extract the root filesystem into the rootfs directory:
+!!! info "Re-entering"
+    Use `sudo docker start -ai l4t-flash` to re-attach — don’t run `docker run` again.
+
+Install dependencies inside the container:
+
 ```bash
-cd ~/workspace/Linux_for_Tegra/rootfs
-sudo tar xpf ../../Tegra_Linux_Sample-Root-Filesystem_R32.7.6_aarch64.tbz2
+apt-get update && apt-get install -y \
+  binutils perl python3 python3-pip libxml2-utils device-tree-compiler \
+  abootimg cpp sshpass udev dosfstools openssl uuid-runtime \
+  qemu-user-static binfmt-support libgmp10 bc liblz4-tool zip unzip \
+  cpio rsync xxd bzip2 lbzip2 whiptail wget nano sudo
+ln -sf /usr/bin/python3 /usr/bin/python
+pip3 install pycryptodome
 ```
 
-3. **Applying NVIDIA Binary Files:** Run the following script to install NVIDIA-specific binaries into the root filesystem
+---
+
+### **2. Load the BSP**
+
 ```bash
-cd ~/workspace/Linux_for_Tegra
-sudo ./apply_binaries.sh
+cd /work
+wget https://github.com/lectronuser/lectron-public/releases/download/v1.0.0/Lectron_Jetson_Xavier_NX_BSP_R32.7.3.tbz2
+tar -xpf Lectron_Jetson_Xavier_NX_BSP_R32.7.3.tbz2 --numeric-owner
+cd /work/Linux_for_Tegra
+./apply_binaries.sh
 ```
 
-4. **Verifying the Installation:** Verify that the base system was created successfully. (If the file exists, the setup is valid.)
+Other supported BSPs are available on the [releases](https://github.com/lectronuser/lectron-public/releases) page.
+
+---
+
+### **3. Force Recovery Mode**
+
+Required before any flash operation.
+
+1. Press and hold both **FRCV** and **RST** buttons.
+2. Apply power while holding them; keep held ~10 seconds.
+3. Release **RST** first, then **FRCV**.
+4. Connect a mini-USB cable from the host to the **JN USB0** port.
+
+Confirm with `lsusb` — an **NVIDIA Corp.** entry means recovery mode is active.
+
+---
+
+### **4. Flash to eMMC**
+
 ```bash
-ls -l rootfs/etc/nv_tegra_release
+cd /work/Linux_for_Tegra
+sudo ./flash.sh lectron-jetson-xavier-nx mmcblk0p1
 ```
 
-5. **Creating a Default User:** To predefine the default user credentials (`-u`: Username, `-p`: Password, `-n`: Hostname)
-```bash
-cd ~/workspace/Linux_for_Tegra
+---
 
-sudo ./tools/l4t_create_default_user.sh \
-  -u ems \                                       
-  -p '1234!' \
-  -n lectorn
+### **5. Flash to SD Card**
+
+**5.1 Prepare the card** (host card reader required — destructive, confirm device node first):
+
+```bash
+lsblk   # identify your card, e.g. /dev/sdX
+cd /work/Linux_for_Tegra
+sudo ./prepare_sd_card.sh /dev/sdX
 ```
 
-6. **Entering Force Recovery Mode (RCM):**  To flash the device, Jetson Nano must be placed into Force Recovery Mode (RCM).
-    - Press and hold Recovery and Reset pins together
-    - Wait 15–30 seconds
-    - Release Reset first
-    - Then release Recovery
-    - Connect the board to the host PC via USB Type-B and verify: `lsusb` If NVIDIA Corp. appears, the device is ready for flashing.
+Remove the card from the reader when the script reports completion.
 
-7. **Flashing the Device:**
+**5.2 Flash the bootloader:**
+
+1. Insert the prepared SD card into the board’s SD slot.
+2. Enter Force Recovery mode (Section 3).
+
 ```bash
-cd ~/workspace/Linux_for_Tegra
-sudo ./flash.sh lectron-nano-emmc mmcblk0p1
+cd /work/Linux_for_Tegra
+sudo ./flash.sh lectron-jetson-xavier-nx external
+```
+
+---
+
+### **6. First Boot**
+
+The module reboots automatically after flashing. Initial boot takes longer than usual. Use a FTDI module on the **JN UART2** port for first-boot setup. Verify board customizations:
+
+```bash
+systemctl status ksz8795-init.service
+ls /dev/spidev*
 ```
 
 
