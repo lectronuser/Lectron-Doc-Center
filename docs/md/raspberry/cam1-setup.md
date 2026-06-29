@@ -94,7 +94,7 @@ The `cam1_autodetect.sh` script is available from the Lectron GitHub repository.
 === "Download only the script"
 
     ```bash
-    wget https://github.com/lectronuser/lectron-public/blob/main/cam1_autodetect.sh
+    wget https://github.com/lectronuser/lectron/blob/main/cam1_autodetect.sh
     chmod +x cam1_autodetect.sh
     ```
 ---

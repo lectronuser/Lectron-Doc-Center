@@ -44,13 +44,13 @@ pip3 install pycryptodome
 
 ```bash
 cd /work
-wget https://github.com/lectronuser/lectron-public/releases/download/v1.0.0/Lectron_Jetson_Xavier_NX_BSP_R32.7.3.tbz2
+wget https://github.com/lectronuser/lectron/releases/download/v1.0.0/Lectron_Jetson_Xavier_NX_BSP_R32.7.3.tbz2
 tar -xpf Lectron_Jetson_Xavier_NX_BSP_R32.7.3.tbz2 --numeric-owner
 cd /work/Linux_for_Tegra
 ./apply_binaries.sh
 ```
 
-Other supported BSPs are available on the [releases](https://github.com/lectronuser/lectron-public/releases) page.
+Other supported BSPs are available on the [releases](https://github.com/lectronuser/lectron/releases) page.
 
 ---
 
