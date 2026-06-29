@@ -585,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jetson/getting_started/" class="md-nav__link">
+      <a href="../../jetson/getting_started.md" class="md-nav__link">
         
   
   
@@ -1768,7 +1768,7 @@
 <hr />
 <h2 id="overview"><strong>Overview</strong></h2>
 <p>The Lectron PI5 Autopilot carrier board provides two MIPI CSI-2 camera ports for the Raspberry Pi Compute Module 5. The first port (<strong>CAM0</strong>) works with standard Raspberry Pi camera overlays. The second port (<strong>CAM1</strong>) uses a dedicated I2C bus and CSI receiver that requires a custom device tree overlay.</p>
-<p>This guide covers how to configure the CAM1 port using the provided <code>cam1-autodetect.sh</code> script, which automatically generates and installs the correct device tree overlay for any supported Raspberry Pi camera module.</p>
+<p>This guide covers how to configure the CAM1 port using the provided <code>cam1_autodetect.sh</code> script, which automatically generates and installs the correct device tree overlay for any supported Raspberry Pi camera module.</p>
 <hr />
 <h2 id="board-configuration"><strong>Board Configuration</strong></h2>
 <table>
@@ -1834,7 +1834,7 @@
 </tbody>
 </table>
 <h3 id="cam1-port-mipi1"><strong>CAM1 Port (MIPI1)</strong></h3>
-<p>The secondary camera port uses the <code>ID_SC</code>/<code>ID_SD</code> I2C pins routed through a dedicated RP1 I2C controller. This port requires a custom device tree overlay, which the <code>cam1-autodetect.sh</code> script generates automatically.</p>
+<p>The secondary camera port uses the <code>ID_SC</code>/<code>ID_SD</code> I2C pins routed through a dedicated RP1 I2C controller. This port requires a custom device tree overlay, which the <code>cam1_autodetect.sh</code> script generates automatically.</p>
 <table>
 <thead>
 <tr>
@@ -1871,7 +1871,7 @@
 </div>
 <hr />
 <h2 id="supported-cameras"><strong>Supported Cameras</strong></h2>
-<p>The <code>cam1-autodetect.sh</code> script supports the following camera modules on the CAM1 port:</p>
+<p>The <code>cam1_autodetect.sh</code> script supports the following camera modules on the CAM1 port:</p>
 <table>
 <thead>
 <tr>
@@ -1976,18 +1976,12 @@
 </span></code></pre></div>
 <hr />
 <h2 id="downloading-the-setup-script"><strong>Downloading the Setup Script</strong></h2>
-<p>The <code>cam1-autodetect.sh</code> script is available from the Lectron GitHub repository.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Clone the repository</label><label for="__tabbed_1_2">Download only the script</label></div>
+<p>The <code>cam1_autodetect.sh</code> script is available from the Lectron GitHub repository.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Download only the script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lectron/pi5-autopilot-cam1.git
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>pi5-autopilot-cam1
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>cam1-autodetect.sh
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/lectron/pi5-autopilot-cam1/main/cam1-autodetect.sh
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>cam1-autodetect.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wget<span class="w"> </span>https://github.com/lectronuser/lectron/blob/main/cam1_autodetect.sh
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>cam1_autodetect.sh
 </span></code></pre></div>
 </div>
 </div>
@@ -1995,7 +1989,7 @@
 <hr />
 <h2 id="setting-up-the-cam1-port"><strong>Setting Up the CAM1 Port</strong></h2>
 <h3 id="script-usage"><strong>Script Usage</strong></h3>
-<p>The <code>cam1-autodetect.sh</code> script generates, compiles, and installs the correct device tree overlay for any supported camera on the CAM1 port.</p>
+<p>The <code>cam1_autodetect.sh</code> script generates, compiles, and installs the correct device tree overlay for any supported camera on the CAM1 port.</p>
 <table>
 <thead>
 <tr>
@@ -2005,19 +1999,19 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>sudo ./cam1-autodetect.sh</code></td>
+<td style="text-align: left;"><code>sudo ./cam1_autodetect.sh</code></td>
 <td style="text-align: left;">Auto-detect camera via I2C and install overlay</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>sudo ./cam1-autodetect.sh imx219</code></td>
+<td style="text-align: left;"><code>sudo ./cam1_autodetect.sh imx219</code></td>
 <td style="text-align: left;">Install overlay for a specific camera</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>sudo ./cam1-autodetect.sh --list</code></td>
+<td style="text-align: left;"><code>sudo ./cam1_autodetect.sh --list</code></td>
 <td style="text-align: left;">Show all supported cameras</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>sudo ./cam1-autodetect.sh --clean</code></td>
+<td style="text-align: left;"><code>sudo ./cam1_autodetect.sh --clean</code></td>
 <td style="text-align: left;">Remove all auto-installed overlays</td>
 </tr>
 </tbody>
@@ -2026,7 +2020,7 @@
 <p>Follow these steps to configure a camera on the CAM1 port.</p>
 <p><strong>Step 1 — Configure CAM0 (if using dual cameras)</strong></p>
 <p>If you are using a camera on CAM0 as well, add the standard overlay to <code>/boot/firmware/config.txt</code> with the <code>cam0</code> parameter:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">dtoverlay</span><span class="o">=</span><span class="s">imx219,cam0</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">dtoverlay</span><span class="o">=</span><span class="s">imx219,cam0</span>
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Note</p>
@@ -2034,69 +2028,69 @@
 </div>
 <p><strong>Step 2 — Run the setup script for CAM1</strong></p>
 <p>Connect your camera to the CAM1 port and run the script, specifying the camera model:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>./cam1-autodetect.sh<span class="w"> </span>imx708
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>./cam1_autodetect.sh<span class="w"> </span>imx708
 </span></code></pre></div>
 <p>The script will generate the device tree source, compile it, install the overlay to <code>/boot/firmware/overlays/</code>, and add the <code>dtoverlay</code> entry to <code>/boot/firmware/config.txt</code>.</p>
 <p><strong>Step 3 — Reboot</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>reboot
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>reboot
 </span></code></pre></div>
 <p><strong>Step 4 — Verify</strong></p>
 <p>After rebooting, verify both cameras are detected:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rpicam-hello<span class="w"> </span>--list-cameras
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>rpicam-hello<span class="w"> </span>--list-cameras
 </span></code></pre></div>
 <p>Expected output for a dual-camera setup (e.g., IMX219 on CAM0, IMX708 on CAM1):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Available cameras
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-----------------
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>0 : imx219 [3280x2464] (/base/axi/pcie@120000/rp1/i2c@88000/imx219@10)
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>1 : imx708 [4608x2592] (/base/axi/pcie@120000/rp1/i2c@70000/imx708@1a)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Available cameras
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-----------------
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>0 : imx219 [3280x2464] (/base/axi/pcie@120000/rp1/i2c@88000/imx219@10)
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>1 : imx708 [4608x2592] (/base/axi/pcie@120000/rp1/i2c@70000/imx708@1a)
 </span></code></pre></div>
 <p>You can also verify through the kernel log:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Using sensor&quot;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>rp1-cfe<span class="w"> </span>1f00110000.csi:<span class="w"> </span>Using<span class="w"> </span>sensor<span class="w"> </span>imx219<span class="w"> </span><span class="m">10</span>-0010<span class="w"> </span><span class="k">for</span><span class="w"> </span>capture
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>rp1-cfe<span class="w"> </span>1f00128000.csi:<span class="w"> </span>Using<span class="w"> </span>sensor<span class="w"> </span>imx708<span class="w"> </span><span class="m">0</span>-001a<span class="w"> </span><span class="k">for</span><span class="w"> </span>capture
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Using sensor&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>rp1-cfe<span class="w"> </span>1f00110000.csi:<span class="w"> </span>Using<span class="w"> </span>sensor<span class="w"> </span>imx219<span class="w"> </span><span class="m">10</span>-0010<span class="w"> </span><span class="k">for</span><span class="w"> </span>capture
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>rp1-cfe<span class="w"> </span>1f00128000.csi:<span class="w"> </span>Using<span class="w"> </span>sensor<span class="w"> </span>imx708<span class="w"> </span><span class="m">0</span>-001a<span class="w"> </span><span class="k">for</span><span class="w"> </span>capture
 </span></code></pre></div>
 <h3 id="switching-cameras"><strong>Switching Cameras</strong></h3>
 <p>To replace the camera on the CAM1 port with a different model:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>./cam1-autodetect.sh<span class="w"> </span>--clean
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sudo<span class="w"> </span>./cam1-autodetect.sh<span class="w"> </span>ov9281
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>sudo<span class="w"> </span>reboot
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>./cam1_autodetect.sh<span class="w"> </span>--clean
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>./cam1_autodetect.sh<span class="w"> </span>ov9281
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sudo<span class="w"> </span>reboot
 </span></code></pre></div>
 <hr />
 <h2 id="usage-examples"><strong>Usage Examples</strong></h2>
 <h3 id="quick-test-with-rpicam-hello"><strong>Quick Test with <code>rpicam-hello</code></strong></h3>
 <p>Test individual cameras using the camera index:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>rpicam-hello<span class="w"> </span>--camera<span class="w"> </span><span class="m">0</span><span class="w"> </span>-t<span class="w"> </span><span class="m">3000</span><span class="w">   </span><span class="c1"># Test CAM0 for 3 seconds</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>rpicam-hello<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">3000</span><span class="w">   </span><span class="c1"># Test CAM1 for 3 seconds</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>rpicam-hello<span class="w"> </span>--camera<span class="w"> </span><span class="m">0</span><span class="w"> </span>-t<span class="w"> </span><span class="m">3000</span><span class="w">   </span><span class="c1"># Test CAM0 for 3 seconds</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>rpicam-hello<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">3000</span><span class="w">   </span><span class="c1"># Test CAM1 for 3 seconds</span>
 </span></code></pre></div>
 <h3 id="capture-a-still-image"><strong>Capture a Still Image</strong></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rpicam-still<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span>cam1_photo.jpg
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>rpicam-still<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span>cam1_photo.jpg
 </span></code></pre></div>
 <h3 id="record-video"><strong>Record Video</strong></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>rpicam-vid<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">10000</span><span class="w"> </span>-o<span class="w"> </span>cam1_video.h264
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rpicam-vid<span class="w"> </span>--camera<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">10000</span><span class="w"> </span>-o<span class="w"> </span>cam1_video.h264
 </span></code></pre></div>
 <h3 id="network-streaming-with-gstreamer"><strong>Network Streaming with GStreamer</strong></h3>
 <p>Stream video from the CAM1 port over TCP using GStreamer. Replace the <code>camera-name</code> path and host IP address with your actual values.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Sender — standard camera (IMX708 @ 1280×720)</label><label for="__tabbed_2_2">Sender — low-res camera (OV7251 @ 640×480)</label><label for="__tabbed_2_3">Receiver (viewing machine)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@70000/imx708\@1a&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">1280</span>,height<span class="o">=</span><span class="m">720</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>jpegenc<span class="w"> </span>!<span class="w"> </span>multipartmux<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@70000/imx708\@1a&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">1280</span>,height<span class="o">=</span><span class="m">720</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@70000/ov7251\@60&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">640</span>,height<span class="o">=</span><span class="m">480</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>jpegenc<span class="w"> </span>!<span class="w"> </span>multipartmux<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@70000/ov7251\@60&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">640</span>,height<span class="o">=</span><span class="m">480</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>jpegenc<span class="w"> </span>!<span class="w"> </span>multipartmux<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>gst-launch-1.0<span class="w"> </span>tcpclientsrc<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span>!<span class="w"> </span>multipartdemux<span class="w"> </span>!<span class="w"> </span>jpegdec<span class="w"> </span>!<span class="w"> </span>autovideosink
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>gst-launch-1.0<span class="w"> </span>tcpclientsrc<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span>!<span class="w"> </span>multipartdemux<span class="w"> </span>!<span class="w"> </span>jpegdec<span class="w"> </span>!<span class="w"> </span>autovideosink
 </span></code></pre></div>
 </div>
 </div>
@@ -2107,19 +2101,19 @@
 </div>
 <h3 id="dual-camera-streaming"><strong>Dual Camera Streaming</strong></h3>
 <p>To stream both cameras simultaneously, run two GStreamer pipelines on different ports:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Terminal 1 — CAM0 on port 5000</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@88000/imx219\@10&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">1280</span>,height<span class="o">=</span><span class="m">720</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>jpegenc<span class="w"> </span>!<span class="w"> </span>multipartmux<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1"># Terminal 2 — CAM1 on port 5001</span>
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@70000/imx708\@1a&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">1280</span>,height<span class="o">=</span><span class="m">720</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">  </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>jpegenc<span class="w"> </span>!<span class="w"> </span>multipartmux<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5001</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Terminal 1 — CAM0 on port 5000</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@88000/imx219\@10&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">1280</span>,height<span class="o">=</span><span class="m">720</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>jpegenc<span class="w"> </span>!<span class="w"> </span>multipartmux<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="c1"># Terminal 2 — CAM1 on port 5001</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>gst-launch-1.0<span class="w"> </span>libcamerasrc<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">  </span>camera-name<span class="o">=</span><span class="s2">&quot;/base/axi/pcie\@120000/rp1/i2c\@70000/imx708\@1a&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">  </span>!<span class="w"> </span>video/x-raw,colorimetry<span class="o">=</span>bt709,format<span class="o">=</span>NV12,width<span class="o">=</span><span class="m">1280</span>,height<span class="o">=</span><span class="m">720</span>,framerate<span class="o">=</span><span class="m">30</span>/1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">  </span>!<span class="w"> </span>queue<span class="w"> </span>!<span class="w"> </span>jpegenc<span class="w"> </span>!<span class="w"> </span>multipartmux<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">  </span>!<span class="w"> </span>tcpserversink<span class="w"> </span><span class="nv">host</span><span class="o">=</span>&lt;BOARD_IP&gt;<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5001</span>
 </span></code></pre></div>
 <hr />
 <h2 id="camera-resolutions"><strong>Camera Resolutions</strong></h2>
@@ -2179,15 +2173,15 @@
 <hr />
 <h2 id="configtxt-reference"><strong><code>config.txt</code> Reference</strong></h2>
 <p>A complete <code>/boot/firmware/config.txt</code> camera section for a dual-camera setup:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Disable auto-detection</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">#camera_auto_detect=1</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># CAM0: standard Raspberry Pi overlay</span>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="na">dtoverlay</span><span class="o">=</span><span class="s">imx219,cam0</span>
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># CAM1: auto-generated overlay (managed by cam1-autodetect.sh)</span>
-</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1"># cam1-autodetect managed</span>
-</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="na">dtoverlay</span><span class="o">=</span><span class="s">cam1-auto-imx708</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Disable auto-detection</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1">#camera_auto_detect=1</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># CAM0: standard Raspberry Pi overlay</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="na">dtoverlay</span><span class="o">=</span><span class="s">imx219,cam0</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># CAM1: auto-generated overlay (managed by cam1_autodetect.sh)</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1"># cam1_autodetect managed</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="na">dtoverlay</span><span class="o">=</span><span class="s">cam1-auto-imx708</span>
 </span></code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Important</p>
@@ -2254,10 +2248,10 @@
 <ul>
 <li>Verify the camera is securely connected to the CAM1 FPC connector.</li>
 <li>Check the kernel log for detection messages:
-  <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;csi|imx|ov&quot;</span>
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;csi|imx|ov&quot;</span>
 </span></code></pre></div></li>
 <li>Ensure the correct overlay is loaded by checking <code>/boot/firmware/config.txt</code>.</li>
-<li>Run <code>sudo ./cam1-autodetect.sh --clean</code> and re-run the setup.</li>
+<li>Run <code>sudo ./cam1_autodetect.sh --clean</code> and re-run the setup.</li>
 </ul>
 </div>
 <div class="admonition failure">
@@ -2270,7 +2264,7 @@
 </div>
 <div class="admonition failure">
 <p class="admonition-title">Switching to a different camera model</p>
-<p>Always run <code>sudo ./cam1-autodetect.sh --clean</code> before installing an overlay for a different camera, then reboot after installing the new one.</p>
+<p>Always run <code>sudo ./cam1_autodetect.sh --clean</code> before installing an overlay for a different camera, then reboot after installing the new one.</p>
 </div>
 
 
