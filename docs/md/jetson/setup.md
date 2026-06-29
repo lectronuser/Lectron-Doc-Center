@@ -1,8 +1,8 @@
 # Initial Installation
 
-## **Jetson Xavier NX — Flashing the Custom BSP**
+## **Jetson — Flashing the Custom BSP**
 
-Flashing is done from a Linux host using a Docker container. The BSP targets **Jetson Xavier NX** on the Lectron carrier board (L4T R32.7.3 / JetPack 4.6.x, board config `lectron-jetson-xavier-nx`). Boot target is either the module’s internal **eMMC** or an external **SD card**.
+Flashing is done from a Linux host using a Docker container. The BSP targets **Jetson** on the Lectron carrier board (e.g. L4T R32.7.3 / JetPack 4.6.x, board config `lectron-jetson-xavier-nx`). Boot target is either the module’s internal **eMMC** or an external **SD card**.
 
 !!! tip "Jetson Nano"
     The same procedure applies to Jetson Nano — replace `lectron-jetson-xavier-nx` with `lectron-jetson-nano` wherever it appears.

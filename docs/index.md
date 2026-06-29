@@ -29,7 +29,6 @@ hide:
     <li><a href="md/jetson/pinout/">Pinout</a></li>
     <li><a href="md/jetson/assembly/">Assembly</a></li>
     <li><a href="md/jetson/setup/">Initial Installation</a></li>
-    <li><a href="md/jetson/getting_started/">Getting Started</a></li>
     <li><a href="md/jetson/commands/">Commands</a></li>
     <li><a href="md/jetson/gpio/">GPIO Control</a></li>
     <li><a href="md/jetson/network/">Network</a></li>
