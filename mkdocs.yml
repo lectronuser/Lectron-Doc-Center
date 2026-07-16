@@ -14,7 +14,6 @@ nav:
         - Pinout: md/jetson/pinout.md
         - Assembly: md/jetson/assembly.md
         - Initial Installation: md/jetson/setup.md
-        - Getting Started : md/jetson/getting_started.md 
         - Commands: md/jetson/commands.md
         - GPIO Control: md/jetson/gpio.md
         - Network: md/jetson/network.md
