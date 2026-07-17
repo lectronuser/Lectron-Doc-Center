@@ -1335,7 +1335,7 @@
 </table>
 <hr />
 <h2 id="hardware-overview"><strong>Hardware Overview</strong></h2>
-<p>The CM SPI/PWM port is a 10-pin JST GH connector (<strong>SM10B-GHS</strong>) on the Lectron PI5 Autopilot board. Pins 6–9 expose four software PWM channels from the Raspberry Pi CM5, driven via <strong>GPIO12–GPIO15</strong>. Pin 1 provides 5 V power and pin 10 is ground. Pins 2–5 carry the SPI1 bus, which is documented separately.</p>
+<p>The CM SPI/PWM port is a 10-pin JST GH connector (<strong>SM10B-GHS</strong>) on the Lectron PI5 Autopilot board. Pins 6-9 expose four software PWM channels from the Raspberry Pi CM5, driven via <strong>GPIO12-GPIO15</strong>. Pin 1 provides 5 V power and pin 10 is ground. Pins 2-5 carry the SPI1 bus, which is documented separately.</p>
 <h3 id="board-photos"><strong>Board Photos</strong></h3>
 <p>The images below show the LED test setup connected to the PWM pins, and the connector location on the board side panel.</p>
 <p><img alt="LED test board connected to PWM pins" src="../../../images/raspberry/pwm_figure_1.png" width="360" /></p>
@@ -1431,7 +1431,7 @@
 <h3 id="hardware-pwm-limitation"><strong>Hardware PWM Limitation</strong></h3>
 <p>Software PWM via the Linux GPIO <code>ioctl</code> interface (<code>gpiochip4</code>) is the recommended approach and works reliably on all four PWM pins.</p>
 <h3 id="verify-gpio-lines"><strong>Verify GPIO Lines</strong></h3>
-<p>Confirm GPIO12–15 are available on <code>gpiochip4</code>:</p>
+<p>Confirm GPIO12-15 are available on <code>gpiochip4</code>:</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>sudo<span class="w"> </span>gpioinfo<span class="w"> </span>gpiochip4<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;GPIO1[2-5]&#39;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">line  12: &quot;GPIO12&quot;  unused  input  active-high</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">line  13: &quot;GPIO13&quot;  unused  input  active-high</span>
