@@ -79,7 +79,7 @@ pwm-fan {
 
         quiet {
             state_cap = <0x04>;
-            /* PWM values for states 0–9; inverted: 0xff = off, lower = faster */
+            /* PWM values for states 0-9; inverted: 0xff = off, lower = faster */
             active_pwm = <0xff 0x82 0x5f 0x37 0x00 0x00 0x00 0x00 0x00 0x00>;
         };
 
@@ -176,7 +176,7 @@ $ sudo cat /sys/devices/generic_pwm_tachometer/hwmon/hwmon1/rpm
 14035   ← near steady state
 ```
 
-Note that readings can fluctuate during spin-up and wind-down; allow at least 3–5 seconds after a `target_pwm` change before treating the RPM value as stable.
+Note that readings can fluctuate during spin-up and wind-down; allow at least 3-5 seconds after a `target_pwm` change before treating the RPM value as stable.
 
 ---
 

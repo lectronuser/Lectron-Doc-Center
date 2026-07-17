@@ -4,7 +4,7 @@
 
 | Feature | Description |
 |-------|---------------|
-| Power Input                 | 7V – 28V (3S-6S LiPo), XT30 Connector |
+| Power Input                 | 9V - 26V (3S-6S LiPo), XT30 Connector |
 | Overcurrent Protection      | 5A Maximum |
 | Power Monitor               | Internal Voltage & external I2C Current Monitor |
 | Supported Raspberry Modules | Compute Module 5 |

@@ -26,7 +26,7 @@ This guide covers how to configure the CAM1 port using the provided `cam1_autode
 | Module | Raspberry Pi Compute Module 5 (CM5) |
 | Carrier Board | Lectron PI5 Autopilot |
 | MIPI Connectors | 2 × 22-pin FPC (SFV22R-2STE1HLF) |
-| Camera Support | 10 Raspberry Pi–compatible camera modules |
+| Camera Support | 10 Raspberry Pi-compatible camera modules |
 | OS | Ubuntu 24.04 |
 
 ### **CAM0 Port (MIPI0)**
@@ -36,7 +36,7 @@ The primary camera port uses dedicated CM5 I2C pins and works with standard Rasp
 | :----- | :-: | :------------- | :------------ |
 | CM5_SDA0 | 22 | i2c@88000 (rp1_i2c6) | i2c-10 |
 | CM5_SCL0 | 21 | i2c@88000 (rp1_i2c6) | i2c-10 |
-| MIPI0 Data | 1–15 | csi@110000 | — |
+| MIPI0 Data | 1-15 | csi@110000 | — |
 
 ### **CAM1 Port (MIPI1)**
 The secondary camera port uses the `ID_SC`/`ID_SD` I2C pins routed through a dedicated RP1 I2C controller. This port requires a custom device tree overlay, which the `cam1_autodetect.sh` script generates automatically.
@@ -45,7 +45,7 @@ The secondary camera port uses the `ID_SC`/`ID_SD` I2C pins routed through a ded
 | :----- | :-: | :------------- | :------------ |
 | ID_SD | 20 | i2c@70000 (rp1_i2c0) | i2c-0 |
 | ID_SC | 19 | i2c@70000 (rp1_i2c0) | i2c-0 |
-| MIPI1 Data | 1–15 | csi@128000 | — |
+| MIPI1 Data | 1-15 | csi@128000 | — |
 
 !!! note "Info"
     Both connectors include 2.2 kΩ I2C pull-up resistors to `CM5_3V3_OUTPUT` and ESD protection.

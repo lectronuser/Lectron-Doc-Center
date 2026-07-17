@@ -52,7 +52,7 @@ The table below lists all 10 pins of the CM GPIO connector. The six GPIO pins ar
 ## **Linux GPIO Interface**
 
 ### **GPIO Chip**
-On Ubuntu 24.04 with the CM5, the main RP1 GPIO controller is exposed as **`gpiochip4`**. This is the chip that controls GPIO22–GPIO27.
+On Ubuntu 24.04 with the CM5, the main RP1 GPIO controller is exposed as **`gpiochip4`**. This is the chip that controls GPIO22-GPIO27.
 
 ```console
 $ sudo gpiodetect
@@ -64,7 +64,7 @@ gpiochip4 [pinctrl-rp1] (54 lines)    <-- this one
 ```
 
 ### **Verify GPIO Lines**
-Confirm GPIO22–27 are available and unused:
+Confirm GPIO22-27 are available and unused:
 
 ```console
 $ sudo gpioinfo gpiochip4 | grep -E 'GPIO2[2-7]'

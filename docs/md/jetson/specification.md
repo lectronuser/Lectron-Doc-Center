@@ -10,7 +10,7 @@
 |-------|---------------|
 | Supported Jetson Modules | Jetson Nano, Xavier NX, AGX Xavier, Orin |
 | SoM Connector            | 260-Pin DDR4 SODIMM |
-| Power Regulation         | Dedicated 5.1 V – 5 A rail |
+| Power Regulation         | Dedicated 5.1 V - 5 A rail |
 | Cooling                  | Active & passive advanced rail cooling |
 | Camera Interface         | 2 × 15-Pin, 1 mm pitch CSI |
 | USB                      | USB 3.0 Type-C (2 A), USB 2.0 Mini-B |
@@ -37,7 +37,7 @@
 | Supported Firmware     | ArduPilot, PX4 |
 | FMU Processor          | STM32H753IIK6TR (32-bit Arm® Cortex®-M7, 480MHz, 2MB flash memory, 1MB RAM)|
 | IO Processor           | STM32F103 (32 Bit Arm® Cortex®-M3, 72MHz, 64KB SRAM) |
-| Power Regulation       | Dedicated 5.0 V – 3 A rail |
+| Power Regulation       | Dedicated 5.0 V - 3 A rail |
 | Power Distribution     | Onboard regulated |
 | IO Status LEDs           | 3x LEDs (Blue, Amber, Green) |
 | Ethernet               | Embedded 100 Mbps |
@@ -66,11 +66,11 @@
 | Feature | Description |
 |-------|---------------|
 | Power-In           | XT30 with reverse protection |
-| Input Voltage      | 12V – 25V (3S-6S LiPo) |
+| Input Voltage      | 9V - 26V (3S-6S LiPo) |
 | Power Monitor      | Internal Voltage & external I2C Current Monitor |
-| 5.0 V Rail         | 5.0 V – 3 A (Pixhawk & outputs) |
-| 5.1 V Rail         | 5.1 V – 5 A (Jetson & peripherals) |
-| 12 V Rail          | 12 V – 2 A (sensors/actuators) |
+| 5.0 V Rail         | 5.0 V - 3 A (Pixhawk & outputs) |
+| 5.1 V Rail         | 5.1 V - 5 A (Jetson & peripherals) |
+| 12 V Rail          | 12 V - 2 A (sensors/actuators) |
 | Protection         | Over-current & short-circuit sensing |
 | Battery Monitoring | Input voltage sensing |
 

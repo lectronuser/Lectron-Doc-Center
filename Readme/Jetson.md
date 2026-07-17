@@ -274,7 +274,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
 
 - Jetson platforms have two separate GPIO controllers: 
     - **tegra-gpio** -> [0-255] On-SoC Tegra GPIOs
-    - **max77620-gpio** -> [504–511]  PMIC GPIOs
+    - **max77620-gpio** -> [504-511]  PMIC GPIOs
 - If the GPIO belongs to tegra-gpio → Use Tegra Port Formula.
 - If it belongs to max77620-gpio → The sysfs number is assigned directly by the kernel and the correct calculation is `offset = sysfs_gpio - gpiochip_base   # Example: 509 - 504 = 5`
 

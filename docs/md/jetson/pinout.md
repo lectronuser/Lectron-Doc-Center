@@ -15,7 +15,7 @@ The board is organized into two functional domains:
     | :----: | :------ |
     | `+5V` | High Power / Peripheral / System 5V rail |
     | `+3.3V` | Logic-level signal (3.3V) |
-    | `+12/28V` | Main power input range |
+    | `+9/26V` | Main power input range |
     | `0-16V` | Servo rail sense (depends on BEC) |
     | `GND` | Ground |
     | `---` | Not connected / no defined level |
@@ -448,11 +448,11 @@ Main board power input  (**XT30**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :-------: |
-| 1 | 12-28V INPUT | +12/28V |
+| 1 | 12-26V INPUT | +12/26V |
 | 2 | GROUND | GND |
 
 !!! danger "Power Input"
-    Observe correct polarity on the XT30 input. Input voltage must stay within **+12V to +28V**; reverse polarity or over-voltage may permanently damage the board.
+    Observe correct polarity on the XT30 input. Input voltage must stay within **+9V to +26V**; reverse polarity or over-voltage may permanently damage the board.
 
 !!! danger "Use the Supplied XT30 Cable Only"
     Power the board exclusively through the XT30 cable supplied by Lectron. Using a third-party or incorrectly wired cable may damage the onboard regulator stage. This cable compansate voltage ripples that are caused by motors.

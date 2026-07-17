@@ -33,7 +33,7 @@ Before starting, make sure you have all of the following components:
 !!! danger "Handle with Care"
     Before mounting, verify the alignment carefully. Once confirmed, press the module down gently and evenly. Forcing a misaligned module may permanently damage the flight controller connectors.
 
-Align the Lectron V6X board over the baseboard using the four mounting holes (**1–4**) and press it down until it seats onto the connectors.
+Align the Lectron V6X board over the baseboard using the four mounting holes (**1-4**) and press it down until it seats onto the connectors.
 
 ![Lectron V6X alignment](../../images/jetson/assembly_2.png)
 
@@ -100,7 +100,7 @@ Place the bottom case plate onto the bottom case and fasten it using the supplie
 
 ## **Step 6 — Place the Board Stack into the Bottom Case**
 
-Lower the assembled board stack into the bottom case, aligning the four corners (**1–4**) with the case standoffs. Use the **notch on the top edge of the case** (highlighted by the yellow rectangle) as an orientation reference to ensure the board is placed the correct way around.
+Lower the assembled board stack into the bottom case, aligning the four corners (**1-4**) with the case standoffs. Use the **notch on the top edge of the case** (highlighted by the yellow rectangle) as an orientation reference to ensure the board is placed the correct way around.
 
 ![Place board stack into the bottom case](../../images/jetson/assembly_10.png)
 

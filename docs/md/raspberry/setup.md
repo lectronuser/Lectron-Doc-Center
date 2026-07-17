@@ -18,7 +18,7 @@ To flash the eMMC on a Raspberry Pi Compute Module, the following components are
 !!! note "Note"
 
 	The steps below follow the official Raspberry Pi documentation without modification.
-	Reference: [Raspberry Pi – eMMC flashing documentation](https://www.raspberrypi.com/documentation/computers/compute-module.html)
+	Reference: [Raspberry Pi - eMMC flashing documentation](https://www.raspberrypi.com/documentation/computers/compute-module.html)
 
 === "Linux"
 	1. Install the rpiboot tool (or build it [from source](https://github.com/raspberrypi/usbboot)): `sudo apt install rpiboot`
@@ -34,7 +34,7 @@ To flash the eMMC on a Raspberry Pi Compute Module, the following components are
 	3. Reboot the system.
 	4. Connect the IO Board to power. Windows will automatically detect the hardware and install required drivers.
 	5. For CM4 and newer devices:
-		- Select **“Raspberry Pi – Mass Storage Gadget – 64-bit”** from the Start Menu.
+		- Select **“Raspberry Pi - Mass Storage Gadget - 64-bit”** from the Start Menu.
 		- The eMMC or NVMe device will appear as a USB mass storage device.
 		- A serial debug console is also exposed.
 	6. For CM3 and older devices:
