@@ -225,6 +225,25 @@
   
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../../products/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Products
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -332,6 +351,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -353,10 +399,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -374,8 +420,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -623,12 +669,12 @@
   <a href="#jetson-flashing-the-custom-bsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson — Flashing the Custom BSP
+        Jetson - Flashing the Custom BSP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jetson — Flashing the Custom BSP">
+    <nav class="md-nav" aria-label="Jetson - Flashing the Custom BSP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -958,10 +1004,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -979,8 +1025,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1363,12 +1409,12 @@
   <a href="#jetson-flashing-the-custom-bsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jetson — Flashing the Custom BSP
+        Jetson - Flashing the Custom BSP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jetson — Flashing the Custom BSP">
+    <nav class="md-nav" aria-label="Jetson - Flashing the Custom BSP">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1538,11 +1584,11 @@
 
 
 <h1 id="initial-installation">Initial Installation</h1>
-<h2 id="jetson-flashing-the-custom-bsp"><strong>Jetson — Flashing the Custom BSP</strong></h2>
+<h2 id="jetson-flashing-the-custom-bsp"><strong>Jetson - Flashing the Custom BSP</strong></h2>
 <p>Flashing is done from a Linux host using a Docker container. The BSP targets <strong>Jetson</strong> on the Lectron carrier board (e.g. L4T R32.7.3 / JetPack 4.6.x, board config <code>lectron-jetson-xavier-nx</code>). Boot target is either the module’s internal <strong>eMMC</strong> or an external <strong>SD card</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Jetson Nano</p>
-<p>The same procedure applies to Jetson Nano — replace <code>lectron-jetson-xavier-nx</code> with <code>lectron-jetson-nano</code> wherever it appears.</p>
+<p>The same procedure applies to Jetson Nano - replace <code>lectron-jetson-xavier-nx</code> with <code>lectron-jetson-nano</code> wherever it appears.</p>
 </div>
 <p><strong>Requirements:</strong> Linux host with Docker and a mini-USB cable. SD-card option also needs a card reader.</p>
 <hr />
@@ -1557,7 +1603,7 @@
 </span></code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Re-entering</p>
-<p>Use <code>sudo docker start -ai l4t-flash</code> to re-attach — don’t run <code>docker run</code> again.</p>
+<p>Use <code>sudo docker start -ai l4t-flash</code> to re-attach - don’t run <code>docker run</code> again.</p>
 </div>
 <p>Install dependencies inside the container:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
@@ -1586,7 +1632,7 @@
 <li>Release <strong>RST</strong> first, then <strong>FRCV</strong>.</li>
 <li>Connect a mini-USB cable from the host to the <strong>JN USB0</strong> port.</li>
 </ol>
-<p>Confirm with <code>lsusb</code> — an <strong>NVIDIA Corp.</strong> entry means recovery mode is active.</p>
+<p>Confirm with <code>lsusb</code> - an <strong>NVIDIA Corp.</strong> entry means recovery mode is active.</p>
 <hr />
 <h3 id="4-flash-to-emmc"><strong>4. Flash to eMMC</strong></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>/work/Linux_for_Tegra
@@ -1594,7 +1640,7 @@
 </span></code></pre></div>
 <hr />
 <h3 id="5-flash-to-sd-card"><strong>5. Flash to SD Card</strong></h3>
-<p><strong>5.1 Prepare the card</strong> (host card reader required — destructive, confirm device node first):</p>
+<p><strong>5.1 Prepare the card</strong> (host card reader required - destructive, confirm device node first):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>lsblk<span class="w">   </span><span class="c1"># identify your card, e.g. /dev/sdX</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>/work/Linux_for_Tegra
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sudo<span class="w"> </span>./prepare_sd_card.sh<span class="w"> </span>/dev/sdX
@@ -1617,7 +1663,7 @@
 <h2 id="fmu-firmware-installation"><strong>FMU Firmware Installation</strong></h2>
 <p>This section contains step-by-step instructions for flashing the bootloader and firmware onto the <strong>FMU IO (F103)</strong> and <strong>FMU MAIN (H753)</strong> chips using <strong>STM32CubeProgrammer</strong>.</p>
 <div class="admonition danger">
-<p class="admonition-title">Wiring — Before You Start</p>
+<p class="admonition-title">Wiring - Before You Start</p>
 <p>Before the flashing process, make sure the debug cable and the ST-Link / CubeProgrammer pins are connected correctly:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SWDIO   &gt;&gt;&gt; SWDIO
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>SWDCLK  &gt;&gt;&gt; SWDCLK
@@ -1628,7 +1674,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">ArduPilot vs. PX4</p>
-<p>The FMU bootloader and FMU firmware files differ depending on the autopilot software (<strong>ArduPilot</strong> or <strong>PX4</strong>). The flashing procedure remains the same — only the target files change.</p>
+<p>The FMU bootloader and FMU firmware files differ depending on the autopilot software (<strong>ArduPilot</strong> or <strong>PX4</strong>). The flashing procedure remains the same - only the target files change.</p>
 </div>
 <h3 id="connection-settings"><strong>Connection Settings</strong></h3>
 <p>Select the connection settings on the right-hand panel as shown below, then use the <strong>Connect</strong> button. After connecting, the target chip is shown in the <strong>bottom-right corner</strong> (<code>STM32F10x</code> for the IO chip, <code>STM32H7</code> for the FMU chip).</p>
