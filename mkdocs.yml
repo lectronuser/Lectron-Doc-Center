@@ -6,7 +6,6 @@ site_description: Jetson & Raspberry Pi engineering documentation
 
 nav:
     - Home: index.md
-    - Products: md/products.md
     - Jetson Autopilot:
         - Overview: md/jetson/index.md
         - Dimension: md/jetson/dimension.md
