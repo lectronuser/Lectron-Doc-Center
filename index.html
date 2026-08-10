@@ -12,7 +12,7 @@
       
       
       
-        <link rel="next" href="md/products/">
+        <link rel="next" href="md/jetson/">
       
       
         
@@ -221,25 +221,6 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="md/products/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Products
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
     
     
       <li class="md-tabs__item">
@@ -356,33 +337,6 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="md/products/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Products
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     
     
     
@@ -399,10 +353,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -420,8 +374,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -796,10 +750,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -817,8 +771,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1220,47 +1174,80 @@
   </div>
 </div>
 
-<details>
-  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
-    Jetson Autopilot
-    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">Jetson Nano/Xavier NX/TX2 NX · FMUv6X · GPU-based autopilot</span>
-  </summary>
-  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
-    <li><a href="md/jetson/">Overview</a></li>
-    <li><a href="md/jetson/dimension/">Dimension</a></li>
-    <li><a href="md/jetson/block-diagram/">Block Diagram</a></li>
-    <li><a href="md/jetson/specification/">Specification</a></li>
-    <li><a href="md/jetson/pinout/">Pinout</a></li>
-    <li><a href="md/jetson/assembly/">Assembly</a></li>
-    <li><a href="md/jetson/setup/">Initial Installation</a></li>
-    <li><a href="md/jetson/commands/">Commands</a></li>
-    <li><a href="md/jetson/gpio/">GPIO Control</a></li>
-    <li><a href="md/jetson/network/">Network</a></li>
-    <li><a href="md/jetson/mavlink_setup_uart/">MAVLink UART Setup</a></li>
-    <li><a href="md/jetson/fan_control/">Fan Control</a></li>
-  </ul>
-</details>
+<div class="split">
+  <div class="split__text">
+    <h2>Lectron Jetson Autopilot</h2>
+    <ul>
+      <li>Jetson Nano / Xavier NX / TX2 NX support</li>
+      <li>Onboard Ethernet switch, dual CSI camera, CAN, UART, GPIO</li>
+      <li>Processor: STM32H753 FMU + STM32F103 IO</li>
+      <li>IMU: Dual ICM-42670-P & Bosch BMI270</li>
+      <li>Barometer: Dual Bosch BMP390</li>
+      <li>Magnetometer: Bosch BMM350</li>
+      <li>Dimensions: 63.4 × 103.5 × 43.6 mm (case, excl. fan module)</li>
+      <li>Weight: 224.4 (without Jetson)</li>
+    </ul>
+  </div>
+  <div class="split__media">
+    <img src="images/jetson/board_1.png" alt="Lectron Jetson Autopilot board" />
+  </div>
+</div>
 
-<details>
-  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
-    Pi5 Autopilot
-    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Hailo-8 Edge AI · FMUv6X</span>
-  </summary>
-  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
-    <li><a href="md/raspberry/">Overview</a></li>
-    <li><a href="md/raspberry/dimension/">Dimension</a></li>
-    <li><a href="md/raspberry/block-diagram/">Block Diagram</a></li>
-    <li><a href="md/raspberry/specification/">Specification</a></li>
-    <li><a href="md/raspberry/pinout/">Pinout</a></li>
-    <li><a href="md/raspberry/assembly/">Assembly</a></li>
-    <li><a href="md/raspberry/setup/">Initial Installation</a></li>
-    <li><a href="md/raspberry/cm5-gpio/">CM5 GPIO</a></li>
-    <li><a href="md/raspberry/cam1-setup/">Camera Setup</a></li>
-    <li><a href="md/raspberry/hailo-setup/">Hailo-8 Integration</a></li>
-    <li><a href="md/raspberry/realsense-setup/">RealSense Integration</a></li>
-    <li><a href="md/raspberry/fmu-cm5-comm/">FMU ↔ CM5 Communication</a></li>
-  </ul>
-</details>
+<div class="split split--reverse">
+  <div class="split__text">
+    <h2>Lectron Pi5 Autopilot</h2>
+    <ul>
+      <li>Raspberry Pi Compute Module 5</li>
+      <li>Optional Hailo-8 edge AI accelerator</li>
+      <li>RealSense camera support, CM5 GPIO, FMU ↔ CM5 comms</li>
+      <li>Processor: STM32H753 FMU + STM32F103 IO</li>
+      <li>IMU: Dual ICM-42670-P & Bosch BMI270</li>
+      <li>Barometer: Dual Bosch BMP390</li>
+      <li>Magnetometer: Bosch BMM350</li>
+      <li>Dimensions: 67.1 × 118.9 × 30.1 mm (case, excl. fan module)</li>
+      <li>Weight: 147.6 (without CM5)</li>
+    </ul>
+  </div>
+  <div class="split__media">
+    <img src="images/raspberry/board_1.png" alt="Lectron Pi5 Autopilot board" />
+  </div>
+</div>
+
+<div class="split">
+  <div class="split__text">
+    <h2>Lectron FPV</h2>
+    <ul>
+      <li>Compact all-in-one flight controller</li>
+      <li>USB-C programming/debug port</li>
+      <li>Processor: STM32H743 FMU</li>
+      <li>IMU: BMI055 & ICM42688</li>
+      <li>Barometer: -</li>
+      <li>Dimensions: -</li>
+      <li>Weight: -</li>
+    </ul>
+  </div>
+  <div class="split__media">
+    <img src="images/autopilot/lectron_fpv.jpg" alt="Lectron FPV board" />
+  </div>
+</div>
+
+<div class="split split--reverse">
+  <div class="split__text">
+    <h2>Lectron FPV Pro</h2>
+    <ul>
+      <li>Extended I/O flight controller with buzzer output</li>
+      <li>USB-C programming/debug port</li>
+      <li>Processor: STM32H743</li>
+      <li>IMU: BMI055 & ICM42688</li>
+      <li>Barometer: -</li>
+      <li>Dimensions: -</li>
+      <li>Weight: -</li>
+    </ul>
+  </div>
+  <div class="split__media">
+    <img src="images/autopilot/lectron_fpv_pro.jpg" alt="Lectron FPV Pro board" />
+  </div>
+</div>
 
 
 
@@ -1304,13 +1291,13 @@
         
         
           
-          <a href="md/products/" class="md-footer__link md-footer__link--next" aria-label="Next: Products">
+          <a href="md/jetson/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Products
+                Overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
