@@ -5,8 +5,8 @@ This page describes every external connector on the **Lectron CM5 Autopilot** ba
 
 The board is organized into two functional domains:
 
-- **Pixhawk FMU side** — the flight-controller connectors that follow the Pixhawk Bus Standard (CAN, SBUS, TELEMETRY, GPS, PWM, DEBUG, etc.).
-- **CM5 compute side** — the Raspberry Pi Compute Module 5 connectors (GPIO/SPI/PWM, UART, I2C, CSI CAMERA, CAN, USB, etc.).
+- **Pixhawk FMU side** - the flight-controller connectors that follow the Pixhawk Bus Standard (CAN, SBUS, TELEMETRY, GPS, PWM, DEBUG, etc.).
+- **CM5 compute side** - the Raspberry Pi Compute Module 5 connectors (GPIO/SPI/PWM, UART, I2C, CSI CAMERA, CAN, USB, etc.).
 
 !!! note "Voltage Legend"
     All logic signals are **+3.3V** unless noted otherwise.
@@ -322,7 +322,7 @@ PWM-controlled cooling fan with tachometer feedback (**SM04B-SRSS**).
 |  3  | GND  | GND  |
 |  4  | FAN TACHO  | +3.3V  |
 
-### **CSI-1 — Camera / Display 0**
+### **CSI-1 - Camera / Display 0**
 22-pin 0.5mm-pitch FFC carrying MIPI port 0 (4-lane) (**22-pin FFC (0.5mm)**).
 
 | Pin | Signal | Voltage |
@@ -350,7 +350,7 @@ PWM-controlled cooling fan with tachometer feedback (**SM04B-SRSS**).
 |  21  | CM5_SDA0  | +3.3V  |
 |  22  | CM5 3.3V  | +3.3V  |
 
-### **CSI-2 — Camera / Display 1**
+### **CSI-2 - Camera / Display 1**
 22-pin 0.5mm-pitch FFC carrying MIPI port 1 (4-lane) (**22-pin FFC (0.5mm)**).
 
 | Pin | Signal | Voltage |

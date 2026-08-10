@@ -1,7 +1,7 @@
 
 # CAM1 Port Setup Guide
 
-**Second CSI Camera Configuration — Lectron PI5 Autopilot (CM5 Carrier Board)**
+**Second CSI Camera Configuration - Lectron PI5 Autopilot (CM5 Carrier Board)**
 
 | | |
 | :-- | :-- |
@@ -36,7 +36,7 @@ The primary camera port uses dedicated CM5 I2C pins and works with standard Rasp
 | :----- | :-: | :------------- | :------------ |
 | CM5_SDA0 | 22 | i2c@88000 (rp1_i2c6) | i2c-10 |
 | CM5_SCL0 | 21 | i2c@88000 (rp1_i2c6) | i2c-10 |
-| MIPI0 Data | 1-15 | csi@110000 | — |
+| MIPI0 Data | 1-15 | csi@110000 | - |
 
 ### **CAM1 Port (MIPI1)**
 The secondary camera port uses the `ID_SC`/`ID_SD` I2C pins routed through a dedicated RP1 I2C controller. This port requires a custom device tree overlay, which the `cam1_autodetect.sh` script generates automatically.
@@ -45,7 +45,7 @@ The secondary camera port uses the `ID_SC`/`ID_SD` I2C pins routed through a ded
 | :----- | :-: | :------------- | :------------ |
 | ID_SD | 20 | i2c@70000 (rp1_i2c0) | i2c-0 |
 | ID_SC | 19 | i2c@70000 (rp1_i2c0) | i2c-0 |
-| MIPI1 Data | 1-15 | csi@128000 | — |
+| MIPI1 Data | 1-15 | csi@128000 | - |
 
 !!! note "Info"
     Both connectors include 2.2 kΩ I2C pull-up resistors to `CM5_3V3_OUTPUT` and ESD protection.
@@ -114,7 +114,7 @@ The `cam1_autodetect.sh` script generates, compiles, and installs the correct de
 ### **Step-by-Step Setup**
 Follow these steps to configure a camera on the CAM1 port.
 
-**Step 1 — Configure CAM0 (if using dual cameras)**
+**Step 1 - Configure CAM0 (if using dual cameras)**
 
 If you are using a camera on CAM0 as well, add the standard overlay to `/boot/firmware/config.txt` with the `cam0` parameter:
 
@@ -125,7 +125,7 @@ dtoverlay=imx219,cam0
 !!! warning "Note"
     Replace `imx219` with your CAM0 camera model. The `cam0` parameter is **required** to avoid conflicts with the CAM1 overlay.
 
-**Step 2 — Run the setup script for CAM1**
+**Step 2 - Run the setup script for CAM1**
 
 Connect your camera to the CAM1 port and run the script, specifying the camera model:
 
@@ -135,13 +135,13 @@ sudo ./cam1_autodetect.sh imx708
 
 The script will generate the device tree source, compile it, install the overlay to `/boot/firmware/overlays/`, and add the `dtoverlay` entry to `/boot/firmware/config.txt`.
 
-**Step 3 — Reboot**
+**Step 3 - Reboot**
 
 ```bash
 sudo reboot
 ```
 
-**Step 4 — Verify**
+**Step 4 - Verify**
 
 After rebooting, verify both cameras are detected:
 
@@ -202,7 +202,7 @@ rpicam-vid --camera 1 -t 10000 -o cam1_video.h264
 ### **Network Streaming with GStreamer**
 Stream video from the CAM1 port over TCP using GStreamer. Replace the `camera-name` path and host IP address with your actual values.
 
-=== "Sender — standard camera (IMX708 @ 1280×720)"
+=== "Sender - standard camera (IMX708 @ 1280×720)"
 
     ```bash
     gst-launch-1.0 libcamerasrc \
@@ -212,7 +212,7 @@ Stream video from the CAM1 port over TCP using GStreamer. Replace the `camera-na
       ! tcpserversink host=<BOARD_IP> port=5000
     ```
 
-=== "Sender — low-res camera (OV7251 @ 640×480)"
+=== "Sender - low-res camera (OV7251 @ 640×480)"
 
     ```bash
     gst-launch-1.0 libcamerasrc \
@@ -236,14 +236,14 @@ Stream video from the CAM1 port over TCP using GStreamer. Replace the `camera-na
 To stream both cameras simultaneously, run two GStreamer pipelines on different ports:
 
 ```bash
-# Terminal 1 — CAM0 on port 5000
+# Terminal 1 - CAM0 on port 5000
 gst-launch-1.0 libcamerasrc \
   camera-name="/base/axi/pcie\@120000/rp1/i2c\@88000/imx219\@10" \
   ! video/x-raw,colorimetry=bt709,format=NV12,width=1280,height=720,framerate=30/1 \
   ! queue ! jpegenc ! multipartmux \
   ! tcpserversink host=<BOARD_IP> port=5000
 
-# Terminal 2 — CAM1 on port 5001
+# Terminal 2 - CAM1 on port 5001
 gst-launch-1.0 libcamerasrc \
   camera-name="/base/axi/pcie\@120000/rp1/i2c\@70000/imx708\@1a" \
   ! video/x-raw,colorimetry=bt709,format=NV12,width=1280,height=720,framerate=30/1 \
@@ -304,8 +304,8 @@ For advanced users and custom overlay development, the following device tree lab
 | `csi1` | `/axi/.../rp1/csi@128000` | CSI-2 receiver for Camera 1 |
 | `cam0_clk` | `/cam0_clk` | Clock source for Camera 0 |
 | `cam1_clk` | `/cam1_clk` | Clock source for Camera 1 |
-| `i2c0if` | `/i2c0if` | Firmware flag — I2C0 interface enable |
-| `i2c0mux` | `/i2c0mux` | Firmware flag — I2C0 mux enable |
+| `i2c0if` | `/i2c0if` | Firmware flag - I2C0 interface enable |
+| `i2c0mux` | `/i2c0mux` | Firmware flag - I2C0 mux enable |
 
 ---
 

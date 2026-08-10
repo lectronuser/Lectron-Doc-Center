@@ -4,7 +4,7 @@ This file explaint how to bring up PX4 TELEM3 (FMU USART2) as a MAVLink port and
 
 ---
 
-## 1. Connectivity — the bridge resistors
+## 1. Connectivity - the bridge resistors
 
 On this autopilot baseboard, the FMU's **TELEM3 (USART2)** is wired toward the **Jetson module's UART0** through four **0 Ω bridge resistors**. The crossover is correct end to end (TX↔RX, RTS↔CTS):
 
@@ -65,7 +65,7 @@ instance #1:
     transport protocol: serial (/dev/ttyS1 @115200)
 ```
 
-`tx` nonzero with `rx: 0.0` means **PX4 is fine and transmitting** — any remaining problem is on the Jetson receive side. Once the Jetson talks back, `rx` becomes nonzero.
+`tx` nonzero with `rx: 0.0` means **PX4 is fine and transmitting** - any remaining problem is on the Jetson receive side. Once the Jetson talks back, `rx` becomes nonzero.
 
 ---
 
@@ -104,7 +104,7 @@ The recurring **`fd`** is the MAVLink 2 start byte. Decoding a few frames confir
 
 Recurring **`0xFD`** frames → port, baud, and TX/RX polarity are all correct. ✅
 
-> **Why minicom can lie:** minicom defaults to **Hardware Flow Control = ON**. With RTS/CTS not in the state it expects, it shows a blank screen even while bytes arrive. For diagnosis, trust `cat | xxd` — it's unambiguous. To fix minicom: `Ctrl-A O` → *Serial port setup* → toggle hardware flow control to **No**.
+> **Why minicom can lie:** minicom defaults to **Hardware Flow Control = ON**. With RTS/CTS not in the state it expects, it shows a blank screen even while bytes arrive. For diagnosis, trust `cat | xxd` - it's unambiguous. To fix minicom: `Ctrl-A O` → *Serial port setup* → toggle hardware flow control to **No**.
 
 ---
 

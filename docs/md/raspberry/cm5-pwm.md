@@ -1,7 +1,7 @@
 
 # CM5 PWM
 
-**PWM Channels — Hardware & Software Guide**
+**PWM Channels - Hardware & Software Guide**
 
 | | |
 | :-- | :-- |
@@ -30,16 +30,16 @@ The four PWM pins are the focus of this document. SPI pins share the same connec
 
 | Pin | Signal | Voltage | GPIO | Notes |
 | :-: | :----- | :-----: | :--- | :---- |
-| 1 | SYSTEM 5V | +5V | — | Board supply voltage |
-| 2 | CM5 SPI1 SCLK | +3.3V | — | SPI1 clock (not covered here) |
-| 3 | CM5 SPI1 SIO1 | +3.3V | — | SPI1 MISO (not covered here) |
-| 4 | CM5 SPI1 SIO0 | +3.3V | — | SPI1 MOSI (not covered here) |
-| 5 | CM5 SPI1 CS1 | +3.3V | — | SPI1 chip select (not covered here) |
+| 1 | SYSTEM 5V | +5V | - | Board supply voltage |
+| 2 | CM5 SPI1 SCLK | +3.3V | - | SPI1 clock (not covered here) |
+| 3 | CM5 SPI1 SIO1 | +3.3V | - | SPI1 MISO (not covered here) |
+| 4 | CM5 SPI1 SIO0 | +3.3V | - | SPI1 MOSI (not covered here) |
+| 5 | CM5 SPI1 CS1 | +3.3V | - | SPI1 chip select (not covered here) |
 | 6 | CM5 PWM CH1 | +3.3V | GPIO12 | PWM channel 1 |
 | 7 | CM5 PWM CH2 | +3.3V | GPIO13 | PWM channel 2 |
 | 8 | CM5 PWM CH3 | +3.3V | GPIO14 | PWM channel 3 |
 | 9 | CM5 PWM CH4 | +3.3V | GPIO15 | PWM channel 4 |
-| 10 | GROUND | GND | — | Common ground reference |
+| 10 | GROUND | GND | - | Common ground reference |
 
 ---
 
@@ -75,7 +75,7 @@ sudo gpioset --mode=time -s 1 gpiochip4 12=0 13=0 14=0 15=0
 
 ---
 
-## **Software PWM — C Example**
+## **Software PWM - C Example**
 
 The program below implements software PWM using the Linux GPIO `ioctl` interface. It accepts a GPIO pin number as a command-line argument and cycles through 10%, 50%, and 90% brightness for 3 seconds each.
 

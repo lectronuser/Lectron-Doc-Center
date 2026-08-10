@@ -9,7 +9,7 @@ The Jetson GPIO signals are routed through a bidirectional level shifter before 
 
 | Connector Pin | Signal  | Jetson SODIMM Pin | GPIO Identifier | Sysfs # |
 |:---:|---------|:-----------------:|-----------------|:-------:|
-| 1   | VDD_5V_SYS | —             | Power           | —       |
+| 1   | VDD_5V_SYS | -             | Power           | -       |
 | 2   | GPIO00  | 87                | GPIO3_PCC.04    | **228** |
 | 3   | GPIO01  | 118               | GPIO3_PS.05     | **149** |
 | 4   | GPIO02  | 124               | GPIO3_PH.06     | **62**  |
@@ -18,7 +18,7 @@ The Jetson GPIO signals are routed through a bidirectional level shifter before 
 | 7   | GPIO07  | 206               | GPIO3_PV.00     | **168** |
 | 8   | GPIO10  | 212               | GPIO3_PV.01     | **169** |
 | 9   | GPIO11  | 216               | GPIO3_PZ.00     | **200** |
-| 10  | GND     | —                 | —               | —       |
+| 10  | GND     | -                 | -               | -       |
 
 ## **Jetson Xavier NX**
 
@@ -26,7 +26,7 @@ Same external GPIO connector and level shifter as the Nano variant: the Jetson's
 
 | Connector Pin | Signal  | SoC Signal      | GPIO Identifier | Sysfs # |
 |:---:|---------|-----------------|-----------------|:-------:|
-| 1   | VDD_5V_SYS | —            | Power           | —       |
+| 1   | VDD_5V_SYS | -            | Power           | -       |
 | 2   | GPIO00  | USB_VBUS_EN0    | GPIO3_PZ.01     | **489** |
 | 3   | GPIO01  | SOC_GPIO41      | GPIO3_PQ.05     | **421** |
 | 4   | GPIO02  | SOC_GPIO23      | GPIO3_PQ.03     | **419** |
@@ -35,10 +35,10 @@ Same external GPIO connector and level shifter as the Nano variant: the Jetson's
 | 7   | GPIO07  | SOC_GPIO44      | GPIO3_PR.00     | **424** |
 | 8   | GPIO10  | SOC_GPIO21      | GPIO3_PQ.01     | **417** |
 | 9   | GPIO11  | SOC_GPIO42      | GPIO3_PQ.06     | **422** |
-| 10  | GND     | —               | —               | —       |
+| 10  | GND     | -               | -               | -       |
 
 !!! note "AON GPIO Logic"
-    GPIO03 and GPIO05 (marked with *) are on the always-on (AON) controller and have inverted logic — write `0` to drive high, write `1` to drive low.
+    GPIO03 and GPIO05 (marked with *) are on the always-on (AON) controller and have inverted logic - write `0` to drive high, write `1` to drive low.
 
 
 !!! note "Level Shifter"
@@ -192,7 +192,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
         for (size_t i = 0; i < GPIO_COUNT; i++)
             export_gpio(gpios[i]);
 
-        printf("Sequential blink — watch your LED bar...\n");
+        printf("Sequential blink - watch your LED bar...\n");
 
         for (size_t i = 0; i < GPIO_COUNT; i++) {
             printf("  ON  -> %s (gpio%d)\n", names[i], gpios[i]);
@@ -281,7 +281,7 @@ GPIO, PWM, I2C, SPI and other hardware components appear as simple files inside 
     for gpio in GPIOS:
         export(gpio)
 
-    print("Sequential blink — watch your LED bar...")
+    print("Sequential blink - watch your LED bar...")
 
     try:
         for gpio, name in zip(GPIOS, NAMES):

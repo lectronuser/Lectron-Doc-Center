@@ -1,7 +1,7 @@
 
 # FMU ↔ CM5 Serial Communication Guide
 
-**UART / ROS 2 / uXRCE-DDS** — serial link between the Flight Management Unit (FMU) and the Raspberry Pi Compute Module 5 (CM5).
+**UART / ROS 2 / uXRCE-DDS** - serial link between the Flight Management Unit (FMU) and the Raspberry Pi Compute Module 5 (CM5).
 
 | | |
 | :-- | :-- |
@@ -90,7 +90,7 @@ sudo make install
 sudo ldconfig /usr/local/lib/
 ```
 
-### **Known Build Issue — FastDDS Checkout Error**
+### **Known Build Issue - FastDDS Checkout Error**
 
 !!! warning "Note"
     During the `make` step you may encounter: `Failed to checkout tag: '2.12.x'`. Follow the fix below before re-running `make`.

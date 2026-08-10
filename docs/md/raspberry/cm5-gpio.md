@@ -2,7 +2,7 @@
 
 # CM5 GPIO
 
-**General Purpose I/O — Hardware & Software Guide**
+**General Purpose I/O - Hardware & Software Guide**
 
 | | |
 | :-- | :-- |
@@ -107,7 +107,7 @@ sudo gpioget gpiochip4 22
 
 ## **C Programming Example**
 
-The following C program uses the Linux kernel's `gpio.h` interface directly via `ioctl` — no additional libraries are required beyond standard Linux headers.
+The following C program uses the Linux kernel's `gpio.h` interface directly via `ioctl` - no additional libraries are required beyond standard Linux headers.
 
 ### **Build**
 

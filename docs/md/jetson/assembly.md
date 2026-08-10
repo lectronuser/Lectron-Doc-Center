@@ -1,6 +1,6 @@
 # Assembly Guide
 
-This guide walks through assembling the **Lectron Jetson Autopilot** — mounting the Jetson module, connecting the sensor board, and installing the enclosure and fans.
+This guide walks through assembling the **Lectron Jetson Autopilot** - mounting the Jetson module, connecting the sensor board, and installing the enclosure and fans.
 
 ## **What's in the Box**
 
@@ -28,7 +28,7 @@ Before starting, make sure you have all of the following components:
 
 ---
 
-## **Step 1 — Mount the Lectron V6X**
+## **Step 1 - Mount the Lectron V6X**
 
 !!! danger "Handle with Care"
     Before mounting, verify the alignment carefully. Once confirmed, press the module down gently and evenly. Forcing a misaligned module may permanently damage the flight controller connectors.
@@ -39,12 +39,12 @@ Align the Lectron V6X board over the baseboard using the four mounting holes (**
 
 ---
 
-## **Step 2 — Mount the Power Module and IO Expansion Module**
+## **Step 2 - Mount the Power Module and IO Expansion Module**
 
 Two add-on modules attach to the top of the baseboard in the positions marked by the numbered labels:
 
-- **Top right** — Power module, aligned to positions **1**, **2** and **3**
-- **Bottom right** — IO expansion module, aligned to positions **4** and **5**
+- **Top right** - Power module, aligned to positions **1**, **2** and **3**
+- **Bottom right** - IO expansion module, aligned to positions **4** and **5**
 
 Seat each module in order, following the numbering on the board.
 
@@ -56,7 +56,7 @@ Once both modules are seated correctly, the assembly should look like this:
 
 ---
 
-## **Step 3 — Fasten the Modules**
+## **Step 3 - Fasten the Modules**
 
 Secure the Power module, IO expansion module, and FMU module to the baseboard using the supplied **M2×6 mm screws**. Tighten all screw positions marked in the diagram below.
 
@@ -67,7 +67,7 @@ Secure the Power module, IO expansion module, and FMU module to the baseboard us
 
 ---
 
-## **Step 4 — Install the Jetson Module**
+## **Step 4 - Install the Jetson Module**
 
 ![Jetson module and baseboard](../../images/jetson/assembly_6.png)
 
@@ -87,7 +87,7 @@ Once the connector is engaged, press the module down flat. Hold the module flat 
 
 ---
 
-## **Step 5 — Assemble Bottom Plate**
+## **Step 5 - Assemble Bottom Plate**
 
 Place the bottom case plate onto the bottom case and fasten it using the supplied **M2×4 mm screws** at the four corner positions as shown.
 
@@ -98,7 +98,7 @@ Place the bottom case plate onto the bottom case and fasten it using the supplie
 
 ---
 
-## **Step 6 — Place the Board Stack into the Bottom Case**
+## **Step 6 - Place the Board Stack into the Bottom Case**
 
 Lower the assembled board stack into the bottom case, aligning the four corners (**1-4**) with the case standoffs. Use the **notch on the top edge of the case** (highlighted by the yellow rectangle) as an orientation reference to ensure the board is placed the correct way around.
 
@@ -110,7 +110,7 @@ Once seated correctly, the assembly should look like this:
 
 ---
 
-## **Step 7 — Case Assemble**
+## **Step 7 - Case Assemble**
 
 Lower the top case over the board stack, aligning the connector cutouts with the board's ports. Press it down gently until it sits flush with the bottom case.
 
@@ -123,7 +123,7 @@ Flip the assembly over and fasten the top case to the bottom case using the four
 
 ---
 
-## **Step 8 — Install the Cooling Fans**
+## **Step 8 - Install the Cooling Fans**
 
 The thermal fan system consists of the top case with integrated air ducts, two blower fans, and the fan guard.
 
@@ -140,7 +140,7 @@ Route the fan cables into the empty space above the connectors so they do not ob
 
 **2. Place the fans**
 
-Set each fan into its bay on the top case. The **exhaust side** of the fan (the flat, outlet face — highlighted by the green box in the center image) must face toward the **air duct of the bottom case**. The **intake side** (the visible impeller) must face inward toward the board to draw air across it.
+Set each fan into its bay on the top case. The **exhaust side** of the fan (the flat, outlet face - highlighted by the green box in the center image) must face toward the **air duct of the bottom case**. The **intake side** (the visible impeller) must face inward toward the board to draw air across it.
 
 **3. Attach the fan guard**
 
@@ -148,14 +148,14 @@ Place the fan guard over the fans and fasten it using the supplied **M2×12 mm s
 
 ![Fan installation and guard assembly](../../images/jetson/assembly_15.png)
 
-## **Step 9 — Install the IMU Board**
+## **Step 9 - Install the IMU Board**
 
 Connect the flex cable of the IMU board to shown connector and place it onto the top case.
 
 ![IMU board and flex cable connection](../../images/jetson/assembly_16.png)
 
 !!! danger "Handle the Flex Cable with Care"
-    Insert the flex cable gently and straight into the connector. Do not bend, pull, or force it — the cable and connector are fragile and can be permanently damaged with excessive force.
+    Insert the flex cable gently and straight into the connector. Do not bend, pull, or force it - the cable and connector are fragile and can be permanently damaged with excessive force.
 
 Secure the IMU board to the case using the four supplied **M2×4 mm screws** at the corner holes as shown.
 

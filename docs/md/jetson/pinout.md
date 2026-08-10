@@ -5,8 +5,8 @@ This page describes every external connector on the **Lectron Jetson Autopilot**
 
 The board is organized into two functional domains:
 
-- **Pixhawk FMU side** — the flight-controller connectors that follow the Pixhawk Bus Standard (TELEMETRY, CAN, GPS, PWM, DEBUG, etc.).
-- **Jetson compute side** — the Jetson module connectors (GPIO, SPI, UART, I2C, CSI CAMERA, CAN, Ethernet, USB, etc.).
+- **Pixhawk FMU side** - the flight-controller connectors that follow the Pixhawk Bus Standard (TELEMETRY, CAN, GPS, PWM, DEBUG, etc.).
+- **Jetson compute side** - the Jetson module connectors (GPIO, SPI, UART, I2C, CSI CAMERA, CAN, Ethernet, USB, etc.).
 
 !!! note "Voltage Legend"
     Unless otherwise noted, **all signal pins are +3.3V**.
@@ -332,7 +332,7 @@ Differential Ethernet pairs  (**SM04B-GHS**).
 | 3 | ETH2 RXP | --- |
 | 4 | ETH2 RXN | --- |
 
-### **Jetson CSI-1 — Camera**
+### **Jetson CSI-1 - Camera**
 15-pin 1mm-pitch FPC carrying CSI port 3 plus camera control  (**15-pin FPC (1mm)**).
 
 | Pin | Signal | Voltage |
@@ -353,7 +353,7 @@ Differential Ethernet pairs  (**SM04B-GHS**).
 | 14 | JN_CAM_I2C_SDA [^b] | +3.3V |
 | 15 | SYSTEM 3.3V | +3.3V |
 
-### **Jetson CSI-2 — Camera**
+### **Jetson CSI-2 - Camera**
 15-pin 1mm-pitch FPC carrying CSI port 0 plus camera control  (**15-pin FPC (1mm)**).
 
 | Pin | Signal | Voltage |
@@ -434,7 +434,7 @@ MicroSD slot  (**TF SD Card**).
 ## **System Power**
 
 ### **General 12V Out**
-Regulated 12V output stepped down from the main power input, current-limited to 2A — designator `U1` (**SM04B-GHS**).
+Regulated 12V output stepped down from the main power input, current-limited to 2A - designator `U1` (**SM04B-GHS**).
 
 | Pin | Signal | Voltage |
 | :-: | :----- | :------: |
@@ -461,7 +461,7 @@ Main board power input  (**XT30**).
 
 [^a]: This bus is powered only by an external XT30 connection.
 [^b]: Connected through a TCA9548 I2C multiplexer.
-[^c]: On the PCB this pin is left floating — Fan 1 is the only tacho source.
+[^c]: On the PCB this pin is left floating - Fan 1 is the only tacho source.
 [^d]: Fan 2 has no circuit for tacho signal feedback.
 
 !!! info "Reference"

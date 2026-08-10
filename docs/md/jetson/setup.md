@@ -1,11 +1,11 @@
 # Initial Installation
 
-## **Jetson — Flashing the Custom BSP**
+## **Jetson - Flashing the Custom BSP**
 
 Flashing is done from a Linux host using a Docker container. The BSP targets **Jetson** on the Lectron carrier board (e.g. L4T R32.7.3 / JetPack 4.6.x, board config `lectron-jetson-xavier-nx`). Boot target is either the module’s internal **eMMC** or an external **SD card**.
 
 !!! tip "Jetson Nano"
-    The same procedure applies to Jetson Nano — replace `lectron-jetson-xavier-nx` with `lectron-jetson-nano` wherever it appears.
+    The same procedure applies to Jetson Nano - replace `lectron-jetson-xavier-nx` with `lectron-jetson-nano` wherever it appears.
 
 **Requirements:** Linux host with Docker and a mini-USB cable. SD-card option also needs a card reader.
 
@@ -24,7 +24,7 @@ sudo docker run -it --privileged \
 ```
 
 !!! info "Re-entering"
-    Use `sudo docker start -ai l4t-flash` to re-attach — don’t run `docker run` again.
+    Use `sudo docker start -ai l4t-flash` to re-attach - don’t run `docker run` again.
 
 Install dependencies inside the container:
 
@@ -63,7 +63,7 @@ Required before any flash operation.
 3. Release **RST** first, then **FRCV**.
 4. Connect a mini-USB cable from the host to the **JN USB0** port.
 
-Confirm with `lsusb` — an **NVIDIA Corp.** entry means recovery mode is active.
+Confirm with `lsusb` - an **NVIDIA Corp.** entry means recovery mode is active.
 
 ---
 
@@ -78,7 +78,7 @@ sudo ./flash.sh lectron-jetson-xavier-nx mmcblk0p1
 
 ### **5. Flash to SD Card**
 
-**5.1 Prepare the card** (host card reader required — destructive, confirm device node first):
+**5.1 Prepare the card** (host card reader required - destructive, confirm device node first):
 
 ```bash
 lsblk   # identify your card, e.g. /dev/sdX
@@ -114,7 +114,7 @@ ls /dev/spidev*
 
 This section contains step-by-step instructions for flashing the bootloader and firmware onto the **FMU IO (F103)** and **FMU MAIN (H753)** chips using **STM32CubeProgrammer**.
 
-!!! danger "Wiring — Before You Start"
+!!! danger "Wiring - Before You Start"
 	Before the flashing process, make sure the debug cable and the ST-Link / CubeProgrammer pins are connected correctly:
 
 	```text
@@ -127,7 +127,7 @@ This section contains step-by-step instructions for flashing the bootloader and 
 	The Autopilot board must be powered (via **USB** or **XT30**) before performing these steps.
 
 !!! note "ArduPilot vs. PX4"
-	The FMU bootloader and FMU firmware files differ depending on the autopilot software (**ArduPilot** or **PX4**). The flashing procedure remains the same — only the target files change.
+	The FMU bootloader and FMU firmware files differ depending on the autopilot software (**ArduPilot** or **PX4**). The flashing procedure remains the same - only the target files change.
 
 ### **Connection Settings**
 Select the connection settings on the right-hand panel as shown below, then use the **Connect** button. After connecting, the target chip is shown in the **bottom-right corner** (`STM32F10x` for the IO chip, `STM32H7` for the FMU chip).

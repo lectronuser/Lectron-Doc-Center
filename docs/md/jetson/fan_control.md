@@ -1,4 +1,4 @@
-# Fan Control — Lectron Jetson Autopilot
+# Fan Control - Lectron Jetson Autopilot
 
 ## Hardware Overview
 
@@ -180,7 +180,7 @@ Note that readings can fluctuate during spin-up and wind-down; allow at least 3-
 
 ---
 
-## PWM Signal Inversion — Summary Table
+## PWM Signal Inversion - Summary Table
 
 | `active_pwm` byte | Duty cycle sent | Fan behaviour |
 |:-----------------:|:---------------:|:-------------:|

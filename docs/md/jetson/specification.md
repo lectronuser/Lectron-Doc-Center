@@ -84,7 +84,7 @@
 | External Ports      | 2 × 4-Pin PHY (Ethernet 1 & Ethernet 2) |
 | Internal Ports      | 1 × Jetson PHY, 1 × FMU PHY |
 | Configuration       | SPI (Jetson SPI0-CS1) |
-| Status LEDs         | 4 × Blue — link / activity per port |
+| Status LEDs         | 4 × Blue - link / activity per port |
 
 ## **Thermal Management**
 

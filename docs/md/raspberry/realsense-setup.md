@@ -28,7 +28,7 @@
 
 ### **RealSense SDK 2.0**
 
-**Step 1 — Register the Repository Public Key**
+**Step 1 - Register the Repository Public Key**
 
 Create the keyring directory and download the signing key:
 
@@ -39,7 +39,7 @@ curl -sSf https://librealsense.realsenseai.com/Debian/librealsenseai.asc | \
   gpg --dearmor | sudo tee /etc/apt/keyrings/librealsenseai.gpg > /dev/null
 ```
 
-**Step 2 — Add the Repository**
+**Step 2 - Add the Repository**
 
 Register the Intel RealSense APT repository and refresh the package index:
 
@@ -52,7 +52,7 @@ echo "deb [signed-by=/etc/apt/keyrings/librealsenseai.gpg] \
 sudo apt-get update
 ```
 
-**Step 3 — Install the SDK Libraries**
+**Step 3 - Install the SDK Libraries**
 
 Install the core utilities package (this will also configure udev rules automatically):
 
@@ -60,7 +60,7 @@ Install the core utilities package (this will also configure udev rules automati
 sudo apt-get install librealsense2-utils
 ```
 
-**Step 4 — Install Optional Packages**
+**Step 4 - Install Optional Packages**
 
 For development headers and debug symbols, install the following additional packages:
 

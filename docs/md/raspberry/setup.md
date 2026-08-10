@@ -90,7 +90,7 @@ To flash the eMMC on a Raspberry Pi Compute Module, the following components are
 
 This section contains step-by-step instructions for flashing the bootloader and firmware onto the **FMU IO (F103)** and **FMU MAIN (H753)** chips using **STM32CubeProgrammer**.
 
-!!! danger "Wiring — Before You Start"
+!!! danger "Wiring - Before You Start"
 	Before the flashing process, make sure the debug cable and the ST-Link / CubeProgrammer pins are connected correctly:
 
 	```text
@@ -103,7 +103,7 @@ This section contains step-by-step instructions for flashing the bootloader and 
 	The Autopilot board must be powered (via **USB** or **XT30**) before performing these steps.
 
 !!! note "ArduPilot vs. PX4"
-	The FMU bootloader and FMU firmware files differ depending on the autopilot software (**ArduPilot** or **PX4**). The flashing procedure remains the same — only the target files change.
+	The FMU bootloader and FMU firmware files differ depending on the autopilot software (**ArduPilot** or **PX4**). The flashing procedure remains the same - only the target files change.
 
 ### **Connection Settings**
 Select the connection settings on the right-hand panel as shown below, then use the **Connect** button. After connecting, the target chip is shown in the **bottom-right corner** (`STM32F10x` for the IO chip, `STM32H7` for the FMU chip).

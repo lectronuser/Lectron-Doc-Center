@@ -8,7 +8,7 @@ hide:
   <div class="hero__content">
     <h1>Welcome to Lectron Documentation</h1>
     <p>
-      This documentation will help you understand Lectron's autopilot products — technical specifications, pinouts, block diagrams, assembly guides, software setup, and integration tutorials.
+      This documentation will help you understand Lectron's autopilot products - technical specifications, pinouts, block diagrams, assembly guides, software setup, and integration tutorials.
     </p>
     <p style="font-size:0.9rem; opacity:0.75;">
       Questions or feedback? Contact us at <a href="mailto:contact@lectrontech.com">contact@lectrontech.com</a>
