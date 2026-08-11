@@ -44,12 +44,13 @@ details {
   margin: 0 0 .5rem 0;
   font-weight: 800;
   letter-spacing: -0.02em;
+  font-size: 1.8rem;
 }
 
 .hero__content p {
   max-width: 60ch;
   opacity: .9;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   margin-bottom: 1rem;
 }
 
