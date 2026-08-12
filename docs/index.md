@@ -65,7 +65,6 @@ hide:
       <li>Barometer: BMP581</li>
       <li>Magnetometer: IST8310</li>
       <li>Dimensions: 36 × 36 mm</li>
-      <li>Weight: -</li>
     </ul>
   </div>
   <div class="split__media">
@@ -83,7 +82,6 @@ hide:
       <li>Barometer: BMP581</li>
       <li>Magnetometer: IST8310</li>
       <li>Dimensions: 36 × 36 mm </li>
-      <li>Weight: -</li>
     </ul>
   </div>
   <div class="split__media">
