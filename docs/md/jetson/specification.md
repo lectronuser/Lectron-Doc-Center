@@ -8,7 +8,7 @@
 
 | Feature | Description |
 |-------|---------------|
-| Supported Jetson Modules | Jetson Nano, Xavier NX, AGX Xavier, Orin |
+| Supported Jetson Modules | Jetson Nano, Xavier NX |
 | SoM Connector            | 260-Pin DDR4 SODIMM |
 | Power Regulation         | Dedicated 5.1 V - 5 A rail |
 | Cooling                  | Active & passive advanced rail cooling |

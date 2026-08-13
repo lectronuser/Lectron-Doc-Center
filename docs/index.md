@@ -16,75 +16,65 @@ hide:
   </div>
 </div>
 
-<div class="split">
-  <div class="split__text">
-    <h2>Lectron Jetson Autopilot</h2>
-    <ul>
-      <li>Jetson Nano / Xavier NX / TX2 NX support</li>
-      <li>Onboard Ethernet switch, dual CSI camera, CAN, UART, GPIO</li>
-      <li>Processor: STM32H753 FMU + STM32F103 IO</li>
-      <li>IMU: Dual ICM-42670-P & Bosch BMI270</li>
-      <li>Barometer: Dual Bosch BMP390</li>
-      <li>Magnetometer: Bosch BMM350</li>
-      <li>Dimensions: 63.4 × 103.5 × 43.6 mm (case, excl. fan module)</li>
-      <li>Weight: 224.4 (without Jetson)</li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/jetson/board_1.png" alt="Lectron Jetson Autopilot board" />
-  </div>
-</div>
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    Jetson Autopilot
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">Jetson Nano/Xavier NX/TX2 NX · FMUv6X · GPU-based autopilot</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/jetson/">Overview</a></li>
+    <li><a href="md/jetson/dimension/">Dimension</a></li>
+    <li><a href="md/jetson/block-diagram/">Block Diagram</a></li>
+    <li><a href="md/jetson/specification/">Specification</a></li>
+    <li><a href="md/jetson/pinout/">Pinout</a></li>
+    <li><a href="md/jetson/assembly/">Assembly</a></li>
+    <li><a href="md/jetson/setup/">Initial Installation</a></li>
+    <li><a href="md/jetson/commands/">Commands</a></li>
+    <li><a href="md/jetson/gpio/">GPIO Control</a></li>
+    <li><a href="md/jetson/network/">Network</a></li>
+    <li><a href="md/jetson/mavlink_setup_uart/">MAVLink UART Setup</a></li>
+    <li><a href="md/jetson/fan_control/">Fan Control</a></li>
+  </ul>
+</details>
 
-<div class="split split--reverse">
-  <div class="split__text">
-    <h2>Lectron Pi5 Autopilot</h2>
-    <ul>
-      <li>Raspberry Pi Compute Module 5</li>
-      <li>Optional Hailo-8 edge AI accelerator</li>
-      <li>RealSense camera support, CM5 GPIO, FMU ↔ CM5 comms</li>
-      <li>Processor: STM32H753 FMU + STM32F103 IO</li>
-      <li>IMU: Dual ICM-42670-P & Bosch BMI270</li>
-      <li>Barometer: Dual Bosch BMP390</li>
-      <li>Magnetometer: Bosch BMM350</li>
-      <li>Dimensions: 67.1 × 118.9 × 30.1 mm (case, excl. fan module)</li>
-      <li>Weight: 147.6 (without CM5)</li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/raspberry/board_1.png" alt="Lectron Pi5 Autopilot board" />
-  </div>
-</div>
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    Pi5 Autopilot
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Hailo-8 Edge AI · FMUv6X</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/raspberry/">Overview</a></li>
+    <li><a href="md/raspberry/dimension/">Dimension</a></li>
+    <li><a href="md/raspberry/block-diagram/">Block Diagram</a></li>
+    <li><a href="md/raspberry/specification/">Specification</a></li>
+    <li><a href="md/raspberry/pinout/">Pinout</a></li>
+    <li><a href="md/raspberry/assembly/">Assembly</a></li>
+    <li><a href="md/raspberry/setup/">Initial Installation</a></li>
+    <li><a href="md/raspberry/cm5-gpio/">CM5 GPIO</a></li>
+    <li><a href="md/raspberry/cam1-setup/">Camera Setup</a></li>
+    <li><a href="md/raspberry/hailo-setup/">Hailo-8 Integration</a></li>
+    <li><a href="md/raspberry/realsense-setup/">RealSense Integration</a></li>
+    <li><a href="md/raspberry/fmu-cm5-comm/">FMU ↔ CM5 Communication</a></li>
+  </ul>
+</details>
 
-<div class="split">
-  <div class="split__text">
-    <h2>Lectron FPV</h2>
-    <ul>
-      <li>USB-C programming/debug port</li>
-      <li>Processor: STM32H743 FMU</li>
-      <li>IMU: ICM-42688-P</li>
-      <li>Barometer: BMP581</li>
-      <li>Magnetometer: IST8310</li>
-      <li>Dimensions: 36 × 36 mm</li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/autopilot/lectron_fpv.jpg" alt="Lectron FPV board" />
-  </div>
-</div>
+## Product Comparison
 
-<div class="split split--reverse">
-  <div class="split__text">
-    <h2>Lectron FPV Pro</h2>
-    <ul>
-      <li>USB-C programming/debug port</li>
-      <li>Processor: STM32H743</li>
-      <li>IMU: ICM-42688-P & LSM6DSV16BXTR</li>
-      <li>Barometer: BMP581</li>
-      <li>Magnetometer: IST8310</li>
-      <li>Dimensions: 36 × 36 mm </li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/autopilot/lectron_fpv_pro.jpg" alt="Lectron FPV Pro board" />
-  </div>
-</div>
+| Feature          | Jetson Autopilot                      | Pi5 Autopilot                           | FPV            | FPV Pro                     |
+| ---------------- | ------------------------------------- | ----------------------------------------| ---------------| --------------------------- |
+| Mission Computer | Jetson Nano / Xavier NX / TX2 NX      | Raspberry Pi CM5                        | -              | -                           |
+| Camera Interface | 2 × 15Pin CSI                         | 2 × 22Pin CSI                           | -              | -                           |
+| FMU Processor    | STM32H753                             | STM32H753                               | STM32H743      | STM32H743                   |
+| IO Processor     | STM32F103                             | STM32F103                               | -              | -                           |
+| Power Input      | 9V - 26V (3S-6S LiPo), XT30           | 9V - 26V (3S-6S LiPo), XT30             | -              | -                           |
+| USB 2.0          | 1 × Mini-B                            | 1 × Micro (host)                        | -              | -                           |
+| USB 3.0          | 2 × Type-C                            | 3 × Type-C                              | 1 × Type-C     | 1 × Type-C                  |
+| CAN              | 1 × Jetson, 1 × FMU                   | 1 × Rpi, 1 × FMU                        | -              | 1                           |
+| Telem            | 3                                     | 2                                       | -              | 1                           |
+| Ethernet         | 2 × 100 Mbps (onboard switch)         | 1 × 1 Gbps (CM5) + 1 × 100 Mbps (FMU)   | -              | 1 × 100 Mbps                |
+| PWM Outputs      | 8 FMU + 8 IO                          | 8 FMU + 8 IO                            | 9 FMU          | 9 FMU                       |
+| IMU              | Dual ICM-42670-P & Bosch BMI270       | Dual ICM-42670-P & Bosch BMI270         | ICM-42688-P    | ICM-42688-P & LSM6DSV16BXTR |
+| Barometer        | Dual Bosch BMP390                     | Dual Bosch BMP390                       | BMP581         | BMP581                      |
+| Magnetometer     | Bosch BMM350                          | Bosch BMM350                            | IST8310        | IST8310                     |
+| Size             | 63.4 × 103.5 × 43.6 mm                | 67.1 × 118.9 × 30.1 mm                  | 36 × 36 mm     | 36 × 36 mm                  |
+| Weight           | 224.4 g (without Jetson module)       | 147.6 g (without CM5 and Hailo)         | 8 g            | 9 g                         |
