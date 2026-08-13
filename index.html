@@ -1301,14 +1301,21 @@
 <tr>
 <td>Mission Computer</td>
 <td>Jetson Nano / Xavier NX / TX2 NX</td>
-<td>Raspberry Pi Compute Module 5</td>
-<td>–</td>
-<td>–</td>
+<td>Raspberry Pi CM5</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Camera Interface</td>
+<td>2 × 15Pin CSI</td>
+<td>2 × 22Pin CSI</td>
+<td>-</td>
+<td>-</td>
 </tr>
 <tr>
 <td>FMU Processor</td>
-<td>STM32H753 (Cortex-M7, 480 MHz)</td>
-<td>STM32H753 (Cortex-M7, 480 MHz)</td>
+<td>STM32H753</td>
+<td>STM32H753</td>
 <td>STM32H743</td>
 <td>STM32H743</td>
 </tr>
@@ -1316,8 +1323,57 @@
 <td>IO Processor</td>
 <td>STM32F103</td>
 <td>STM32F103</td>
-<td>–</td>
-<td>–</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Power Input</td>
+<td>9V - 26V (3S-6S LiPo), XT30</td>
+<td>9V - 26V (3S-6S LiPo), XT30</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>USB 2.0</td>
+<td>1 × Mini-B</td>
+<td>1 × Micro (host)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>USB 3.0</td>
+<td>2 × Type-C</td>
+<td>3 × Type-C</td>
+<td>Type-C</td>
+<td>Type-C</td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>1 × Jetson, 1 × FMU</td>
+<td>1 × Rpi, 1 × FMU</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Telem</td>
+<td>3</td>
+<td>2</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Ethernet</td>
+<td>2 × 100 Mbps (onboard switch)</td>
+<td>1 × 1 Gbps (CM5) + 1 × 100 Mbps (FMU)</td>
+<td>-</td>
+<td>1 × 100 Mbps</td>
+</tr>
+<tr>
+<td>PWM Outputs</td>
+<td>8 FMU + 8 IO</td>
+<td>8 FMU + 8 IO</td>
+<td>9 FMU</td>
+<td>9 FMU</td>
 </tr>
 <tr>
 <td>IMU</td>
@@ -1341,34 +1397,6 @@
 <td>IST8310</td>
 </tr>
 <tr>
-<td>USB</td>
-<td>USB 3.0 Type-C, USB 2.0 Mini-B, FMU USB Type-C</td>
-<td>2 × USB 3.0 Type-C, Micro USB 2.0 (host), FMU USB Type-C</td>
-<td>USB-C</td>
-<td>USB-C</td>
-</tr>
-<tr>
-<td>Ethernet</td>
-<td>2 × 100 Mbps (onboard switch)</td>
-<td>1 × 1 Gbps (CM5) + 4-pin FMU (100 Mbps)</td>
-<td>–</td>
-<td>–</td>
-</tr>
-<tr>
-<td>PWM Outputs</td>
-<td>8 FMU + 8 IO channels</td>
-<td>8 FMU + 8 IO channels</td>
-<td>9 FMU</td>
-<td>9 FMU</td>
-</tr>
-<tr>
-<td>Power Input</td>
-<td>9V - 26V (3S-6S LiPo), XT30</td>
-<td>9V - 26V (3S-6S LiPo), XT30</td>
-<td>–</td>
-<td>–</td>
-</tr>
-<tr>
 <td>Size</td>
 <td>63.4 × 103.5 × 43.6 mm</td>
 <td>67.1 × 118.9 × 30.1 mm</td>
@@ -1379,8 +1407,8 @@
 <td>Weight</td>
 <td>224.4 g (without Jetson module)</td>
 <td>147.6 g (without CM5 and Hailo)</td>
-<td>–</td>
-<td>–</td>
+<td>8 g</td>
+<td>9 g</td>
 </tr>
 </tbody>
 </table>
