@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#product-comparison" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -310,6 +315,24 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -326,6 +349,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#product-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1145,6 +1196,25 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#product-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1174,78 +1244,146 @@
   </div>
 </div>
 
-<div class="split">
-  <div class="split__text">
-    <h2>Lectron Jetson Autopilot</h2>
-    <ul>
-      <li>Jetson Nano / Xavier NX / TX2 NX support</li>
-      <li>Onboard Ethernet switch, dual CSI camera, CAN, UART, GPIO</li>
-      <li>Processor: STM32H753 FMU + STM32F103 IO</li>
-      <li>IMU: Dual ICM-42670-P & Bosch BMI270</li>
-      <li>Barometer: Dual Bosch BMP390</li>
-      <li>Magnetometer: Bosch BMM350</li>
-      <li>Dimensions: 63.4 × 103.5 × 43.6 mm (case, excl. fan module)</li>
-      <li>Weight: 224.4 (without Jetson)</li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/jetson/board_1.png" alt="Lectron Jetson Autopilot board" />
-  </div>
-</div>
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    Jetson Autopilot
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">Jetson Nano/Xavier NX/TX2 NX · FMUv6X · GPU-based autopilot</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/jetson/">Overview</a></li>
+    <li><a href="md/jetson/dimension/">Dimension</a></li>
+    <li><a href="md/jetson/block-diagram/">Block Diagram</a></li>
+    <li><a href="md/jetson/specification/">Specification</a></li>
+    <li><a href="md/jetson/pinout/">Pinout</a></li>
+    <li><a href="md/jetson/assembly/">Assembly</a></li>
+    <li><a href="md/jetson/setup/">Initial Installation</a></li>
+    <li><a href="md/jetson/commands/">Commands</a></li>
+    <li><a href="md/jetson/gpio/">GPIO Control</a></li>
+    <li><a href="md/jetson/network/">Network</a></li>
+    <li><a href="md/jetson/mavlink_setup_uart/">MAVLink UART Setup</a></li>
+    <li><a href="md/jetson/fan_control/">Fan Control</a></li>
+  </ul>
+</details>
 
-<div class="split split--reverse">
-  <div class="split__text">
-    <h2>Lectron Pi5 Autopilot</h2>
-    <ul>
-      <li>Raspberry Pi Compute Module 5</li>
-      <li>Optional Hailo-8 edge AI accelerator</li>
-      <li>RealSense camera support, CM5 GPIO, FMU ↔ CM5 comms</li>
-      <li>Processor: STM32H753 FMU + STM32F103 IO</li>
-      <li>IMU: Dual ICM-42670-P & Bosch BMI270</li>
-      <li>Barometer: Dual Bosch BMP390</li>
-      <li>Magnetometer: Bosch BMM350</li>
-      <li>Dimensions: 67.1 × 118.9 × 30.1 mm (case, excl. fan module)</li>
-      <li>Weight: 147.6 (without CM5)</li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/raspberry/board_1.png" alt="Lectron Pi5 Autopilot board" />
-  </div>
-</div>
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    Pi5 Autopilot
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Hailo-8 Edge AI · FMUv6X</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/raspberry/">Overview</a></li>
+    <li><a href="md/raspberry/dimension/">Dimension</a></li>
+    <li><a href="md/raspberry/block-diagram/">Block Diagram</a></li>
+    <li><a href="md/raspberry/specification/">Specification</a></li>
+    <li><a href="md/raspberry/pinout/">Pinout</a></li>
+    <li><a href="md/raspberry/assembly/">Assembly</a></li>
+    <li><a href="md/raspberry/setup/">Initial Installation</a></li>
+    <li><a href="md/raspberry/cm5-gpio/">CM5 GPIO</a></li>
+    <li><a href="md/raspberry/cam1-setup/">Camera Setup</a></li>
+    <li><a href="md/raspberry/hailo-setup/">Hailo-8 Integration</a></li>
+    <li><a href="md/raspberry/realsense-setup/">RealSense Integration</a></li>
+    <li><a href="md/raspberry/fmu-cm5-comm/">FMU ↔ CM5 Communication</a></li>
+  </ul>
+</details>
 
-<div class="split">
-  <div class="split__text">
-    <h2>Lectron FPV</h2>
-    <ul>
-      <li>USB-C programming/debug port</li>
-      <li>Processor: STM32H743 FMU</li>
-      <li>IMU: ICM-42688-P</li>
-      <li>Barometer: BMP581</li>
-      <li>Magnetometer: IST8310</li>
-      <li>Dimensions: 36 × 36 mm</li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/autopilot/lectron_fpv.jpg" alt="Lectron FPV board" />
-  </div>
-</div>
-
-<div class="split split--reverse">
-  <div class="split__text">
-    <h2>Lectron FPV Pro</h2>
-    <ul>
-      <li>USB-C programming/debug port</li>
-      <li>Processor: STM32H743</li>
-      <li>IMU: ICM-42688-P & LSM6DSV16BXTR</li>
-      <li>Barometer: BMP581</li>
-      <li>Magnetometer: IST8310</li>
-      <li>Dimensions: 36 × 36 mm </li>
-    </ul>
-  </div>
-  <div class="split__media">
-    <img src="images/autopilot/lectron_fpv_pro.jpg" alt="Lectron FPV Pro board" />
-  </div>
-</div>
+<h2 id="product-comparison">Product Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Jetson Autopilot</th>
+<th>Pi5 Autopilot</th>
+<th>FPV</th>
+<th>FPV Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mission Computer</td>
+<td>Jetson Nano / Xavier NX / TX2 NX</td>
+<td>Raspberry Pi Compute Module 5</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>FMU Processor</td>
+<td>STM32H753 (Cortex-M7, 480 MHz)</td>
+<td>STM32H753 (Cortex-M7, 480 MHz)</td>
+<td>STM32H743</td>
+<td>STM32H743</td>
+</tr>
+<tr>
+<td>IO Processor</td>
+<td>STM32F103</td>
+<td>STM32F103</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>IMU</td>
+<td>Dual ICM-42670-P &amp; Bosch BMI270</td>
+<td>Dual ICM-42670-P &amp; Bosch BMI270</td>
+<td>ICM-42688-P</td>
+<td>ICM-42688-P &amp; LSM6DSV16BXTR</td>
+</tr>
+<tr>
+<td>Barometer</td>
+<td>Dual Bosch BMP390</td>
+<td>Dual Bosch BMP390</td>
+<td>BMP581</td>
+<td>BMP581</td>
+</tr>
+<tr>
+<td>Magnetometer</td>
+<td>Bosch BMM350</td>
+<td>Bosch BMM350</td>
+<td>IST8310</td>
+<td>IST8310</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>USB 3.0 Type-C, USB 2.0 Mini-B, FMU USB Type-C</td>
+<td>2 × USB 3.0 Type-C, Micro USB 2.0 (host), FMU USB Type-C</td>
+<td>USB-C</td>
+<td>USB-C</td>
+</tr>
+<tr>
+<td>Ethernet</td>
+<td>2 × 100 Mbps (onboard switch)</td>
+<td>1 × 1 Gbps (CM5) + 4-pin FMU (100 Mbps)</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>PWM Outputs</td>
+<td>8 FMU + 8 IO channels</td>
+<td>8 FMU + 8 IO channels</td>
+<td>9 FMU</td>
+<td>9 FMU</td>
+</tr>
+<tr>
+<td>Power Input</td>
+<td>9V - 26V (3S-6S LiPo), XT30</td>
+<td>9V - 26V (3S-6S LiPo), XT30</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>63.4 × 103.5 × 43.6 mm</td>
+<td>67.1 × 118.9 × 30.1 mm</td>
+<td>36 × 36 mm</td>
+<td>36 × 36 mm</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td>224.4 g (without Jetson module)</td>
+<td>147.6 g (without CM5 and Hailo)</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
 
 
 
