@@ -1291,124 +1291,225 @@
 <thead>
 <tr>
 <th>Feature</th>
-<th>Jetson Autopilot</th>
-<th>Pi5 Autopilot</th>
-<th>FPV</th>
-<th>FPV Pro</th>
+<th>Lectron Jetson Autopilot</th>
+<th>Lectron Pi5 Autopilot</th>
+<th>Lectron PI5 Light Autopilot</th>
+<th>Lectron V6X &amp; Carrier</th>
+<th>H7 MATRIX</th>
+<th>H7 FPV Pro</th>
+<th>H7 FPV</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Mission Computer</td>
-<td>Jetson Nano / Xavier NX / TX2 NX</td>
-<td>Raspberry Pi CM5</td>
+<td><strong>Mission Computer</strong></td>
+<td>Jetson Modules (Orin, TX2 NX, Xavier NX)</td>
+<td>Raspberry Compute Module 5</td>
+<td>Raspberry Compute Module 5</td>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
-<td>Camera Interface</td>
-<td>2 × 15Pin CSI</td>
+<td><strong>FMU Processor</strong></td>
+<td>STM32H753</td>
+<td>STM32H753</td>
+<td>STM32H753</td>
+<td>STM32H753</td>
+<td>STM32H743</td>
+<td>STM32H743</td>
+<td>STM32H743</td>
+</tr>
+<tr>
+<td><strong>IO Processor</strong></td>
+<td>STM32F103</td>
+<td>STM32F103</td>
+<td>-</td>
+<td>STM32F103</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Power Input</strong></td>
+<td>3S - 12S (9V - 54V) &amp; XT30 Connector</td>
+<td>3S - 12S (9V - 54V) &amp; XT30 Connector</td>
+<td>3S - 12S (9V - 54V) &amp; XT30 Connector</td>
+<td>5V - 5.5V (2 × I2C Power Port)</td>
+<td>5V - 5.5V (1 × I2C Power Port)</td>
+<td>3S - 12S (9V - 54V)</td>
+<td>3S - 12S (9V - 54V)</td>
+</tr>
+<tr>
+<td><strong>Case</strong></td>
+<td>Aluminum / Sensor Damping</td>
+<td>Aluminum / Sensor Damping</td>
+<td>Aluminum (Optional)</td>
+<td>Aluminum / Sensor Damping</td>
+<td>Aluminum</td>
+<td>Aluminum</td>
+<td>Aluminum</td>
+</tr>
+<tr>
+<td><strong>Camera Interface</strong></td>
+<td>2 × 22Pin CSI</td>
+<td>2 × 22Pin CSI</td>
 <td>2 × 22Pin CSI</td>
 <td>-</td>
 <td>-</td>
-</tr>
-<tr>
-<td>FMU Processor</td>
-<td>STM32H753</td>
-<td>STM32H753</td>
-<td>STM32H743</td>
-<td>STM32H743</td>
-</tr>
-<tr>
-<td>IO Processor</td>
-<td>STM32F103</td>
-<td>STM32F103</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
-<td>Power Input</td>
-<td>9V - 26V (3S-6S LiPo), XT30</td>
-<td>9V - 26V (3S-6S LiPo), XT30</td>
+<td><strong>Display Outputs</strong></td>
+<td>Mini HDMI</td>
+<td>Mini HDMI</td>
 <td>-</td>
 <td>-</td>
-</tr>
-<tr>
-<td>USB 2.0</td>
-<td>1 × Mini-B</td>
-<td>1 × Micro (host)</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
-<td>USB 3.0</td>
-<td>2 × Type-C</td>
-<td>3 × Type-C</td>
-<td>1 × Type-C</td>
-<td>1 × Type-C</td>
-</tr>
-<tr>
-<td>CAN</td>
-<td>1 × Jetson, 1 × FMU</td>
-<td>1 × Rpi, 1 × FMU</td>
+<td><strong>PCIe</strong></td>
+<td>NMVE SSD<br>Wifi &amp; Bluetooth</td>
+<td>HAILO, SSD, DX-M1M</td>
+<td>HAILO, SSD, DX-M1M</td>
 <td>-</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Telem</td>
-<td>3</td>
-<td>2</td>
 <td>-</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Ethernet</td>
-<td>2 × 100 Mbps (onboard switch)</td>
-<td>1 × 1 Gbps (CM5) + 1 × 100 Mbps (FMU)</td>
 <td>-</td>
-<td>1 × 100 Mbps</td>
+<td>-</td>
 </tr>
 <tr>
-<td>PWM Outputs</td>
-<td>8 FMU + 8 IO</td>
-<td>8 FMU + 8 IO</td>
-<td>9 FMU</td>
-<td>9 FMU</td>
-</tr>
-<tr>
-<td>IMU</td>
-<td>Dual ICM-42670-P &amp; Bosch BMI270</td>
-<td>Dual ICM-42670-P &amp; Bosch BMI270</td>
+<td><strong>IMU</strong></td>
+<td>ICM-42688-P<br>ICM-45686<br>Bosch BMI088</td>
+<td>ICM-42688-P<br>ICM-45686<br>Bosch BMI088</td>
+<td>ICM-42688-P<br>LSM6DSV16BXTR</td>
+<td>ICM-42688-P<br>ICM-45686<br>BMI088</td>
+<td>ICM-42688-P<br>LSM6DSV16BXTR</td>
 <td>ICM-42688-P</td>
-<td>ICM-42688-P &amp; LSM6DSV16BXTR</td>
+<td>ICM-42688-P</td>
 </tr>
 <tr>
-<td>Barometer</td>
-<td>Dual Bosch BMP390</td>
-<td>Dual Bosch BMP390</td>
-<td>BMP581</td>
-<td>BMP581</td>
+<td><strong>Barometer</strong></td>
+<td>Bosch BMP581<br>MS561101BA03-50</td>
+<td>Bosch BMP581<br>Bosch BMP390</td>
+<td>Bosch BMP581</td>
+<td>Bosch BMP581<br>MS561101BA03-50</td>
+<td>Bosch BMP581</td>
+<td>Bosch BMP581</td>
+<td>Bosch BMP581</td>
 </tr>
 <tr>
-<td>Magnetometer</td>
-<td>Bosch BMM350</td>
+<td><strong>Magnetometer</strong></td>
+<td>Bosch BMM350<br>Bosch IST8310</td>
 <td>Bosch BMM350</td>
 <td>IST8310</td>
+<td>IST8310<br>RM3100</td>
+<td>IST8310</td>
+<td>IST8310</td>
 <td>IST8310</td>
 </tr>
 <tr>
-<td>Size</td>
+<td><strong>Storage</strong></td>
+<td>FMU microSD &amp; FRAM</td>
+<td>CM5 eMMC &amp; microSD<br>FMU microSD &amp; FRAM</td>
+<td>CM5 eMMC &amp; microSD<br>FMU microSD &amp; FRAM</td>
+<td>microSD &amp; FRAM</td>
+<td>microSD &amp; FRAM</td>
+<td>microSD</td>
+<td>microSD</td>
+</tr>
+<tr>
+<td><strong>Software Support</strong></td>
+<td>PX4<br>ArduPilot</td>
+<td>PX4<br>ArduPilot</td>
+<td>PX4<br>ArduPilot</td>
+<td>PX4<br>ArduPilot</td>
+<td>PX4<br>ArduPilot</td>
+<td>PX4<br>ArduPilot<br>Inav<br>Betaflight</td>
+<td>PX4<br>ArduPilot<br>Inav<br>Betaflight</td>
+</tr>
+<tr>
+<td><strong>PWM Outputs</strong></td>
+<td>8 × FMU &amp; 8 × IO</td>
+<td>8 × FMU &amp; 8 × IO</td>
+<td>9 × FMU</td>
+<td>8 × FMU &amp; 8 × IO</td>
+<td>14 × FMU</td>
+<td>9 × FMU</td>
+<td>9 × FMU</td>
+</tr>
+<tr>
+<td><strong>Ports</strong></td>
+<td>Jetson GPIO Ports<br>RC IN(SBUS)<br>UART Ports<br>GPS1, GPS2<br>11Pin SPI<br>2 × Telem<br>2 × I2C</td>
+<td>CM5 GPIO Ports<br>RC IN(SBUS)<br>UART Ports<br>GPS1, GPS2<br>11Pin SPI<br>2 × Telem<br>2 × I2C</td>
+<td>CM5 GPIO Ports<br>RC IN(SBUS)<br>GPS1, GPS2<br>2 × Telem<br>2 × I2C</td>
+<td>RC IN(SBUS)<br>GPS1, GPS2<br>3 × Telem<br>11Pin SPI<br>I2C &amp; UART</td>
+<td>RC IN(SBUS)<br>GPS1, GPS2<br>2 × Telem<br>11Pin SPI<br>2 × I2C</td>
+<td>RC IN(SBUS)<br>GPS<br>Telem</td>
+<td>RC IN(SBUS)<br>GPS<br>Telem</td>
+</tr>
+<tr>
+<td><strong>Operating Temperature</strong></td>
+<td>-25°C to +85°C</td>
+<td>-25°C to +85°C</td>
+<td>-25°C to +85°C</td>
+<td>-25°C to +85°C</td>
+<td>-25°C to +85°C</td>
+<td>-25°C to +85°C</td>
+<td>-25°C to +85°C</td>
+</tr>
+<tr>
+<td><strong>USB</strong></td>
+<td>FMU Type-C USB3.0<br>Jetson 2 × Type-C USB3.2</td>
+<td>FMU Type-C USB3.0<br>CM5 2 × Type-C USB3.0 &amp; Micro USB2.0</td>
+<td>FMU Type-C USB2.0</td>
+<td>Type-C USB2.0</td>
+<td>Type-C USB2.0</td>
+<td>Type-C USB2.0</td>
+<td>Type-C USB2.0</td>
+</tr>
+<tr>
+<td><strong>CAN</strong></td>
+<td>1 × Jetson<br>2 × FMU</td>
+<td>1 × CM5<br>1 × FMU</td>
+<td>1 × FMU</td>
+<td>2 × FMU</td>
+<td>3 × FMU</td>
+<td>1 × FMU</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Dimensions</strong></td>
 <td>63.4 × 103.5 × 43.6 mm</td>
 <td>67.1 × 118.9 × 30.1 mm</td>
+<td>58 × 60 × 10 mm</td>
+<td>45 × 85 × 30 mm</td>
+<td>40 × 40 × 18 mm</td>
 <td>36 × 36 mm</td>
 <td>36 × 36 mm</td>
 </tr>
 <tr>
-<td>Weight</td>
+<td><strong>Weight</strong></td>
 <td>224.4 g (without Jetson module)</td>
 <td>147.6 g (without CM5 and Hailo)</td>
-<td>8 g</td>
-<td>9 g</td>
+<td>20 g (without CM5 and Hailo)</td>
+<td>100 g</td>
+<td>35 g</td>
+<td>10 g</td>
+<td>10 g</td>
+</tr>
+<tr>
+<td><strong>Ethernet</strong></td>
+<td>2 × 100 Mbps (onboard switch)</td>
+<td>FMU 100 Mbps <br>CM5 1 Gbps</td>
+<td>CM5 2 × 100 Mbps (FMU no ethernet)</td>
+<td>FMU 100 Mbps</td>
+<td>FMU 100 Mbps</td>
+<td>-</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
