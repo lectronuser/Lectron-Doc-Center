@@ -345,16 +345,16 @@ details[open] summary::before {
   font-weight: 700;
 }
 
-/* ---- Table header row: darker background for clearer row separation ---- */
+/* ---- Table header row: muted slate tone for clear row separation ---- */
 
 [data-md-color-scheme="default"] .md-typeset table:not([class]) th {
-  background-color: rgba(2, 6, 23, 0.85) !important;
-  color: #fff !important;
+  background-color: #45526640 !important;
+  color: var(--md-default-fg-color) !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
-  background-color: rgba(0, 0, 0, 0.55) !important;
-  color: #fff !important;
+  background-color: #94a3b840 !important;
+  color: var(--md-default-fg-color) !important;
 }
 
 /* ---- Table body rows: zebra striping so long rows stay easy to track ---- */
