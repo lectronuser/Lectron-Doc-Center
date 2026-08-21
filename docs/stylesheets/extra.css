@@ -344,3 +344,25 @@ details[open] summary::before {
   color: var(--md-accent-fg-color) !important;
   font-weight: 700;
 }
+
+/* ---- Table header row: muted slate tone for clear row separation ---- */
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) th {
+  background-color: #45526640 !important;
+  color: var(--md-default-fg-color) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: #94a3b840 !important;
+  color: var(--md-default-fg-color) !important;
+}
+
+/* ---- Table body rows: zebra striping so long rows stay easy to track ---- */
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: rgba(2, 6, 23, 0.045);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
