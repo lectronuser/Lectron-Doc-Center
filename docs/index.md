@@ -58,6 +58,46 @@ hide:
   </ul>
 </details>
 
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    Pi5 Light Autopilot
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">CM5 · Compact / Cost-optimized · FMUv6X</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/pi5-light/">Overview</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    H7 Matrix
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">STM32H743 · High channel count flight controller</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/h7-matrix/">Overview</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    H7 FPV Pro
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">STM32H743 · High-performance FPV flight controller</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/h7-fpv-pro/">Overview</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary style="padding:1rem 1.2rem; cursor:pointer; list-style:none; font-weight:700; font-size:1rem;">
+    H7 FPV
+    <span style="display:block; font-weight:400; font-size:0.8rem; opacity:0.6;">STM32H743 · Compact FPV flight controller</span>
+  </summary>
+  <ul style="margin:0; padding:0.5rem 1.2rem 0.8rem 2rem; border-top:1px solid rgba(128,128,128,0.15); list-style:disc;">
+    <li><a href="md/h7-fpv/">Overview</a></li>
+  </ul>
+</details>
+
 ## Product Comparison
 
 | Feature                   | Lectron Jetson Autopilot                                                                          | Lectron Pi5 Autopilot                                                                          | Lectron PI5 Light Autopilot                                         | Lectron V6X & Carrier                                             | H7 MATRIX                                                         | H7 FPV Pro                                                        | H7 FPV                                                            |

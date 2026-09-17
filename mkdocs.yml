@@ -35,6 +35,18 @@ nav:
         - RealSense Integration: md/raspberry/realsense-setup.md
         - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
 
+    - Pi5 Light Autopilot:
+        - Overview: md/pi5-light/index.md
+
+    - H7 Matrix:
+        - Overview: md/h7-matrix/index.md
+
+    - H7 FPV Pro:
+        - Overview: md/h7-fpv-pro/index.md
+
+    - H7 FPV:
+        - Overview: md/h7-fpv/index.md
+
 theme:
   name: material
   language: en
