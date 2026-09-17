@@ -60,6 +60,7 @@ theme:
     - navigation.tracking
     - navigation.expand
     - navigation.instant
+    - toc.integrate
     - navigation.instant.prefetch
     - navigation.instant.progress
     - content.code.copy

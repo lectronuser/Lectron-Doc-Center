@@ -27,37 +27,10 @@
   box-shadow: none !important;
 }
 
-.hero {
-  border-radius: 24px;
-  padding: clamp(28px, 4vw, 56px);
-  margin: 0 0 1.25rem 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,.20);
-}
-
 details {
   border-radius: 16px;
   margin-bottom: 0.75rem;
   overflow: hidden;
-}
-
-.hero__content h1 {
-  margin: 0 0 .5rem 0;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  font-size: 1.8rem;
-}
-
-.hero__content p {
-  max-width: 60ch;
-  opacity: .9;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.hero__actions {
-  display: flex;
-  gap: .5rem;
-  flex-wrap: wrap;
 }
 
 .md-button--ghost {
@@ -82,17 +55,11 @@ details {
   transform: translateY(-1px);
 }
 
-.hero .md-button {
-  border-radius: 10px;
-}
-
-[data-md-color-scheme="slate"] .hero,
 [data-md-color-scheme="slate"] details {
   background: rgba(30, 35, 45, 0.6);
   border: 1px solid rgba(255,255,255,.08);
 }
 
-[data-md-color-scheme="default"] .hero,
 [data-md-color-scheme="default"] details {
   background: rgba(240, 245, 250, 0.8);
   border: 1px solid rgba(2,6,23,.08);
@@ -376,4 +343,294 @@ details[open] summary::before {
 .md-typeset table:not([class]) {
   display: table;
   width: 100%;
+}
+
+/* ---- Home page product cards: squidfunk-style grid cards, 3 x 2 matrix ---- */
+
+.product-grid.grid.cards > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0;
+}
+
+.product-grid.grid.cards > ul > li {
+  margin: 0;
+  padding: 1.25rem 1.4rem 1.5rem;
+  border-radius: 18px;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.product-grid.grid.cards > ul > li:hover {
+  transform: translateY(-3px);
+}
+
+.product-grid .twemoji.lg {
+  color: var(--md-accent-fg-color);
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.product-grid > ul > li p:last-child a .twemoji {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: -.15em;
+}
+
+.product-grid > ul > li > hr {
+  margin: .6rem 0 .85rem;
+  border: none;
+  border-top: 1px solid rgba(128,128,128,.2);
+}
+
+.product-grid > ul > li p:last-child {
+  margin-top: 1.1rem;
+}
+
+.product-grid > ul > li p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-weight: 600;
+  font-size: .85rem;
+}
+
+[data-md-color-scheme="slate"] .product-grid.grid.cards > ul > li {
+  background: rgba(30, 35, 45, 0.6);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+[data-md-color-scheme="default"] .product-grid.grid.cards > ul > li {
+  background: rgba(240, 245, 250, 0.8);
+  border: 1px solid rgba(2,6,23,.08);
+}
+
+[data-md-color-scheme="slate"] .product-grid.grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 10px 24px rgba(0,0,0,.3);
+}
+
+[data-md-color-scheme="default"] .product-grid.grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 10px 24px rgba(0,0,0,.1);
+}
+
+@media (max-width: 900px) {
+  .product-grid.grid.cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid.grid.cards > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Extra-bold section heading ---- */
+
+.md-typeset h2.heavy-heading {
+  font-weight: 900;
+}
+
+/* ---- Home page: distinct, color-shifting sections with scroll reveal ---- */
+
+.md-typeset .section {
+  border-radius: 20px;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  margin: 0 0 1.25rem 0;
+}
+
+/* Fallback state: fully visible. JS opts sections into the animated
+   before/after state by adding .will-reveal right before observing them,
+   so content never disappears if JavaScript fails to run. */
+.md-typeset .section.will-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.md-typeset .section.will-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .section.will-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.md-typeset .section > h2:first-child,
+.md-typeset .section > h1:first-child {
+  margin-top: 0;
+}
+
+/* Hero: subtle, muted frame — no bright/gradient color */
+.md-typeset .section--hero {
+  text-align: left;
+  border-radius: 20px;
+}
+
+[data-md-color-scheme="slate"] .section--hero {
+  background: rgba(30, 35, 45, 0.55);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+[data-md-color-scheme="default"] .section--hero {
+  background: rgba(240, 245, 250, 0.7);
+  border: 1px solid rgba(2,6,23,.08);
+}
+
+.md-typeset .section--hero h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: .75rem;
+}
+
+.md-typeset .section--hero p {
+  max-width: 65ch;
+  opacity: .85;
+  font-size: 1rem;
+}
+
+.md-typeset .section--hero a.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .5rem;
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity .15s ease;
+}
+
+.md-typeset .section--hero a.hero__cta:hover {
+  opacity: .75;
+}
+
+/* Intro: plain, no panel background, just a color-shift breathing room */
+.md-typeset .section--intro {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.md-typeset .section--intro p {
+  max-width: 75ch;
+  opacity: .85;
+}
+
+/* Alternating tinted panels for the product sections */
+[data-md-color-scheme="slate"] .section--products {
+  background: rgba(30, 35, 45, 0.55);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+[data-md-color-scheme="default"] .section--products {
+  background: rgba(240, 245, 250, 0.7);
+  border: 1px solid rgba(2,6,23,.06);
+}
+
+/* Product Comparison: plain, no panel/frame */
+.md-typeset .section--comparison {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+[data-md-color-scheme="slate"] .section--controllers {
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+[data-md-color-scheme="default"] .section--controllers {
+  background: rgba(69, 82, 102, 0.06);
+  border: 1px solid rgba(2,6,23,.06);
+}
+
+/* Contact: plain text, no panel/frame — heading left, details fill the
+   empty space to its right instead of stacking full-width below it */
+.md-typeset .contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+.md-typeset .contact-layout > h2 {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.contact-info {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+
+.contact-info__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+}
+
+.contact-info__row p {
+  flex: 1 1 200px;
+}
+
+.contact-info p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.contact-info .twemoji {
+  color: var(--md-accent-fg-color);
+  width: 1.3rem;
+  height: 1.3rem;
+  vertical-align: -.3em;
+  margin-right: .35rem;
+}
+
+@media (max-width: 700px) {
+  .md-typeset .contact-layout {
+    flex-direction: column;
+  }
+}
+
+/* ---- Integrated "Table of contents" entry in the left nav: show a
+   rotating + (instead of the default chevron) as the expand/collapse
+   affordance, matching the checkbox-driven show/hide it already does ---- */
+
+label[for="__toc"] .md-nav__icon {
+  position: relative;
+}
+
+label[for="__toc"] .md-nav__icon:after {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  background: none !important;
+}
+
+label[for="__toc"] .md-nav__icon:before {
+  content: "+";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  color: currentColor;
+  transform: rotate(0deg);
+  transition: transform .2s ease;
+}
+
+#__toc:checked ~ label[for="__toc"] .md-nav__icon:before {
+  transform: rotate(45deg);
 }
