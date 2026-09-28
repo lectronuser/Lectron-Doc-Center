@@ -85,6 +85,8 @@ To flash the eMMC on a Raspberry Pi Compute Module, the following components are
 	- Set pin 3 of the DIP switch to the **LOW** position.
 	- Finally, reconnect the power supply to restart the system.
 
+!!! tip "Info"
+	To minimize the potential impact of Wi-Fi and Bluetooth on compass measurements, it is recommended to disable them during flight and compass calibration.
 
 ## **FMU Firmware Installation**
 
