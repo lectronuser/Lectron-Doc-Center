@@ -25,7 +25,7 @@ This documentation will help you understand Lectron's autopilot products technic
 
     Cost-optimized CM5 autopilot with a small and compact design.
 
-    [:octicons-arrow-right-24: Overview](md/pi5-light/index.md)
+    [:octicons-arrow-right-24: Overview](md/raspberry/pi5-light.md)
 
 -   :material-raspberry-pi:{ .lg .middle } **Pi5 Autopilot**
 
@@ -77,6 +77,156 @@ This documentation will help you understand Lectron's autopilot products technic
     Cost-focused flight controller.
     
     [:octicons-arrow-right-24: Overview](md/h7-matrix/index.md)
+
+</div>
+
+</div>
+
+<div class="section section--products" markdown>
+
+## GPS & Sensor Modules
+
+<div class="grid cards product-grid" markdown>
+
+-   :material-satellite-variant:{ .lg .middle } **F10N GPS**
+
+    ---
+
+    Dual-band u-blox F10N GNSS module with compass, safety switch and buzzer.
+
+    [:octicons-arrow-right-24: Overview](md/gps/f10n.md)
+
+-   :material-satellite-variant:{ .lg .middle } **M10Q GPS**
+
+    ---
+
+    Small and lightweight u-blox M10Q GNSS module with compass.
+
+    [:octicons-arrow-right-24: Overview](md/gps/m10q.md)
+
+-   :material-satellite-variant:{ .lg .middle } **M10N GPS**
+
+    ---
+
+    u-blox M10N GNSS module with compass and CAN interface.
+
+    [:octicons-arrow-right-24: Overview](md/gps/m10n.md)
+
+-   :material-satellite-variant:{ .lg .middle } **M9N GPS CAN**
+
+    ---
+
+    u-blox M9N GNSS module with compass and CAN interface.
+
+    [:octicons-arrow-right-24: Overview](md/gps/m9n-can.md)
+
+-   :material-satellite-variant:{ .lg .middle } **M9N GPS**
+
+    ---
+
+    u-blox M9N GNSS module with compass and UART & I2C interface.
+
+    [:octicons-arrow-right-24: Overview](md/gps/m9n.md)
+
+</div>
+
+</div>
+
+<div class="section section--controllers" markdown>
+
+## Power Modules
+
+<div class="grid cards product-grid" markdown>
+
+-   :material-flash:{ .lg .middle } **PMD01**
+
+    ---
+
+    Compact BEC with solder-selectable 5V / 8V / 12V output.
+
+    [:octicons-arrow-right-24: Overview](md/power/pmd01.md)
+
+-   :material-flash:{ .lg .middle } **PMD02**
+
+    ---
+
+    5.2V BEC with voltage and current telemetry over I2C.
+
+    [:octicons-arrow-right-24: Overview](md/power/pmd02.md)
+
+-   :material-flash:{ .lg .middle } **PMD03**
+
+    ---
+
+    Dual output BEC with 5.2V and selectable 5V / 8V / 12V rails.
+
+    [:octicons-arrow-right-24: Overview](md/power/pmd03.md)
+
+-   :material-flash:{ .lg .middle } **PDB-300**
+
+    ---
+
+    High-current power distribution board with XT90 and XT30 outputs.
+
+    [:octicons-arrow-right-24: Overview](md/power/pdb-300.md)
+
+</div>
+
+</div>
+
+<div class="section section--products" markdown>
+
+## Electronic Speed Controllers
+
+<div class="grid cards product-grid" markdown>
+
+-   :material-fan:{ .lg .middle } **12S 100A Single ESC**
+
+    ---
+
+    Single ESC for 3S - 12S systems, 100A continuous.
+
+    [:octicons-arrow-right-24: Overview](md/esc/12s-100a-single.md)
+
+-   :material-fan:{ .lg .middle } **12S 100A 4in1 ESC**
+
+    ---
+
+    4-in-1 ESC for 3S - 12S systems, 4 × 100A continuous.
+
+    [:octicons-arrow-right-24: Overview](md/esc/12s-100a-4in1.md)
+
+-   :material-fan:{ .lg .middle } **8S 80A Single ESC**
+
+    ---
+
+    Single ESC for 3S - 8S systems, 80A continuous.
+
+    [:octicons-arrow-right-24: Overview](md/esc/8s-80a-single.md)
+
+-   :material-fan:{ .lg .middle } **8S 80A 4in1 ESC**
+
+    ---
+
+    4-in-1 ESC for 3S - 8S systems, 4 × 80A continuous.
+
+    [:octicons-arrow-right-24: Overview](md/esc/8s-80a-4in1.md)
+
+-   :material-fan:{ .lg .middle } **6S 60A Single ESC**
+
+    ---
+
+    Single ESC for 3S - 6S systems, 60A continuous.
+
+    [:octicons-arrow-right-24: Overview](md/esc/6s-60a-single.md)
+
+-   :material-fan:{ .lg .middle } **6S 60A 4in1 ESC**
+
+    ---
+
+    4-in-1 ESC for 3S - 6S systems, 4 × 60A continuous.
+
+    [:octicons-arrow-right-24: Overview](md/esc/6s-60a-4in1.md)
 
 </div>
 

@@ -34,18 +34,36 @@ nav:
         - Hailo-8 Integration: md/raspberry/hailo-setup.md
         - RealSense Integration: md/raspberry/realsense-setup.md
         - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
+        - Pi5 Light Autopilot: md/raspberry/pi5-light.md
 
-    - Pi5 Light Autopilot:
-        - Overview: md/pi5-light/index.md
+    - Flight Controller:
+        - H7 Matrix: md/h7-matrix/index.md
+        - H7 FPV Pro: md/h7-fpv-pro/index.md
+        - H7 FPV: md/h7-fpv/index.md
 
-    - H7 Matrix:
-        - Overview: md/h7-matrix/index.md
+    - GPS & Sensors:
+        - Overview: md/gps/index.md
+        - F10N GPS: md/gps/f10n.md
+        - M10Q GPS: md/gps/m10q.md
+        - M10N GPS: md/gps/m10n.md
+        - M9N GPS CAN: md/gps/m9n-can.md
+        - M9N GPS: md/gps/m9n.md
 
-    - H7 FPV Pro:
-        - Overview: md/h7-fpv-pro/index.md
+    - Power Modules:
+        - Overview: md/power/index.md
+        - PMD01: md/power/pmd01.md
+        - PMD02: md/power/pmd02.md
+        - PMD03: md/power/pmd03.md
+        - PDB-300: md/power/pdb-300.md
 
-    - H7 FPV:
-        - Overview: md/h7-fpv/index.md
+    - ESC:
+        - Overview: md/esc/index.md
+        - 12S 100A Single ESC: md/esc/12s-100a-single.md
+        - 12S 100A 4in1 ESC: md/esc/12s-100a-4in1.md
+        - 8S 80A Single ESC: md/esc/8s-80a-single.md
+        - 8S 80A 4in1 ESC: md/esc/8s-80a-4in1.md
+        - 6S 60A Single ESC: md/esc/6s-60a-single.md
+        - 6S 60A 4in1 ESC: md/esc/6s-60a-4in1.md
 
 theme:
   name: material
