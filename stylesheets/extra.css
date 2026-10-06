@@ -634,3 +634,9 @@ label[for="__toc"] .md-nav__icon:before {
 #__toc:checked ~ label[for="__toc"] .md-nav__icon:before {
   transform: rotate(45deg);
 }
+
+/* Reserve the vertical scrollbar gutter on every page so the centered
+   header and tabs do not shift sideways between long and short pages. */
+html {
+  scrollbar-gutter: stable;
+}
