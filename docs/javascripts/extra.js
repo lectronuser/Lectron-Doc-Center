@@ -1,5 +1,5 @@
 function lectronInitSectionReveal() {
-  const sections = document.querySelectorAll(".section");
+  const sections = document.querySelectorAll(".section:not(.section--hero)");
   if (!sections.length || !("IntersectionObserver" in window)) return;
 
   sections.forEach((section) => section.classList.add("will-reveal"));

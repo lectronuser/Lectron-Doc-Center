@@ -6,15 +6,37 @@ hide:
 
 <div class="section section--hero" markdown>
 
-# Welcome to Lectron Documentation
+<p class="eyebrow">Lectron · Doc Center</p>
+
+# Flight hardware, <span class="accent">documented.</span>
 
 This documentation will help you understand Lectron's autopilot products technical specifications, pinouts, block diagrams, assembly guides, software setup, and integration tutorials.
 
+<div class="hero__actions" markdown>
+[Get started :octicons-arrow-right-24:](md/raspberry/index.md){ .md-button .md-button--primary }
+[Compare products](#product-comparison){ .md-button }
+</div>
+
+<div class="hero__stats">
+  <a href="#autopilots"><b>3</b><span>Autopilots</span></a>
+  <a href="#flight-controllers"><b>3</b><span>Flight controllers</span></a>
+  <a href="#gps"><b>5</b><span>GPS modules</span></a>
+  <a href="#power"><b>4</b><span>Power modules</span></a>
+  <a href="#esc"><b>6</b><span>ESCs</span></a>
+</div>
+
+<div class="hero__titleblock" aria-hidden="true">
+  <span>DOC</span><span>LECTRON-DC</span>
+  <span>REV</span><span id="year"></span>
+  <span>SHEET</span><span>01 / 06</span>
+</div>
 
 </div>
 
 
-<div class="section section--products" markdown>
+<div id="autopilots" class="section section--products" markdown>
+
+<p class="section-label"><span>01</span> Autopilot</p>
 
 ## Autopilot Product
 
@@ -48,7 +70,9 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-<div class="section section--controllers" markdown>
+<div id="flight-controllers" class="section section--controllers" markdown>
+
+<p class="section-label"><span>02</span> Flight control</p>
 
 ## Flight Controller Product
 
@@ -82,7 +106,9 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-<div class="section section--products" markdown>
+<div id="gps" class="section section--products" markdown>
+
+<p class="section-label"><span>03</span> Navigation</p>
 
 ## GPS & Sensor Modules
 
@@ -132,7 +158,9 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-<div class="section section--controllers" markdown>
+<div id="power" class="section section--controllers" markdown>
+
+<p class="section-label"><span>04</span> Power</p>
 
 ## Power Modules
 
@@ -174,7 +202,9 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-<div class="section section--products" markdown>
+<div id="esc" class="section section--products" markdown>
+
+<p class="section-label"><span>05</span> Propulsion</p>
 
 ## Electronic Speed Controllers
 
@@ -232,9 +262,11 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-<div class="section section--comparison" markdown>
+<div id="comparison" class="section section--comparison" markdown>
 
-## Product Comparison { .heavy-heading }
+<p class="section-label"><span>06</span> Specifications</p>
+
+## Product Comparison
 
 | Feature                   | Lectron Jetson Autopilot                                                                          | Lectron Pi5 Autopilot                                                                          | Lectron PI5 Light Autopilot                                         |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |

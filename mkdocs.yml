@@ -90,20 +90,24 @@ theme:
     - header.autohide
     - announce.dismiss
 
+  font:
+    text: Inter
+    code: JetBrains Mono
+
   palette:
-    - scheme: default
-      primary: indigo
-      accent: cyan
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: cyan
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-    
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
   logo: assets/img/lectron_white.svg
 
 
