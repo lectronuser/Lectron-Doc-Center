@@ -458,7 +458,7 @@ Main board power input (**XT30**).
     Observe correct polarity on the XT30 input. Input voltage must stay within **+9V to +26V**; reverse polarity or over-voltage may permanently damage the board.
 
 !!! danger "Use the Supplied XT30 Cable Only"
-    Power the board exclusively through the **XT30 cable supplied by Lectron**. Using a third-party or incorrectly wired cable may damage the onboard regulator stage. This cable compansate voltage ripples that are caused by motors.
+    Power the board exclusively through the **XT30 cable supplied by Lectron**. Using a third-party or incorrectly wired cable may damage the onboard regulator stage. This cable compensates for voltage ripples caused by the motors.
 
 ---
 

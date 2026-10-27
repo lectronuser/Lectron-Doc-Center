@@ -14,7 +14,7 @@ Single ESC for 3S - 6S systems, 60A continuous.
 | **Main Processor** | STSPIN32G0 |
 | **Gate Driver** | STSPIN Integrated |
 | **Firmware** | AM32 / BLHELI32 |
-| **Power IN** | 3S - 6S |
+| **Power Input** | 3S - 6S |
 | **Continuous Current** | 60A |
 | **Burst Current** | 70A |
 | **Measurements (ADC)** | Voltage & Current |

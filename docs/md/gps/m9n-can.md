@@ -11,7 +11,7 @@ u-blox M9N GNSS module with compass and CAN interface.
 
 | Feature | Lectron M9N GPS CAN |
 | --- | --- |
-| **Main Processor** | Ublox M9N |
+| **Main Processor** | u-blox M9N |
 | **Protocol** | BeiDou, Galileo, GLONASS, GNSS, GPS |
 | **Frequency** | 1.575 GHz, 1.602 GHz |
 | **Data Rate** | 921.6 kbps |
@@ -19,7 +19,7 @@ u-blox M9N GNSS module with compass and CAN interface.
 | **Compass** | IST8310 |
 | **Connector** | 4 Pin JST GH |
 | **Interface** | CAN |
-| **Power IN** | 5V |
+| **Power Input** | 5V |
 | **Button Function** | Safety Switch In |
 | **LED Functions** | Safety, GPS Fix, RGB(Status) |
 | **RGB Led Driver** | IS31FL3195 |

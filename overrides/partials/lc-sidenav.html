@@ -1,0 +1,51 @@
+{#-
+  Desktop left menu: only the pages of the product picked from the top tabs
+  (e.g. Pi5 Autopilot -> Dimension, Pinout, ...), with the open page's
+  headings nested under it. A single-page product (H7 FPV, Pi5 Light, ...)
+  lists its headings directly. CSS hides the right-hand table of contents
+  on desktop, and extra.js highlights the heading currently in view.
+-#}
+
+{#- Page headings without the page's own h1, same unwrapping as Material's toc.html -#}
+{%- macro render_toc(toc, level=1) -%}
+  {%- set first = toc | first -%}
+  {%- if first and first.level == 1 %}{% set toc = first.children %}{% endif -%}
+  {%- if toc %}
+    <ul class="lc-sidenav__toc{% if level > 1 %} lc-sidenav__toc--nested{% endif %}">
+      {%- for heading in toc %}
+        <li>
+          <a href="{{ heading.url }}" class="lc-sidenav__heading">{{ heading.title }}</a>
+          {%- if heading.children and level < 2 %}
+            {{ render_toc(heading.children, level + 1) }}
+          {%- endif %}
+        </li>
+      {%- endfor %}
+    </ul>
+  {%- endif %}
+{%- endmacro -%}
+
+{%- set tab = nav.items | selectattr("active") | first -%}
+{%- if tab and tab.children -%}
+  {%- set product = tab.children | selectattr("active") | first -%}
+  {%- if product -%}
+    <nav class="lc-sidenav" aria-label="{{ product.title }}">
+      <div class="lc-sidenav__title">{{ product.title }}</div>
+      {%- if product.children %}
+        <ul class="lc-sidenav__list">
+          {%- for item in product.children if not item.children %}
+            <li>
+              <a href="{{ item.url | url }}" class="lc-sidenav__link{% if item.active %} lc-sidenav__link--active{% endif %}">
+                {{ "Overview" if loop.first and item.is_index else item.title }}
+              </a>
+              {%- if item.active %}
+                {{ render_toc(page.toc) }}
+              {%- endif %}
+            </li>
+          {%- endfor %}
+        </ul>
+      {%- else %}
+        {{ render_toc(page.toc) }}
+      {%- endif %}
+    </nav>
+  {%- endif -%}
+{%- endif -%}

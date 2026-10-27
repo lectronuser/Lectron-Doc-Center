@@ -10,11 +10,11 @@ hide:
 
 # Flight hardware, <span class="accent">documented.</span>
 
-This documentation will help you understand Lectron's autopilot products technical specifications, pinouts, block diagrams, assembly guides, software setup, and integration tutorials.
+This documentation covers the technical specifications, pinouts, block diagrams, assembly guides, software setup and integration tutorials for Lectron's autopilots and flight hardware.
 
 <div class="hero__actions" markdown>
 [Get started :octicons-arrow-right-24:](md/raspberry/index.md){ .md-button .md-button--primary }
-[Compare products](#product-comparison){ .md-button }
+[Compare products](#comparison){ .md-button }
 </div>
 
 <div class="hero__stats">
@@ -25,20 +25,12 @@ This documentation will help you understand Lectron's autopilot products technic
   <a href="#esc"><b>6</b><span>ESCs</span></a>
 </div>
 
-<div class="hero__titleblock" aria-hidden="true">
-  <span>DOC</span><span>LECTRON-DC</span>
-  <span>REV</span><span id="year"></span>
-  <span>SHEET</span><span>01 / 06</span>
-</div>
-
 </div>
 
 
 <div id="autopilots" class="section section--products" markdown>
 
 <p class="section-label"><span>01</span> Autopilot</p>
-
-## Autopilot Product
 
 <div class="grid cards product-grid" markdown>
 -   :material-raspberry-pi:{ .lg .middle } **Pi5 Light Autopilot**
@@ -72,9 +64,7 @@ This documentation will help you understand Lectron's autopilot products technic
 
 <div id="flight-controllers" class="section section--controllers" markdown>
 
-<p class="section-label"><span>02</span> Flight control</p>
-
-## Flight Controller Product
+<p class="section-label"><span>02</span> Flight Controller</p>
 
 <div class="grid cards product-grid" markdown>
 
@@ -82,7 +72,7 @@ This documentation will help you understand Lectron's autopilot products technic
 
     ---
 
-    Cost-focused flight controller.
+    Compact, lightweight FPV flight controller for racing and freestyle builds.
 
     [:octicons-arrow-right-24: Overview](md/h7-fpv/index.md)
     
@@ -90,7 +80,7 @@ This documentation will help you understand Lectron's autopilot products technic
 
     ---
 
-    Cost-focused flight controller.
+    High-performance FPV flight controller with 3S - 12S input and CAN.
 
     [:octicons-arrow-right-24: Overview](md/h7-fpv-pro/index.md)
 
@@ -98,7 +88,7 @@ This documentation will help you understand Lectron's autopilot products technic
 
     ---
 
-    Cost-focused flight controller.
+    High channel count flight controller with 14 PWM outputs and 3 × CAN.
     
     [:octicons-arrow-right-24: Overview](md/h7-matrix/index.md)
 
@@ -106,11 +96,11 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-<div id="gps" class="section section--products" markdown>
+<div id="peripherals" class="section section--products" markdown>
 
-<p class="section-label"><span>03</span> Navigation</p>
+<p class="section-label"><span>03</span> Peripherals</p>
 
-## GPS & Sensor Modules
+### GPS Modules { #gps }
 
 <div class="grid cards product-grid" markdown>
 
@@ -156,13 +146,7 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-</div>
-
-<div id="power" class="section section--controllers" markdown>
-
-<p class="section-label"><span>04</span> Power</p>
-
-## Power Modules
+### Power Modules { #power }
 
 <div class="grid cards product-grid" markdown>
 
@@ -200,13 +184,7 @@ This documentation will help you understand Lectron's autopilot products technic
 
 </div>
 
-</div>
-
-<div id="esc" class="section section--products" markdown>
-
-<p class="section-label"><span>05</span> Propulsion</p>
-
-## Electronic Speed Controllers
+### Electronic Speed Controllers { #esc }
 
 <div class="grid cards product-grid" markdown>
 
@@ -264,20 +242,18 @@ This documentation will help you understand Lectron's autopilot products technic
 
 <div id="comparison" class="section section--comparison" markdown>
 
-<p class="section-label"><span>06</span> Specifications</p>
+<p class="section-label"><span>04</span> Specifications</p>
 
-## Product Comparison
-
-| Feature                   | Lectron Jetson Autopilot                                                                          | Lectron Pi5 Autopilot                                                                          | Lectron PI5 Light Autopilot                                         |
+| Feature                   | Lectron Jetson Autopilot                                                                          | Lectron Pi5 Autopilot                                                                          | Lectron Pi5 Light Autopilot                                         |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| **Mission Computer**      | Jetson Modules (Orin, TX2 NX, Xavier NX)                                                          | Raspberry Compute Module 5                                                                     | Raspberry Compute Module 5                                          |
+| **Mission Computer**      | Jetson Modules (Orin, TX2 NX, Xavier NX)                                                          | Raspberry Pi Compute Module 5                                                                     | Raspberry Pi Compute Module 5                                          |
 | **FMU Processor**         | STM32H753                                                                                         | STM32H753                                                                                      | STM32H753                                                           |
 | **IO Processor**          | STM32F103                                                                                         | STM32F103                                                                                      | -                                                                   |
 | **Power Input**           | 3S - 12S (9V - 54V) & XT30 Connector                                                              | 3S - 12S (9V - 54V) & XT30 Connector                                                           | 3S - 12S (9V - 54V) & XT30 Connector                                |
 | **Case**                  | Aluminum / Sensor Damping                                                                         | Aluminum / Sensor Damping                                                                      | Aluminum (Optional)                                                 |
 | **Camera Interface**      | 2 × 22Pin CSI                                                                                     | 2 × 22Pin CSI                                                                                  | 2 × 22Pin CSI                                                       |
 | **Display Outputs**       | Mini HDMI                                                                                         | Mini HDMI                                                                                      | -                                                                   |
-| **PCIe**                  | NMVE SSD<br>Wifi & Bluetooth                                                                      | HAILO, SSD, DX-M1M                                                                             | HAILO, SSD, DX-M1M                                                  |
+| **PCIe**                  | NVMe SSD<br>Wi-Fi & Bluetooth                                                                      | HAILO, SSD, DX-M1M                                                                             | HAILO, SSD, DX-M1M                                                  |
 | **IMU**                   | ICM-42688-P<br>ICM-45686<br>Bosch BMI088                                                          | ICM-42688-P<br>ICM-45686<br>Bosch BMI088                                                       | ICM-42688-P<br>LSM6DSV16BXTR                                        |
 | **Barometer**             | Bosch BMP581<br>MS561101BA03-50                                                                   | Bosch BMP581<br>Bosch BMP390                                                                   | Bosch BMP581                                                        |
 | **Magnetometer**          | Bosch BMM350<br>Bosch IST8310                                                                     | Bosch BMM350                                                                                   | IST8310                                                             |
@@ -290,9 +266,9 @@ This documentation will help you understand Lectron's autopilot products technic
 | **CAN**                   | 1 × Jetson<br>2 × FMU                                                                             | 1 × CM5<br>1 × FMU                                                                             | 1 × FMU                                                             |
 | **Dimensions**            | 63.4 × 103.5 × 43.6 mm                                                                            | 67.1 × 118.9 × 30.1 mm                                                                         | 58 × 60 × 10 mm                                                     |
 | **Weight**                | 224.4 g (without Jetson module)                                                                   | 147.6 g (without CM5 and Hailo)                                                                | 20 g (without CM5 and Hailo)                                        |
-| **Ethernet**              | 2 × 100 Mbps (onboard switch)                                                                     | FMU 100 Mbps <br>CM5 1 Gbps                                                                    | CM5 2 × 100 Mbps (FMU no ethernet)                                  |
+| **Ethernet**              | 2 × 100 Mbps (onboard switch)                                                                     | FMU 100 Mbps <br>CM5 1 Gbps                                                                    | CM5 2 × 100 Mbps (no FMU Ethernet)                                  |
 
-| Feature                   | Lectron V6X & Carrier                                             | H7 MATRIX                                                         | H7 FPV Pro                                                        | H7 FPV                                                            |
+| Feature                   | Lectron V6X & Carrier                                             | H7 Matrix                                                         | H7 FPV Pro                                                        | H7 FPV                                                            |
 | ------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
 | **FMU Processor**         | STM32H753                                                         | STM32H743                                                         | STM32H743                                                         | STM32H743                                                         |
 | **IO Processor**          | STM32F103                                                         | -                                                                 | -                                                                 | -                                                                 |

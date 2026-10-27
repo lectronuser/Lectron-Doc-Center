@@ -41,7 +41,7 @@ To flash the eMMC on a Raspberry Pi Compute Module, the following components are
 		- Run **RPiBoot.exe**.
 		- The Compute Module eMMC will appear as a USB mass storage device.
 
-=== "MacOS"
+=== "macOS"
 	1. Build rpiboot [from source.](https://github.com/raspberrypi/usbboot)
 	2. Connect the IO Board to power.
 	3. Run the rpiboot executable from the terminal: `rpiboot -d mass-storage-gadget64`

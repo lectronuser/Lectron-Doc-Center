@@ -16,7 +16,7 @@ Its reduced size and optional aluminum case make it well suited for smaller airf
 
 | Feature | Lectron Pi5 Light Autopilot |
 | --- | --- |
-| **Mission Computer** | Raspberry Compute Module 5 |
+| **Mission Computer** | Raspberry Pi Compute Module 5 |
 | **FMU Processor** | STM32H753 |
 | **IO Processor** | - |
 | **Power Input** | 3S - 12S (9V - 54V) & XT30 Connector |
@@ -36,4 +36,4 @@ Its reduced size and optional aluminum case make it well suited for smaller airf
 | **CAN** | 1 × FMU |
 | **Dimensions** | 58 × 60 × 10 mm |
 | **Weight** | 20 g (without CM5 and Hailo) |
-| **Ethernet** | CM5 2 × 100 Mbps (FMU no ethernet) |
+| **Ethernet** | CM5 2 × 100 Mbps (no FMU Ethernet) |

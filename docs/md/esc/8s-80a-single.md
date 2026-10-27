@@ -14,7 +14,7 @@ Single ESC for 3S - 8S systems, 80A continuous.
 | **Main Processor** | STSPIN32G4 |
 | **Gate Driver** | STSPIN Integrated |
 | **Firmware** | AM32 / BLHELI32 |
-| **Power IN** | 3S - 8S |
+| **Power Input** | 3S - 8S |
 | **Continuous Current** | 80A |
 | **Burst Current** | 90A |
 | **Measurements (ADC)** | Voltage & Current |

@@ -1,0 +1,45 @@
+{#-
+  Top navigation tabs with a dropdown panel per section.
+  Replaces Material's partials/tabs.html; each tab still links to the first
+  page of its section, and hovering/focusing it opens a list of the
+  section's products (the products' own pages live in the left menu).
+-#}
+
+{#- URL of the first leaf page below a nav item -#}
+{%- macro first_url(item) -%}
+  {%- if item.children -%}
+    {{- first_url(item.children | first) -}}
+  {%- else -%}
+    {{- item.url | url -}}
+  {%- endif -%}
+{%- endmacro -%}
+
+<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      {%- for nav_item in nav.items %}
+        <li class="md-tabs__item{% if nav_item.active %} md-tabs__item--active{% endif %}{% if nav_item.children %} md-tabs__item--dropdown{% endif %}">
+          <a href="{{ first_url(nav_item) }}" class="md-tabs__link">
+            {{ nav_item.title }}
+          </a>
+          {%- if nav_item.children %}
+            <div class="lc-dropdown">
+              <ul class="lc-dropdown__list">
+                {%- for child in nav_item.children %}
+                  {#- A section's own overview page is reached through the tab itself -#}
+                  {%- if not (loop.first and child.is_index) %}
+                    <li>
+                      <a href="{{ first_url(child) }}" class="lc-dropdown__link{% if child.active %} lc-dropdown__link--active{% endif %}">
+                        {{ child.title }}
+                      </a>
+                    </li>
+                  {%- endif %}
+                {%- endfor %}
+              </ul>
+            </div>
+          {%- endif %}
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</nav>

@@ -20,7 +20,7 @@ Lectron ESCs are built around STSPIN32 controllers with integrated gate drivers,
 | **Main Processor** | STSPIN32G4 | STSPIN32G4 | STSPIN32G4 | STSPIN32G4 | STSPIN32G0 | STSPIN32G0 |
 | **Gate Driver** | STSPIN Integrated | STSPIN Integrated | STSPIN Integrated | STSPIN Integrated | STSPIN Integrated | STSPIN Integrated |
 | **Firmware** | AM32 | AM32 / BLHELI32 | AM32 / BLHELI32 | AM32 / BLHELI32 | AM32 / BLHELI32 | AM32 / BLHELI32 |
-| **Power IN** | 3S - 12S | 3S - 12S | 3S - 8S | 3S - 8S | 3S - 6S | 3S - 6S |
+| **Power Input** | 3S - 12S | 3S - 12S | 3S - 8S | 3S - 8S | 3S - 6S | 3S - 6S |
 | **Continuous Current** | 100A | 4 × 100A | 80A | 4 × 80A | 60A | 4 × 60A |
 | **Burst Current** | 120A | 4 × 120A | 90A | 4 × 90A | 70A | 4 × 70A |
 | **Measurements (ADC)** | Voltage & Current | Voltage & Current | Voltage & Current | Voltage & Current | Voltage & Current | Voltage & Current |

@@ -1,6 +1,6 @@
 # MAVLink Companion Link Setup over UART
 
-This file explaint how to bring up PX4 TELEM3 (FMU USART2) as a MAVLink port and receive its stream on the Jetson over UART0.
+This page explains how to bring up PX4 TELEM3 (FMU USART2) as a MAVLink port and receive its stream on the Jetson over UART0.
 
 ---
 

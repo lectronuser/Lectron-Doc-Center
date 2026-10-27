@@ -14,7 +14,7 @@ Single ESC for 3S - 12S systems, 100A continuous.
 | **Main Processor** | STSPIN32G4 |
 | **Gate Driver** | STSPIN Integrated |
 | **Firmware** | AM32 |
-| **Power IN** | 3S - 12S |
+| **Power Input** | 3S - 12S |
 | **Continuous Current** | 100A |
 | **Burst Current** | 120A |
 | **Measurements (ADC)** | Voltage & Current |

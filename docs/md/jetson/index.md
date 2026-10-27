@@ -2,7 +2,7 @@
 
 ![Jetson Custom Board](../../images/jetson/board_1.png)
 
-## **Pixhawk V6X Compatible Autopilot with Nvidia Jetson Boards**
+## **Pixhawk V6X Compatible Autopilot with NVIDIA Jetson Boards**
 
 !!! note "Supported Jetson Modules"
     This product supports the following NVIDIA Jetson modules: **Jetson Nano**, **Jetson Xavier NX**, and **Jetson TX2 NX**.

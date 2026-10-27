@@ -74,7 +74,10 @@
   --md-accent-bg-color--light: rgba(255, 255, 255, .7);
 }
 
-.md-typeset {
+/* Set on the scheme, not just .md-typeset: Material also uses it for the
+   active entry in the mobile drawer, where it otherwise falls back to the
+   navy header colour and the text disappears. */
+[data-md-color-scheme] {
   --md-typeset-a-color: var(--lc-accent-text);
 }
 
@@ -135,6 +138,103 @@ html {
 .md-tabs__item--active .md-tabs__link {
   opacity: 1;
   color: var(--lc-accent);
+}
+
+/* ---- Tab dropdown panels (overrides/partials/tabs.html) ---- */
+
+/* Material drops the tabs below 76.25em, leaving 13-14" laptops and
+   landscape tablets with only the drawer; keep them down to 60em. */
+@media screen and (min-width: 60em) and (max-width: 76.234375em) {
+  .md-tabs {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  /* Material clips the tab bar for horizontal scrolling; let panels overflow */
+  .md-tabs,
+  .md-tabs__list {
+    overflow: visible;
+    contain: none;
+  }
+
+  .md-tabs__item--dropdown {
+    position: relative;
+  }
+
+  .md-tabs__item--dropdown > .md-tabs__link::after {
+    content: "";
+    width: .3rem;
+    height: .3rem;
+    margin: .2rem 0 0 .4rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-50%);
+    opacity: .7;
+    transition: transform .2s var(--lc-ease);
+  }
+
+  .md-tabs__item--dropdown:hover > .md-tabs__link::after,
+  .md-tabs__item--dropdown:focus-within > .md-tabs__link::after {
+    transform: rotate(225deg) translateY(-10%);
+  }
+
+  .lc-dropdown {
+    position: absolute;
+    top: 100%;
+    left: -.4rem;
+    z-index: 5;
+    padding-top: .35rem;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity .15s var(--lc-ease), transform .15s var(--lc-ease), visibility 0s linear .15s;
+  }
+
+  .md-tabs__item--dropdown:hover > .lc-dropdown,
+  .md-tabs__item--dropdown:focus-within > .lc-dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  /* Closed right after a click so the panel does not linger over the new page */
+  .md-tabs__item--dropdown.is-closed > .lc-dropdown {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .lc-dropdown__list {
+    min-width: 12rem;
+    margin: 0;
+    padding: .4rem;
+    list-style: none;
+    background: #111d2e;
+    border: 1px solid #2c3f5a;
+    border-radius: var(--lc-radius);
+    box-shadow: 0 24px 48px -16px rgba(0, 0, 0, .6);
+  }
+
+  .lc-dropdown__link {
+    display: block;
+    padding: .45rem .7rem;
+    border-radius: var(--lc-radius-sm);
+    font-size: .72rem;
+    font-weight: 600;
+    color: #e6edf5;
+    transition: background-color .15s var(--lc-ease), color .15s var(--lc-ease);
+  }
+
+  .lc-dropdown__link:hover {
+    background: #1a2637;
+    color: #e6edf5;
+  }
+
+  .lc-dropdown__link--active {
+    background: rgba(0, 143, 198, .16);
+    color: #8fd3ff;
+  }
 }
 
 .md-search__form {
@@ -469,13 +569,96 @@ details[open] summary::before {
   font-weight: 700;
 }
 
-/* Left navigation: section titles as mono labels */
-.md-nav--primary .md-nav__item--section > .md-nav__link {
-  font-family: var(--lc-font-mono);
-  font-size: .62rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--lc-muted);
+/* ---- Left navigation (desktop): pages of the selected product ----
+   overrides/partials/lc-sidenav.html; Material's full tree stays for the
+   mobile drawer only. */
+
+.lc-sidenav {
+  display: none;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav--primary {
+    display: none;
+  }
+
+  .lc-sidenav {
+    display: block;
+    padding: 0 .6rem 1rem 0;
+  }
+
+  /* Headings live in the left menu now, so the right-hand TOC is not needed */
+  .md-main:has(.lc-sidenav) .md-sidebar--secondary {
+    display: none;
+  }
+
+  .lc-sidenav__title {
+    margin: 0 0 .6rem;
+    padding: 0 .6rem .6rem;
+    border-bottom: 1px solid var(--lc-border);
+    font-family: var(--lc-font-mono);
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--lc-muted);
+  }
+
+  .lc-sidenav__list,
+  .lc-sidenav__toc {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Headings of the open page, hung off a guide line under its entry */
+  .lc-sidenav__list .lc-sidenav__toc,
+  .lc-sidenav__toc--nested {
+    margin: .15rem 0 .4rem .75rem;
+    padding-left: .4rem;
+    border-left: 1px solid var(--lc-border-strong);
+  }
+
+  .lc-sidenav__link,
+  .lc-sidenav__heading {
+    display: block;
+    margin-top: 2px;
+    padding: .34rem .6rem;
+    border-radius: var(--lc-radius-sm);
+    font-size: .7rem;
+    line-height: 1.35;
+    color: var(--lc-text);
+    opacity: .82;
+    transition: background-color .15s var(--lc-ease), color .15s var(--lc-ease), opacity .15s var(--lc-ease);
+  }
+
+  .lc-sidenav__heading {
+    padding-top: .26rem;
+    padding-bottom: .26rem;
+    font-size: .66rem;
+    color: var(--lc-muted);
+    opacity: 1;
+  }
+
+  .lc-sidenav__link:hover,
+  .lc-sidenav__heading:hover {
+    background: var(--lc-elevated);
+    color: var(--lc-text);
+    opacity: 1;
+  }
+
+  .lc-sidenav__link--active {
+    background: var(--lc-accent-soft);
+    color: var(--lc-accent-text);
+    font-weight: 650;
+    opacity: 1;
+  }
+
+  /* Heading currently in view (set by extra.js) */
+  .lc-sidenav__heading--current {
+    color: var(--lc-accent-text);
+    font-weight: 650;
+  }
 }
 
 /* ---- Tables: hairline grid, mono header row, zebra body ---- */
@@ -581,6 +764,18 @@ details[open] summary::before {
   font-weight: 700;
 }
 
+/* Section labels stand in for the h2, so give them heading weight */
+.md-typeset .section > .section-label {
+  margin-bottom: 1.5rem;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--lc-text);
+}
+
+.md-typeset .section > .section-label + h3 {
+  margin-top: 0;
+}
+
 .md-typeset .section-label::after {
   content: "";
   flex: 1;
@@ -591,6 +786,18 @@ details[open] summary::before {
 .md-typeset .section > h2 {
   font-size: clamp(1.35rem, 2.6vw, 1.85rem);
   margin: 0 0 1.5rem;
+}
+
+/* Sub-groups inside a section, e.g. GPS / Power / ESC under Peripherals */
+.md-typeset .section > h3 {
+  margin: 2.25rem 0 1rem;
+  font-size: 1rem;
+  color: var(--lc-muted);
+  scroll-margin-top: 5rem;
+}
+
+.md-typeset .section > h2 + h3 {
+  margin-top: 0;
 }
 
 /* Hero: blueprint grid with a soft brand-blue glow */
@@ -705,35 +912,6 @@ details[open] summary::before {
   color: var(--lc-muted);
 }
 
-/* Engineering-drawing title block in the hero corner */
-.md-typeset .hero__titleblock {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  display: grid;
-  grid-template-columns: auto auto;
-  border: 1px solid var(--lc-border-strong);
-  font-family: var(--lc-font-mono);
-  font-size: .55rem;
-  letter-spacing: .08em;
-  color: var(--lc-muted);
-  background: color-mix(in srgb, var(--lc-card) 80%, transparent);
-}
-
-.md-typeset .hero__titleblock span {
-  padding: .3rem .55rem;
-  border-bottom: 1px solid var(--lc-border);
-}
-
-.md-typeset .hero__titleblock span:nth-child(odd) {
-  border-right: 1px solid var(--lc-border);
-  color: var(--lc-accent-text);
-}
-
-.md-typeset .hero__titleblock span:nth-last-child(-n + 2) {
-  border-bottom: none;
-}
-
 @media (max-width: 900px) {
   .md-typeset .hero__stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -743,9 +921,6 @@ details[open] summary::before {
   }
   .md-typeset .hero__stats a:nth-child(n + 4) {
     border-top: 1px solid var(--lc-border);
-  }
-  .md-typeset .hero__titleblock {
-    display: none;
   }
 }
 
@@ -762,6 +937,11 @@ details[open] summary::before {
   }
   .md-typeset .hero__stats a:nth-child(-n + 2) {
     border-top: none;
+  }
+
+  /* Odd count: last stat spans the row instead of leaving an empty cell */
+  .md-typeset .hero__stats a:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 }
 

@@ -4,81 +4,85 @@ repo_url: ""
 repo_name: ""
 site_description: Jetson & Raspberry Pi engineering documentation
 
+# Leftover Jinja template, not a page (theme overrides live in overrides/)
+exclude_docs: |
+  partials/
+
 nav:
     - Home: index.md
-    - Jetson Autopilot:
-        - Overview: md/jetson/index.md
-        - Dimension: md/jetson/dimension.md
-        - Block Diagram: md/jetson/block-diagram.md
-        - Specification: md/jetson/specification.md
-        - Pinout: md/jetson/pinout.md
-        - Assembly: md/jetson/assembly.md
-        - Initial Installation: md/jetson/setup.md
-        - Commands: md/jetson/commands.md
-        - GPIO Control: md/jetson/gpio.md
-        - Network: md/jetson/network.md
-        - Mavlink UART: md/jetson/mavlink_setup_uart.md
-        - Fan Control: md/jetson/fan_control.md
 
-    - Pi5 Autopilot:
-        - Overview: md/raspberry/index.md
-        - Dimension: md/raspberry/dimension.md
-        - Block Diagram: md/raspberry/block-diagram.md
-        - Specification: md/raspberry/specification.md
-        - Pinout: md/raspberry/pinout.md
-        - Assembly: md/raspberry/assembly.md
-        - Initial Installation: md/raspberry/setup.md
-        - CM5 GPIO: md/raspberry/cm5-gpio.md
-        # - CM5 PWM: md/raspberry/cm5-pwm.md
-        - Camera Setup: md/raspberry/cam1-setup.md
-        - Hailo-8 Integration: md/raspberry/hailo-setup.md
-        - RealSense Integration: md/raspberry/realsense-setup.md
-        - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
+    - Autopilot:
+        - Jetson Autopilot:
+            - md/jetson/index.md
+            - Dimension: md/jetson/dimension.md
+            - Block Diagram: md/jetson/block-diagram.md
+            - Specification: md/jetson/specification.md
+            - Pinout: md/jetson/pinout.md
+            - Assembly: md/jetson/assembly.md
+            - Initial Installation: md/jetson/setup.md
+            - Commands: md/jetson/commands.md
+            - GPIO Control: md/jetson/gpio.md
+            - Network: md/jetson/network.md
+            - Mavlink UART: md/jetson/mavlink_setup_uart.md
+            - Fan Control: md/jetson/fan_control.md
+        - Pi5 Autopilot:
+            - md/raspberry/index.md
+            - Dimension: md/raspberry/dimension.md
+            - Block Diagram: md/raspberry/block-diagram.md
+            - Specification: md/raspberry/specification.md
+            - Pinout: md/raspberry/pinout.md
+            - Assembly: md/raspberry/assembly.md
+            - Initial Installation: md/raspberry/setup.md
+            - CM5 GPIO: md/raspberry/cm5-gpio.md
+            # - CM5 PWM: md/raspberry/cm5-pwm.md
+            - Camera Setup: md/raspberry/cam1-setup.md
+            - Hailo-8 Integration: md/raspberry/hailo-setup.md
+            - RealSense Integration: md/raspberry/realsense-setup.md
+            - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
         - Pi5 Light Autopilot: md/raspberry/pi5-light.md
 
     - Flight Controller:
-        - H7 Matrix: md/h7-matrix/index.md
-        - H7 FPV Pro: md/h7-fpv-pro/index.md
+        - md/flight-controller/index.md
         - H7 FPV: md/h7-fpv/index.md
+        - H7 FPV Pro: md/h7-fpv-pro/index.md
+        - H7 Matrix: md/h7-matrix/index.md
 
-    - GPS & Sensors:
-        - Overview: md/gps/index.md
-        - F10N GPS: md/gps/f10n.md
-        - M10Q GPS: md/gps/m10q.md
-        - M10N GPS: md/gps/m10n.md
-        - M9N GPS CAN: md/gps/m9n-can.md
-        - M9N GPS: md/gps/m9n.md
-
-    - Power Modules:
-        - Overview: md/power/index.md
-        - PMD01: md/power/pmd01.md
-        - PMD02: md/power/pmd02.md
-        - PMD03: md/power/pmd03.md
-        - PDB-300: md/power/pdb-300.md
-
-    - ESC:
-        - Overview: md/esc/index.md
-        - 12S 100A Single ESC: md/esc/12s-100a-single.md
-        - 12S 100A 4in1 ESC: md/esc/12s-100a-4in1.md
-        - 8S 80A Single ESC: md/esc/8s-80a-single.md
-        - 8S 80A 4in1 ESC: md/esc/8s-80a-4in1.md
-        - 6S 60A Single ESC: md/esc/6s-60a-single.md
-        - 6S 60A 4in1 ESC: md/esc/6s-60a-4in1.md
+    - Peripherals:
+        - GPS:
+            - md/gps/index.md
+            - F10N GPS: md/gps/f10n.md
+            - M10Q GPS: md/gps/m10q.md
+            - M10N GPS: md/gps/m10n.md
+            - M9N GPS CAN: md/gps/m9n-can.md
+            - M9N GPS: md/gps/m9n.md
+        - Power Modules:
+            - md/power/index.md
+            - PMD01: md/power/pmd01.md
+            - PMD02: md/power/pmd02.md
+            - PMD03: md/power/pmd03.md
+            - PDB-300: md/power/pdb-300.md
+        - ESC:
+            - md/esc/index.md
+            - 12S 100A Single ESC: md/esc/12s-100a-single.md
+            - 12S 100A 4in1 ESC: md/esc/12s-100a-4in1.md
+            - 8S 80A Single ESC: md/esc/8s-80a-single.md
+            - 8S 80A 4in1 ESC: md/esc/8s-80a-4in1.md
+            - 6S 60A Single ESC: md/esc/6s-60a-single.md
+            - 6S 60A 4in1 ESC: md/esc/6s-60a-4in1.md
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   favicon: assets/img/l_white.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
     - navigation.top
     - navigation.footer
     - navigation.tracking
-    - navigation.expand
+    - navigation.indexes
     - navigation.instant
-    - toc.integrate
     - navigation.instant.prefetch
     - navigation.instant.progress
     - content.code.copy

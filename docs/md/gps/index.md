@@ -1,4 +1,4 @@
-# GPS & Sensor Modules
+# GPS Modules
 
 Lectron GNSS modules combine a u-blox receiver with an onboard IST8310 compass, and are available with UART & I2C or CAN interfaces.
 
@@ -16,7 +16,7 @@ Lectron GNSS modules combine a u-blox receiver with an onboard IST8310 compass, 
 
 | Feature | F10N GPS | M10Q GPS | M10N GPS | M9N GPS CAN | M9N GPS |
 | --- | --- | --- | --- | --- | --- |
-| **Main Processor** | Ublox F10N | Ublox M10Q | Ublox M10N | Ublox M9N | Ublox M9N |
+| **Main Processor** | u-blox F10N | u-blox M10Q | u-blox M10N | u-blox M9N | u-blox M9N |
 | **Protocol** | BeiDou, Galileo, GNSS, GPS, QZSS | Galileo, GLONASS, GPS | GPS, GLONASS, Galileo, BeiDou, QZSS, SBAS | BeiDou, Galileo, GLONASS, GNSS, GPS | BeiDou, Galileo, GLONASS, GNSS, GPS |
 | **Frequency** | 1.176 GHz, 1.575 GHz | 1.575 GHz, 1.602 GHz | 1.561 GHz, 1.575 GHz, 1.602 GHz | 1.575 GHz, 1.602 GHz | 1.575 GHz, 1.602 GHz |
 | **Data Rate** | 921.6 kbps | 400 kbps | 921.6 kbps | 921.6 kbps | 921.6 kbps |
@@ -24,7 +24,7 @@ Lectron GNSS modules combine a u-blox receiver with an onboard IST8310 compass, 
 | **Compass** | IST8310 | IST8310 | IST8310 | IST8310 | IST8310 |
 | **Connector** | 10 Pin JST GH | 6 Pin JST GH | 4 Pin JST GH | 4 Pin JST GH | 4 Pin JST GH |
 | **Interface** | UART & I2C | UART & I2C | CAN | CAN | UART & I2C |
-| **Power IN** | 5V | 5V | 5V | 5V | 5V |
+| **Power Input** | 5V | 5V | 5V | 5V | 5V |
 | **Button Function** | Safety Switch In | - | Safety Switch In | Safety Switch In | Safety Switch In |
 | **LED Functions** | Safety, GPS Fix, RGB(Status) | GPS Fix | Safety, GPS Fix, RGB(Status) | Safety, GPS Fix, RGB(Status) | Safety, GPS Fix, RGB(Status) |
 | **RGB Led Driver** | IS31FL3195 | - | IS31FL3195 | IS31FL3195 | IS31FL3195 |
