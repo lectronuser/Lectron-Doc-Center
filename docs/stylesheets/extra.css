@@ -32,6 +32,7 @@
   --lc-accent-soft: rgba(0, 143, 198, .16);
   --lc-grid: rgba(143, 211, 255, .05);
   --lc-shadow: 0 18px 40px -18px rgba(0, 0, 0, .75);
+  --lc-power: #f0a63a;
 }
 
 [data-md-color-scheme="default"] {
@@ -56,6 +57,7 @@
   --lc-accent-soft: rgba(0, 143, 198, .1);
   --lc-grid: rgba(0, 29, 72, .045);
   --lc-shadow: 0 18px 40px -22px rgba(0, 29, 72, .25);
+  --lc-power: #b06a00;
 }
 
 /* Header stays navy in both schemes so the white logo always reads */
@@ -659,6 +661,414 @@ details[open] summary::before {
     color: var(--lc-accent-text);
     font-weight: 650;
   }
+}
+
+/* ---- Dimension sheets: inline SVG drawing + key figures ----
+   Drawings take every colour from the theme tokens, so they follow the
+   light/dark toggle (the original PNG/JPG drawings cannot). */
+
+.md-typeset .dim-sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(15rem, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  margin: 1rem 0 1.5rem;
+}
+
+.md-typeset .dim-sheet__drawing {
+  /* Material centres figures at their content width; fill the column */
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius);
+  background:
+    linear-gradient(var(--lc-grid) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, var(--lc-grid) 1px, transparent 1px) 0 0 / 20px 20px,
+    var(--lc-card);
+}
+
+.dim-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 34rem;
+  font-family: var(--lc-font-mono);
+}
+
+.dim-svg .dim-outline {
+  fill: var(--lc-elevated);
+  stroke: var(--lc-text);
+  stroke-width: 1.5;
+}
+
+.dim-svg .dim-part {
+  fill: var(--lc-card);
+  stroke: var(--lc-text);
+  stroke-width: 1;
+}
+
+.dim-svg .dim-part--raised {
+  fill: var(--lc-accent-soft);
+  stroke: var(--lc-accent);
+}
+
+.dim-svg .dim-pins {
+  fill: var(--lc-muted);
+  fill-opacity: .35;
+  stroke: var(--lc-muted);
+  stroke-width: .6;
+}
+
+.dim-svg .dim-chip {
+  fill: var(--lc-card);
+  stroke: var(--lc-text);
+  stroke-width: 1;
+}
+
+.dim-svg .dim-hidden {
+  fill: none;
+  stroke: var(--lc-muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 2;
+}
+
+.dim-svg .dim-part-label {
+  fill: var(--lc-muted);
+  font-size: 9px;
+  letter-spacing: .06em;
+}
+
+.dim-svg .dim-part-label--strong {
+  fill: var(--lc-text);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.dim-svg .dim-part-label--small {
+  font-size: 7.5px;
+}
+
+.dim-svg .dim-module {
+  fill: none;
+  stroke: var(--lc-muted);
+  stroke-width: 1;
+  stroke-dasharray: 5 4;
+}
+
+.dim-svg .dim-hole {
+  fill: var(--lc-bg);
+  stroke: var(--lc-text);
+  stroke-width: 1.2;
+}
+
+.dim-svg .dim-center {
+  fill: none;
+  stroke: var(--lc-muted);
+  stroke-width: .7;
+  stroke-dasharray: 3 2;
+}
+
+.dim-svg .dim-ext {
+  fill: none;
+  stroke: var(--lc-muted);
+  stroke-width: .7;
+}
+
+.dim-svg .dim-line {
+  fill: none;
+  stroke: var(--lc-accent);
+  stroke-width: 1;
+}
+
+.dim-svg .dim-arrow {
+  fill: var(--lc-accent);
+}
+
+.dim-svg .dim-label {
+  fill: var(--lc-accent-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dim-svg .dim-note {
+  fill: var(--lc-muted);
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+.dim-svg .dim-note--module {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.md-typeset .dim-sheet__specs > .section-label {
+  margin-bottom: .9rem;
+}
+
+.md-typeset .dim-sheet__specs .md-typeset__table,
+.md-typeset .dim-sheet__specs table:not([class]) {
+  margin: 0;
+}
+
+/* Key/value table: Markdown needs a header row, but it has nothing to say */
+.md-typeset .dim-sheet__specs thead {
+  display: none;
+}
+
+.md-typeset .dim-sheet__specs td:first-child {
+  color: var(--lc-muted);
+}
+
+.md-typeset .dim-sheet__specs td:last-child {
+  font-family: var(--lc-font-mono);
+  font-size: .68rem;
+}
+
+.md-typeset .dim-sheet__specs > p {
+  margin: .6rem .2rem 0;
+  font-size: .64rem;
+  color: var(--lc-muted);
+}
+
+@media (max-width: 900px) {
+  .md-typeset .dim-sheet {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Original raster drawings are black on white; invert them in dark mode so
+   they sit on the dark surface instead of glaring (hue-rotate keeps the blue
+   dimension lines blue). */
+[data-md-color-scheme="slate"] .md-typeset .dim-raster img,
+[data-md-color-scheme="slate"] .md-typeset img.dim-raster {
+  filter: invert(.9) hue-rotate(180deg);
+}
+
+.md-typeset .dim-raster img,
+.md-typeset img.dim-raster {
+  display: block;
+  width: 100%;
+  border-radius: var(--lc-radius-sm);
+}
+
+/* ---- Block diagrams: inline SVG in a zoomable viewer ----
+   The viewer toolbar is added by extra.js; zooming rewrites the SVG
+   viewBox, so the vector drawing stays sharp at every level. */
+
+.md-typeset .bd-viewer {
+  position: relative;
+  margin: 1rem 0 1.5rem;
+  padding: 2.6rem .75rem .75rem;
+  overflow: hidden;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius);
+  background:
+    linear-gradient(var(--lc-grid) 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, var(--lc-grid) 1px, transparent 1px) 0 0 / 20px 20px,
+    var(--lc-card);
+}
+
+.bd-viewer__toolbar {
+  position: absolute;
+  top: .55rem;
+  right: .55rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+.bd-viewer__zoom {
+  min-width: 3rem;
+  font-family: var(--lc-font-mono);
+  font-size: .6rem;
+  text-align: center;
+  color: var(--lc-muted);
+}
+
+.bd-viewer__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  padding: 0;
+  border: 1px solid var(--lc-border-strong);
+  border-radius: var(--lc-radius-sm);
+  background: var(--lc-card);
+  color: var(--lc-text);
+  font-family: var(--lc-font-mono);
+  font-size: .8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .15s var(--lc-ease), border-color .15s var(--lc-ease);
+}
+
+.bd-viewer__btn:hover,
+.bd-viewer__btn:focus-visible {
+  background: var(--lc-elevated);
+  border-color: var(--md-accent-fg-color);
+}
+
+.bd-viewer__hint {
+  position: absolute;
+  top: .95rem;
+  left: .9rem;
+  font-family: var(--lc-font-mono);
+  font-size: .56rem;
+  letter-spacing: .06em;
+  color: var(--lc-muted);
+}
+
+/* Touch screens: no Ctrl key, and the toolbar needs the room */
+@media (max-width: 700px) {
+  .bd-viewer__hint,
+  .bd-viewer__zoom {
+    display: none;
+  }
+}
+
+.bd-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  font-family: var(--md-text-font-family, Inter), sans-serif;
+}
+
+.bd-viewer.is-zoomed .bd-svg {
+  cursor: grab;
+  touch-action: none;
+}
+
+.bd-viewer.is-dragging .bd-svg {
+  cursor: grabbing;
+}
+
+.bd-viewer:fullscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 1.5rem 1.5rem;
+  border-radius: 0;
+}
+
+.bd-viewer:fullscreen .bd-svg {
+  max-height: calc(100vh - 4.5rem);
+}
+
+.bd-svg .bd-box {
+  fill: var(--lc-card);
+  stroke: var(--lc-border-strong);
+  stroke-width: 1;
+}
+
+.bd-svg .bd-box--hub {
+  fill: var(--lc-elevated);
+  stroke: var(--lc-accent);
+  stroke-width: 1.5;
+}
+
+.bd-svg .bd-box--chip {
+  fill: var(--lc-accent-soft);
+  stroke: var(--lc-accent);
+  stroke-dasharray: 4 3;
+}
+
+.bd-svg .bd-box--block {
+  fill: var(--lc-elevated);
+  stroke: var(--lc-text);
+}
+
+.bd-svg .bd-box--link {
+  fill: var(--lc-accent-soft);
+  stroke: var(--lc-accent);
+  stroke-width: 1.3;
+}
+
+.bd-svg .bd-box--power {
+  fill: color-mix(in srgb, var(--lc-power) 14%, transparent);
+  stroke: var(--lc-power);
+  stroke-width: 1.3;
+}
+
+.bd-svg .bd-box--power-port {
+  fill: var(--lc-card);
+  stroke: var(--lc-power);
+}
+
+.bd-svg .bd-title {
+  fill: var(--lc-text);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.bd-svg .bd-title--hub {
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.bd-svg .bd-tag {
+  fill: var(--lc-accent-text);
+  font-family: var(--lc-font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.bd-svg .bd-sub,
+.bd-svg .bd-chip-bus,
+.bd-svg .bd-wire-label {
+  font-family: var(--lc-font-mono);
+  font-size: 9.5px;
+}
+
+.bd-svg .bd-sub {
+  fill: var(--lc-muted);
+}
+
+.bd-svg .bd-chip {
+  fill: var(--lc-card);
+  stroke: var(--lc-border-strong);
+}
+
+.bd-svg .bd-chip-text {
+  fill: var(--lc-text);
+  font-family: var(--lc-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.bd-svg .bd-chip-bus {
+  fill: var(--lc-accent-text);
+}
+
+.bd-svg .bd-wire {
+  fill: none;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.bd-svg .bd-wire--data { stroke: var(--lc-accent); }
+.bd-svg .bd-wire--power { stroke: var(--lc-power); stroke-width: 1.8; }
+.bd-svg .bd-arrow--data,
+.bd-svg .bd-dot--data { fill: var(--lc-accent); }
+.bd-svg .bd-arrow--power,
+.bd-svg .bd-dot--power { fill: var(--lc-power); }
+
+/* Labels sit on a halo in the card colour so lines never cut through text */
+.bd-svg .bd-wire-label {
+  fill: var(--lc-accent-text);
+  paint-order: stroke;
+  stroke: var(--lc-card);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.bd-svg .bd-wire-label--power {
+  fill: var(--lc-power);
 }
 
 /* ---- Tables: hairline grid, mono header row, zebra body ---- */
