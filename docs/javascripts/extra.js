@@ -20,14 +20,22 @@ function lectronInitSectionReveal() {
 }
 
 // Tab dropdowns open on :hover/:focus-within. After a link is chosen the
-// pointer is still over the tab, so hide the panel until the pointer leaves.
-// Instant loading re-renders the tabs, so the closed tab is remembered by
-// position and closed again on the new page.
-let lectronClosedTab = -1;
+// pointer is still over the tab when the new page loads, so the panel would
+// open again; remember the tab for that one load and keep it closed until
+// the pointer leaves it.
+const LECTRON_CLOSED_TAB = "lectron-closed-tab";
 
 function lectronCloseTab(item) {
   item.classList.add("is-closed");
-  item.addEventListener("mouseleave", () => item.classList.remove("is-closed"), { once: true });
+
+  // mousemove rather than mouseleave: on a fresh page the pointer may never
+  // have entered the tab, and mouseleave would then never fire
+  const onMove = (event) => {
+    if (item.contains(event.target)) return;
+    item.classList.remove("is-closed");
+    document.removeEventListener("mousemove", onMove);
+  };
+  document.addEventListener("mousemove", onMove);
 }
 
 document.addEventListener("click", (event) => {
@@ -35,22 +43,32 @@ document.addEventListener("click", (event) => {
   if (!link) return;
 
   const item = link.closest(".md-tabs__item--dropdown");
-  lectronClosedTab = [...document.querySelectorAll(".md-tabs__item")].indexOf(item);
+  const index = [...document.querySelectorAll(".md-tabs__item")].indexOf(item);
+  try {
+    sessionStorage.setItem(LECTRON_CLOSED_TAB, String(index));
+  } catch (e) {
+    // Storage blocked: the panel may reopen on the next page, nothing else
+  }
   link.blur();
   lectronCloseTab(item);
 });
 
 function lectronRestoreClosedTab() {
-  if (lectronClosedTab < 0) return;
+  let index = null;
+  try {
+    index = sessionStorage.getItem(LECTRON_CLOSED_TAB);
+    sessionStorage.removeItem(LECTRON_CLOSED_TAB);
+  } catch (e) {
+    return;
+  }
+  if (index === null) return;
 
-  const item = document.querySelectorAll(".md-tabs__item")[lectronClosedTab];
-  lectronClosedTab = -1;
-  if (item && item.matches(":hover")) lectronCloseTab(item);
+  const item = document.querySelectorAll(".md-tabs__item")[Number(index)];
+  if (item) lectronCloseTab(item);
 }
 
 // Left menu (overrides/partials/lc-sidenav.html): mark the heading whose
-// section is in view. One scroll listener queries the current DOM, so it
-// keeps working after instant loading swaps the page.
+// section is in view.
 let lectronHeadingFrame = 0;
 
 function lectronUpdateCurrentHeading() {
@@ -80,8 +98,7 @@ function lectronInit() {
 }
 
 if (window.document$) {
-  // Material's instant-loading swaps page content via AJAX, so re-run
-  // init on every navigation instead of relying on DOMContentLoaded.
+  // Material emits document$ once its components are mounted
   document$.subscribe(lectronInit);
 } else {
   document.addEventListener("DOMContentLoaded", lectronInit);
