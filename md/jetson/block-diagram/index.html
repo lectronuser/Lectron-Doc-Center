@@ -1,191 +1,332 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Jetson & Raspberry Pi engineering documentation">
+      
+      
+      
+      
+        <link rel="prev" href="../dimension/">
+      
+      
+        <link rel="next" href="../pinout/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/img/l_white.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Block Diagram - Technical Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Jetson &amp; Raspberry Pi engineering documentation" name="description"/>
-<link href="../dimension/" rel="prev"/>
-<link href="../specification/" rel="next"/>
-<link href="../../../assets/img/l_white.svg" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
-<title>Block Diagram - Technical Manual</title>
-<link href="../../../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="cyan" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#block-diagram">
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#block-diagram" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Technical Manual" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Technical Manual">
-<img alt="logo" src="../../../assets/img/lectron_white.svg"/>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Technical Manual" class="md-header__button md-logo" aria-label="Technical Manual" data-md-component="logo">
+      
+  <img src="../../../assets/img/lectron_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Technical Manual
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Block Diagram
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="cyan" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="cyan" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
-</label>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
 </form>
-<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</nav>
-<div class="md-search__suggest" data-md-component="search-suggest"></div>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+      
+    
+    
+  </nav>
+  
+    
+      <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+        <li class="md-tabs__item">
+          <a href="../../.." class="md-tabs__link">
+            Home
+          </a>
+        </li>
+        <li class="md-tabs__item md-tabs__item--active md-tabs__item--dropdown">
+          <a href="../../raspberry/" class="md-tabs__link">
+            Autopilot
+          </a>
+            <div class="lc-dropdown">
+              <ul class="lc-dropdown__list">
+                    <li>
+                      <a href="../../raspberry/" class="lc-dropdown__link">
+                        Pi5 Autopilot
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../../pi5-light/" class="lc-dropdown__link">
+                        Pi5 Light Autopilot
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../" class="lc-dropdown__link lc-dropdown__link--active">
+                        Jetson Autopilot
+                      </a>
+                    </li>
+              </ul>
+            </div>
+        </li>
+        <li class="md-tabs__item md-tabs__item--dropdown">
+          <a href="../../flight-controller/" class="md-tabs__link">
+            Flight Controller
+          </a>
+            <div class="lc-dropdown">
+              <ul class="lc-dropdown__list">
+                    <li>
+                      <a href="../../h7-fpv/" class="lc-dropdown__link">
+                        H7 FPV
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../../h7-fpv-pro/" class="lc-dropdown__link">
+                        H7 FPV Pro
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../../h7-matrix/" class="lc-dropdown__link">
+                        H7 Matrix
+                      </a>
+                    </li>
+              </ul>
+            </div>
+        </li>
+        <li class="md-tabs__item md-tabs__item--dropdown">
+          <a href="../../gps/" class="md-tabs__link">
+            Peripherals
+          </a>
+            <div class="lc-dropdown">
+              <ul class="lc-dropdown__list">
+                    <li>
+                      <a href="../../gps/" class="lc-dropdown__link">
+                        GPS
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../../power/" class="lc-dropdown__link">
+                        Power Modules
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../../esc/" class="lc-dropdown__link">
+                        ESC
+                      </a>
+                    </li>
+              </ul>
+            </div>
+        </li>
+    </ul>
+  </div>
 </nav>
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Technical Manual" class="md-nav__button md-logo" aria-label="Technical Manual" data-md-component="logo">
+      
+  <img src="../../../assets/img/lectron_white.svg" alt="logo">
+
+    </a>
+    Technical Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
-    
-  
-  Home
-
-      </a>
-</li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
-          
-  
-  
-  Jetson Autopilot
-
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../raspberry/">
-          
-  
-  
-  Pi5 Autopilot
-
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../h7-matrix/">
-          
-  
-  
-  Flight Controller
-
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../gps/">
-          
-  
-  
-  GPS &amp; Sensors
-
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../power/">
-          
-  
-  
-  Power Modules
-
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../esc/">
-          
-  
-  
-  ESC
-
-        </a>
-</li>
-</ul>
-</div>
-</nav>
-</header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="Technical Manual" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Technical Manual">
-<img alt="logo" src="../../../assets/img/lectron_white.svg"/>
-</a>
-    Technical Manual
-  </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../..">
-<span class="md-ellipsis">
+  <span class="md-ellipsis">
     
   
     Home
@@ -193,183 +334,130 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
-    Jetson Autopilot
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autopilot
   
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
-    Jetson Autopilot
+    Autopilot
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../">
-<span class="md-ellipsis">
-    
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
-    Overview
   
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../dimension/">
-<span class="md-ellipsis">
-    
   
-    Dimension
   
-
     
-  </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../raspberry/" class="md-nav__link ">
+              
   
-    Block Diagram
   
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../specification/">
-<span class="md-ellipsis">
-    
-  
-    Specification
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../pinout/">
-<span class="md-ellipsis">
-    
-  
-    Pinout
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../assembly/">
-<span class="md-ellipsis">
-    
-  
-    Assembly
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../setup/">
-<span class="md-ellipsis">
-    
-  
-    Initial Installation
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../commands/">
-<span class="md-ellipsis">
-    
-  
-    Commands
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../gpio/">
-<span class="md-ellipsis">
-    
-  
-    GPIO Control
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../network/">
-<span class="md-ellipsis">
-    
-  
-    Network
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../mavlink_setup_uart/">
-<span class="md-ellipsis">
-    
-  
-    Mavlink UART
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../fan_control/">
-<span class="md-ellipsis">
-    
-  
-    Fan Control
-  
-
-    
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
+  <span class="md-ellipsis">
     
   
     Pi5 Autopilot
@@ -377,33 +465,43 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Pi5 Autopilot
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/">
-<span class="md-ellipsis">
-    
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
-    Overview
   
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/dimension/">
-<span class="md-ellipsis">
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/dimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Dimension
@@ -411,11 +509,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/block-diagram/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/block-diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Block Diagram
@@ -423,23 +537,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/specification/">
-<span class="md-ellipsis">
-    
   
-    Specification
   
 
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/pinout/">
-<span class="md-ellipsis">
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/pinout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Pinout
@@ -447,11 +565,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/assembly/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/assembly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Assembly
@@ -459,11 +593,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/setup/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Initial Installation
@@ -471,11 +621,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/cm5-gpio/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/cm5-gpio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     CM5 GPIO
@@ -483,11 +649,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/cam1-setup/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/cam1-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Camera Setup
@@ -495,11 +677,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/hailo-setup/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/hailo-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Hailo-8 Integration
@@ -507,11 +705,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/realsense-setup/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/realsense-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     RealSense Integration
@@ -519,11 +733,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/fmu-cm5-comm/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raspberry/fmu-cm5-comm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     FMU ↔ CM5 Communication
@@ -531,11 +761,62 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../raspberry/pi5-light/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../pi5-light/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
     
   
     Pi5 Light Autopilot
@@ -543,15 +824,624 @@
 
     
   </span>
-</a>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pi5 Light Autopilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi5-light/dimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi5-light/block-diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Diagram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi5-light/pinout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jetson Autopilot
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jetson Autopilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dimension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Diagram
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Diagram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power
+      
+    </span>
+  </a>
+  
 </li>
-</ul>
+      
+        <li class="md-nav__item">
+  <a href="#fmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FMU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetson-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jetson Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pinout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assembly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Initial Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mavlink_setup_uart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mavlink UART
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fan_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fan Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../flight-controller/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
     
   
     Flight Controller
@@ -559,45 +1449,43 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Flight Controller
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../h7-matrix/">
-<span class="md-ellipsis">
-    
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
-    H7 Matrix
   
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../h7-fpv-pro/">
-<span class="md-ellipsis">
-    
   
-    H7 FPV Pro
   
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../h7-fpv/">
-<span class="md-ellipsis">
+    <li class="md-nav__item">
+      <a href="../../h7-fpv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     H7 FPV
@@ -605,49 +1493,223 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../h7-fpv-pro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
-    GPS &amp; Sensors
+    H7 FPV Pro
   
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../h7-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    H7 Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
-    GPS &amp; Sensors
+  
+  <span class="md-ellipsis">
+    
+  
+    Peripherals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Peripherals
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../gps/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gps/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
     
   
-    Overview
+    GPS
   
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../gps/f10n/">
-<span class="md-ellipsis">
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gps/f10n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     F10N GPS
@@ -655,11 +1717,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../gps/m10q/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gps/m10q/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     M10Q GPS
@@ -667,11 +1745,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../gps/m10n/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gps/m10n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     M10N GPS
@@ -679,11 +1773,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../gps/m9n-can/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gps/m9n-can/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     M9N GPS CAN
@@ -691,11 +1801,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../gps/m9n/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gps/m9n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     M9N GPS
@@ -703,15 +1829,64 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../power/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
     
   
     Power Modules
@@ -719,33 +1894,43 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Power Modules
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../power/">
-<span class="md-ellipsis">
-    
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
-    Overview
   
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../power/pmd01/">
-<span class="md-ellipsis">
+  
+  
+    <li class="md-nav__item">
+      <a href="../../power/pmd01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     PMD01
@@ -753,11 +1938,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../power/pmd02/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../power/pmd02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     PMD02
@@ -765,11 +1966,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../power/pmd03/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../power/pmd03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     PMD03
@@ -777,11 +1994,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../power/pdb-300/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../power/pdb-300/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     PDB-300
@@ -789,15 +2022,68 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../esc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
     
   
     ESC
@@ -805,33 +2091,43 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_7">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
             
   
     ESC
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../esc/">
-<span class="md-ellipsis">
-    
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
   
-    Overview
   
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../esc/12s-100a-single/">
-<span class="md-ellipsis">
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esc/12s-100a-single/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     12S 100A Single ESC
@@ -839,11 +2135,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../esc/12s-100a-4in1/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esc/12s-100a-4in1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     12S 100A 4in1 ESC
@@ -851,11 +2163,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../esc/8s-80a-single/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esc/8s-80a-single/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     8S 80A Single ESC
@@ -863,11 +2191,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../esc/8s-80a-4in1/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esc/8s-80a-4in1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     8S 80A 4in1 ESC
@@ -875,11 +2219,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../esc/6s-60a-single/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esc/6s-60a-single/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     6S 60A Single ESC
@@ -887,11 +2247,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../esc/6s-60a-4in1/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esc/6s-60a-4in1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     6S 60A 4in1 ESC
@@ -899,78 +2275,582 @@
 
     
   </span>
-</a>
-</li>
-</ul>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
 </nav>
+<nav class="lc-sidenav" aria-label="Jetson Autopilot">
+      <div class="lc-sidenav__title">Jetson Autopilot</div>
+        <ul class="lc-sidenav__list">
+            <li>
+              <a href="../" class="lc-sidenav__link">
+                Overview
+              </a>
+            </li>
+            <li>
+              <a href="../dimension/" class="lc-sidenav__link">
+                Dimension
+              </a>
+            </li>
+            <li>
+              <a href="./" class="lc-sidenav__link lc-sidenav__link--active">
+                Block Diagram
+              </a>
+                
+    <ul class="lc-sidenav__toc">
+        <li>
+          <a href="#power" class="lc-sidenav__heading">Power</a>
+        </li>
+        <li>
+          <a href="#fmu" class="lc-sidenav__heading">FMU</a>
+        </li>
+        <li>
+          <a href="#jetson-module" class="lc-sidenav__heading">Jetson Module</a>
+        </li>
+    </ul>
+            </li>
+            <li>
+              <a href="../pinout/" class="lc-sidenav__link">
+                Pinout
+              </a>
+            </li>
+            <li>
+              <a href="../assembly/" class="lc-sidenav__link">
+                Assembly
+              </a>
+            </li>
+            <li>
+              <a href="../setup/" class="lc-sidenav__link">
+                Initial Installation
+              </a>
+            </li>
+            <li>
+              <a href="../commands/" class="lc-sidenav__link">
+                Commands
+              </a>
+            </li>
+            <li>
+              <a href="../gpio/" class="lc-sidenav__link">
+                GPIO Control
+              </a>
+            </li>
+            <li>
+              <a href="../network/" class="lc-sidenav__link">
+                Network
+              </a>
+            </li>
+            <li>
+              <a href="../mavlink_setup_uart/" class="lc-sidenav__link">
+                Mavlink UART
+              </a>
+            </li>
+            <li>
+              <a href="../fan_control/" class="lc-sidenav__link">
+                Fan Control
+              </a>
+            </li>
+        </ul>
+    </nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power
+      
+    </span>
+  </a>
+  
 </li>
-</ul>
+      
+        <li class="md-nav__item">
+  <a href="#fmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FMU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetson-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jetson Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
 <h1 id="block-diagram">Block Diagram</h1>
-<p><div class="mxgraph" data-mxgraph='{"toolbar-position": "bottom", "toolbar-nohide": "0", "tooltips": "1", "border": 5, "resize": "1", "edit": "_blank", "lightbox": "1", "toolbar": "pages tags zoom layers lightbox", "xml": "&lt;mxfile host=\"app.diagrams.net\"&gt;\n  &lt;diagram name=\"Page-1\" id=\"yeyjPHa82akGdHajx92G\"&gt;\n    &lt;mxGraphModel dx=\"1434\" dy=\"2273\" grid=\"1\" gridSize=\"10\" guides=\"1\" tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"850\" pageHeight=\"1100\" background=\"#666666\" math=\"0\" shadow=\"0\"&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\"0\"/&gt;\n        &lt;mxCell id=\"1\" parent=\"0\"/&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-108\" parent=\"1\" style=\"rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FFFFFF;\" value=\"\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"1180\" width=\"1180\" x=\"980\" y=\"-160\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-77\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;startSize=9;endSize=9;targetPerimeterSpacing=1;sourcePerimeterSpacing=1;strokeWidth=1.21;exitX=1;exitY=0.5;exitDx=0;exitDy=0;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-42\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1920\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1920\" y=\"510\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-17\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"630\" width=\"540\" x=\"1300\" y=\"210\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-78\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-41\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"/&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-79\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-40\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1920\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1920\" y=\"350\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-80\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-39\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1910\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1910\" y=\"270\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-81\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-38\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1900\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1900\" y=\"190\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-82\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-50\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1890\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1890\" y=\"110\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-83\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-51\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1880\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1880\" y=\"30\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-84\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-43\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1910\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1910\" y=\"590\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-85\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-44\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1900\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1900\" y=\"670\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-86\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-45\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1890\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1890\" y=\"750\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-87\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-47\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-88\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.21;strokeColor=#FFFFFF;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-48\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1870\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1870\" y=\"910\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-107\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;strokeColor=#FFFFFF;startSize=9;endSize=9;targetPerimeterSpacing=1;sourcePerimeterSpacing=1;strokeWidth=1.21;\" target=\"SFD79IyReg-zkKU3vO7G-106\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1870\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1870\" y=\"-50\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-30\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FFFFFF;strokeWidth=1.21;\" value=\"&amp;lt;div&amp;gt;&amp;lt;font style=&amp;quot;font-size: 25px; color: rgb(255, 255, 255);&amp;quot;&amp;gt;JETSON UNIT&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font color=&amp;quot;#ffffff&amp;quot;&amp;gt;BMI-270(SPI)&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font color=&amp;quot;#ffffff&amp;quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"180\" width=\"200\" x=\"1600\" y=\"340\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-25\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255); font-size: 25px;&amp;quot;&amp;gt;LECTRON V6X&amp;lt;/font&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255); font-size: 25px;&amp;quot;&amp;gt;(FMU UNIT)&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18)); text-align: left;&amp;quot;&amp;gt;ICM-42670(SPI)&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18)); text-align: left;&amp;quot;&amp;gt;BMP390(I2C)&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18)); text-align: left;&amp;quot;&amp;gt;FRAM(SPI)&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18)); text-align: left;&amp;quot;&amp;gt;SE051(I2C)&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"180\" width=\"200\" x=\"1340\" y=\"350\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-1\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;TELEM-1&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;6 Pin&amp;lt;/span&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"200\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-2\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;TELEM-2&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;6 Pin&amp;lt;/span&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"280\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-3\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;TELEM-3&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;6 Pin&amp;lt;/span&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"360\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-4\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;CAN&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;4 Pin&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"440\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-5\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;FMU &amp;amp;amp; IO PWM&amp;lt;br&amp;gt;10 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"-40\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-6\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"GPS-1&amp;lt;div&amp;gt;10 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"520\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-7\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"GPS-2&amp;lt;div&amp;gt;6&amp;amp;nbsp;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;Pin&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"600\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-8\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"RC-SBUS&amp;lt;div&amp;gt;5 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"680\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-10\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"USB 2.0&amp;lt;br&amp;gt;&amp;lt;div&amp;gt;TYPE-C&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"120\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-11\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;FMU &amp;amp;amp; IO DEBUG&amp;lt;br&amp;gt;10 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-SH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"40\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-12\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;I2C3&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;4 Pin&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"760\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-13\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;UART4&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;4 Pin&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"840\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-14\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;12V-2A POWER&amp;lt;br&amp;gt;4 Pin&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1690\" y=\"870\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-75\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-16\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startSize=9;endSize=9;strokeColor=#FFFFFF;targetPerimeterSpacing=1;sourcePerimeterSpacing=1;strokeWidth=1.21;curved=0;\" target=\"SFD79IyReg-zkKU3vO7G-35\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1570\" y=\"730\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-16\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;12-25VDC POWER&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;XT30&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1510\" y=\"870\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-52\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;strokeColor=#FFFFFF;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;strokeWidth=1.21;curved=0;\" target=\"SFD79IyReg-zkKU3vO7G-22\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-67\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;strokeWidth=1.21;startArrow=classic;startFill=1;\" target=\"SFD79IyReg-zkKU3vO7G-30\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-90\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-3\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1220\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1220\" y=\"390\"/&gt;\n            &lt;/Array&gt;\n            &lt;mxPoint x=\"1270\" y=\"430\" as=\"targetPoint\"/&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-91\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-4\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1220\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1220\" y=\"470\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-92\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-6\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1230\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1230\" y=\"550\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-93\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-7\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1240\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1240\" y=\"630\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-94\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-8\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1250\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1250\" y=\"710\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-95\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-12\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-96\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-13\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1270\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1270\" y=\"870\"/&gt;\n            &lt;/Array&gt;\n            &lt;mxPoint x=\"1220\" y=\"640\" as=\"targetPoint\"/&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-97\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-37\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1280\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1280\" y=\"950\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-99\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-2\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1220\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1220\" y=\"310\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-100\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-1\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1230\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1230\" y=\"230\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-101\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-10\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1240\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1240\" y=\"150\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-102\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-11\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1250\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1250\" y=\"70\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-103\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;strokeWidth=1.21;startArrow=none;startFill=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;curved=1;\" target=\"SFD79IyReg-zkKU3vO7G-5\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-105\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-18\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;strokeColor=#FFFFFF;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;\" target=\"SFD79IyReg-zkKU3vO7G-104\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1270\" y=\"430\"/&gt;\n              &lt;mxPoint x=\"1270\" y=\"-90\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-18\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FFFFFF;strokeWidth=1.21;\" value=\"&amp;lt;div&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"180\" width=\"200\" x=\"1340\" y=\"340\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-57\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-22\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;strokeWidth=1.21;startArrow=classic;startFill=1;strokeColor=#FFFFFF;curved=0;\" target=\"SFD79IyReg-zkKU3vO7G-23\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1535\" y=\"180\"/&gt;\n              &lt;mxPoint x=\"1490\" y=\"180\"/&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-22\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FFFFFF;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;ETHERNET SWITCH&amp;lt;/font&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"70\" width=\"140\" x=\"1500\" y=\"240\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-23\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"ETH-1 100MBPS&amp;lt;br&amp;gt;4 Pin&amp;lt;br&amp;gt;JST-GH\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1430\" y=\"80\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-24\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"ETH-2 100MBPS&amp;lt;br&amp;gt;4 Pin&amp;lt;br&amp;gt;JST-GH\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1590\" y=\"80\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-28\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-27\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#FFFFFF;startArrow=classic;startFill=1;startSize=9;sourcePerimeterSpacing=1;endSize=9;targetPerimeterSpacing=1;strokeWidth=1.21;\" target=\"SFD79IyReg-zkKU3vO7G-18\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-27\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FFFFFF;strokeWidth=1.21;\" value=\"&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"140\" width=\"200\" x=\"1340\" y=\"660\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-32\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255); font-size: 15px;&amp;quot;&amp;gt;LECTRON IMU BOARD&amp;lt;/font&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font color=&amp;quot;#ffffff&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;font-size: 15px;&amp;quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&amp;quot;&amp;gt;BMI270(SPI)&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&amp;quot;&amp;gt;ICM-42670(SPI)&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&amp;quot;&amp;gt;BMP390(I2C)&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&amp;quot;&amp;gt;BMM350(I2C)&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));&amp;quot;&amp;gt;24LC64T(I2C)&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"140\" width=\"200\" x=\"1340\" y=\"660\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-70\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-35\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontColor=#FFFFFF;strokeWidth=1.21;endArrow=block;endFill=1;strokeColor=#FFFFFF;startSize=9;endSize=9;targetPerimeterSpacing=1;sourcePerimeterSpacing=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;curved=0;\" target=\"SFD79IyReg-zkKU3vO7G-30\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-73\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-35\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=#FFFFFF;startSize=9;endSize=9;targetPerimeterSpacing=1;sourcePerimeterSpacing=1;strokeWidth=1.21;curved=0;\" target=\"SFD79IyReg-zkKU3vO7G-18\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-76\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-35\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startSize=9;endSize=9;targetPerimeterSpacing=1;sourcePerimeterSpacing=1;strokeColor=#FFFFFF;strokeWidth=1.21;\" target=\"SFD79IyReg-zkKU3vO7G-14\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-35\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FFFFFF;strokeWidth=1.21;\" value=\"&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255); font-size: 15px;&amp;quot;&amp;gt;POWER SYSTEM&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"80\" width=\"200\" x=\"1600\" y=\"690\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-37\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;SPI-6&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent;&amp;quot;&amp;gt;11 Pin&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"920\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-38\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;GPIO&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;10 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"160\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-39\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;SPI&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;6 Pin&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"240\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-40\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;UART0&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;4 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"320\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-41\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;UART1&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;4 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"400\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-42\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;UART2&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;3 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"480\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-43\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;I2C0&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;4 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"560\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-44\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;I2C1&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;4 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"640\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-45\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;CSI1/2&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;15 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;1mm Pitch CSI&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"720\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-47\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;CAN&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;4 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"800\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-48\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;SYS-FAN-1/2&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;4 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-SH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"880\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-50\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;USB 2.0&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;Mini USB&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"80\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-51\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;USB 3.0&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;TYPE-C&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-53\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;strokeColor=#FFFFFF;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeWidth=1.21;curved=0;\" target=\"SFD79IyReg-zkKU3vO7G-22\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;mxPoint x=\"1600\" y=\"334\" as=\"sourcePoint\"/&gt;\n            &lt;mxPoint x=\"1660\" y=\"270\" as=\"targetPoint\"/&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-55\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;100 MBPS&amp;lt;/font&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"35\" width=\"60\" x=\"1420\" y=\"250\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-56\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;100 MBPS&amp;lt;/font&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"35\" width=\"60\" x=\"1660\" y=\"250\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-58\" edge=\"1\" parent=\"1\" source=\"SFD79IyReg-zkKU3vO7G-22\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;startSize=9;endSize=9;sourcePerimeterSpacing=1;targetPerimeterSpacing=1;strokeWidth=1.21;startArrow=classic;startFill=1;strokeColor=#FFFFFF;curved=0;\" target=\"SFD79IyReg-zkKU3vO7G-24\"&gt;\n          &lt;mxGeometry relative=\"1\" as=\"geometry\"&gt;\n            &lt;Array as=\"points\"&gt;\n              &lt;mxPoint x=\"1605\" y=\"180\"/&gt;\n              &lt;mxPoint x=\"1650\" y=\"180\"/&gt;\n            &lt;/Array&gt;\n            &lt;mxPoint x=\"1630\" y=\"280\" as=\"sourcePoint\"/&gt;\n            &lt;mxPoint x=\"1560\" y=\"180\" as=\"targetPoint\"/&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-59\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;100 MBPS&amp;lt;/font&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"35\" width=\"60\" x=\"1490\" y=\"150\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-60\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;100 MBPS&amp;lt;/font&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"35\" width=\"60\" x=\"1590\" y=\"150\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-68\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#FFFFFF;strokeWidth=1.21;\" value=\"TELEM-3&amp;lt;div&amp;gt;(USART2)&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;UART0&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"30\" width=\"60\" x=\"1540\" y=\"415\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-71\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;5V-5A&amp;lt;/font&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"30\" width=\"60\" x=\"1700\" y=\"575\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-74\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1.21;\" value=\"&amp;lt;font style=&amp;quot;color: rgb(255, 255, 255);&amp;quot;&amp;gt;5V-3A&amp;lt;/font&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"30\" width=\"60\" x=\"1530\" y=\"580\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-104\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;div&amp;gt;I2C1&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;4 Pin&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;JST-GH&amp;lt;/div&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1060\" y=\"-120\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\"SFD79IyReg-zkKU3vO7G-106\" parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;strokeWidth=1.21;fillColor=none;strokeColor=#FFFFFF;fontColor=light-dark(#ffffff, #ededed);fontSize=11;fontFamily=Helvetica;\" value=\"&amp;lt;span style=&amp;quot;background-color: transparent; color: light-dark(rgb(255, 255, 255), rgb(237, 237, 237));&amp;quot;&amp;gt;SD-CARD&amp;lt;br&amp;gt;Micro-SD&amp;lt;/span&amp;gt;\" vertex=\"1\"&gt;\n          &lt;mxGeometry height=\"60\" width=\"120\" x=\"1960\" y=\"-80\" as=\"geometry\"/&gt;\n        &lt;/mxCell&gt;\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n&lt;/mxfile&gt;"}' style="max-width:100%;border:1px solid transparent;"></div></p>
-</article>
+<h2 id="power"><strong>Power</strong></h2>
+<div class="bd-viewer">
+<svg class="bd-svg" viewBox="0 0 1060 380" role="img" aria-label="Jetson Autopilot power block diagram" xmlns="http://www.w3.org/2000/svg">
+  <rect class="bd-box bd-box--power-port" x="30" y="158" width="176" height="56" rx="8"/>
+  <text class="bd-title" x="118.0" y="183.5" text-anchor="middle">POWER IN</text>
+  <text class="bd-sub" x="118.0" y="198.5" text-anchor="middle">XT30 · 9-26 VDC (3S-6S)</text>
+  <rect class="bd-box bd-box--power" x="280" y="136" width="220" height="100" rx="8"/>
+  <text class="bd-title" x="390.0" y="170.5" text-anchor="middle">POWER SYSTEM</text>
+  <text class="bd-sub" x="390.0" y="185.5" text-anchor="middle">Reverse protection</text>
+  <text class="bd-sub" x="390.0" y="198.5" text-anchor="middle">Over-current sensing</text>
+  <text class="bd-sub" x="390.0" y="211.5" text-anchor="middle">Voltage &amp; I2C current monitor</text>
+  <rect class="bd-box bd-box--hub" x="740" y="40" width="280" height="60" rx="12"/>
+  <text class="bd-tag" x="754" y="60">LECTRON V6X</text>
+  <text class="bd-title bd-title--hub" x="754" y="80">FMU UNIT</text>
+  <rect class="bd-box bd-box--hub" x="740" y="156" width="280" height="60" rx="12"/>
+  <text class="bd-tag" x="754" y="176">NVIDIA JETSON</text>
+  <text class="bd-title bd-title--hub" x="754" y="196">JETSON MODULE</text>
+  <rect class="bd-box bd-box--power-port" x="740" y="272" width="280" height="60" rx="8"/>
+  <text class="bd-title" x="880.0" y="299.5" text-anchor="middle">12V · 2A OUT</text>
+  <text class="bd-sub" x="880.0" y="314.5" text-anchor="middle">4 Pin · JST-GH · sensors / actuators</text>
+  <path class="bd-wire bd-wire--power" d="M206.0 186.0 L280.0 186.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M280.0 186.0L272.0 189.5L272.0 182.5Z"/>
+  <path class="bd-wire bd-wire--power" d="M500.0 186.0 L600.0 186.0 L600.0 70.0 L740.0 70.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M740.0 70.0L732.0 73.5L732.0 66.5Z"/>
+  <text class="bd-wire-label bd-wire-label--power" x="670.0" y="62.0" text-anchor="middle">5.0 V · 3 A</text>
+  <path class="bd-wire bd-wire--power" d="M500.0 186.0 L600.0 186.0 L600.0 186.0 L740.0 186.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M740.0 186.0L732.0 189.5L732.0 182.5Z"/>
+  <text class="bd-wire-label bd-wire-label--power" x="670.0" y="178.0" text-anchor="middle">5.1 V · 5 A</text>
+  <path class="bd-wire bd-wire--power" d="M500.0 186.0 L600.0 186.0 L600.0 302.0 L740.0 302.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M740.0 302.0L732.0 305.5L732.0 298.5Z"/>
+  <text class="bd-wire-label bd-wire-label--power" x="670.0" y="294.0" text-anchor="middle">12 V · 2 A</text>
+  <circle class="bd-dot bd-dot--power" cx="600.0" cy="186.0" r="3"/>
+  <path class="bd-wire bd-wire--power" d="M300 360 H324"/>
+  <text class="bd-sub" x="332" y="364">Power</text>
+  <rect class="bd-box bd-box--hub" x="450" y="353" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="482" y="364">Unit</text>
+</svg>
 </div>
+
+<h2 id="fmu"><strong>FMU</strong></h2>
+<div class="bd-viewer">
+<svg class="bd-svg" viewBox="0 0 1060 880" role="img" aria-label="Jetson Autopilot FMU block diagram" xmlns="http://www.w3.org/2000/svg">
+  <rect class="bd-box bd-box--port" x="16" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="169.5" text-anchor="middle">I2C1</text>
+  <text class="bd-sub" x="104.0" y="184.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="223.5" text-anchor="middle">TELEM-1</text>
+  <text class="bd-sub" x="104.0" y="238.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="277.5" text-anchor="middle">TELEM-2</text>
+  <text class="bd-sub" x="104.0" y="292.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="331.5" text-anchor="middle">TELEM-3</text>
+  <text class="bd-sub" x="104.0" y="346.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="366" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="385.5" text-anchor="middle">CAN</text>
+  <text class="bd-sub" x="104.0" y="400.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="420" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="439.5" text-anchor="middle">GPS-1</text>
+  <text class="bd-sub" x="104.0" y="454.5" text-anchor="middle">10 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="474" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="493.5" text-anchor="middle">GPS-2</text>
+  <text class="bd-sub" x="104.0" y="508.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="528" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="547.5" text-anchor="middle">RC-SBUS</text>
+  <text class="bd-sub" x="104.0" y="562.5" text-anchor="middle">5 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="582" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="601.5" text-anchor="middle">I2C3</text>
+  <text class="bd-sub" x="104.0" y="616.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="636" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="655.5" text-anchor="middle">UART4</text>
+  <text class="bd-sub" x="104.0" y="670.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="690" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="709.5" text-anchor="middle">SPI-6</text>
+  <text class="bd-sub" x="104.0" y="724.5" text-anchor="middle">11 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--chip" x="868" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="169.5" text-anchor="middle">ICM-42670</text>
+  <text class="bd-sub" x="956.0" y="184.5" text-anchor="middle">SPI · onboard</text>
+  <rect class="bd-box bd-box--chip" x="868" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="223.5" text-anchor="middle">BMP390</text>
+  <text class="bd-sub" x="956.0" y="238.5" text-anchor="middle">I2C · onboard</text>
+  <rect class="bd-box bd-box--chip" x="868" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="277.5" text-anchor="middle">FRAM</text>
+  <text class="bd-sub" x="956.0" y="292.5" text-anchor="middle">SPI · onboard</text>
+  <rect class="bd-box bd-box--chip" x="868" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="331.5" text-anchor="middle">SE051</text>
+  <text class="bd-sub" x="956.0" y="346.5" text-anchor="middle">I2C · onboard</text>
+  <rect class="bd-box bd-box--port" x="330" y="40" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="418.0" y="59.5" text-anchor="middle">USB 2.0</text>
+  <text class="bd-sub" x="418.0" y="74.5" text-anchor="middle">Type-C</text>
+  <path class="bd-wire bd-wire--data" d="M418.0 84.0 L418.0 200.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M418.0 200.0L414.5 192.0L421.5 192.0Z"/>
+  <rect class="bd-box bd-box--port" x="530" y="40" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="618.0" y="59.5" text-anchor="middle">FMU &amp; IO DEBUG</text>
+  <text class="bd-sub" x="618.0" y="74.5" text-anchor="middle">10 Pin · JST-SH</text>
+  <path class="bd-wire bd-wire--data" d="M618.0 84.0 L618.0 200.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M618.0 200.0L614.5 192.0L621.5 192.0Z"/>
+  <rect class="bd-box bd-box--port" x="730" y="40" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="818.0" y="59.5" text-anchor="middle">FMU &amp; IO PWM</text>
+  <text class="bd-sub" x="818.0" y="74.5" text-anchor="middle">10 Pin · JST-GH</text>
+  <path class="bd-wire bd-wire--data" d="M818.0 84.0 L818.0 140.0 L640.0 140.0 L640.0 200.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M640.0 200.0L636.5 192.0L643.5 192.0Z"/>
+  <rect class="bd-box bd-box--hub" x="400" y="200" width="260" height="460" rx="12"/>
+  <text class="bd-tag" x="414" y="220">FMU UNIT · LECTRON V6X</text>
+  <text class="bd-title bd-title--hub" x="414" y="240">STM32H753 + STM32F103</text>
+  <text class="bd-sub" x="414" y="260">Flight management + IO co-processor</text>
+  <path class="bd-wire bd-wire--data" d="M192.0 172.0 L300.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 226.0 L300.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 280.0 L300.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 334.0 L300.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 388.0 L300.0 388.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="388.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 442.0 L300.0 442.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="442.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 496.0 L300.0 496.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="496.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 550.0 L300.0 550.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="550.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 604.0 L300.0 604.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="604.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 658.0 L300.0 658.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="658.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 712.0 L300.0 712.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="712.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 172.0 L300.0 712.0"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 430.0 L400.0 430.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M400.0 430.0L392.0 433.5L392.0 426.5Z"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 172.0 L760.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 226.0 L760.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 280.0 L760.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 334.0 L760.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 172.0 L760.0 334.0"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 270.0 L660.0 270.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M660.0 270.0L668.0 266.5L668.0 273.5Z"/>
+  <rect class="bd-box bd-box--hub" x="868" y="382" width="176" height="196" rx="12"/>
+  <text class="bd-tag" x="882" y="402">SENSOR BOARD</text>
+  <text class="bd-title bd-title--hub" x="882" y="422">LECTRON IMU-01</text>
+  <rect class="bd-chip" x="880" y="438" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="452">BMI270</text>
+  <text class="bd-chip-bus" x="1024" y="452" text-anchor="end">SPI</text>
+  <rect class="bd-chip" x="880" y="464" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="478">ICM-42670</text>
+  <text class="bd-chip-bus" x="1024" y="478" text-anchor="end">SPI</text>
+  <rect class="bd-chip" x="880" y="490" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="504">BMP390</text>
+  <text class="bd-chip-bus" x="1024" y="504" text-anchor="end">I2C</text>
+  <rect class="bd-chip" x="880" y="516" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="530">BMM350</text>
+  <text class="bd-chip-bus" x="1024" y="530" text-anchor="end">I2C</text>
+  <rect class="bd-chip" x="880" y="542" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="556">24LC64T</text>
+  <text class="bd-chip-bus" x="1024" y="556" text-anchor="end">I2C</text>
+  <path class="bd-wire bd-wire--data" d="M868.0 480.0 L660.0 480.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M660.0 480.0L668.0 476.5L668.0 483.5Z"/>
+  <rect class="bd-box bd-box--link" x="330" y="716" width="196" height="50" rx="8"/>
+  <text class="bd-title" x="428.0" y="738.5" text-anchor="middle">FMU ↔ JETSON</text>
+  <text class="bd-sub" x="428.0" y="753.5" text-anchor="middle">TELEM-3 (USART2) ↔ UART0 *</text>
+  <rect class="bd-box bd-box--link" x="538" y="716" width="196" height="50" rx="8"/>
+  <text class="bd-title" x="636.0" y="738.5" text-anchor="middle">ETHERNET</text>
+  <text class="bd-sub" x="636.0" y="753.5" text-anchor="middle">100 Mbps · via KSZ8795 switch</text>
+  <path class="bd-wire bd-wire--data" d="M428.0 660.0 L428.0 716.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M428.0 716.0L424.5 708.0L431.5 708.0Z"/>
+  <path class="bd-wire bd-wire--data" d="M636.0 660.0 L636.0 716.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M636.0 716.0L632.5 708.0L639.5 708.0Z"/>
+  <text class="bd-sub" x="330" y="792">* Bridged by default; remove the bridge resistors to use the ports separately.</text>
+  <path class="bd-wire bd-wire--data" d="M300 850 H324"/>
+  <text class="bd-sub" x="332" y="854">Data / signal</text>
+  <rect class="bd-box bd-box--hub" x="450" y="843" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="482" y="854">Unit</text>
+  <rect class="bd-box bd-box--chip" x="600" y="843" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="632" y="854">Onboard IC</text>
+  <rect class="bd-box bd-box--link" x="750" y="843" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="782" y="854">Inter-unit link</text>
+</svg>
+</div>
+
+<h2 id="jetson-module"><strong>Jetson Module</strong></h2>
+<div class="bd-viewer">
+<svg class="bd-svg" viewBox="0 0 1060 860" role="img" aria-label="Jetson Autopilot Jetson module block diagram" xmlns="http://www.w3.org/2000/svg">
+  <rect class="bd-box bd-box--port" x="16" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="169.5" text-anchor="middle">USB 3.0</text>
+  <text class="bd-sub" x="104.0" y="184.5" text-anchor="middle">Type-C</text>
+  <rect class="bd-box bd-box--port" x="16" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="223.5" text-anchor="middle">USB 2.0</text>
+  <text class="bd-sub" x="104.0" y="238.5" text-anchor="middle">Mini USB</text>
+  <rect class="bd-box bd-box--port" x="16" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="277.5" text-anchor="middle">SD CARD</text>
+  <text class="bd-sub" x="104.0" y="292.5" text-anchor="middle">Micro-SD</text>
+  <rect class="bd-box bd-box--port" x="16" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="331.5" text-anchor="middle">GPIO</text>
+  <text class="bd-sub" x="104.0" y="346.5" text-anchor="middle">10 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="366" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="385.5" text-anchor="middle">SPI</text>
+  <text class="bd-sub" x="104.0" y="400.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="420" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="439.5" text-anchor="middle">UART0</text>
+  <text class="bd-sub" x="104.0" y="454.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="474" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="493.5" text-anchor="middle">UART1</text>
+  <text class="bd-sub" x="104.0" y="508.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="528" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="547.5" text-anchor="middle">UART2</text>
+  <text class="bd-sub" x="104.0" y="562.5" text-anchor="middle">3 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="169.5" text-anchor="middle">I2C0</text>
+  <text class="bd-sub" x="956.0" y="184.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="223.5" text-anchor="middle">I2C1</text>
+  <text class="bd-sub" x="956.0" y="238.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="277.5" text-anchor="middle">CSI1/2</text>
+  <text class="bd-sub" x="956.0" y="292.5" text-anchor="middle">15 Pin · 1 mm pitch</text>
+  <rect class="bd-box bd-box--port" x="868" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="331.5" text-anchor="middle">CAN</text>
+  <text class="bd-sub" x="956.0" y="346.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="366" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="385.5" text-anchor="middle">SYS-FAN-1/2</text>
+  <text class="bd-sub" x="956.0" y="400.5" text-anchor="middle">4 Pin · JST-SH</text>
+  <rect class="bd-box bd-box--chip" x="868" y="420" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="439.5" text-anchor="middle">BMI270</text>
+  <text class="bd-sub" x="956.0" y="454.5" text-anchor="middle">SPI · onboard</text>
+  <rect class="bd-box bd-box--hub" x="400" y="150" width="260" height="430" rx="12"/>
+  <text class="bd-tag" x="414" y="170">COMPANION COMPUTER</text>
+  <text class="bd-title bd-title--hub" x="414" y="190">NVIDIA JETSON</text>
+  <text class="bd-sub" x="414" y="210">260-pin DDR4 SODIMM · Nano / Xavier NX</text>
+  <path class="bd-wire bd-wire--data" d="M192.0 172.0 L300.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 226.0 L300.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 280.0 L300.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 334.0 L300.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 388.0 L300.0 388.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="388.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 442.0 L300.0 442.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="442.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 496.0 L300.0 496.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="496.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 550.0 L300.0 550.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="550.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 172.0 L300.0 550.0"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 365.0 L400.0 365.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M400.0 365.0L392.0 368.5L392.0 361.5Z"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 172.0 L760.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 226.0 L760.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 280.0 L760.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 334.0 L760.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 388.0 L760.0 388.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="388.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 442.0 L760.0 442.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="442.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 172.0 L760.0 442.0"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 365.0 L660.0 365.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M660.0 365.0L668.0 361.5L668.0 368.5Z"/>
+  <rect class="bd-box bd-box--block" x="410" y="650" width="240" height="60" rx="8"/>
+  <text class="bd-title" x="530.0" y="677.5" text-anchor="middle">ETHERNET SWITCH</text>
+  <text class="bd-sub" x="530.0" y="692.5" text-anchor="middle">KSZ8795 · 10/100 managed</text>
+  <path class="bd-wire bd-wire--data" d="M470.0 580.0 L470.0 650.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M470.0 650.0L466.5 642.0L473.5 642.0Z"/>
+  <text class="bd-wire-label bd-wire-label--data" x="478.0" y="620.0" text-anchor="start">100 Mbps</text>
+  <rect class="bd-box bd-box--port" x="100" y="640" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="188.0" y="659.5" text-anchor="middle">ETH-1</text>
+  <text class="bd-sub" x="188.0" y="674.5" text-anchor="middle">100 Mbps · 4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="100" y="706" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="188.0" y="725.5" text-anchor="middle">ETH-2</text>
+  <text class="bd-sub" x="188.0" y="740.5" text-anchor="middle">100 Mbps · 4 Pin · JST-GH</text>
+  <path class="bd-wire bd-wire--data" d="M410.0 662.0 L276.0 662.0"/>
+  <path class="bd-wire bd-wire--data" d="M410.0 696.0 L330.0 696.0 L330.0 728.0 L276.0 728.0"/>
+  <rect class="bd-box bd-box--link" x="740" y="640" width="230" height="50" rx="8"/>
+  <text class="bd-title" x="855.0" y="662.5" text-anchor="middle">JETSON ↔ FMU</text>
+  <text class="bd-sub" x="855.0" y="677.5" text-anchor="middle">UART0 ↔ TELEM-3 (USART2)</text>
+  <path class="bd-wire bd-wire--data" d="M630.0 580.0 L630.0 620.0 L700.0 620.0 L700.0 665.0 L740.0 665.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M740.0 665.0L732.0 668.5L732.0 661.5Z"/>
+  <rect class="bd-box bd-box--link" x="740" y="716" width="230" height="50" rx="8"/>
+  <text class="bd-title" x="855.0" y="738.5" text-anchor="middle">→ FMU</text>
+  <text class="bd-sub" x="855.0" y="753.5" text-anchor="middle">100 Mbps · internal PHY</text>
+  <path class="bd-wire bd-wire--data" d="M650.0 690.0 L720.0 690.0 L720.0 741.0 L740.0 741.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M740.0 741.0L732.0 744.5L732.0 737.5Z"/>
+  <path class="bd-wire bd-wire--data" d="M300 830 H324"/>
+  <text class="bd-sub" x="332" y="834">Data / signal</text>
+  <rect class="bd-box bd-box--hub" x="450" y="823" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="482" y="834">Unit</text>
+  <rect class="bd-box bd-box--chip" x="600" y="823" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="632" y="834">Onboard IC</text>
+  <rect class="bd-box bd-box--link" x="750" y="823" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="782" y="834">Inter-unit link</text>
+</svg>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Dimension" class="md-footer__link md-footer__link--prev" href="../dimension/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../dimension/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dimension">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Previous
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Dimension
               </div>
-</div>
-</a>
-<a aria-label="Next: Specification" class="md-footer__link md-footer__link--next" href="../specification/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pinout/" class="md-footer__link md-footer__link--next" aria-label="Next: Pinout">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Next
               </span>
-<div class="md-ellipsis">
-                Specification
+              <div class="md-ellipsis">
+                Pinout
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "navigation.expand", "navigation.instant", "toc.integrate", "navigation.instant.prefetch", "navigation.instant.progress", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight", "toc.follow", "content.tabs.linked", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
-<script src="../../../javascripts/extra.js"></script>
-<script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script></body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight", "toc.follow", "content.tabs.linked", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+    
+  </body>
 </html>
