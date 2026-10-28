@@ -12,24 +12,10 @@ nav:
     - Home: index.md
 
     - Autopilot:
-        - Jetson Autopilot:
-            - md/jetson/index.md
-            - Dimension: md/jetson/dimension.md
-            - Block Diagram: md/jetson/block-diagram.md
-            - Specification: md/jetson/specification.md
-            - Pinout: md/jetson/pinout.md
-            - Assembly: md/jetson/assembly.md
-            - Initial Installation: md/jetson/setup.md
-            - Commands: md/jetson/commands.md
-            - GPIO Control: md/jetson/gpio.md
-            - Network: md/jetson/network.md
-            - Mavlink UART: md/jetson/mavlink_setup_uart.md
-            - Fan Control: md/jetson/fan_control.md
         - Pi5 Autopilot:
             - md/raspberry/index.md
             - Dimension: md/raspberry/dimension.md
             - Block Diagram: md/raspberry/block-diagram.md
-            - Specification: md/raspberry/specification.md
             - Pinout: md/raspberry/pinout.md
             - Assembly: md/raspberry/assembly.md
             - Initial Installation: md/raspberry/setup.md
@@ -39,7 +25,23 @@ nav:
             - Hailo-8 Integration: md/raspberry/hailo-setup.md
             - RealSense Integration: md/raspberry/realsense-setup.md
             - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
-        - Pi5 Light Autopilot: md/raspberry/pi5-light.md
+        - Pi5 Light Autopilot:
+            - md/pi5-light/index.md
+            - Dimension: md/pi5-light/dimension.md
+            - Block Diagram: md/pi5-light/block-diagram.md
+            - Pinout: md/pi5-light/pinout.md
+        - Jetson Autopilot:
+            - md/jetson/index.md
+            - Dimension: md/jetson/dimension.md
+            - Block Diagram: md/jetson/block-diagram.md
+            - Pinout: md/jetson/pinout.md
+            - Assembly: md/jetson/assembly.md
+            - Initial Installation: md/jetson/setup.md
+            - Commands: md/jetson/commands.md
+            - GPIO Control: md/jetson/gpio.md
+            - Network: md/jetson/network.md
+            - Mavlink UART: md/jetson/mavlink_setup_uart.md
+            - Fan Control: md/jetson/fan_control.md
 
     - Flight Controller:
         - md/flight-controller/index.md
@@ -137,6 +139,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+hooks:
+  - hooks/asset_version.py
 
 extra_css:
   - stylesheets/extra.css

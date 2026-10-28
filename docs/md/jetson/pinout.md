@@ -1,5 +1,4 @@
-
-# Connections & Ports
+# Pinout
 
 This page describes every external connector on the **Lectron Jetson Autopilot** baseboard, including its connector type, pin assignment, signal name and operating voltage.
 

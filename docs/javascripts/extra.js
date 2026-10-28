@@ -189,11 +189,72 @@ function lectronInitDiagram(viewer) {
   apply();
 }
 
+// Pinout explorer (raspberry/pinout.md): clicking a numbered port on the
+// locator views, or its button, shows that connector's sheet; the others are
+// hidden. Hovering a table row highlights the pin in the connector strip and
+// the other way round. Without JS every sheet stays visible and the links
+// jump to it.
+function lectronInitPinout(explorer) {
+  if (explorer.dataset.ready) return;
+  explorer.dataset.ready = "1";
+  const sheets = [...explorer.querySelectorAll(".pin-sheet")];
+  if (!sheets.length) return;
+  const triggers = ".pin-spot, .pin-conn, .pin-index a";
+  const mark = (num, cls, on) =>
+    explorer.querySelectorAll(`.pin-spot[data-conn="${num}"], .pin-conn[data-conn="${num}"], .pin-index a[data-conn="${num}"]`)
+      .forEach((el) => el.classList.toggle(cls, on));
+
+  function select(num, scroll) {
+    const sheet = sheets.find((el) => el.dataset.conn === num);
+    if (!sheet) return;
+    explorer.querySelectorAll(".is-active").forEach((el) => el.classList.remove("is-active"));
+    sheet.classList.add("is-active");
+    mark(num, "is-active", true);
+    if (scroll) sheet.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+
+  explorer.addEventListener("click", (event) => {
+    const trigger = event.target.closest(triggers);
+    if (!trigger) return;
+    event.preventDefault();
+    select(trigger.dataset.conn, true);
+    history.replaceState(null, "", `#conn-${trigger.dataset.conn}`);
+  });
+
+  // Pins: a table row, its dot in the connector strip and, on drawn board
+  // views, the same pin on the board all highlight together
+  function pinTargets(el) {
+    const pin = el.closest("[data-pin]");
+    if (!pin) return [];
+    const holder = pin.closest(".pin-sheet, .pin-conn");
+    if (!holder) return [];
+    const num = holder.dataset.conn;
+    return explorer.querySelectorAll(
+      `.pin-sheet[data-conn="${num}"] [data-pin="${pin.dataset.pin}"], .pin-conn[data-conn="${num}"] [data-pin="${pin.dataset.pin}"]`);
+  }
+
+  explorer.addEventListener("mouseover", (event) => {
+    const trigger = event.target.closest(triggers);
+    if (trigger) mark(trigger.dataset.conn, "is-hover", true);
+    pinTargets(event.target).forEach((el) => el.classList.add("is-hover"));
+  });
+  explorer.addEventListener("mouseout", (event) => {
+    const trigger = event.target.closest(triggers);
+    if (trigger) mark(trigger.dataset.conn, "is-hover", false);
+    pinTargets(event.target).forEach((el) => el.classList.remove("is-hover"));
+  });
+
+  const fromHash = /^#conn-(\d+)$/.exec(location.hash);
+  select(fromHash ? fromHash[1] : sheets[0].dataset.conn, false);
+  explorer.classList.add("is-ready");
+}
+
 function lectronInit() {
   lectronInitSectionReveal();
   lectronRestoreClosedTab();
   lectronUpdateCurrentHeading();
   document.querySelectorAll(".bd-viewer").forEach(lectronInitDiagram);
+  document.querySelectorAll(".pin-explorer").forEach(lectronInitPinout);
 }
 
 if (window.document$) {

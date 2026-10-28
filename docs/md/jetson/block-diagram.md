@@ -1,237 +1,306 @@
 # Block Diagram
 
+## **Power**
+
 <div class="bd-viewer">
-<svg class="bd-svg" viewBox="0 0 1120 900" role="img" aria-label="Jetson Autopilot block diagram" xmlns="http://www.w3.org/2000/svg">
-  <rect class="bd-box bd-box--port" x="16" y="60" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="79.5" text-anchor="middle">I2C1</text>
-  <text class="bd-sub" x="104.0" y="94.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="114" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="133.5" text-anchor="middle">FMU &amp; IO PWM</text>
-  <text class="bd-sub" x="104.0" y="148.5" text-anchor="middle">10 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="168" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="187.5" text-anchor="middle">FMU &amp; IO DEBUG</text>
-  <text class="bd-sub" x="104.0" y="202.5" text-anchor="middle">10 Pin · JST-SH</text>
-  <rect class="bd-box bd-box--port" x="16" y="222" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="241.5" text-anchor="middle">USB 2.0</text>
-  <text class="bd-sub" x="104.0" y="256.5" text-anchor="middle">Type-C</text>
-  <rect class="bd-box bd-box--port" x="16" y="276" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="295.5" text-anchor="middle">TELEM-1</text>
-  <text class="bd-sub" x="104.0" y="310.5" text-anchor="middle">6 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="330" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="349.5" text-anchor="middle">TELEM-2</text>
-  <text class="bd-sub" x="104.0" y="364.5" text-anchor="middle">6 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="384" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="403.5" text-anchor="middle">TELEM-3</text>
-  <text class="bd-sub" x="104.0" y="418.5" text-anchor="middle">6 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="438" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="457.5" text-anchor="middle">CAN</text>
-  <text class="bd-sub" x="104.0" y="472.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="492" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="511.5" text-anchor="middle">GPS-1</text>
-  <text class="bd-sub" x="104.0" y="526.5" text-anchor="middle">10 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="546" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="565.5" text-anchor="middle">GPS-2</text>
-  <text class="bd-sub" x="104.0" y="580.5" text-anchor="middle">6 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="600" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="619.5" text-anchor="middle">RC-SBUS</text>
-  <text class="bd-sub" x="104.0" y="634.5" text-anchor="middle">5 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="654" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="673.5" text-anchor="middle">I2C3</text>
-  <text class="bd-sub" x="104.0" y="688.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="708" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="727.5" text-anchor="middle">UART4</text>
-  <text class="bd-sub" x="104.0" y="742.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="16" y="762" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="104.0" y="781.5" text-anchor="middle">SPI-6</text>
-  <text class="bd-sub" x="104.0" y="796.5" text-anchor="middle">11 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="87" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="106.5" text-anchor="middle">USB 3.0</text>
-  <text class="bd-sub" x="1016.0" y="121.5" text-anchor="middle">Type-C</text>
-  <rect class="bd-box bd-box--port" x="928" y="141" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="160.5" text-anchor="middle">SD CARD</text>
-  <text class="bd-sub" x="1016.0" y="175.5" text-anchor="middle">Micro-SD</text>
-  <rect class="bd-box bd-box--port" x="928" y="195" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="214.5" text-anchor="middle">USB 2.0</text>
-  <text class="bd-sub" x="1016.0" y="229.5" text-anchor="middle">Mini USB</text>
-  <rect class="bd-box bd-box--port" x="928" y="249" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="268.5" text-anchor="middle">GPIO</text>
-  <text class="bd-sub" x="1016.0" y="283.5" text-anchor="middle">10 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="303" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="322.5" text-anchor="middle">SPI</text>
-  <text class="bd-sub" x="1016.0" y="337.5" text-anchor="middle">6 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="357" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="376.5" text-anchor="middle">UART0</text>
-  <text class="bd-sub" x="1016.0" y="391.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="411" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="430.5" text-anchor="middle">UART1</text>
-  <text class="bd-sub" x="1016.0" y="445.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="465" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="484.5" text-anchor="middle">UART2</text>
-  <text class="bd-sub" x="1016.0" y="499.5" text-anchor="middle">3 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="519" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="538.5" text-anchor="middle">I2C0</text>
-  <text class="bd-sub" x="1016.0" y="553.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="573" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="592.5" text-anchor="middle">I2C1</text>
-  <text class="bd-sub" x="1016.0" y="607.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="627" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="646.5" text-anchor="middle">CSI1/2</text>
-  <text class="bd-sub" x="1016.0" y="661.5" text-anchor="middle">15 Pin · 1 mm pitch</text>
-  <rect class="bd-box bd-box--port" x="928" y="681" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="700.5" text-anchor="middle">CAN</text>
-  <text class="bd-sub" x="1016.0" y="715.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="928" y="735" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="1016.0" y="754.5" text-anchor="middle">SYS-FAN-1/2</text>
-  <text class="bd-sub" x="1016.0" y="769.5" text-anchor="middle">4 Pin · JST-SH</text>
-  <rect class="bd-box bd-box--hub" x="300" y="250" width="210" height="200" rx="12"/>
-  <text class="bd-tag" x="314" y="270">FMU UNIT</text>
-  <text class="bd-title bd-title--hub" x="314" y="290">LECTRON V6X</text>
-  <rect class="bd-chip" x="312" y="306" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="320">ICM-42670</text>
-  <text class="bd-chip-bus" x="490" y="320" text-anchor="end">SPI</text>
-  <rect class="bd-chip" x="312" y="332" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="346">BMP390</text>
-  <text class="bd-chip-bus" x="490" y="346" text-anchor="end">I2C</text>
-  <rect class="bd-chip" x="312" y="358" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="372">FRAM</text>
-  <text class="bd-chip-bus" x="490" y="372" text-anchor="end">SPI</text>
-  <rect class="bd-chip" x="312" y="384" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="398">SE051</text>
-  <text class="bd-chip-bus" x="490" y="398" text-anchor="end">I2C</text>
-  <rect class="bd-box bd-box--hub" x="610" y="250" width="210" height="200" rx="12"/>
-  <text class="bd-tag" x="624" y="270">COMPANION COMPUTER</text>
-  <text class="bd-title bd-title--hub" x="624" y="290">JETSON MODULE</text>
-  <rect class="bd-chip" x="622" y="306" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="630" y="320">BMI270</text>
-  <text class="bd-chip-bus" x="800" y="320" text-anchor="end">SPI</text>
-  <path class="bd-wire bd-wire--data" d="M192.0 82.0 L250.0 82.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="82.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 136.0 L250.0 136.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="136.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 190.0 L250.0 190.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="190.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 244.0 L250.0 244.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="244.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 298.0 L250.0 298.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="298.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 352.0 L250.0 352.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="352.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 406.0 L250.0 406.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="406.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 460.0 L250.0 460.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="460.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 514.0 L250.0 514.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="514.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 568.0 L250.0 568.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="568.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 622.0 L250.0 622.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="622.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 676.0 L250.0 676.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="676.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 730.0 L250.0 730.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="730.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M192.0 784.0 L250.0 784.0"/>
-  <circle class="bd-dot bd-dot--data" cx="250.0" cy="784.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M250.0 82.0 L250.0 784.0"/>
-  <path class="bd-wire bd-wire--data" d="M250.0 350.0 L300.0 350.0"/>
-  <path class="bd-arrow bd-arrow--data" d="M300.0 350.0L292.0 353.5L292.0 346.5Z"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 109.0 L890.0 109.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="109.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 163.0 L890.0 163.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="163.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 217.0 L890.0 217.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="217.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 271.0 L890.0 271.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="271.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 325.0 L890.0 325.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="325.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 379.0 L890.0 379.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="379.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 433.0 L890.0 433.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="433.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 487.0 L890.0 487.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="487.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 541.0 L890.0 541.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="541.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 595.0 L890.0 595.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="595.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 649.0 L890.0 649.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="649.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 703.0 L890.0 703.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="703.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M928.0 757.0 L890.0 757.0"/>
-  <circle class="bd-dot bd-dot--data" cx="890.0" cy="757.0" r="3"/>
-  <path class="bd-wire bd-wire--data" d="M890.0 109.0 L890.0 757.0"/>
-  <path class="bd-wire bd-wire--data" d="M890.0 350.0 L820.0 350.0"/>
-  <path class="bd-arrow bd-arrow--data" d="M820.0 350.0L828.0 346.5L828.0 353.5Z"/>
-  <path class="bd-wire bd-wire--data" d="M510.0 428.0 L610.0 428.0"/>
-  <path class="bd-arrow bd-arrow--data" d="M610.0 428.0L602.0 431.5L602.0 424.5Z"/>
-  <path class="bd-arrow bd-arrow--data" d="M510.0 428.0L518.0 424.5L518.0 431.5Z"/>
-  <text class="bd-wire-label" x="560.0" y="408" text-anchor="middle">TELEM-3 (USART2)</text>
-  <text class="bd-wire-label" x="560.0" y="420" text-anchor="middle">↔ UART0</text>
-  <rect class="bd-box bd-box--block" x="455" y="140" width="210" height="50" rx="8"/>
-  <text class="bd-title" x="560.0" y="162.5" text-anchor="middle">ETHERNET SWITCH</text>
-  <text class="bd-sub" x="560.0" y="177.5" text-anchor="middle">Onboard</text>
-  <rect class="bd-box bd-box--port" x="372" y="40" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="460.0" y="59.5" text-anchor="middle">ETH-1</text>
-  <text class="bd-sub" x="460.0" y="74.5" text-anchor="middle">100 Mbps · 4 Pin · JST-GH</text>
-  <rect class="bd-box bd-box--port" x="572" y="40" width="176" height="44" rx="8"/>
-  <text class="bd-title" x="660.0" y="59.5" text-anchor="middle">ETH-2</text>
-  <text class="bd-sub" x="660.0" y="74.5" text-anchor="middle">100 Mbps · 4 Pin · JST-GH</text>
-  <path class="bd-wire bd-wire--data" d="M460.0 84.0 L460.0 112.0 L520.0 112.0 L520.0 140.0"/>
-  <path class="bd-arrow bd-arrow--data" d="M460.0 84.0L463.5 92.0L456.5 92.0Z"/>
-  <path class="bd-wire bd-wire--data" d="M660.0 84.0 L660.0 112.0 L600.0 112.0 L600.0 140.0"/>
-  <path class="bd-arrow bd-arrow--data" d="M660.0 84.0L663.5 92.0L656.5 92.0Z"/>
-  <path class="bd-wire bd-wire--data" d="M495.0 190.0 L495.0 250.0"/>
-  <text class="bd-wire-label bd-wire-label--data" x="489.0" y="232.0" text-anchor="end">100 Mbps</text>
-  <path class="bd-wire bd-wire--data" d="M625.0 190.0 L625.0 250.0"/>
-  <text class="bd-wire-label bd-wire-label--data" x="631.0" y="232.0" text-anchor="start">100 Mbps</text>
-  <rect class="bd-box bd-box--hub" x="300" y="530" width="210" height="196" rx="12"/>
-  <text class="bd-tag" x="314" y="550">SENSOR BOARD</text>
-  <text class="bd-title bd-title--hub" x="314" y="570">LECTRON IMU BOARD</text>
-  <rect class="bd-chip" x="312" y="586" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="600">BMI270</text>
-  <text class="bd-chip-bus" x="490" y="600" text-anchor="end">SPI</text>
-  <rect class="bd-chip" x="312" y="612" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="626">ICM-42670</text>
-  <text class="bd-chip-bus" x="490" y="626" text-anchor="end">SPI</text>
-  <rect class="bd-chip" x="312" y="638" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="652">BMP390</text>
-  <text class="bd-chip-bus" x="490" y="652" text-anchor="end">I2C</text>
-  <rect class="bd-chip" x="312" y="664" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="678">BMM350</text>
-  <text class="bd-chip-bus" x="490" y="678" text-anchor="end">I2C</text>
-  <rect class="bd-chip" x="312" y="690" width="186" height="20" rx="5"/>
-  <text class="bd-chip-text" x="320" y="704">24LC64T</text>
-  <text class="bd-chip-bus" x="490" y="704" text-anchor="end">I2C</text>
-  <path class="bd-wire bd-wire--data" d="M405.0 530.0 L405.0 450.0"/>
-  <path class="bd-arrow bd-arrow--data" d="M405.0 450.0L408.5 458.0L401.5 458.0Z"/>
-  <rect class="bd-box bd-box--power" x="610" y="590" width="210" height="56" rx="8"/>
-  <text class="bd-title" x="715.0" y="615.5" text-anchor="middle">POWER SYSTEM</text>
-  <text class="bd-sub" x="715.0" y="630.5" text-anchor="middle">Onboard regulators</text>
-  <path class="bd-wire bd-wire--power" d="M640.0 590.0 L640.0 500.0 L470.0 500.0 L470.0 450.0"/>
-  <path class="bd-arrow bd-arrow--power" d="M470.0 450.0L473.5 458.0L466.5 458.0Z"/>
-  <text class="bd-wire-label bd-wire-label--power" x="555.0" y="493.0" text-anchor="middle">5V · 3A</text>
-  <path class="bd-wire bd-wire--power" d="M760.0 590.0 L760.0 450.0"/>
-  <path class="bd-arrow bd-arrow--power" d="M760.0 450.0L763.5 458.0L756.5 458.0Z"/>
-  <text class="bd-wire-label bd-wire-label--power" x="768.0" y="530.0" text-anchor="start">5V · 5A</text>
-  <rect class="bd-box bd-box--power-port" x="560" y="730" width="150" height="44" rx="8"/>
-  <text class="bd-title" x="635.0" y="749.5" text-anchor="middle">POWER IN</text>
-  <text class="bd-sub" x="635.0" y="764.5" text-anchor="middle">12-25 VDC · XT30</text>
-  <rect class="bd-box bd-box--power-port" x="722" y="730" width="150" height="44" rx="8"/>
-  <text class="bd-title" x="797.0" y="749.5" text-anchor="middle">12V · 2A OUT</text>
-  <text class="bd-sub" x="797.0" y="764.5" text-anchor="middle">4 Pin · JST-GH</text>
-  <path class="bd-wire bd-wire--power" d="M635.0 730.0 L635.0 690.0 L680.0 690.0 L680.0 646.0"/>
-  <path class="bd-arrow bd-arrow--power" d="M680.0 646.0L683.5 654.0L676.5 654.0Z"/>
-  <path class="bd-wire bd-wire--power" d="M760.0 646.0 L760.0 690.0 L797.0 690.0 L797.0 730.0"/>
-  <path class="bd-arrow bd-arrow--power" d="M797.0 730.0L793.5 722.0L800.5 722.0Z"/>
-  <path class="bd-wire bd-wire--data" d="M300 870 H324"/>
-  <text class="bd-sub" x="332" y="874">Data / signal</text>
-  <path class="bd-wire bd-wire--power" d="M450 870 H474"/>
-  <text class="bd-sub" x="482" y="874">Power</text>
-  <rect class="bd-box bd-box--hub" x="600" y="863" width="24" height="14" rx="3"/>
-  <text class="bd-sub" x="632" y="874">Unit</text>
-  <rect class="bd-box bd-box--chip" x="750" y="863" width="24" height="14" rx="3"/>
-  <text class="bd-sub" x="782" y="874">Onboard IC</text>
+<svg class="bd-svg" viewBox="0 0 1060 380" role="img" aria-label="Jetson Autopilot power block diagram" xmlns="http://www.w3.org/2000/svg">
+  <rect class="bd-box bd-box--power-port" x="30" y="158" width="176" height="56" rx="8"/>
+  <text class="bd-title" x="118.0" y="183.5" text-anchor="middle">POWER IN</text>
+  <text class="bd-sub" x="118.0" y="198.5" text-anchor="middle">XT30 · 9-26 VDC (3S-6S)</text>
+  <rect class="bd-box bd-box--power" x="280" y="136" width="220" height="100" rx="8"/>
+  <text class="bd-title" x="390.0" y="170.5" text-anchor="middle">POWER SYSTEM</text>
+  <text class="bd-sub" x="390.0" y="185.5" text-anchor="middle">Reverse protection</text>
+  <text class="bd-sub" x="390.0" y="198.5" text-anchor="middle">Over-current sensing</text>
+  <text class="bd-sub" x="390.0" y="211.5" text-anchor="middle">Voltage &amp; I2C current monitor</text>
+  <rect class="bd-box bd-box--hub" x="740" y="40" width="280" height="60" rx="12"/>
+  <text class="bd-tag" x="754" y="60">LECTRON V6X</text>
+  <text class="bd-title bd-title--hub" x="754" y="80">FMU UNIT</text>
+  <rect class="bd-box bd-box--hub" x="740" y="156" width="280" height="60" rx="12"/>
+  <text class="bd-tag" x="754" y="176">NVIDIA JETSON</text>
+  <text class="bd-title bd-title--hub" x="754" y="196">JETSON MODULE</text>
+  <rect class="bd-box bd-box--power-port" x="740" y="272" width="280" height="60" rx="8"/>
+  <text class="bd-title" x="880.0" y="299.5" text-anchor="middle">12V · 2A OUT</text>
+  <text class="bd-sub" x="880.0" y="314.5" text-anchor="middle">4 Pin · JST-GH · sensors / actuators</text>
+  <path class="bd-wire bd-wire--power" d="M206.0 186.0 L280.0 186.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M280.0 186.0L272.0 189.5L272.0 182.5Z"/>
+  <path class="bd-wire bd-wire--power" d="M500.0 186.0 L600.0 186.0 L600.0 70.0 L740.0 70.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M740.0 70.0L732.0 73.5L732.0 66.5Z"/>
+  <text class="bd-wire-label bd-wire-label--power" x="670.0" y="62.0" text-anchor="middle">5.0 V · 3 A</text>
+  <path class="bd-wire bd-wire--power" d="M500.0 186.0 L600.0 186.0 L600.0 186.0 L740.0 186.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M740.0 186.0L732.0 189.5L732.0 182.5Z"/>
+  <text class="bd-wire-label bd-wire-label--power" x="670.0" y="178.0" text-anchor="middle">5.1 V · 5 A</text>
+  <path class="bd-wire bd-wire--power" d="M500.0 186.0 L600.0 186.0 L600.0 302.0 L740.0 302.0"/>
+  <path class="bd-arrow bd-arrow--power" d="M740.0 302.0L732.0 305.5L732.0 298.5Z"/>
+  <text class="bd-wire-label bd-wire-label--power" x="670.0" y="294.0" text-anchor="middle">12 V · 2 A</text>
+  <circle class="bd-dot bd-dot--power" cx="600.0" cy="186.0" r="3"/>
+  <path class="bd-wire bd-wire--power" d="M300 360 H324"/>
+  <text class="bd-sub" x="332" y="364">Power</text>
+  <rect class="bd-box bd-box--hub" x="450" y="353" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="482" y="364">Unit</text>
+</svg>
+</div>
+
+## **FMU**
+
+<div class="bd-viewer">
+<svg class="bd-svg" viewBox="0 0 1060 880" role="img" aria-label="Jetson Autopilot FMU block diagram" xmlns="http://www.w3.org/2000/svg">
+  <rect class="bd-box bd-box--port" x="16" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="169.5" text-anchor="middle">I2C1</text>
+  <text class="bd-sub" x="104.0" y="184.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="223.5" text-anchor="middle">TELEM-1</text>
+  <text class="bd-sub" x="104.0" y="238.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="277.5" text-anchor="middle">TELEM-2</text>
+  <text class="bd-sub" x="104.0" y="292.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="331.5" text-anchor="middle">TELEM-3</text>
+  <text class="bd-sub" x="104.0" y="346.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="366" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="385.5" text-anchor="middle">CAN</text>
+  <text class="bd-sub" x="104.0" y="400.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="420" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="439.5" text-anchor="middle">GPS-1</text>
+  <text class="bd-sub" x="104.0" y="454.5" text-anchor="middle">10 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="474" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="493.5" text-anchor="middle">GPS-2</text>
+  <text class="bd-sub" x="104.0" y="508.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="528" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="547.5" text-anchor="middle">RC-SBUS</text>
+  <text class="bd-sub" x="104.0" y="562.5" text-anchor="middle">5 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="582" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="601.5" text-anchor="middle">I2C3</text>
+  <text class="bd-sub" x="104.0" y="616.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="636" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="655.5" text-anchor="middle">UART4</text>
+  <text class="bd-sub" x="104.0" y="670.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="690" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="709.5" text-anchor="middle">SPI-6</text>
+  <text class="bd-sub" x="104.0" y="724.5" text-anchor="middle">11 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--chip" x="868" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="169.5" text-anchor="middle">ICM-42670</text>
+  <text class="bd-sub" x="956.0" y="184.5" text-anchor="middle">SPI · onboard</text>
+  <rect class="bd-box bd-box--chip" x="868" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="223.5" text-anchor="middle">BMP390</text>
+  <text class="bd-sub" x="956.0" y="238.5" text-anchor="middle">I2C · onboard</text>
+  <rect class="bd-box bd-box--chip" x="868" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="277.5" text-anchor="middle">FRAM</text>
+  <text class="bd-sub" x="956.0" y="292.5" text-anchor="middle">SPI · onboard</text>
+  <rect class="bd-box bd-box--chip" x="868" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="331.5" text-anchor="middle">SE051</text>
+  <text class="bd-sub" x="956.0" y="346.5" text-anchor="middle">I2C · onboard</text>
+  <rect class="bd-box bd-box--port" x="330" y="40" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="418.0" y="59.5" text-anchor="middle">USB 2.0</text>
+  <text class="bd-sub" x="418.0" y="74.5" text-anchor="middle">Type-C</text>
+  <path class="bd-wire bd-wire--data" d="M418.0 84.0 L418.0 200.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M418.0 200.0L414.5 192.0L421.5 192.0Z"/>
+  <rect class="bd-box bd-box--port" x="530" y="40" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="618.0" y="59.5" text-anchor="middle">FMU &amp; IO DEBUG</text>
+  <text class="bd-sub" x="618.0" y="74.5" text-anchor="middle">10 Pin · JST-SH</text>
+  <path class="bd-wire bd-wire--data" d="M618.0 84.0 L618.0 200.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M618.0 200.0L614.5 192.0L621.5 192.0Z"/>
+  <rect class="bd-box bd-box--port" x="730" y="40" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="818.0" y="59.5" text-anchor="middle">FMU &amp; IO PWM</text>
+  <text class="bd-sub" x="818.0" y="74.5" text-anchor="middle">10 Pin · JST-GH</text>
+  <path class="bd-wire bd-wire--data" d="M818.0 84.0 L818.0 140.0 L640.0 140.0 L640.0 200.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M640.0 200.0L636.5 192.0L643.5 192.0Z"/>
+  <rect class="bd-box bd-box--hub" x="400" y="200" width="260" height="460" rx="12"/>
+  <text class="bd-tag" x="414" y="220">FMU UNIT · LECTRON V6X</text>
+  <text class="bd-title bd-title--hub" x="414" y="240">STM32H753 + STM32F103</text>
+  <text class="bd-sub" x="414" y="260">Flight management + IO co-processor</text>
+  <path class="bd-wire bd-wire--data" d="M192.0 172.0 L300.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 226.0 L300.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 280.0 L300.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 334.0 L300.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 388.0 L300.0 388.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="388.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 442.0 L300.0 442.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="442.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 496.0 L300.0 496.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="496.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 550.0 L300.0 550.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="550.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 604.0 L300.0 604.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="604.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 658.0 L300.0 658.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="658.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 712.0 L300.0 712.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="712.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 172.0 L300.0 712.0"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 430.0 L400.0 430.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M400.0 430.0L392.0 433.5L392.0 426.5Z"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 172.0 L760.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 226.0 L760.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 280.0 L760.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 334.0 L760.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 172.0 L760.0 334.0"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 270.0 L660.0 270.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M660.0 270.0L668.0 266.5L668.0 273.5Z"/>
+  <rect class="bd-box bd-box--hub" x="868" y="382" width="176" height="196" rx="12"/>
+  <text class="bd-tag" x="882" y="402">SENSOR BOARD</text>
+  <text class="bd-title bd-title--hub" x="882" y="422">LECTRON IMU-01</text>
+  <rect class="bd-chip" x="880" y="438" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="452">BMI270</text>
+  <text class="bd-chip-bus" x="1024" y="452" text-anchor="end">SPI</text>
+  <rect class="bd-chip" x="880" y="464" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="478">ICM-42670</text>
+  <text class="bd-chip-bus" x="1024" y="478" text-anchor="end">SPI</text>
+  <rect class="bd-chip" x="880" y="490" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="504">BMP390</text>
+  <text class="bd-chip-bus" x="1024" y="504" text-anchor="end">I2C</text>
+  <rect class="bd-chip" x="880" y="516" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="530">BMM350</text>
+  <text class="bd-chip-bus" x="1024" y="530" text-anchor="end">I2C</text>
+  <rect class="bd-chip" x="880" y="542" width="152" height="20" rx="5"/>
+  <text class="bd-chip-text" x="888" y="556">24LC64T</text>
+  <text class="bd-chip-bus" x="1024" y="556" text-anchor="end">I2C</text>
+  <path class="bd-wire bd-wire--data" d="M868.0 480.0 L660.0 480.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M660.0 480.0L668.0 476.5L668.0 483.5Z"/>
+  <rect class="bd-box bd-box--link" x="330" y="716" width="196" height="50" rx="8"/>
+  <text class="bd-title" x="428.0" y="738.5" text-anchor="middle">FMU ↔ JETSON</text>
+  <text class="bd-sub" x="428.0" y="753.5" text-anchor="middle">TELEM-3 (USART2) ↔ UART0 *</text>
+  <rect class="bd-box bd-box--link" x="538" y="716" width="196" height="50" rx="8"/>
+  <text class="bd-title" x="636.0" y="738.5" text-anchor="middle">ETHERNET</text>
+  <text class="bd-sub" x="636.0" y="753.5" text-anchor="middle">100 Mbps · via KSZ8795 switch</text>
+  <path class="bd-wire bd-wire--data" d="M428.0 660.0 L428.0 716.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M428.0 716.0L424.5 708.0L431.5 708.0Z"/>
+  <path class="bd-wire bd-wire--data" d="M636.0 660.0 L636.0 716.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M636.0 716.0L632.5 708.0L639.5 708.0Z"/>
+  <text class="bd-sub" x="330" y="792">* Bridged by default; remove the bridge resistors to use the ports separately.</text>
+  <path class="bd-wire bd-wire--data" d="M300 850 H324"/>
+  <text class="bd-sub" x="332" y="854">Data / signal</text>
+  <rect class="bd-box bd-box--hub" x="450" y="843" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="482" y="854">Unit</text>
+  <rect class="bd-box bd-box--chip" x="600" y="843" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="632" y="854">Onboard IC</text>
+  <rect class="bd-box bd-box--link" x="750" y="843" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="782" y="854">Inter-unit link</text>
+</svg>
+</div>
+
+## **Jetson Module**
+
+<div class="bd-viewer">
+<svg class="bd-svg" viewBox="0 0 1060 860" role="img" aria-label="Jetson Autopilot Jetson module block diagram" xmlns="http://www.w3.org/2000/svg">
+  <rect class="bd-box bd-box--port" x="16" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="169.5" text-anchor="middle">USB 3.0</text>
+  <text class="bd-sub" x="104.0" y="184.5" text-anchor="middle">Type-C</text>
+  <rect class="bd-box bd-box--port" x="16" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="223.5" text-anchor="middle">USB 2.0</text>
+  <text class="bd-sub" x="104.0" y="238.5" text-anchor="middle">Mini USB</text>
+  <rect class="bd-box bd-box--port" x="16" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="277.5" text-anchor="middle">SD CARD</text>
+  <text class="bd-sub" x="104.0" y="292.5" text-anchor="middle">Micro-SD</text>
+  <rect class="bd-box bd-box--port" x="16" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="331.5" text-anchor="middle">GPIO</text>
+  <text class="bd-sub" x="104.0" y="346.5" text-anchor="middle">10 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="366" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="385.5" text-anchor="middle">SPI</text>
+  <text class="bd-sub" x="104.0" y="400.5" text-anchor="middle">6 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="420" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="439.5" text-anchor="middle">UART0</text>
+  <text class="bd-sub" x="104.0" y="454.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="474" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="493.5" text-anchor="middle">UART1</text>
+  <text class="bd-sub" x="104.0" y="508.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="16" y="528" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="104.0" y="547.5" text-anchor="middle">UART2</text>
+  <text class="bd-sub" x="104.0" y="562.5" text-anchor="middle">3 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="150" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="169.5" text-anchor="middle">I2C0</text>
+  <text class="bd-sub" x="956.0" y="184.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="204" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="223.5" text-anchor="middle">I2C1</text>
+  <text class="bd-sub" x="956.0" y="238.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="258" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="277.5" text-anchor="middle">CSI1/2</text>
+  <text class="bd-sub" x="956.0" y="292.5" text-anchor="middle">15 Pin · 1 mm pitch</text>
+  <rect class="bd-box bd-box--port" x="868" y="312" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="331.5" text-anchor="middle">CAN</text>
+  <text class="bd-sub" x="956.0" y="346.5" text-anchor="middle">4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="868" y="366" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="385.5" text-anchor="middle">SYS-FAN-1/2</text>
+  <text class="bd-sub" x="956.0" y="400.5" text-anchor="middle">4 Pin · JST-SH</text>
+  <rect class="bd-box bd-box--chip" x="868" y="420" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="956.0" y="439.5" text-anchor="middle">BMI270</text>
+  <text class="bd-sub" x="956.0" y="454.5" text-anchor="middle">SPI · onboard</text>
+  <rect class="bd-box bd-box--hub" x="400" y="150" width="260" height="430" rx="12"/>
+  <text class="bd-tag" x="414" y="170">COMPANION COMPUTER</text>
+  <text class="bd-title bd-title--hub" x="414" y="190">NVIDIA JETSON</text>
+  <text class="bd-sub" x="414" y="210">260-pin DDR4 SODIMM · Nano / Xavier NX</text>
+  <path class="bd-wire bd-wire--data" d="M192.0 172.0 L300.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 226.0 L300.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 280.0 L300.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 334.0 L300.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 388.0 L300.0 388.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="388.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 442.0 L300.0 442.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="442.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 496.0 L300.0 496.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="496.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M192.0 550.0 L300.0 550.0"/>
+  <circle class="bd-dot bd-dot--data" cx="300.0" cy="550.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 172.0 L300.0 550.0"/>
+  <path class="bd-wire bd-wire--data" d="M300.0 365.0 L400.0 365.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M400.0 365.0L392.0 368.5L392.0 361.5Z"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 172.0 L760.0 172.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="172.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 226.0 L760.0 226.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="226.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 280.0 L760.0 280.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="280.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 334.0 L760.0 334.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="334.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 388.0 L760.0 388.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="388.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M868.0 442.0 L760.0 442.0"/>
+  <circle class="bd-dot bd-dot--data" cx="760.0" cy="442.0" r="3"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 172.0 L760.0 442.0"/>
+  <path class="bd-wire bd-wire--data" d="M760.0 365.0 L660.0 365.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M660.0 365.0L668.0 361.5L668.0 368.5Z"/>
+  <rect class="bd-box bd-box--block" x="410" y="650" width="240" height="60" rx="8"/>
+  <text class="bd-title" x="530.0" y="677.5" text-anchor="middle">ETHERNET SWITCH</text>
+  <text class="bd-sub" x="530.0" y="692.5" text-anchor="middle">KSZ8795 · 10/100 managed</text>
+  <path class="bd-wire bd-wire--data" d="M470.0 580.0 L470.0 650.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M470.0 650.0L466.5 642.0L473.5 642.0Z"/>
+  <text class="bd-wire-label bd-wire-label--data" x="478.0" y="620.0" text-anchor="start">100 Mbps</text>
+  <rect class="bd-box bd-box--port" x="100" y="640" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="188.0" y="659.5" text-anchor="middle">ETH-1</text>
+  <text class="bd-sub" x="188.0" y="674.5" text-anchor="middle">100 Mbps · 4 Pin · JST-GH</text>
+  <rect class="bd-box bd-box--port" x="100" y="706" width="176" height="44" rx="8"/>
+  <text class="bd-title" x="188.0" y="725.5" text-anchor="middle">ETH-2</text>
+  <text class="bd-sub" x="188.0" y="740.5" text-anchor="middle">100 Mbps · 4 Pin · JST-GH</text>
+  <path class="bd-wire bd-wire--data" d="M410.0 662.0 L276.0 662.0"/>
+  <path class="bd-wire bd-wire--data" d="M410.0 696.0 L330.0 696.0 L330.0 728.0 L276.0 728.0"/>
+  <rect class="bd-box bd-box--link" x="740" y="640" width="230" height="50" rx="8"/>
+  <text class="bd-title" x="855.0" y="662.5" text-anchor="middle">JETSON ↔ FMU</text>
+  <text class="bd-sub" x="855.0" y="677.5" text-anchor="middle">UART0 ↔ TELEM-3 (USART2)</text>
+  <path class="bd-wire bd-wire--data" d="M630.0 580.0 L630.0 620.0 L700.0 620.0 L700.0 665.0 L740.0 665.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M740.0 665.0L732.0 668.5L732.0 661.5Z"/>
+  <rect class="bd-box bd-box--link" x="740" y="716" width="230" height="50" rx="8"/>
+  <text class="bd-title" x="855.0" y="738.5" text-anchor="middle">→ FMU</text>
+  <text class="bd-sub" x="855.0" y="753.5" text-anchor="middle">100 Mbps · internal PHY</text>
+  <path class="bd-wire bd-wire--data" d="M650.0 690.0 L720.0 690.0 L720.0 741.0 L740.0 741.0"/>
+  <path class="bd-arrow bd-arrow--data" d="M740.0 741.0L732.0 744.5L732.0 737.5Z"/>
+  <path class="bd-wire bd-wire--data" d="M300 830 H324"/>
+  <text class="bd-sub" x="332" y="834">Data / signal</text>
+  <rect class="bd-box bd-box--hub" x="450" y="823" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="482" y="834">Unit</text>
+  <rect class="bd-box bd-box--chip" x="600" y="823" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="632" y="834">Onboard IC</text>
+  <rect class="bd-box bd-box--link" x="750" y="823" width="24" height="14" rx="3"/>
+  <text class="bd-sub" x="782" y="834">Inter-unit link</text>
 </svg>
 </div>

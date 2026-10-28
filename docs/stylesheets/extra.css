@@ -842,8 +842,12 @@ details[open] summary::before {
    they sit on the dark surface instead of glaring (hue-rotate keeps the blue
    dimension lines blue). */
 [data-md-color-scheme="slate"] .md-typeset .dim-raster img,
-[data-md-color-scheme="slate"] .md-typeset img.dim-raster {
-  filter: invert(.9) hue-rotate(180deg);
+[data-md-color-scheme="slate"] .md-typeset img.dim-raster,
+[data-md-color-scheme="slate"] .md-typeset img.lc-drawing {
+  /* Full inversion turns the white paper black; screen blending then drops
+     the black so the lines sit directly on the card colour */
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
 }
 
 .md-typeset .dim-raster img,
@@ -1069,6 +1073,494 @@ details[open] summary::before {
 
 .bd-svg .bd-wire-label--power {
   fill: var(--lc-power);
+}
+
+/* ---- Pinout page: numbered locator views + one card per connector ---- */
+
+.md-typeset .pin-views {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.md-typeset .pin-views figure {
+  /* Material sizes figures to their content; fill the grid column instead */
+  width: auto;
+  max-width: none;
+  align-items: stretch;
+  margin: 0;
+  padding: .75rem;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius);
+  background: var(--lc-card);
+}
+
+/* Both views in one frame, captions under each (Pi5 Light board photos) */
+.md-typeset .pin-views--single {
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius);
+  background: var(--lc-card);
+}
+
+.md-typeset .pin-views--single figure {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.md-typeset .pin-views--single figcaption {
+  text-align: center;
+}
+
+.md-typeset .pin-views img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.md-typeset .pin-views figcaption {
+  margin-top: .5rem;
+  font-family: var(--lc-font-mono);
+  font-size: .6rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--lc-muted);
+}
+
+/* Clickable ports on the locator views (positions in % of the image) */
+.md-typeset .pin-hotspots {
+  position: relative;
+}
+
+.md-typeset .pin-hotspots > p {
+  margin: 0;
+}
+
+.md-typeset .pin-spot {
+  position: absolute;
+  width: 5.2%;
+  aspect-ratio: 1;
+  border: 2px solid var(--md-accent-fg-color);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--lc-brand) 14%, transparent);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform .15s var(--lc-ease), background-color .15s var(--lc-ease), box-shadow .15s var(--lc-ease);
+  animation: pin-spot-pulse 2.4s var(--lc-ease) infinite;
+}
+
+.md-typeset .pin-spot:hover,
+.md-typeset .pin-spot:focus-visible,
+.md-typeset .pin-spot.is-hover {
+  transform: translate(-50%, -50%) scale(1.18);
+  background: color-mix(in srgb, var(--lc-brand) 30%, transparent);
+  animation: none;
+}
+
+.md-typeset .pin-spot.is-active {
+  background: color-mix(in srgb, var(--lc-brand) 38%, transparent);
+  box-shadow: 0 0 0 4px var(--lc-accent-soft), 0 0 18px color-mix(in srgb, var(--lc-brand) 60%, transparent);
+  animation: none;
+}
+
+@keyframes pin-spot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--lc-brand) 40%, transparent); }
+  50% { box-shadow: 0 0 0 5px transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .pin-spot {
+    animation: none;
+  }
+}
+
+/* Board photos (Pi5 Light): larger number badges than the line drawings */
+.md-typeset .pin-hotspots--photo .pin-spot {
+  width: 8.9%;
+}
+
+.md-typeset .pin-sheet__note {
+  margin: 0;
+  padding: .8rem 1rem;
+  border: 1px dashed var(--lc-border-strong);
+  border-radius: var(--lc-radius-sm);
+  font-size: .7rem;
+  color: var(--lc-muted);
+}
+
+.md-typeset .pin-dot--adc, .md-typeset .pin-type--adc { --pin-c: #e48a5c; }
+
+/* Drawn board views (Pi5 Light): fixed PCB colours in both themes, like a
+   board render; pin dots use the signal-type palette */
+.md-typeset .pin-views--drawn figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.bp-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--lc-font-mono);
+}
+
+.bp-svg .bp-pcb { fill: #14273d; stroke: #2b4361; stroke-width: 3; }
+.bp-svg .bp-hole { fill: #c9a24a; }
+.bp-svg .bp-hole-in { fill: #070d16; }
+.bp-svg .bp-chip { fill: #0a121c; stroke: #2b4361; }
+.bp-svg .bp-chip-label { fill: #6f86a3; font-size: 15px; }
+.bp-svg .bp-arrow { fill: #c9d6e6; }
+.bp-svg .bp-fwd { fill: #8aa0bb; font-size: 12px; letter-spacing: .12em; }
+.bp-svg .bp-housing { fill: #e8e2d4; stroke: #b9b09b; stroke-width: 1.5; }
+.bp-svg .bp-metal { fill: #b8bec7; stroke: #8a929d; stroke-width: 1.5; }
+.bp-svg .bp-slot { fill: #3a4350; }
+.bp-svg .bp-dark { fill: #0b0f15; stroke: #3a4350; }
+.bp-svg .bp-gold { fill: #c9a24a; }
+.bp-svg .bp-gold-row { fill: none; stroke: #c9a24a; stroke-width: 2; stroke-dasharray: 2 3; }
+.bp-svg .bp-xt30 { fill: #f2c21b; stroke: #b48d0c; stroke-width: 2; }
+
+.bp-svg .bp-pin {
+  fill: var(--pin-c, #8b95a3);
+  stroke: rgba(0, 0, 0, .45);
+  stroke-width: 1;
+  transition: stroke .12s, stroke-width .12s;
+}
+
+.bp-svg .bp-pin--nc { fill: #fff; }
+.bp-svg .bp-pin.is-hover { stroke: #fff; stroke-width: 3.5; }
+
+.bp-svg .bp-badge circle {
+  fill: #fff;
+  stroke: var(--lc-brand);
+  stroke-width: 3;
+  transition: stroke-width .15s, fill .15s;
+}
+
+.bp-svg .bp-badge text {
+  fill: #0d1623;
+  font-size: 18px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.bp-svg .pin-conn {
+  cursor: pointer;
+  outline: none;
+}
+
+.bp-svg .pin-conn:hover .bp-badge circle,
+.bp-svg .pin-conn:focus-visible .bp-badge circle,
+.bp-svg .pin-conn.is-hover .bp-badge circle {
+  stroke-width: 5;
+}
+
+.bp-svg .pin-conn.is-active .bp-badge circle {
+  fill: var(--lc-brand);
+  stroke: #fff;
+}
+
+.bp-svg .pin-conn.is-active .bp-badge text {
+  fill: #fff;
+}
+
+.bp-svg .pin-conn.is-active .bp-housing,
+.bp-svg .pin-conn.is-active .bp-metal,
+.bp-svg .pin-conn.is-active .bp-dark,
+.bp-svg .pin-conn.is-active .bp-xt30 {
+  stroke: var(--lc-brand);
+  stroke-width: 3;
+}
+
+.bp-svg .bp-pin--power { --pin-c: var(--pin-power); }
+.bp-svg .bp-pin--gnd { --pin-c: var(--pin-gnd); }
+.bp-svg .bp-pin--uart { --pin-c: var(--pin-uart); }
+.bp-svg .bp-pin--i2c { --pin-c: var(--pin-i2c); }
+.bp-svg .bp-pin--can { --pin-c: var(--pin-can); }
+.bp-svg .bp-pin--pwm { --pin-c: var(--pin-pwm); }
+.bp-svg .bp-pin--rc { --pin-c: var(--pin-rc); }
+.bp-svg .bp-pin--gpio { --pin-c: var(--pin-gpio); }
+.bp-svg .bp-pin--debug { --pin-c: var(--pin-debug); }
+.bp-svg .bp-pin--eth { --pin-c: var(--pin-eth); }
+.bp-svg .bp-pin--adc { --pin-c: #e48a5c; }
+
+/* Connector buttons under the views */
+.md-typeset .pin-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin: 1rem 0 .75rem;
+}
+
+.md-typeset .pin-index a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .3rem .65rem .3rem .35rem;
+  border: 1px solid var(--lc-border-strong);
+  border-radius: var(--lc-radius-sm);
+  background: var(--lc-card);
+  font-family: var(--lc-font-mono);
+  font-size: .62rem;
+  font-weight: 600;
+  color: var(--lc-text);
+  transition: border-color .15s var(--lc-ease), background-color .15s var(--lc-ease), color .15s var(--lc-ease);
+}
+
+.md-typeset .pin-index a:hover,
+.md-typeset .pin-index a.is-hover {
+  border-color: var(--md-accent-fg-color);
+}
+
+.md-typeset .pin-index a.is-active {
+  border-color: var(--md-accent-fg-color);
+  background: var(--lc-accent-soft);
+  color: var(--lc-accent-text);
+  box-shadow: 0 0 0 1px var(--md-accent-fg-color);
+}
+
+.md-typeset .pin-index b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 999px;
+  background: var(--lc-text);
+  color: var(--lc-bg);
+  font-size: .56rem;
+}
+
+/* Signal-type palette: one hue per type, shared by the legend, the
+   connector strip and the Type column */
+.md-typeset .pin-explorer {
+  --pin-power: #ef6461;
+  --pin-gnd: #8b95a3;
+  --pin-uart: #4f9cf9;
+  --pin-i2c: #34c48b;
+  --pin-can: #a77cf2;
+  --pin-spi: #22c3d6;
+  --pin-pwm: #f2a33a;
+  --pin-rc: #ec6fb5;
+  --pin-gpio: #c8d45a;
+  --pin-debug: #7f8fae;
+  --pin-eth: #7b83f6;
+  --pin-nc: transparent;
+  --pin-switch: var(--lc-muted);
+}
+
+.md-typeset .pin-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1rem;
+  margin: 0 0 1.5rem;
+  font-size: .62rem;
+  color: var(--lc-muted);
+}
+
+.md-typeset .pin-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.md-typeset .pin-dot {
+  display: inline-block;
+  width: .62rem;
+  height: .62rem;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--lc-text) 25%, transparent);
+  background: var(--pin-c, var(--lc-muted));
+  transition: transform .12s var(--lc-ease), box-shadow .12s var(--lc-ease);
+}
+
+.md-typeset .pin-dot--one { border-radius: 2px; }
+.md-typeset .pin-dot--power, .md-typeset .pin-type--power { --pin-c: var(--pin-power); }
+.md-typeset .pin-dot--gnd, .md-typeset .pin-type--gnd { --pin-c: var(--pin-gnd); }
+.md-typeset .pin-dot--uart, .md-typeset .pin-type--uart { --pin-c: var(--pin-uart); }
+.md-typeset .pin-dot--i2c, .md-typeset .pin-type--i2c { --pin-c: var(--pin-i2c); }
+.md-typeset .pin-dot--can, .md-typeset .pin-type--can { --pin-c: var(--pin-can); }
+.md-typeset .pin-dot--spi, .md-typeset .pin-type--spi { --pin-c: var(--pin-spi); }
+.md-typeset .pin-dot--pwm, .md-typeset .pin-type--pwm { --pin-c: var(--pin-pwm); }
+.md-typeset .pin-dot--rc, .md-typeset .pin-type--rc { --pin-c: var(--pin-rc); }
+.md-typeset .pin-dot--gpio, .md-typeset .pin-type--gpio { --pin-c: var(--pin-gpio); }
+.md-typeset .pin-dot--debug, .md-typeset .pin-type--debug { --pin-c: var(--pin-debug); }
+.md-typeset .pin-dot--eth, .md-typeset .pin-type--eth { --pin-c: var(--pin-eth); }
+.md-typeset .pin-dot--nc, .md-typeset .pin-type--nc { --pin-c: var(--pin-nc); }
+.md-typeset .pin-dot--switch, .md-typeset .pin-type--switch { --pin-c: var(--pin-switch); }
+
+/* One sheet per connector; extra.js shows only the selected one */
+.md-typeset .pin-sheet {
+  scroll-margin-top: 6rem;
+}
+
+.md-typeset .pin-sheet + .pin-sheet {
+  margin-top: 2rem;
+}
+
+.md-typeset .pin-explorer.is-ready .pin-sheet:not(.is-active) {
+  display: none;
+}
+
+.md-typeset .pin-sheet__eyebrow {
+  margin: 0;
+  font-family: var(--lc-font-mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--lc-muted);
+}
+
+.md-typeset .pin-sheet__title {
+  margin: .15rem 0 .9rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--lc-text);
+}
+
+.md-typeset .pin-sheet__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .6rem;
+  margin-bottom: .9rem;
+}
+
+.md-typeset .pin-sheet__facts > div {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  padding: .6rem .8rem;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius-sm);
+  background: var(--lc-card);
+}
+
+.md-typeset .pin-sheet__facts span {
+  font-family: var(--lc-font-mono);
+  font-size: .56rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--lc-muted);
+}
+
+.md-typeset .pin-sheet__facts b {
+  font-size: .72rem;
+  color: var(--lc-text);
+}
+
+/* Connector strip: the housing with its pins in order, Pin 1 square */
+.md-typeset .pin-strip {
+  display: inline-flex;
+  gap: .45rem;
+  margin-bottom: .9rem;
+  padding: .5rem .7rem;
+  border: 1px solid var(--lc-border-strong);
+  border-radius: 6px;
+  background: #e8e2d4;
+}
+
+.md-typeset .pin-strip .pin-dot {
+  width: .8rem;
+  height: .8rem;
+  border-color: rgba(0, 0, 0, .35);
+}
+
+.md-typeset .pin-strip .pin-dot--nc {
+  background: #fff;
+}
+
+.md-typeset .pin-strip .pin-dot.is-hover {
+  transform: scale(1.45);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--pin-c, #888) 45%, transparent);
+}
+
+.md-typeset table.pin-table {
+  display: table;
+  width: 100%;
+  margin: 0;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background: var(--lc-card);
+  font-size: .7rem;
+}
+
+.md-typeset table.pin-table th {
+  padding: .6rem .8rem;
+  background: var(--lc-elevated);
+  border-bottom: 1px solid var(--lc-border-strong);
+  font-family: var(--lc-font-mono);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--lc-muted);
+}
+
+.md-typeset table.pin-table td {
+  padding: .55rem .8rem;
+  border-top: 1px solid var(--lc-border);
+  vertical-align: middle;
+}
+
+.md-typeset table.pin-table tbody tr:first-child td {
+  border-top: none;
+}
+
+.md-typeset table.pin-table tbody tr {
+  transition: background-color .12s var(--lc-ease);
+}
+
+.md-typeset table.pin-table tbody tr:hover,
+.md-typeset table.pin-table tbody tr.is-hover {
+  background: var(--lc-accent-soft);
+}
+
+.md-typeset table.pin-table .pin-sig {
+  font-family: var(--lc-font-mono);
+  font-weight: 700;
+  color: var(--lc-text);
+}
+
+.md-typeset table.pin-table .pin-level {
+  font-family: var(--lc-font-mono);
+  white-space: nowrap;
+}
+
+.md-typeset .pin-type {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: var(--lc-font-mono);
+  font-size: .62rem;
+  white-space: nowrap;
+}
+
+.md-typeset .pin-type::before {
+  content: "";
+  width: .55rem;
+  height: .55rem;
+  border-radius: 2px;
+  border: 1px solid color-mix(in srgb, var(--lc-text) 25%, transparent);
+  background: var(--pin-c);
+}
+
+@media (max-width: 700px) {
+  .md-typeset .pin-views,
+  .md-typeset .pin-sheet__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset table.pin-table {
+    display: block;
+    overflow-x: auto;
+  }
 }
 
 /* ---- Tables: hairline grid, mono header row, zebra body ---- */
