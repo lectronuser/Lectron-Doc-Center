@@ -1,6 +1,6 @@
 # Pinout
 
-This page describes every port on the **Lectron Pi5 Light Autopilot**: where it is, its connector type, pin assignment and signal levels. Ports are numbered as in the board views below.
+This page describes every port on the **Lectron Pi5 Autopilot**: where it is, its connector type, pin assignment and signal levels. Ports are numbered as in the board views below.
 
 Click a numbered connector on the board views or one of the buttons below. Pin 1 is drawn as a square; hover a table row to highlight that pin on the connector.
 
@@ -13,7 +13,7 @@ Click a numbered connector on the board views or one of the buttons below. Pin 1
 
 <div class="pin-views pin-views--single pin-views--drawn">
 <figure>
-<svg class="bp-svg" viewBox="0 0 735 730" role="img" aria-label="Pi5 Light Autopilot, top side" xmlns="http://www.w3.org/2000/svg">
+<svg class="bp-svg" viewBox="0 0 735 730" role="img" aria-label="Pi5 Autopilot, top side" xmlns="http://www.w3.org/2000/svg">
 <rect class="bp-pcb" x="10" y="18" width="713" height="696" rx="34"/>
 <circle class="bp-hole" cx="56" cy="56" r="27"/><circle class="bp-hole-in" cx="56" cy="56" r="15"/>
 <circle class="bp-hole" cx="688" cy="58" r="27"/><circle class="bp-hole-in" cx="688" cy="58" r="15"/>
@@ -37,7 +37,7 @@ Click a numbered connector on the board views or one of the buttons below. Pin 1
 <figcaption>Top side · ports 1-13</figcaption>
 </figure>
 <figure>
-<svg class="bp-svg" viewBox="0 0 752 730" role="img" aria-label="Pi5 Light Autopilot, bottom side" xmlns="http://www.w3.org/2000/svg">
+<svg class="bp-svg" viewBox="0 0 752 730" role="img" aria-label="Pi5 Autopilot, bottom side" xmlns="http://www.w3.org/2000/svg">
 <rect class="bp-pcb" x="10" y="18" width="730" height="696" rx="34"/>
 <circle class="bp-hole" cx="56" cy="56" r="27"/><circle class="bp-hole-in" cx="56" cy="56" r="15"/>
 <circle class="bp-hole" cx="688" cy="58" r="27"/><circle class="bp-hole-in" cx="688" cy="58" r="15"/>

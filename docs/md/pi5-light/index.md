@@ -1,12 +1,12 @@
-# Lectron Pi5 Light Autopilot
+# Lectron Pi5 Autopilot
 
 ## **Product Description**
 
-Lectron Pi5 Light Autopilot is a lightweight, cost-optimized member of the Pi5 Autopilot family that pairs an STM32H753 flight management unit with a Raspberry Pi Compute Module 5. It delivers CM5 onboard computing, Hailo-8 edge AI acceleration and deterministic flight control on PX4 or ArduPilot, without the full footprint of the standard Pi5 Autopilot.
+Lectron Pi5 Autopilot is a lightweight, cost-optimized member of the Lectron Pi5 family that pairs an STM32H753 flight management unit with a Raspberry Pi Compute Module 5. It delivers CM5 onboard computing, Hailo-8 edge AI acceleration and deterministic flight control on PX4 or ArduPilot, without the full footprint of the Pi5 Pro Autopilot.
 
 ## **Specification**
 
-| Feature | Lectron Pi5 Light Autopilot |
+| Feature | Lectron Pi5 Autopilot |
 | --- | --- |
 | **Mission Computer** | Raspberry Pi Compute Module 5 |
 | **FMU Processor** | STM32H753 |

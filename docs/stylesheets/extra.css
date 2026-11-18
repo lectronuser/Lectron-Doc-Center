@@ -1096,7 +1096,7 @@ details[open] summary::before {
   background: var(--lc-card);
 }
 
-/* Both views in one frame, captions under each (Pi5 Light board photos) */
+/* Both views in one frame, captions under each (Pi5 Autopilot board photos) */
 .md-typeset .pin-views--single {
   gap: 1.5rem;
   padding: 1rem 1.25rem;
@@ -1177,7 +1177,7 @@ details[open] summary::before {
   }
 }
 
-/* Board photos (Pi5 Light): larger number badges than the line drawings */
+/* Board photos (Pi5 Autopilot): larger number badges than the line drawings */
 .md-typeset .pin-hotspots--photo .pin-spot {
   width: 8.9%;
 }
@@ -1193,7 +1193,7 @@ details[open] summary::before {
 
 .md-typeset .pin-dot--adc, .md-typeset .pin-type--adc { --pin-c: #e48a5c; }
 
-/* Drawn board views (Pi5 Light): fixed PCB colours in both themes, like a
+/* Drawn board views (Pi5 Autopilot): fixed PCB colours in both themes, like a
    board render; pin dots use the signal-type palette */
 .md-typeset .pin-views--drawn figure {
   display: flex;

@@ -1,6 +1,6 @@
 # Assembly Guide
 
-This guide walks through assembling the **Lectron PI5 Autopilot** - mounting the Raspberry Pi Compute Module 5, connecting the IMU board, and closing the enclosure.
+This guide walks through assembling the **Lectron Pi5 Pro Autopilot** - mounting the Raspberry Pi Compute Module 5, connecting the IMU board, and closing the enclosure.
 
 ## **What's in the Box**
 
@@ -10,13 +10,13 @@ Before starting, make sure you have all of the following components:
 | :-: | :-------- |
 | 1 | Bottom case |
 | 2 | CM5-FMU baseboard |
-| 3 | Top case (PI5 Autopilot heatsink + fan) |
+| 3 | Top case (Pi5 Pro Autopilot heatsink + fan) |
 | 4 | IMU board |
 | 5 | Raspberry Pi Compute Module 5 (CM5) |
 | - | MicroSD card(s) |
 | - | Screws: **4 pcs M2×4 mm** (IMU board) and **5 pcs M2×10 mm** (case) |
 
-![Lectron PI5 Autopilot components overview](../../images/raspberry/assembly_1.png)
+![Lectron Pi5 Pro Autopilot components overview](../../images/raspberry/assembly_1.png)
 
 ---
 
@@ -96,7 +96,7 @@ Secure the assembly with the supplied screws:
 ![Screw placement: M2x10mm and M2x4mm](../../images/raspberry/assembly_9.png)
 
 !!! tip "Done"
-    The Lectron PI5 Autopilot is now assembled. Continue with the [Initial Installation](setup.md) guide to flash the Compute Module and the FMU firmware.
+    The Lectron Pi5 Pro Autopilot is now assembled. Continue with the [Initial Installation](setup.md) guide to flash the Compute Module and the FMU firmware.
 
 
 ## **Hailo Integration**
@@ -104,7 +104,7 @@ Secure the assembly with the supplied screws:
 The Hailo-8 AI accelerator is installed in the M.2 M-Key slot on the CM5 carrier board.
 
 !!! note "M.2 Standoff - 2242 vs. 2230"
-    The Lectron PI5 Autopilot ships with the M.2 M-Key standoff fitted for a **2242** module. To install a **2230** module, move this standoff from the 2242 hole to the **2230** hole. Once relocated, the board supports a 2230 build.
+    The Lectron Pi5 Pro Autopilot ships with the M.2 M-Key standoff fitted for a **2242** module. To install a **2230** module, move this standoff from the 2242 hole to the **2230** hole. Once relocated, the board supports a 2230 build.
 
 ### **Step 1 - Locate the Connector, Screw and Thermal Pad**
 The image below shows the Hailo module and the CM5 carrier board. The **red rectangles** mark the M.2 connector, the **red circles** mark the standoff/screw locations, and the **blue rectangle** marks where the thermal pad must be applied on the Hailo module.

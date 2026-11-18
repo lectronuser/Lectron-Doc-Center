@@ -4,7 +4,7 @@
 
 <div class="dim-sheet__drawing" markdown>
 
-<svg class="dim-svg" viewBox="0 0 698 681" role="img" aria-label="Pi5 Light Autopilot top view dimensions" xmlns="http://www.w3.org/2000/svg">
+<svg class="dim-svg" viewBox="0 0 698 681" role="img" aria-label="Pi5 Autopilot top view dimensions" xmlns="http://www.w3.org/2000/svg">
 <rect class="dim-outline" x="112.0" y="108.0" width="515.7" height="498.5" rx="10.3"/>
 <rect class="dim-part" x="116.3" y="178.5" width="190.9" height="71.4" rx="3.4"/>
 <text class="dim-part-label" x="249.6" y="192.3" text-anchor="middle" dominant-baseline="middle">M.2 M-KEY</text>
@@ -98,7 +98,7 @@
 <text class="dim-note" x="369.9" y="672.5" text-anchor="middle">TOP VIEW · mm</text>
 </svg>
 
-<svg class="dim-svg" viewBox="0 0 698 177" role="img" aria-label="Pi5 Light Autopilot side view, overall height" xmlns="http://www.w3.org/2000/svg">
+<svg class="dim-svg" viewBox="0 0 698 177" role="img" aria-label="Pi5 Autopilot side view, overall height" xmlns="http://www.w3.org/2000/svg">
 <rect class="dim-part" x="117.2" y="30.2" width="190.1" height="37.8" rx="1.7"/>
 <rect class="dim-part" x="308.1" y="36.2" width="29.2" height="31.8" rx="1.7"/>
 <rect class="dim-part" x="342.5" y="36.2" width="43.9" height="31.8" rx="1.7"/>
@@ -150,7 +150,7 @@ All dimensions in mm. Hole spacing is centre to centre. Component outlines are a
 
 <div class="dim-sheet__drawing" markdown>
 
-<svg class="dim-svg" viewBox="0 0 720 681" role="img" aria-label="Pi5 Light Autopilot bottom view dimensions" xmlns="http://www.w3.org/2000/svg">
+<svg class="dim-svg" viewBox="0 0 720 681" role="img" aria-label="Pi5 Autopilot bottom view dimensions" xmlns="http://www.w3.org/2000/svg">
 <rect class="dim-outline" x="112.0" y="72.0" width="515.7" height="498.5" rx="10.3"/>
 <rect class="dim-part" x="179.9" y="75.4" width="50.7" height="37.8" rx="3.4"/>
 <text class="dim-part-label dim-part-label--small" x="205.3" y="125.3" text-anchor="middle" dominant-baseline="middle">CM5 FAN</text>
@@ -247,4 +247,4 @@ All dimensions in mm, bottom side viewed directly. Hole spacing is centre to cen
 
 ??? abstract "Full mechanical drawing"
 
-    ![Pi5 Light Autopilot mechanical drawing](../../images/raspberry/light_dimension.jpg)
+    ![Pi5 Autopilot mechanical drawing](../../images/raspberry/light_dimension.jpg)

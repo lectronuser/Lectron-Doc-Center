@@ -1,6 +1,6 @@
 # Pinout
 
-This page describes every external connector on the **Lectron Pi5 Autopilot** baseboard: where it is, its connector type, pin assignment and signal levels. Connectors are numbered as in the views below; each number has a matching pinout.
+This page describes every external connector on the **Lectron Pi5 Pro Autopilot** baseboard: where it is, its connector type, pin assignment and signal levels. Connectors are numbered as in the views below; each number has a matching pinout.
 
 !!! note "Voltage Legend"
     All logic signals are **+3.3V** unless noted otherwise.
@@ -35,7 +35,7 @@ Click a numbered port in the views or one of the buttons below. Pin 1 is drawn a
 
 <div class="pin-hotspots" markdown>
 
-![Pi5 Autopilot connectors, front view (1-16, 23)](../../images/raspberry/connectors_front.png){ .lc-drawing }
+![Pi5 Pro Autopilot connectors, front view (1-16, 23)](../../images/raspberry/connectors_front.png){ .lc-drawing }
 
 <div class="pin-spots">
 <a class="pin-spot" href="#conn-01" data-conn="01" style="left:18.75%;top:54.15%" aria-label="01 TELEM1" title="01 TELEM1"></a>
@@ -66,7 +66,7 @@ Click a numbered port in the views or one of the buttons below. Pin 1 is drawn a
 
 <div class="pin-hotspots" markdown>
 
-![Pi5 Autopilot connectors, back view (17-22)](../../images/raspberry/connectors_back.png){ .lc-drawing }
+![Pi5 Pro Autopilot connectors, back view (17-22)](../../images/raspberry/connectors_back.png){ .lc-drawing }
 
 <div class="pin-spots">
 <a class="pin-spot" href="#conn-17" data-conn="17" style="left:54.00%;top:82.89%" aria-label="17 CM ETH" title="17 CM ETH"></a>

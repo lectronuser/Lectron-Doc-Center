@@ -13,6 +13,11 @@ nav:
 
     - Autopilot:
         - Pi5 Autopilot:
+            - md/pi5-light/index.md
+            - Dimension: md/pi5-light/dimension.md
+            - Block Diagram: md/pi5-light/block-diagram.md
+            - Pinout: md/pi5-light/pinout.md
+        - Pi5 Pro Autopilot:
             - md/raspberry/index.md
             - Dimension: md/raspberry/dimension.md
             - Block Diagram: md/raspberry/block-diagram.md
@@ -25,11 +30,6 @@ nav:
             - Hailo-8 Integration: md/raspberry/hailo-setup.md
             - RealSense Integration: md/raspberry/realsense-setup.md
             - FMU ↔ CM5 Communication: md/raspberry/fmu-cm5-comm.md
-        - Pi5 Light Autopilot:
-            - md/pi5-light/index.md
-            - Dimension: md/pi5-light/dimension.md
-            - Block Diagram: md/pi5-light/block-diagram.md
-            - Pinout: md/pi5-light/pinout.md
         - Jetson Autopilot:
             - md/jetson/index.md
             - Dimension: md/jetson/dimension.md

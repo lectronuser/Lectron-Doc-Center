@@ -1,11 +1,11 @@
 
 # CAM1 Port Setup Guide
 
-**Second CSI Camera Configuration - Lectron PI5 Autopilot (CM5 Carrier Board)**
+**Second CSI Camera Configuration - Lectron Pi5 Pro Autopilot (CM5 Carrier Board)**
 
 | | |
 | :-- | :-- |
-| **Board Model** | Lectron PI5 Autopilot |
+| **Board Model** | Lectron Pi5 Pro Autopilot |
 | **MIPI Connectors** | 22-pin FPC (SFV22R-2STE1HLF) |
 | **Supported Module** | Raspberry Pi Compute Module 5 |
 
@@ -13,7 +13,7 @@
 
 ## **Overview**
 
-The Lectron PI5 Autopilot carrier board provides two MIPI CSI-2 camera ports for the Raspberry Pi Compute Module 5. The first port (**CAM0**) works with standard Raspberry Pi camera overlays. The second port (**CAM1**) uses a dedicated I2C bus and CSI receiver that requires a custom device tree overlay.
+The Lectron Pi5 Pro Autopilot carrier board provides two MIPI CSI-2 camera ports for the Raspberry Pi Compute Module 5. The first port (**CAM0**) works with standard Raspberry Pi camera overlays. The second port (**CAM1**) uses a dedicated I2C bus and CSI receiver that requires a custom device tree overlay.
 
 This guide covers how to configure the CAM1 port using the provided `cam1_autodetect.sh` script, which automatically generates and installs the correct device tree overlay for any supported Raspberry Pi camera module.
 
@@ -24,7 +24,7 @@ This guide covers how to configure the CAM1 port using the provided `cam1_autode
 | Parameter | Value |
 | :-------- | :---- |
 | Module | Raspberry Pi Compute Module 5 (CM5) |
-| Carrier Board | Lectron PI5 Autopilot |
+| Carrier Board | Lectron Pi5 Pro Autopilot |
 | MIPI Connectors | 2 × 22-pin FPC (SFV22R-2STE1HLF) |
 | Camera Support | 10 Raspberry Pi-compatible camera modules |
 | OS | Ubuntu 24.04 |

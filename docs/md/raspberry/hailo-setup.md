@@ -1,7 +1,7 @@
 
 # Hailo-8 AI Accelerator Integration Guide
 
-**Integration Guide and Application Examples for the Hailo-8 AI accelerator on the Lectron PI5 Autopilot (CM5).**
+**Integration Guide and Application Examples for the Hailo-8 AI accelerator on the Lectron Pi5 Pro Autopilot (CM5).**
 
 | | |
 | :-- | :-- |

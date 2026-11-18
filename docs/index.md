@@ -37,17 +37,17 @@ This documentation covers the technical specifications, pinouts, block diagrams,
 
     ---
 
-    Pixhawk V6X compatible autopilot built around the Raspberry Pi Compute Module 5.
-
-    [:octicons-arrow-right-24: Overview](md/raspberry/index.md)
-
--   :material-raspberry-pi:{ .lg .middle } **Pi5 Light Autopilot**
-
-    ---
-
     Cost-optimized CM5 autopilot with a small and compact design.
 
     [:octicons-arrow-right-24: Overview](md/pi5-light/index.md)
+
+-   :material-raspberry-pi:{ .lg .middle } **Pi5 Pro Autopilot**
+
+    ---
+
+    Pixhawk V6X compatible autopilot built around the Raspberry Pi Compute Module 5.
+
+    [:octicons-arrow-right-24: Overview](md/raspberry/index.md)
 
 -   :material-raspberry-pi:{ .lg .middle } **Jetson Autopilot**
 
@@ -244,29 +244,29 @@ This documentation covers the technical specifications, pinouts, block diagrams,
 
 <p class="section-label"><span>04</span> Specifications</p>
 
-| Feature | Lectron Pi5 Autopilot | Lectron Pi5 Light Autopilot | Lectron Jetson Autopilot |
-| ------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Feature | Lectron Pi5 Autopilot | Lectron Pi5 Pro Autopilot | Lectron Jetson Autopilot |
+| ------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | **Mission Computer** | Raspberry Pi Compute Module 5 | Raspberry Pi Compute Module 5 | Jetson Modules (Orin, TX2 NX, Xavier NX) |
 | **FMU Processor** | STM32H753 | STM32H753 | STM32H753 |
-| **IO Processor** | STM32F103 | - | STM32F103 |
+| **IO Processor** | - | STM32F103 | STM32F103 |
 | **Power Input** | 3S - 12S (9V - 54V) & XT30 Connector | 3S - 12S (9V - 54V) & XT30 Connector | 3S - 12S (9V - 54V) & XT30 Connector |
-| **Case** | Aluminum / Sensor Damping | - | Aluminum / Sensor Damping |
+| **Case** | - | Aluminum / Sensor Damping | Aluminum / Sensor Damping |
 | **Camera Interface** | 2 × 22Pin CSI | 2 × 22Pin CSI | 2 × 22Pin CSI |
-| **Display Outputs** | Mini HDMI | - | Mini HDMI |
+| **Display Outputs** | - | Mini HDMI | Mini HDMI |
 | **PCIe** | HAILO, SSD, DX-M1M | HAILO, SSD, DX-M1M | NVMe SSD<br>Wi-Fi & Bluetooth |
-| **IMU** | ICM-42688-P<br>ICM-45686<br>Bosch BMI088 | ICM-42688-P<br>ICM-45686 | ICM-42688-P<br>ICM-45686<br>Bosch BMI088 |
-| **Barometer** | Bosch BMP581<br>Bosch BMP390 | Bosch BMP581 | Bosch BMP581<br>MS561101BA03-50 |
-| **Magnetometer** | Bosch BMM350 | IST8310 | Bosch BMM350<br>Bosch IST8310 |
+| **IMU** | ICM-42688-P<br>ICM-45686 | ICM-42688-P<br>ICM-45686<br>Bosch BMI088 | ICM-42688-P<br>ICM-45686<br>Bosch BMI088 |
+| **Barometer** | Bosch BMP581 | Bosch BMP581<br>Bosch BMP390 | Bosch BMP581<br>MS561101BA03-50 |
+| **Magnetometer** | IST8310 | Bosch BMM350 | Bosch BMM350<br>Bosch IST8310 |
 | **Storage** | CM5 eMMC & microSD<br>FMU microSD & FRAM | CM5 eMMC & microSD<br>FMU microSD & FRAM | FMU microSD & FRAM |
 | **Software Support** | PX4<br>ArduPilot | PX4<br>ArduPilot | PX4<br>ArduPilot |
-| **PWM Outputs** | 8 × FMU & 8 × IO | 9 × FMU | 8 × FMU & 8 × IO |
-| **Ports** | CM5 GPIO Ports<br>RC IN(SBUS)<br>UART Ports<br>GPS1, GPS2<br>11Pin SPI<br>2 × Telem<br>2 × I2C | CM5 GPIO Ports<br>RC IN(SBUS)<br>GPS1, GPS2<br>2 × Telem<br>2 × I2C | Jetson GPIO Ports<br>RC IN(SBUS)<br>UART Ports<br>GPS1, GPS2<br>11Pin SPI<br>2 × Telem<br>2 × I2C |
+| **PWM Outputs** | 9 × FMU | 8 × FMU & 8 × IO | 8 × FMU & 8 × IO |
+| **Ports** | CM5 GPIO Ports<br>RC IN(SBUS)<br>GPS1, GPS2<br>2 × Telem<br>2 × I2C | CM5 GPIO Ports<br>RC IN(SBUS)<br>UART Ports<br>GPS1, GPS2<br>11Pin SPI<br>2 × Telem<br>2 × I2C | Jetson GPIO Ports<br>RC IN(SBUS)<br>UART Ports<br>GPS1, GPS2<br>11Pin SPI<br>2 × Telem<br>2 × I2C |
 | **Operating Temperature** | -25°C to +85°C | -25°C to +85°C | -25°C to +85°C |
-| **USB** | FMU Type-C USB3.0<br>CM5 2 × Type-C USB3.0 & Micro USB2.0 | FMU Type-C USB2.0 | FMU Type-C USB3.0<br>Jetson 2 × Type-C USB3.2 |
-| **CAN** | 1 × CM5<br>1 × FMU | 1 × FMU | 1 × Jetson<br>2 × FMU |
-| **Dimensions** | 67.1 × 118.9 × 30.1 mm | 59.97 × 57.97 × 10.82 mm | 63.4 × 103.5 × 43.6 mm |
-| **Weight** | 147.6 g (without CM5 and Hailo) | 20 g (without CM5 and Hailo) | 224.4 g (without Jetson module) |
-| **Ethernet** | FMU 100 Mbps <br>CM5 1 Gbps | CM5 2 × 100 Mbps (no FMU Ethernet) | 2 × 100 Mbps (onboard switch) |
+| **USB** | FMU Type-C USB2.0 | FMU Type-C USB3.0<br>CM5 2 × Type-C USB3.0 & Micro USB2.0 | FMU Type-C USB3.0<br>Jetson 2 × Type-C USB3.2 |
+| **CAN** | 1 × FMU | 1 × CM5<br>1 × FMU | 1 × Jetson<br>2 × FMU |
+| **Dimensions** | 59.97 × 57.97 × 10.82 mm | 67.1 × 118.9 × 30.1 mm | 63.4 × 103.5 × 43.6 mm |
+| **Weight** | 20 g (without CM5 and Hailo) | 147.6 g (without CM5 and Hailo) | 224.4 g (without Jetson module) |
+| **Ethernet** | CM5 2 × 100 Mbps (no FMU Ethernet) | FMU 100 Mbps <br>CM5 1 Gbps | 2 × 100 Mbps (onboard switch) |
 
 | Feature                   | Lectron V6X & Carrier                                             | H7 Matrix                                                         | H7 FPV Pro                                                        | H7 FPV                                                            |
 | ------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |

@@ -1,11 +1,11 @@
 
 # Intel RealSense Integration Guide
 
-**Intel RealSense depth-camera integration for the Lectron PI5 Autopilot.**
+**Intel RealSense depth-camera integration for the Lectron Pi5 Pro Autopilot.**
 
 | | |
 | :-- | :-- |
-| **Board** | Lectron PI5 Autopilot |
+| **Board** | Lectron Pi5 Pro Autopilot |
 | **Camera** | Intel RealSense D456i Depth Camera |
 | **Middleware** | ROS 2 Jazzy |
 | **OS** | Ubuntu |
@@ -16,7 +16,7 @@
 
 - Intel RealSense **D456i** depth camera (or compatible RealSense model)
 - USB 3.0 Type-C to Type-C cable
-- Lectron PI5 Autopilot board
+- Lectron Pi5 Pro Autopilot board
 - ROS 2 Jazzy *(required only if using the ROS 2 wrapper)*
 
 !!! note "Info"

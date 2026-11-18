@@ -14,7 +14,7 @@
 
 ## **Hardware Overview**
 
-The CM GPIO port is a 10-pin JST GH connector (**SM10B-GHS**) on the Lectron PI5 Autopilot board. It exposes six general-purpose I/O lines from the Raspberry Pi CM5, a 5 V power supply pin, and a ground reference. Pins 8 and 9 carry UART2 TX/RX and are not covered in this document.
+The CM GPIO port is a 10-pin JST GH connector (**SM10B-GHS**) on the Lectron Pi5 Pro Autopilot board. It exposes six general-purpose I/O lines from the Raspberry Pi CM5, a 5 V power supply pin, and a ground reference. Pins 8 and 9 carry UART2 TX/RX and are not covered in this document.
 
 ### **Board Photos**
 The image below shows the CM GPIO connector with an LED test harness connected.

@@ -3,7 +3,7 @@
 ## **Power**
 
 <div class="bd-viewer">
-<svg class="bd-svg" viewBox="0 0 1060 300" role="img" aria-label="Pi5 Light Autopilot power block diagram" xmlns="http://www.w3.org/2000/svg">
+<svg class="bd-svg" viewBox="0 0 1060 300" role="img" aria-label="Pi5 Autopilot power block diagram" xmlns="http://www.w3.org/2000/svg">
   <rect class="bd-box bd-box--power-port" x="30" y="120" width="176" height="56" rx="8"/>
   <text class="bd-title" x="118.0" y="145.5" text-anchor="middle">POWER IN</text>
   <text class="bd-sub" x="118.0" y="160.5" text-anchor="middle">XT30 · 3S-12S (9-54 VDC)</text>
@@ -37,7 +37,7 @@
 ## **FMU**
 
 <div class="bd-viewer">
-<svg class="bd-svg" viewBox="0 0 1060 800" role="img" aria-label="Pi5 Light Autopilot FMU block diagram" xmlns="http://www.w3.org/2000/svg">
+<svg class="bd-svg" viewBox="0 0 1060 800" role="img" aria-label="Pi5 Autopilot FMU block diagram" xmlns="http://www.w3.org/2000/svg">
   <rect class="bd-box bd-box--port" x="16" y="150" width="176" height="44" rx="8"/>
   <text class="bd-title" x="104.0" y="169.5" text-anchor="middle">RC IN</text>
   <text class="bd-sub" x="104.0" y="184.5" text-anchor="middle">3 Pin · JST-GH · SBUS / PPM</text>
@@ -157,7 +157,7 @@
 ## **RPI CM5**
 
 <div class="bd-viewer">
-<svg class="bd-svg" viewBox="0 0 1060 640" role="img" aria-label="Pi5 Light Autopilot CM5 block diagram" xmlns="http://www.w3.org/2000/svg">
+<svg class="bd-svg" viewBox="0 0 1060 640" role="img" aria-label="Pi5 Autopilot CM5 block diagram" xmlns="http://www.w3.org/2000/svg">
   <rect class="bd-box bd-box--port" x="16" y="190" width="176" height="44" rx="8"/>
   <text class="bd-title" x="104.0" y="209.5" text-anchor="middle">CSI CAM 1</text>
   <text class="bd-sub" x="104.0" y="224.5" text-anchor="middle">22 Pin · 0.5 mm FFC</text>

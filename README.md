@@ -6,7 +6,7 @@ mkdocs serve
 mkdocs gh-deploy
 ```
 
-Technical documentation source for Lectron products (Jetson Autopilot, Pi5 Autopilot, FPV, FPV Pro). Built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/); includes dimensions, block diagrams, pinouts, assembly guides, setup instructions, and hardware integration tutorials.
+Technical documentation source for Lectron products (Jetson Autopilot, Pi5 Autopilot, Pi5 Pro Autopilot, FPV, FPV Pro). Built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/); includes dimensions, block diagrams, pinouts, assembly guides, setup instructions, and hardware integration tutorials.
 
 ## Project Structure
 
@@ -16,7 +16,7 @@ Lectron-Doc-Center/
 │   ├── index.md              # Home page (product overview)
 │   ├── md/
 │   │   ├── jetson/            # Jetson Autopilot documentation
-│   │   └── raspberry/         # Pi5 Autopilot documentation
+│   │   └── raspberry/         # Pi5 Pro Autopilot documentation
 │   ├── images/                 # Images used across the docs
 │   ├── assets/                 # Logo, icon, and theme assets
 │   ├── stylesheets/extra.css   # Custom theme styles

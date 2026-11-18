@@ -13,7 +13,7 @@
 
 ## **Hardware Overview**
 
-The CM SPI/PWM port is a 10-pin JST GH connector (**SM10B-GHS**) on the Lectron PI5 Autopilot board. Pins 6-9 expose four software PWM channels from the Raspberry Pi CM5, driven via **GPIO12-GPIO15**. Pin 1 provides 5 V power and pin 10 is ground. Pins 2-5 carry the SPI1 bus, which is documented separately.
+The CM SPI/PWM port is a 10-pin JST GH connector (**SM10B-GHS**) on the Lectron Pi5 Pro Autopilot board. Pins 6-9 expose four software PWM channels from the Raspberry Pi CM5, driven via **GPIO12-GPIO15**. Pin 1 provides 5 V power and pin 10 is ground. Pins 2-5 carry the SPI1 bus, which is documented separately.
 
 ### **Board Photos**
 The images below show the LED test setup connected to the PWM pins, and the connector location on the board side panel.

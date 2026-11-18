@@ -1,10 +1,10 @@
-# Lectron Pi5 Autopilot
+# Lectron Pi5 Pro Autopilot
 
 ![CM5 Board](../../images/raspberry/board_1.png)
 
 ## **Product Description**
 
-Lectron Pi5 Autopilot is a Pixhawk V6X compatible autopilot that combines a real-time flight management unit with a Raspberry Pi Compute Module 5 on a single board. Deterministic flight control and high-level computing run side by side, so autonomy software and flight control logic share one platform.
+Lectron Pi5 Pro Autopilot is a Pixhawk V6X compatible autopilot that combines a real-time flight management unit with a Raspberry Pi Compute Module 5 on a single board. Deterministic flight control and high-level computing run side by side, so autonomy software and flight control logic share one platform.
 
 Bringing both onto one integrated board simplifies system integration, reduces cabling and improves overall reliability, making the platform well suited to prototyping, testing and deploying autonomous aerial systems.
 

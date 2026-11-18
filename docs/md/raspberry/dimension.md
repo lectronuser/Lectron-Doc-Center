@@ -4,7 +4,7 @@
 
 <div class="dim-sheet__drawing" markdown>
 
-<svg class="dim-svg" viewBox="0 0 625 415" role="img" aria-label="Pi5 Autopilot board dimensions, top view" xmlns="http://www.w3.org/2000/svg">
+<svg class="dim-svg" viewBox="0 0 625 415" role="img" aria-label="Pi5 Pro Autopilot board dimensions, top view" xmlns="http://www.w3.org/2000/svg">
   <rect class="dim-outline" x="60.0" y="46.0" width="490.6" height="273.0" rx="10.5"/>
   <rect class="dim-module" x="83.9" y="66.6" width="168.0" height="231.0" rx="8.4"/>
   <rect class="dim-pins" x="88.1" y="125.8" width="17.2" height="88.2" rx="1.3"/>
@@ -121,7 +121,7 @@ All dimensions in mm, measured from the bottom-left board corner. Hole spacing i
 
 <div class="dim-sheet__drawing" markdown>
 
-<svg class="dim-svg" viewBox="0 0 640 543" role="img" aria-label="Pi5 Autopilot case dimensions, top and side view" xmlns="http://www.w3.org/2000/svg">
+<svg class="dim-svg" viewBox="0 0 640 543" role="img" aria-label="Pi5 Pro Autopilot case dimensions, top and side view" xmlns="http://www.w3.org/2000/svg">
   <rect class="dim-outline" x="104.0" y="64.0" width="232.8" height="412.5" rx="10.4"/>
   <rect class="dim-pins" x="112.7" y="70.9" width="7.6" height="50.3" rx="1.4"/>
   <rect class="dim-pins" x="131.1" y="70.9" width="7.6" height="50.3" rx="1.4"/>
@@ -222,8 +222,8 @@ All dimensions in mm. Hole spacing is centre to centre. Mounting holes are on th
 
     <p class="section-label"><span>01</span> Board</p>
 
-    ![Pi5 Autopilot board dimension drawing](../../images/raspberry/board_dimension.png){ .dim-raster }
+    ![Pi5 Pro Autopilot board dimension drawing](../../images/raspberry/board_dimension.png){ .dim-raster }
 
     <p class="section-label"><span>02</span> Case</p>
 
-    ![Pi5 Autopilot case dimension drawing](../../images/raspberry/case_dimension.jpg){ .dim-raster }
+    ![Pi5 Pro Autopilot case dimension drawing](../../images/raspberry/case_dimension.jpg){ .dim-raster }
